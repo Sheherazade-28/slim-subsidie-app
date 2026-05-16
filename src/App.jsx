@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react";
 
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
@@ -822,7 +821,6 @@ Bespreek in vier alinea's:
 
         </main>
       </div>
-    <Analytics />
     </>
   );
 }
