@@ -324,15 +324,10 @@ export default function App(){
     setLoadingAI(true);setAnalysis("");
     const actNames=selectedActs.map(id=>ACTIVITEITEN.find(a=>a.id===id)?.title||id).join(" + ");
     try{
-      const res=await fetch("https://api.anthropic.com/v1/messages",{
-        method:"POST",headers:{
-          "Content-Type":"application/json",
-          "x-api-key":process.env.REACT_APP_ANTHROPIC_API_KEY||"",
-          "anthropic-version":"2023-06-01",
-          "anthropic-dangerous-direct-browser-access":"true"
-        },
+      const res=await fetch("/api/analyze",{
+        method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify({
-          model:"claude-sonnet-4-20250514",max_tokens:1400,
+          model:"claude-3-5-sonnet-20241022",max_tokens:1400,
           messages:[{role:"user",content:`Je bent een expert SLIM-subsidieadviseur van SLIM Subsidie Advies. De ondernemer heeft zojuist betaald voor een persoonlijke diepteanalyse. Schrijf een waardevolle, professionele en bemoedigende analyse in het Nederlands (max 380 woorden, geen markdown, gebruik alinea's met witregel, spreek de ondernemer aan met "u"). Begin positief en bevestigend.
 
 Bedrijfsprofiel:
