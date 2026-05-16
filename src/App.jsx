@@ -19,10 +19,10 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hdr{background:var(--navy);position:relative;overflow:hidden;}
 .hdr::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(26,107,191,0.15);pointer-events:none;}
 .hdr-inner{max-width:820px;margin:0 auto;padding:24px 24px 0;position:relative;z-index:1;}
-.logo{display:flex;flex-direction:column;line-height:1.05;margin-bottom:18px;}
-.logo-slim{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:#fff;letter-spacing:1px;}
-.logo-sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:var(--blue-light);letter-spacing:2px;}
-.logo-adv{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:var(--blue);letter-spacing:2px;}
+.logo{display:flex;flex-direction:column;line-height:1.05;margin-bottom:0;}
+.logo-slim{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:1px;}
+.logo-sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;color:var(--blue-light);letter-spacing:2px;}
+.logo-adv{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;color:var(--blue);letter-spacing:2px;}
 .hdr-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(19px,3.5vw,26px);color:#fff;margin-bottom:5px;line-height:1.2;}
 .hdr-title span{color:var(--blue-light);}
 .hdr-sub{color:rgba(255,255,255,0.55);font-size:13px;font-weight:300;}
@@ -210,20 +210,31 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .alert-info{background:var(--blue-pale);border:1px solid var(--blue-pale2);border-radius:var(--rs);padding:11px 15px;font-size:12px;color:var(--blue);margin-bottom:12px;}
 .alert-warn{background:#fffbec;border:1px solid #f5e090;border-radius:var(--rs);padding:11px 15px;font-size:12px;color:#7a5800;margin-bottom:12px;}
 @media(max-width:580px){
-  .card{padding:18px;}.pricing-body{padding:16px 18px;}
-  .price-main{font-size:34px;}.est-amount{font-size:28px;}
-  .btn{padding:10px 16px;font-size:13px;}
-  .hdr-inner{padding:18px 16px 0;}.main{padding:18px 14px 50px;}
-  .step-tab{font-size:10px;padding:9px 3px;}
+  .card{padding:16px;}.pricing-body{padding:14px 16px;}
+  .price-main{font-size:30px;}.est-amount{font-size:26px;}
+  .btn{padding:10px 14px;font-size:13px;}
+  .hdr-inner{padding:14px 14px 0;}.main{padding:14px 12px 48px;}
+  .step-tab{font-size:9px;padding:7px 1px;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .steps-bar{overflow:hidden;}
   .form-row{flex-direction:column;}.form-row .form-group{min-width:unset;}
-  .loting-detail-grid{grid-template-columns:1fr 1fr 1fr;}
-  .success-header{padding:22px 18px 20px;margin:-18px -18px 20px;}
+  .loting-detail-grid{grid-template-columns:1fr 1fr;}
+  .success-header{padding:18px 14px 16px;margin:-16px -16px 16px;}
+  .loting-stats{flex-direction:column;}
+  .est-grid{grid-template-columns:1fr 1fr;}
+  .act-card{padding:14px;}
+  .pay-methods{gap:6px;flex-wrap:wrap;}
+  .pay-btn{padding:8px 10px;font-size:12px;gap:4px;}
+  .nocure-note{font-size:11px;}
+  .next-step{gap:10px;}
+  .q-label{font-size:13px;}
+  .opt{padding:9px 12px;font-size:13px;}
+  .card-title{font-size:17px;}
 }
 
 /* ── HOMEPAGE ── */
 .hp{background:var(--white);}
-.hp-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);}
-.hp-nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.hp-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);overflow:visible;}
+.hp-nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .hp-nav-links{display:flex;align-items:center;gap:22px;list-style:none;}
 .hp-nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
 .hp-nav-links a:hover{color:#fff;}
@@ -333,15 +344,71 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-ft-legal{display:flex;gap:16px;}
 .hp-ft-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;}
 .hp-ft-legal a:hover{color:rgba(255,255,255,0.5);}
-@media(max-width:700px){
+/* ── RESPONSIVE — tablet & mobiel ── */
+@media(max-width:900px){
+  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:repeat(2,1fr);}
+  .hp-l-grid{grid-template-columns:repeat(2,1fr);}
   .hp-hero-inner{grid-template-columns:1fr;}
   .hp-card{display:none;}
-  .hp-stats{gap:16px;flex-wrap:wrap;}
-  .hp-l-grid{grid-template-columns:repeat(2,1fr);}
-  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;}
-  .hp-ft-top{grid-template-columns:1fr;}
-  .hp-h1{font-size:38px;}
 }
+@media(max-width:640px){
+  /* Nav — hamburger vervangen door compacte CTA */
+  .hp-nav-links{display:none;}
+  .hp-nav-inner{justify-content:space-between;}
+  .hp-nav-cta{display:block;}
+  /* Hero */
+  .hp-h1{font-size:34px;line-height:1.05;}
+  .hp-sub{font-size:15px;}
+  .hp-ctas{flex-direction:column;align-items:flex-start;}
+  .hp-btn-p,.hp-btn-s{width:100%;justify-content:center;padding:13px 20px;}
+  .hp-stats{gap:12px;flex-wrap:wrap;}
+  .hp-stat-num{font-size:26px;}
+  .hp-hero{padding:48px 16px 0;}
+  /* Secties */
+  .hp-section{padding:48px 16px;}
+  .hp-loting{padding:48px 16px;}
+  .hp-cta-section{padding:56px 16px;}
+  /* Grids — altijd 1 kolom op mobiel */
+  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;gap:14px;}
+  .hp-l-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .hp-l-num{font-size:30px;}
+  .hp-stitle{font-size:26px;}
+  .hp-cta-title{font-size:28px;}
+  /* Footer */
+  .hp-ft-top{grid-template-columns:1fr;gap:28px;}
+  .hp-ft-bottom{flex-direction:column;align-items:flex-start;gap:8px;}
+  /* FAQ */
+  .hp-faq-q{font-size:13px;padding:14px 16px;}
+  .hp-faq-a{padding:0 16px;}
+  .hp-faq-item.open .hp-faq-a{padding:0 16px 14px;}
+  /* Insight box */
+  .hp-l-insight{flex-direction:column;gap:8px;}
+}
+/* ── Quickscan flow responsive ── */
+@media(max-width:580px){
+  .card{padding:16px;}
+  .main{padding:16px 12px 48px;}
+  .step-tab{font-size:9px;padding:8px 2px;letter-spacing:0;}
+  .hdr-inner{padding:14px 14px 0;}
+  .hdr-title{font-size:16px;}
+  .hdr-sub{font-size:11px;}
+  .btn{padding:10px 14px;font-size:13px;}
+  .price-main{font-size:30px;}
+  .est-amount{font-size:26px;}
+  .form-row{flex-direction:column;}
+  .form-row .form-group{min-width:unset;}
+  .loting-detail-grid{grid-template-columns:1fr 1fr;}
+  .success-header{padding:20px 16px 18px;margin:-16px -16px 18px;}
+  .act-grid{gap:10px;}
+  .pay-methods{gap:6px;}
+  .pay-btn{padding:8px 12px;font-size:12px;}
+}
+/* ── Cross-browser fixes ── */
+.hp-btn-p,.hp-btn-s,.hp-nav-cta{-webkit-appearance:none;-moz-appearance:none;}
+.hp-faq-a{-webkit-transition:max-height .3s ease,padding .3s ease;transition:max-height .3s ease,padding .3s ease;}
+input,select,textarea{-webkit-appearance:none;-moz-appearance:none;}
+* {-webkit-tap-highlight-color:transparent;}
+a,button{touch-action:manipulation;}
 `;
 
 const QUESTIONS=[
@@ -380,7 +447,11 @@ function fmt(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:
 function calcSubsidy(inv,agri){return Math.min(inv*.6,agri?20000:24999);}
 function isEarlyBird(){
   const now=new Date();
-  return (now>=new Date(2026,4,5)&&now<=new Date(2026,5,9))||(now>=new Date(2026,8,8)&&now<=new Date(2027,1,7));
+  // Tijdvak 2 2026: early bird t/m 10 juli 2026 (1 maand voor opening 10 aug)
+  const eb2_2026 = now>=new Date(2026,4,5) && now<=new Date(2026,6,10);
+  // Tijdvak 1 2027: early bird vanaf sluiting tijdvak 2 (8 sep 2026) t/m 3 maanden voor opening
+  const eb1_2027 = now>=new Date(2026,8,8) && now<=new Date(2027,0,6);
+  return eb2_2026 || eb1_2027;
 }
 function nextDeadline(){
   const now=new Date();
@@ -639,10 +710,10 @@ Bespreek in vier alinea's:
                       <div className="hp-tl">
                         <div className="hp-tl-item"><div className="hp-tl-dot done"/><div className="hp-tl-text"><strong>Tijdvak 1</strong> — 7 april t/m 4 mei 2026</div><span className="hp-tl-badge closed">Gesloten</span></div>
                         <div className="hp-tl-item"><div className="hp-tl-dot active"/><div className="hp-tl-text"><strong>Tijdvak 2</strong> — 10 aug t/m 7 sep 2026</div><span className="hp-tl-badge open">Open</span></div>
-                        <div className="hp-tl-item"><div className="hp-tl-dot future"/><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge eb">Early bird</span></div>
+                        <div className="hp-tl-item"><div className="hp-tl-dot future"/><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge closed">Volgt</span></div>
                       </div>
                       <div className="hp-eb">
-                        <div className="hp-eb-lbl">EARLY BIRD — t/m 9 juni 2026</div>
+                        <div className="hp-eb-lbl">EARLY BIRD TIJDVAK 2 — t/m 10 juli 2026</div>
                         <div className="hp-eb-price">€ 200 <span style={{fontSize:14,fontWeight:400,color:"rgba(255,255,255,0.3)",textDecoration:"line-through"}}>€ 250</span></div>
                         <div className="hp-eb-sub">dieptecheck excl. btw · bespaar € 50</div>
                       </div>
@@ -920,7 +991,7 @@ Bespreek in vier alinea's:
                     </div>
                   </div>
                 </div>
-                {eb&&<div className="alert-warn" style={{marginTop:12}}>⏰ <strong>Early Bird actief:</strong> U profiteert van {fmt(basePrice*.2)} korting op de reguliere prijs.</div>}
+                {eb&&<div className="alert-warn" style={{marginTop:12}}>⏰ <strong>Early Bird actief t/m 10 juli 2026:</strong> U profiteert van {fmt(basePrice*.2)} korting op de reguliere prijs.</div>}
               </div>
             </>
           )}
