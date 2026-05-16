@@ -296,7 +296,7 @@ export default function App(){
   const deadline=nextDeadline();
   const basePrice=250;
   const finalPrice=eb?basePrice*.8:basePrice;
-  const successFee=2500; // Altijd €2.500: €2.750 minus de dieptecheck (€250 of €200 EB)
+  const successFee=2750; // Bruto succesfee altijd €2.750, dieptecheck wordt apart vermeld
   const isAgri=answers.agriculture==="yes";
   const invNum=parseFloat(investment.replace(",","."))||0;
   const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
@@ -576,7 +576,7 @@ Bespreek in vier alinea's:
                       <li><span className="feat-check">✓</span>Compliance-check en indiening via RVO e-portaal</li>
                     </ul>
                     <div className="nocure-note">
-                      <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>{fmt(successFee)}</strong>. De dieptecheck ({fmt(finalPrice)}) wordt hierop in mindering gebracht. Geen subsidie = geen succesfee.
+                      <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€ 2.750</strong> (excl. btw). Wij brengen daarop de kosten van de dieptecheck ({eb?"€ 200 (early bird)":"€ 250"}, excl. btw) in mindering. Geen subsidie = geen succesfee.
                     </div>
                     <div className="btn-row">
                       <button className="btn btn-primary" onClick={()=>setPhase("profile")}>Vul bedrijfsprofiel in →</button>
@@ -722,7 +722,7 @@ Bespreek in vier alinea's:
                 </label>
                 <label className={`ccheck ${confirmed.nocure?"on":""}`} onClick={()=>setConfirmed(p=>({...p,nocure:!p.nocure}))}>
                   <span className="cbox">{confirmed.nocure&&"✓"}</span>
-                  <span className="ccheck-text">Ik begrijp het no cure, no pay model: bij toekenning betaal ik een succesfee van {fmt(successFee)}. De dieptecheck ({fmt(finalPrice)}) wordt hierop in mindering gebracht. Geen subsidie = geen succesfee.</span>
+                  <span className="ccheck-text">Ik begrijp het no cure, no pay model: bij toekenning betaal ik een succesfee van € 2.750 (excl. btw). De kosten van de dieptecheck ({eb?"€ 200 (early bird)":"€ 250"}, excl. btw) worden hierop in mindering gebracht. Geen subsidie = geen succesfee.</span>
                 </label>
                 <div className="btn-row">
                   <button className="btn btn-primary" onClick={submitPayment} disabled={!confirmed.terms||!confirmed.nocure||!contact.naam||!contact.email||processing}>
@@ -752,7 +752,7 @@ Bespreek in vier alinea's:
                   {loadingAI?(
                     <div style={{textAlign:"center",padding:"20px 0"}}>
                       <div className="spinner"/>
-                      <p style={{fontSize:13,color:"var(--muted)"}}>Uw analyse wordt samengesteld op basis van uw bedrijfsprofiel en de actuele loterijcijfers…</p>
+                      <p style={{fontSize:13,color:"var(--muted)"}}>Uw analyse wordt samengesteld op basis van uw bedrijfsprofiel en de actuele lotingscijfers…</p>
                     </div>
                   ):(
                     <div className="ai-text">{analysis}</div>
@@ -789,7 +789,7 @@ Bespreek in vier alinea's:
                   <div className="next-step">
                     <div className="next-step-num">2</div>
                     <div className="next-step-body">
-                      <div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div>
+                      <div className="next-step-title">Complete & correcte aanvraagvoorbereiding</div>
                       <div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div>
                     </div>
                   </div>
@@ -804,7 +804,7 @@ Bespreek in vier alinea's:
                     <div className="next-step-num">4</div>
                     <div className="next-step-body">
                       <div className="next-step-title">Lotingsresultaat & succesfee</div>
-                      <div className="next-step-sub">Bij toekenning is de succesfee van {fmt(successFee)} verschuldigd. Geen toekenning = geen succesfee.</div>
+                      <div className="next-step-sub">Bij toekenning is een succesfee van € 2.750 (excl. btw) verschuldigd, verminderd met de kosten van de dieptecheck. Geen toekenning = geen succesfee.</div>
                     </div>
                   </div>
                 </div>
@@ -812,7 +812,7 @@ Bespreek in vier alinea's:
 
               <div className="summary">
                 <div className="sum-lbl">Uw betalingsoverzicht</div>
-                {[["Bedrijf",bedrijfsnaam],["Sector",profile.sector],["Activiteit(en)",selectedActs.join(" + ")],["Indicatief subsidiebedrag",fmt(subsidyEst)],["Aanvraagtijdvak",deadline.label],["Betaald",fmt(finalPrice)],["Succesfee bij toekenning",fmt(successFee)]].map(([k,v])=>(
+                {[["Bedrijf",bedrijfsnaam],["Sector",profile.sector],["Activiteit(en)",selectedActs.join(" + ")],["Indicatief subsidiebedrag",fmt(subsidyEst)],["Aanvraagtijdvak",deadline.label],["Betaald",fmt(finalPrice)],["Succesfee bij toekenning","€ 2.750 (excl. btw, minus dieptecheck)"]].map(([k,v])=>(
                   <div key={k} className="sum-row"><span>{k}</span><span>{v}</span></div>
                 ))}
               </div>
