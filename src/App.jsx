@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
@@ -28,8 +28,8 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hdr-sub{color:rgba(255,255,255,0.55);font-size:13px;font-weight:300;}
 .prog-bar{background:rgba(255,255,255,0.1);height:3px;margin-top:18px;}
 .prog-fill{background:var(--blue-light);height:100%;transition:width .5s ease;}
-.steps-bar{display:flex;background:var(--navy);}
-.step-tab{flex:1;padding:10px 6px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.4px;color:rgba(255,255,255,0.32);border-top:2px solid transparent;transition:all .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.steps-bar{display:flex;background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);}
+.step-tab{flex:1;padding:8px 4px;text-align:center;font-size:10px;font-weight:600;letter-spacing:0px;color:rgba(255,255,255,0.32);border-top:2px solid transparent;transition:all .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .step-tab.active{color:var(--blue-light);border-top-color:var(--blue-light);background:rgba(42,170,226,0.07);}
 .step-tab.done{color:rgba(255,255,255,0.48);border-top-color:rgba(255,255,255,0.18);}
 .main{max-width:820px;margin:0 auto;padding:24px 20px 60px;}
@@ -269,7 +269,7 @@ function nextDeadline(){
   return opts.find(d=>now<d.close)||opts[opts.length-1];
 }
 
-const STEP_LABELS=["Quickscan","Resultaat","Bedrijfsprofiel","Betaling","Uw Analyse"];
+const STEP_LABELS=["Quickscan","Resultaat","Profiel","Betaling","Analyse"];
 const PHASE_IDX={scan:0,ko:0,result:1,profile:2,payment:3,success:4};
 
 export default function App(){
@@ -288,6 +288,9 @@ export default function App(){
   const [kvkBedrijf,setKvkBedrijf]=useState("");
   const [profile,setProfile]=useState({medewerkers:"",rechtsvorm:"",sector:"",provincie:""});
   const [selectedActs,setSelectedActs]=useState([]);
+
+  // Scroll naar boven bij elke fase-overgang
+  useEffect(()=>{ window.scrollTo({top:0,behavior:"smooth"}); },[phase]);
 
   const eb=isEarlyBird();
   const deadline=nextDeadline();
