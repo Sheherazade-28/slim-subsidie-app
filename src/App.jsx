@@ -296,7 +296,7 @@ export default function App(){
   const deadline=nextDeadline();
   const basePrice=250;
   const finalPrice=eb?basePrice*.8:basePrice;
-  const successFee=eb?2750-basePrice*.2:2750;
+  const successFee=2500; // Altijd €2.500: €2.750 minus de dieptecheck (€250 of €200 EB)
   const isAgri=answers.agriculture==="yes";
   const invNum=parseFloat(investment.replace(",","."))||0;
   const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
@@ -576,7 +576,7 @@ Bespreek in vier alinea's:
                       <li><span className="feat-check">✓</span>Compliance-check en indiening via RVO e-portaal</li>
                     </ul>
                     <div className="nocure-note">
-                      <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>{fmt(successFee)}</strong>{eb?` (€2.750 minus early bird korting van ${fmt(basePrice*.2)})`:""}. De dieptecheck ({fmt(finalPrice)}) wordt hierop in mindering gebracht. Geen subsidie = geen succesfee.
+                      <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>{fmt(successFee)}</strong>. De dieptecheck ({fmt(finalPrice)}) wordt hierop in mindering gebracht. Geen subsidie = geen succesfee.
                     </div>
                     <div className="btn-row">
                       <button className="btn btn-primary" onClick={()=>setPhase("profile")}>Vul bedrijfsprofiel in →</button>
@@ -604,7 +604,7 @@ Bespreek in vier alinea's:
                   </div>
                   <div className="form-group">
                     <label className="form-label">Bedrijfsnaam *</label>
-                    <input className="form-input" placeholder="Uw Bedrijf BV" value={contact.bedrijf} onChange={e=>setContact(p=>({...p,bedrijf:e.target.value}))}/>
+                    <input className="form-input" placeholder="Uw Bedrijf" value={contact.bedrijf} onChange={e=>setContact(p=>({...p,bedrijf:e.target.value}))}/>
                   </div>
                 </div>
               </div>
@@ -783,27 +783,27 @@ Bespreek in vier alinea's:
                     <div className="next-step-num">1</div>
                     <div className="next-step-body">
                       <div className="next-step-title">Terugbelafspraak binnen 5 werkdagen</div>
-                      <div className="next-step-sub">Uw adviseur van SLIM Subsidie Advies neemt contact op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div>
+                      <div className="next-step-sub">Uw adviseur van SLIM Subsidie Advies neemt contact met u op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div>
                     </div>
                   </div>
                   <div className="next-step">
                     <div className="next-step-num">2</div>
                     <div className="next-step-body">
-                      <div className="next-step-title">Documentenverzameling & activiteitenplan</div>
-                      <div className="next-step-sub">Wij begeleiden u bij alle benodigde documenten en stellen het activiteitenplan en de begroting op maat op.</div>
+                      <div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div>
+                      <div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div>
                     </div>
                   </div>
                   <div className="next-step">
                     <div className="next-step-num">3</div>
                     <div className="next-step-body">
                       <div className="next-step-title">Compliance-check & foutloze indiening</div>
-                      <div className="next-step-sub">Wij controleren alles vóór indiening — zodat uw aanvraag nooit vóór de loting afvalt. Indiening via RVO e-portaal in {deadline.label}.</div>
+                      <div className="next-step-sub">Wij controleren alles vóór indiening, zodat uw aanvraag nooit vóór de loting afvalt. Indiening via het RVO e-portaal in {deadline.label}.</div>
                     </div>
                   </div>
                   <div className="next-step">
                     <div className="next-step-num">4</div>
                     <div className="next-step-body">
-                      <div className="next-step-title">Loterijresultaat & succesfee</div>
+                      <div className="next-step-title">Lotingsresultaat & succesfee</div>
                       <div className="next-step-sub">Bij toekenning is de succesfee van {fmt(successFee)} verschuldigd. Geen toekenning = geen succesfee.</div>
                     </div>
                   </div>
