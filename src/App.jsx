@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
@@ -28,10 +29,10 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hdr-sub{color:rgba(255,255,255,0.55);font-size:13px;font-weight:300;}
 .prog-bar{background:rgba(255,255,255,0.1);height:3px;margin-top:18px;}
 .prog-fill{background:var(--blue-light);height:100%;transition:width .5s ease;}
-.steps-bar{display:flex;background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);}
-.step-tab{flex:1;padding:8px 4px;text-align:center;font-size:10px;font-weight:600;letter-spacing:0px;color:rgba(255,255,255,0.32);border-top:2px solid transparent;transition:all .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
-.step-tab.active{color:var(--blue-light);border-top-color:var(--blue-light);background:rgba(42,170,226,0.07);}
-.step-tab.done{color:rgba(255,255,255,0.48);border-top-color:rgba(255,255,255,0.18);}
+.steps-bar{display:flex;background:rgba(255,255,255,0.04);border-top:1px solid rgba(255,255,255,0.06);}
+.step-tab{flex:1;padding:8px 2px;text-align:center;font-size:10px;font-weight:600;letter-spacing:0;color:rgba(255,255,255,0.32);border-top:none;border-bottom:2px solid transparent;transition:all .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.step-tab.active{color:var(--blue-light);border-bottom-color:var(--blue-light);background:rgba(42,170,226,0.07);}
+.step-tab.done{color:rgba(255,255,255,0.55);border-bottom-color:rgba(255,255,255,0.25);}
 .main{max-width:820px;margin:0 auto;padding:24px 20px 60px;}
 .phase-lbl{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
 .phase-dot{width:6px;height:6px;border-radius:50%;background:var(--blue-light);animation:pulse 2s infinite;}
@@ -343,11 +344,11 @@ Bedrijfsprofiel:
 - Gekozen activiteit(en): ${actNames}
 - Tijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 
-Actuele loterijcijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026):
+Actuele lotingscijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026):
 - 3.360 aanvragen ingediend in totaal
 - 23 aanvragen afgekeurd VÓÓR de loting (fouten in aanvraag)
 - 3.337 aanvragen meegenomen in de notariële loting
-- 474 van de 3.337 in behandeling genomen (~14% kans)
+- 474 van de 3.337 aanvragen ingeloot (~14%) — inloting betekent dat de aanvraag in behandeling wordt genomen, niet dat subsidie is toegekend
 - Budget: €11 miljoen
 
 Bespreek in vier alinea's:
@@ -400,7 +401,7 @@ Bespreek in vier alinea's:
               <strong>Effectieve slaagkans zonder begeleiding.</strong> Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} indieners werden slechts {LOTING.inBehandeling} meegenomen. Bovendien vielen al <strong>{LOTING.afgekeurdVoorLoting} aanvragen vóór de loting af</strong> door fouten — volledig vermijdbaar met professionele begeleiding.
             </div>
           </div>
-          <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Daarna bepaalt de loting uw kans op behandeling van de aanvraag. Wij zorgen voor stap één. En bij inloting zorgen wij voor zorgvuldige beantwoording van vragen van de subsidie-beoordelaar.</div>
+          <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Daarna bepaalt de loting uw kans. Wij zorgen voor stap één.</div>
         </div>
       );
     }
@@ -554,8 +555,8 @@ Bespreek in vier alinea's:
               <LotingBox compact={true}/>
 
               <div className="card">
-                <div className="card-title">Wat krijgt u na betaling van {fmt(finalPrice)}?</div>
-                <p className="card-sub">Vul uw bedrijfsprofiel in en kies uw activiteiten. Na betaling genereert onze AI direct uw persoonlijke subsidieanalyse — met een concreet advies om uw kans op een goede lotingspositie te maximaliseren.</p>
+                <div className="card-title">Uw kans is reëel — maar alleen met een sterke aanvraag</div>
+                <p className="card-sub">U heeft zojuist gezien dat uw bedrijf in aanmerking lijkt te komen voor tot <strong>{fmt(subsidyEst)}</strong> subsidie. Dat is veelbelovend. Maar van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} ingediende aanvragen in tijdvak 1 2026 werd slechts 14% ingeloot — en vielen er al 23 uit vóór de loting door vermijdbare fouten. Een sterke, foutloze aanvraag is uw eerste en belangrijkste stap. Onze AI-dieptecheck analyseert uw specifieke situatie en onze adviseurs begeleiden u van aanvraag tot en met het volledige screeningstraject bij RVO.</p>
                 <div className="pricing">
                   <div className="pricing-head">
                     <div className="pricing-head-title">SLIM DIEPTECHECK + AANVRAAGBEGELEIDING</div>
@@ -569,7 +570,7 @@ Bespreek in vier alinea's:
                       <span className="price-lbl">eenmalig</span>
                     </div>
                     <ul className="features">
-                      <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> Persoonlijke AI-diepteanalyse van uw situatie en loterijkansen</li>
+                      <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> Persoonlijke AI-diepteanalyse van uw situatie en lotingskansen</li>
                       <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 5 werkdagen</li>
                       <li><span className="feat-check">✓</span>Foutloze aanvraag — nooit afgekeurd vóór de loting</li>
                       <li><span className="feat-check">✓</span>Activiteitenplan, begroting en documentenverzameling</li>
@@ -682,7 +683,7 @@ Bespreek in vier alinea's:
               <div className="card" style={{borderLeft:"3px solid var(--blue-light)"}}>
                 <div className="card-title">Wat u direct na betaling ontvangt</div>
                 <ul className="features" style={{marginBottom:0}}>
-                  <li><span className="feat-check">✓</span><strong>Uw persoonlijke AI-diepteanalyse</strong> — direct zichtbaar, inclusief loterijrisico gebaseerd op officiële RVO-cijfers</li>
+                  <li><span className="feat-check">✓</span><strong>Uw persoonlijke AI-diepteanalyse</strong> — direct zichtbaar, inclusief lotingsrisico gebaseerd op officiële RVO-cijfers</li>
                   <li><span className="feat-check">✓</span>Bevestiging per e-mail met samenvatting</li>
                   <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 5 werkdagen</li>
                   <li><span className="feat-check">✓</span>Start volledige aanvraagbegeleiding richting {deadline.label}</li>
@@ -726,7 +727,7 @@ Bespreek in vier alinea's:
                 </label>
                 <div className="btn-row">
                   <button className="btn btn-primary" onClick={submitPayment} disabled={!confirmed.terms||!confirmed.nocure||!contact.naam||!contact.email||processing}>
-                    {processing?"Betaling verwerken…":`Betaal ${fmt(finalPrice)} en ontvang uw analyse →`}
+                    {processing?"Betaling verwerken…":`Betaal ${fmt(finalPrice)} (excl. btw) en ontvang uw analyse →`}
                   </button>
                   <button className="btn btn-ghost" onClick={()=>setPhase("profile")}>← Terug</button>
                 </div>
@@ -752,7 +753,7 @@ Bespreek in vier alinea's:
                   {loadingAI?(
                     <div style={{textAlign:"center",padding:"20px 0"}}>
                       <div className="spinner"/>
-                      <p style={{fontSize:13,color:"var(--muted)"}}>Uw analyse wordt samengesteld op basis van uw bedrijfsprofiel en de actuele loterijcijfers…</p>
+                      <p style={{fontSize:13,color:"var(--muted)"}}>Uw analyse wordt samengesteld op basis van uw bedrijfsprofiel en de actuele lotingscijfers…</p>
                     </div>
                   ):(
                     <div className="ai-text">{analysis}</div>
@@ -796,8 +797,8 @@ Bespreek in vier alinea's:
                   <div className="next-step">
                     <div className="next-step-num">3</div>
                     <div className="next-step-body">
-                      <div className="next-step-title">Compliance-check & foutloze indiening</div>
-                      <div className="next-step-sub">Wij controleren alles vóór indiening, zodat uw aanvraag nooit vóór de loting afvalt. Indiening via het RVO e-portaal in {deadline.label}.</div>
+                      <div className="next-step-title">Foutloze indiening & begeleid screeningstraject</div>
+                      <div className="next-step-sub">Wij zorgen voor een correcte en complete aanvraag vóór indiening, zodat uw aanvraag niet uitvalt vóór de loting. Na inloting wordt uw aanvraag inhoudelijk beoordeeld door RVO. Wij begeleiden ook dit screeningstraject — inclusief eventuele toelichting- en inhoudelijke vragen van de subsidiebeoordelaars. Dit alles voor dezelfde vaste fee.</div>
                     </div>
                   </div>
                   <div className="next-step">
@@ -821,6 +822,7 @@ Bespreek in vier alinea's:
 
         </main>
       </div>
+    <Analytics />
     </>
   );
 }
