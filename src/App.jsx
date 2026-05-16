@@ -353,7 +353,7 @@ Actuele loterijcijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026):
 Bespreek in vier alinea's:
 1. Positieve opening + kansrijkheid gelet op sector, omvang en activiteitenkeuze
 2. Of de gekozen activiteit(en) goed passen — eventueel een betere of aanvullende suggestie
-3. Loterijrisico realistisch geduid met de actuele cijfers — benadruk dat de 23 voortijdige afwijzingen aantoont hoe belangrijk een correcte, complete aanvraag is
+3. Lotingsrisico realistisch geduid met de actuele cijfers — benadruk dat de 23 voortijdige afwijzingen aantoont hoe belangrijk een correcte, complete aanvraag is
 4. Twee concrete tips voor een sterke aanvraag + motiverende afsluiting richting de samenwerking met SLIM Subsidie Advies`}]
         })
       });
@@ -379,7 +379,7 @@ Bespreek in vier alinea's:
     if(compact){
       return(
         <div className="loting-box">
-          <div className="loting-box-title">⚠️ Loterijcijfers {LOTING.tijdvak} — ken de realiteit</div>
+          <div className="loting-box-title">⚠️ Lotingscijfers {LOTING.tijdvak} — ken de realiteit</div>
           <div className="loting-stats">
             <div className="loting-stat">
               <div className="loting-stat-num orange">{LOTING.inLoting.toLocaleString("nl-NL")}</div>
@@ -400,13 +400,13 @@ Bespreek in vier alinea's:
               <strong>Effectieve slaagkans zonder begeleiding.</strong> Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} indieners werden slechts {LOTING.inBehandeling} meegenomen. Bovendien vielen al <strong>{LOTING.afgekeurdVoorLoting} aanvragen vóór de loting af</strong> door fouten — volledig vermijdbaar met professionele begeleiding.
             </div>
           </div>
-          <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Daarna bepaalt de loting uw kans. Wij zorgen voor stap één.</div>
+          <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Daarna bepaalt de loting uw kans op behandeling van de aanvraag. Wij zorgen voor stap één. En bij inloting zorgen wij voor zorgvuldige beantwoording van vragen van de subsidie-beoordelaar.</div>
         </div>
       );
     }
     return(
       <div className="loting-detail">
-        <div className="loting-detail-title">📊 Loterijcijfers {LOTING.tijdvak} <span style={{fontSize:12,fontWeight:400,opacity:.6}}>(bron: RVO, 8 mei 2026)</span></div>
+        <div className="loting-detail-title">📊 Lotingscijfers {LOTING.tijdvak} <span style={{fontSize:12,fontWeight:400,opacity:.6}}>(bron: RVO, 8 mei 2026)</span></div>
         <div className="loting-detail-grid">
           <div className="loting-detail-item">
             <div className="loting-detail-num">{LOTING.totaalIngediend.toLocaleString("nl-NL")}</div>
