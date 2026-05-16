@@ -301,10 +301,10 @@ export default function App(){
   const invNum=parseFloat(investment.replace(",","."))||0;
   const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
   const allScanDone=QUESTIONS.every(q=>answers[q.id]!==undefined)&&invNum>=8334;
-  const profileOk=profile.medewerkers&&profile.rechtsvorm&&profile.sector&&profile.provincie&&selectedActs.length>0&&(contact.bedrijf||kvkBedrijf);
+  const profileOk=profile.medewerkers&&profile.rechtsvorm&&profile.sector&&profile.provincie&&selectedActs.length>0&&contact.bedrijf;
   const progress=[10,25,45,68,100];
   const curStep=PHASE_IDX[phase]||0;
-  const bedrijfsnaam=contact.bedrijf||kvkBedrijf;
+  const bedrijfsnaam=contact.bedrijf;
 
   function answer(id,v){
     const q=QUESTIONS.find(q=>q.id===id);
@@ -314,17 +314,17 @@ export default function App(){
   function toggleAct(id){setSelectedActs(p=>p.includes(id)?p.filter(x=>x!==id):[...p,id]);}
   function doKvk(){
     if(kvkInput.length<8)return;
+    // Zet kvkDone op true zodat de klant de naam zelf kan invullen
     setKvkDone(true);
-    const naam="Uw Bedrijfsnaam BV";
-    setKvkBedrijf(naam);
-    setContact(p=>({...p,bedrijf:naam}));
+    setKvkBedrijf("");
+    setContact(p=>({...p,bedrijf:""}));
   }
 
   async function generateAnalysis(){
     setLoadingAI(true);setAnalysis("");
     const actNames=selectedActs.map(id=>ACTIVITEITEN.find(a=>a.id===id)?.title||id).join(" + ");
     try{
-      const res=await fetch("https://api.anthropic.com/v1/messages",{
+      const res=await fetch("/api/analyze",{
         method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify({
           model:"claude-sonnet-4-20250514",max_tokens:1400,
@@ -594,31 +594,19 @@ Bespreek in vier alinea's:
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Stap 3 — Bedrijfsprofiel</div>
               <div className="card">
-                <div className="card-title">KvK-nummer opzoeken</div>
-                <p className="card-sub">Vul uw KvK-nummer in om uw bedrijfsgegevens op te halen, of vul de naam handmatig in.</p>
-                <div className="kvk-row">
+                <div className="card-title">Bedrijfsidentificatie</div>
+                <p className="card-sub">Vul uw KvK-nummer en bedrijfsnaam in. Deze gegevens worden gebruikt voor de subsidieaanvraag.</p>
+                <div className="form-row">
                   <div className="form-group">
                     <label className="form-label">KvK-nummer</label>
                     <input className="form-input" placeholder="12345678" maxLength={8} value={kvkInput} onChange={e=>setKvkInput(e.target.value.replace(/\D/g,""))}/>
                     <p className="form-hint">8-cijferig nummer</p>
                   </div>
-                  <button className="kvk-btn" onClick={doKvk} disabled={kvkInput.length<8}>Opzoeken →</button>
-                </div>
-                {kvkDone&&(
-                  <>
-                    <div className="kvk-result">✓ <span>Gevonden: <strong>{kvkBedrijf}</strong> · KvK {kvkInput}</span></div>
-                    <div className="form-group" style={{marginTop:12}}>
-                      <label className="form-label">Bedrijfsnaam (pas aan indien nodig)</label>
-                      <input className="form-input" value={kvkBedrijf} onChange={e=>{setKvkBedrijf(e.target.value);setContact(p=>({...p,bedrijf:e.target.value}));}}/>
-                    </div>
-                  </>
-                )}
-                {!kvkDone&&(
-                  <div className="form-group" style={{marginTop:12}}>
-                    <label className="form-label">Bedrijfsnaam (handmatig)</label>
+                  <div className="form-group">
+                    <label className="form-label">Bedrijfsnaam *</label>
                     <input className="form-input" placeholder="Uw Bedrijf BV" value={contact.bedrijf} onChange={e=>setContact(p=>({...p,bedrijf:e.target.value}))}/>
                   </div>
-                )}
+                </div>
               </div>
               <div className="card">
                 <div className="card-title">Bedrijfsgegevens</div>
