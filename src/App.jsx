@@ -219,6 +219,129 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
   .loting-detail-grid{grid-template-columns:1fr 1fr 1fr;}
   .success-header{padding:22px 18px 20px;margin:-18px -18px 20px;}
 }
+
+/* ── HOMEPAGE ── */
+.hp{background:var(--white);}
+.hp-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);}
+.hp-nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.hp-nav-links{display:flex;align-items:center;gap:22px;list-style:none;}
+.hp-nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.hp-nav-links a:hover{color:#fff;}
+.hp-nav-cta{background:var(--blue-light);color:#fff!important;padding:7px 16px;border-radius:6px;font-weight:700!important;cursor:pointer;border:none;font-family:'Barlow',sans-serif;font-size:13px;}
+.hp-nav-cta:hover{background:#1a9fd4;}
+.hp-hero{background:var(--navy);padding:72px 20px 0;position:relative;overflow:hidden;}
+.hp-hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(42,170,226,0.12) 0%,transparent 70%);pointer-events:none;}
+.hp-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;position:relative;z-index:1;}
+.hp-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(42,170,226,0.15);border:1px solid rgba(42,170,226,0.3);color:var(--blue-light);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:18px;}
+.hp-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(38px,5.5vw,64px);color:#fff;line-height:1.0;letter-spacing:-0.5px;margin-bottom:18px;}
+.hp-h1 span{color:var(--blue-light);}
+.hp-sub{color:rgba(255,255,255,0.6);font-size:17px;font-weight:300;margin-bottom:28px;line-height:1.65;max-width:480px;}
+.hp-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
+.hp-btn-p{display:inline-flex;align-items:center;gap:7px;background:var(--blue-light);color:#fff;padding:13px 26px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;transition:all .2s;}
+.hp-btn-p:hover{background:#1a9fd4;transform:translateY(-1px);box-shadow:0 6px 20px rgba(42,170,226,0.3);}
+.hp-btn-s{display:inline-flex;align-items:center;gap:7px;background:transparent;color:rgba(255,255,255,0.75);padding:13px 26px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:all .2s;cursor:pointer;font-family:'Barlow',sans-serif;}
+.hp-btn-s:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.hp-stats{display:flex;gap:28px;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;}
+.hp-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;}
+.hp-stat-num em{color:var(--blue-light);font-style:normal;}
+.hp-stat-lbl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px;}
+.hp-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px 16px 0 0;padding:26px;}
+.hp-card-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.hp-tl{display:flex;flex-direction:column;gap:11px;}
+.hp-tl-item{display:flex;align-items:center;gap:11px;}
+.hp-tl-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.hp-tl-dot.done{background:var(--green);}
+.hp-tl-dot.active{background:var(--blue-light);box-shadow:0 0 0 3px rgba(42,170,226,0.2);}
+.hp-tl-dot.future{background:rgba(255,255,255,0.18);}
+.hp-tl-text{font-size:13px;color:rgba(255,255,255,0.65);}
+.hp-tl-text strong{color:#fff;}
+.hp-tl-badge{margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.hp-tl-badge.open{background:rgba(42,170,226,0.2);color:var(--blue-light);}
+.hp-tl-badge.closed{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.3);}
+.hp-tl-badge.eb{background:rgba(42,170,226,0.12);color:var(--blue-light);}
+.hp-eb{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
+.hp-eb-lbl{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:3px;}
+.hp-eb-price{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:#fff;}
+.hp-eb-sub{font-size:11px;color:rgba(255,255,255,0.3);}
+.hp-section{padding:72px 20px;}
+.hp-si{max-width:1100px;margin:0 auto;}
+.hp-slbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.hp-stitle{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.hp-ssub{font-size:16px;color:var(--muted);line-height:1.7;max-width:580px;}
+.hp-loting{background:var(--navy);padding:60px 20px;}
+.hp-l-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0;}
+.hp-l-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px 16px;text-align:center;}
+.hp-l-num{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;line-height:1;margin-bottom:5px;}
+.hp-l-num.w{color:#fff;}.hp-l-num.r{color:#ff8080;}.hp-l-num.b{color:var(--blue-light);}.hp-l-num.g{color:#60e0a0;}
+.hp-l-lbl{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.4;}
+.hp-l-insight{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;display:flex;gap:14px;}
+.hp-l-insight p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
+.hp-l-insight p strong{color:#fff;}
+.hp-act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
+.hp-act-card{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;}
+.hp-act-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(13,46,90,0.1);}
+.hp-act-tag{display:inline-flex;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;border-radius:20px;margin-bottom:10px;}
+.hp-act-tag.a{background:#e8f4fc;color:var(--blue);}.hp-act-tag.b{background:var(--green-l);color:var(--green);}.hp-act-tag.c{background:#fff3e8;color:#b06010;}
+.hp-act-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.hp-act-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+.hp-act-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.hp-act-tag-sm{font-size:11px;background:var(--off);border:1px solid var(--border-l);border-radius:20px;padding:2px 8px;color:var(--muted);}
+.hp-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.hp-why-card{padding:24px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
+.hp-why-icon{font-size:28px;margin-bottom:10px;display:block;}
+.hp-why-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.hp-why-text{font-size:13px;color:var(--muted);line-height:1.65;}
+.hp-cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
+.hp-case-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:24px;}
+.hp-case-sector{display:inline-flex;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;border-radius:20px;background:rgba(42,170,226,0.15);color:var(--blue-light);margin-bottom:12px;}
+.hp-case-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.2;}
+.hp-case-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:12px;}
+.hp-case-act{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:var(--blue-light);}
+.hp-team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.hp-team-card{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);text-align:center;}
+.hp-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:#fff;}
+.hp-av-d{background:linear-gradient(135deg,var(--navy),var(--blue));}
+.hp-av-e{background:linear-gradient(135deg,var(--blue),var(--blue-light));}
+.hp-av-r{background:linear-gradient(135deg,#0a2040,var(--navy));}
+.hp-t-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.hp-t-role{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;}
+.hp-t-bio{font-size:13px;color:var(--muted);line-height:1.6;}
+.hp-faq-list{margin-top:36px;display:flex;flex-direction:column;gap:10px;}
+.hp-faq-item{background:var(--white);border:1px solid var(--border-l);border-radius:8px;overflow:hidden;}
+.hp-faq-q{padding:16px 22px;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.hp-faq-q:hover{background:var(--off);}
+.hp-faq-arr{font-size:18px;color:var(--blue);transition:transform .25s;flex-shrink:0;}
+.hp-faq-item.open .hp-faq-arr{transform:rotate(45deg);}
+.hp-faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;}
+.hp-faq-item.open .hp-faq-a{max-height:200px;padding:0 22px 16px;}
+.hp-faq-a p{font-size:13px;color:var(--muted);line-height:1.7;}
+.hp-cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a4a7a 100%);padding:88px 20px;text-align:center;}
+.hp-cta-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;color:#fff;margin-bottom:14px;line-height:1.05;}
+.hp-cta-title span{color:var(--blue-light);}
+.hp-cta-sub{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:32px;line-height:1.65;}
+.hp-cta-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,0.3);}
+.hp-footer{background:#070d18;padding:48px 20px 22px;}
+.hp-ft{max-width:1100px;margin:0 auto;}
+.hp-ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.hp-ft-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.7;margin-top:10px;}
+.hp-ft-h{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:12px;}
+.hp-ft-links{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.hp-ft-links a,.hp-ft-links button{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;padding:0;}
+.hp-ft-links a:hover,.hp-ft-links button:hover{color:#fff;}
+.hp-ft-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.hp-ft-copy{font-size:12px;color:rgba(255,255,255,0.18);}
+.hp-ft-legal{display:flex;gap:16px;}
+.hp-ft-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;}
+.hp-ft-legal a:hover{color:rgba(255,255,255,0.5);}
+@media(max-width:700px){
+  .hp-hero-inner{grid-template-columns:1fr;}
+  .hp-card{display:none;}
+  .hp-stats{gap:16px;flex-wrap:wrap;}
+  .hp-l-grid{grid-template-columns:repeat(2,1fr);}
+  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;}
+  .hp-ft-top{grid-template-columns:1fr;}
+  .hp-h1{font-size:38px;}
+}
 `;
 
 const QUESTIONS=[
@@ -270,10 +393,10 @@ function nextDeadline(){
 }
 
 const STEP_LABELS=["Quickscan","Resultaat","Profiel","Betaling","Analyse"];
-const PHASE_IDX={scan:0,ko:0,result:1,profile:2,payment:3,success:4};
+const PHASE_IDX={home:-1,scan:0,ko:0,result:1,profile:2,payment:3,success:4};
 
 export default function App(){
-  const [phase,setPhase]=useState("scan");
+  const [phase,setPhase]=useState("home");
   const [answers,setAnswers]=useState({});
   const [investment,setInvestment]=useState("");
   const [koMsg,setKoMsg]=useState(null);
@@ -449,16 +572,17 @@ Bespreek in vier alinea's:
     <>
       <style>{css}</style>
       <div className="app">
+        {phase!=="home"&&(
         <header className="hdr">
           <div className="hdr-inner">
-            <div className="logo">
+            <div className="logo" style={{cursor:"pointer"}} onClick={()=>setPhase("home")}>
               <span className="logo-slim">SLIM</span>
               <span className="logo-sub">SUBSIDIE</span>
               <span className="logo-adv">ADVIES</span>
             </div>
             <p className="hdr-title">Komt uw bedrijf in aanmerking voor <span>SLIM-subsidie</span>?</p>
             <p className="hdr-sub">Gratis quickscan · Bedrijfsprofiel · Betaling · Persoonlijke AI-analyse</p>
-            <div className="prog-bar"><div className="prog-fill" style={{width:`${progress[curStep]}%`}}/></div>
+            <div className="prog-bar"><div className="prog-fill" style={{width:`${progress[Math.max(0,curStep)]}%`}}/></div>
           </div>
           <div className="steps-bar">
             {STEP_LABELS.map((l,i)=>(
@@ -466,8 +590,220 @@ Bespreek in vier alinea's:
             ))}
           </div>
         </header>
+        )}
 
         <main className="main">
+
+          {/* ── HOME ── */}
+          {phase==="home"&&(
+            <div className="hp">
+              {/* HP NAV */}
+              <nav className="hp-nav">
+                <div className="hp-nav-inner">
+                  <div className="logo" style={{cursor:"pointer"}} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}>
+                    <span className="logo-slim">SLIM</span>
+                    <span className="logo-sub">SUBSIDIE</span>
+                    <span className="logo-adv">ADVIES</span>
+                  </div>
+                  <ul className="hp-nav-links">
+                    <li><a href="#slim">Wat is SLIM?</a></li>
+                    <li><a href="#waarom">Waarom wij?</a></li>
+                    <li><a href="#cases">Cases</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><button className="hp-nav-cta" onClick={()=>setPhase("scan")}>Gratis quickscan →</button></li>
+                  </ul>
+                </div>
+              </nav>
+
+              {/* HERO */}
+              <div className="hp-hero">
+                <div className="hp-hero-inner">
+                  <div>
+                    <div className="hp-badge"><span className="phase-dot"/>&nbsp;Specialist in SLIM-subsidie voor MKB</div>
+                    <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
+                    <p className="hp-sub">De SLIM-subsidie vergoedt 60% van uw investering in leren en ontwikkelen. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
+                    <div className="hp-ctas">
+                      <button className="hp-btn-p" onClick={()=>setPhase("scan")}>Doe de gratis quickscan →</button>
+                      <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
+                    </div>
+                    <div className="hp-stats">
+                      <div><div className="hp-stat-num">€<em>24.999</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
+                      <div><div className="hp-stat-num"><em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
+                      <div><div className="hp-stat-num">€<em>2.500</em></div><div className="hp-stat-lbl">Vaste succesfee (excl. btw)</div></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="hp-card">
+                      <div className="hp-card-title">Aanvraagtijdvakken 2026</div>
+                      <div className="hp-tl">
+                        <div className="hp-tl-item"><div className="hp-tl-dot done"/><div className="hp-tl-text"><strong>Tijdvak 1</strong> — 7 april t/m 4 mei 2026</div><span className="hp-tl-badge closed">Gesloten</span></div>
+                        <div className="hp-tl-item"><div className="hp-tl-dot active"/><div className="hp-tl-text"><strong>Tijdvak 2</strong> — 10 aug t/m 7 sep 2026</div><span className="hp-tl-badge open">Open</span></div>
+                        <div className="hp-tl-item"><div className="hp-tl-dot future"/><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge eb">Early bird</span></div>
+                      </div>
+                      <div className="hp-eb">
+                        <div className="hp-eb-lbl">EARLY BIRD — t/m 9 juni 2026</div>
+                        <div className="hp-eb-price">€ 200 <span style={{fontSize:14,fontWeight:400,color:"rgba(255,255,255,0.3)",textDecoration:"line-through"}}>€ 250</span></div>
+                        <div className="hp-eb-sub">dieptecheck excl. btw · bespaar € 50</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* LOTINGSCIJFERS */}
+              <div className="hp-loting">
+                <div className="hp-si">
+                  <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Tijdvak 1 2026 — bron: RVO, 8 mei 2026</div>
+                  <h2 className="hp-stitle" style={{color:"#fff"}}>Ken de realiteit van de loting</h2>
+                  <p className="hp-ssub" style={{color:"rgba(255,255,255,0.5)"}}>De SLIM-subsidie is populair. Een foutloze aanvraag is uw eerste vereiste.</p>
+                  <div className="hp-l-grid">
+                    <div className="hp-l-card"><div className="hp-l-num w">3.360</div><div className="hp-l-lbl">aanvragen ingediend</div></div>
+                    <div className="hp-l-card"><div className="hp-l-num r">23</div><div className="hp-l-lbl">vóór loting afgekeurd door fouten</div></div>
+                    <div className="hp-l-card"><div className="hp-l-num b">474</div><div className="hp-l-lbl">aanvragen ingeloot en in behandeling</div></div>
+                    <div className="hp-l-card"><div className="hp-l-num g">~14%</div><div className="hp-l-lbl">effectieve kans per aanvraag</div></div>
+                  </div>
+                  <div className="hp-l-insight">
+                    <span style={{fontSize:22,flexShrink:0}}>💡</span>
+                    <p><strong>Wat betekent inloting?</strong> Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting volgt een inhoudelijke beoordeling door RVO. Wij begeleiden dit screeningstraject voor dezelfde vaste succesfee van <strong>€ 2.500 (excl. btw)</strong>.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* WAT IS SLIM */}
+              <div id="slim" className="hp-section" style={{background:"var(--off)"}}>
+                <div className="hp-si">
+                  <div className="hp-slbl">De SLIM-regeling</div>
+                  <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
+                  <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in het ontwikkelen van een leercultuur. Beschikbaar voor alle MKB-ondernemingen met personeel. De regeling loopt tot eind 2029.</p>
+                  <div className="hp-act-grid">
+                    <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
+                    <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
+                    <div className="hp-act-card"><div className="hp-act-tag c">Activiteit C</div><div className="hp-act-title">Ontwikkelen of invoeren van een L&O-methode</div><div className="hp-act-desc">Structurele methode die medewerkers stimuleert kennis te blijven ontwikkelen op de werkvloer.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Online leerportal</span><span className="hp-act-tag-sm">Bedrijfsschool</span><span className="hp-act-tag-sm">Videoserie</span></div></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* WAAROM WIJ */}
+              <div id="waarom" className="hp-section" style={{background:"var(--white)"}}>
+                <div className="hp-si">
+                  <div className="hp-slbl">Onze aanpak</div>
+                  <h2 className="hp-stitle">Waarom via SLIM Subsidie Advies?</h2>
+                  <p className="hp-ssub">Wij zijn de enige specialist die zich 100% focust op de SLIM-subsidie. Van quickscan tot toekenning — én het volledige screeningstraject daarna.</p>
+                  <div className="hp-why-grid">
+                    <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">No cure, no pay</div><div className="hp-why-text">Vaste succesfee van € 2.500 (excl. btw) — alleen bij toekenning. De dieptecheck wordt bij toekenning terugbetaald. Geen toekenning = geen succesfee.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">✅</span><div className="hp-why-title">Foutloze indiening</div><div className="hp-why-text">23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte en complete aanvraag — zodat u überhaupt meedoet.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">📋</span><div className="hp-why-title">Van A tot Z begeleiding</div><div className="hp-why-text">Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én het screeningstraject bij RVO na inloting. Alles inbegrepen.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">💰</span><div className="hp-why-title">Scherpste fee-garantie</div><div className="hp-why-text">Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder. Want hoe meer subsidie bij u terechtkomt, hoe meer u kunt investeren in uw team.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">⚡</span><div className="hp-why-title">Direct starten</div><div className="hp-why-text">Via onze gratis online quickscan weet u binnen 2 minuten of uw bedrijf in aanmerking komt. Daarna direct door naar de dieptecheck.</div></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CASES */}
+              <div id="cases" className="hp-loting" style={{padding:"72px 20px"}}>
+                <div className="hp-si">
+                  <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Praktijkvoorbeelden</div>
+                  <h2 className="hp-stitle" style={{color:"#fff"}}>Wat wij voor ondernemers realiseerden</h2>
+                  <p className="hp-ssub" style={{color:"rgba(255,255,255,0.5)"}}>Drie voorbeelden van succesvolle SLIM-aanvragen die wij van begin tot eind hebben begeleid.</p>
+                  <div className="hp-cases-grid">
+                    <div className="hp-case-card"><div className="hp-case-sector">Zorgvervoer</div><div className="hp-case-title">Ingebedde leermethodiek voor taxibedrijf in zorgvervoer</div><div className="hp-case-desc">Kritische operationele kennis structureel borgen bij alle chauffeurs via een ingebedde leermethodiek.</div><div className="hp-case-act">Activiteit C — L&O-methode</div></div>
+                    <div className="hp-case-card"><div className="hp-case-sector">Interieurverzorging</div><div className="hp-case-title">Leerwerkplek methodiek voor luxe interieurverzorgingsbedrijf</div><div className="hp-case-desc">Vakkennis van ervaren medewerkers structureel overdragen aan nieuwe collega's via een leerwerkplek.</div><div className="hp-case-act">Activiteit C — Leerwerkplek</div></div>
+                    <div className="hp-case-card"><div className="hp-case-sector">AI & Robotisering</div><div className="hp-case-title">Leermethodiek voor AI-app- en robotiseringsontwikkelaar</div><div className="hp-case-desc">Snel veranderende technische AI-kennis continu beschikbaar houden voor het hele team.</div><div className="hp-case-act">Activiteit A + C — Scan & methode</div></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* TEAM */}
+              <div id="team" className="hp-section" style={{background:"var(--off)"}}>
+                <div className="hp-si">
+                  <div className="hp-slbl">Ons team</div>
+                  <h2 className="hp-stitle">Uw SLIM-subsidieadviseurs</h2>
+                  <p className="hp-ssub">Drie specialisten met diepgaande kennis van de SLIM-regeling en het beoordelingsproces van RVO.</p>
+                  <div className="hp-team-grid">
+                    <div className="hp-team-card"><div className="hp-avatar hp-av-d">DS</div><div className="hp-t-name">Daniel Sharif</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Specialist in het begeleiden van MKB-aanvragen van quickscan tot succesvolle toekenning. Diepgaande kennis van activiteitenplannen en de beoordelingssystematiek van RVO.</div></div>
+                    <div className="hp-team-card"><div className="hp-avatar hp-av-e">EV</div><div className="hp-t-name">Esther Valerius</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening — zodat uw aanvraag nooit uitvalt vóór de loting.</div></div>
+                    <div className="hp-team-card"><div className="hp-avatar hp-av-r">RF</div><div className="hp-t-name">Rudolf Favier</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Gespecialiseerd in het screeningstraject na inloting. Begeleidt de inhoudelijke beoordeling bij RVO inclusief vragen van de subsidiebeoordelaars.</div></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div id="faq" className="hp-section" style={{background:"var(--white)"}}>
+                <div className="hp-si">
+                  <div className="hp-slbl">Veelgestelde vragen</div>
+                  <h2 className="hp-stitle">Vragen over SLIM-subsidie</h2>
+                  <div className="hp-faq-list">
+                    {[
+                      ["Ik ben ZZP-er. Kom ik in aanmerking?","Nee. Alleen mkb-bedrijven mét personeel in loondienst kunnen SLIM-subsidie aanvragen. De regeling stimuleert leren en ontwikkelen bij werknemers."],
+                      ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 250 medewerkers bent u een MKB-onderneming met recht op 60% subsidie over uw subsidiabele investering, tot een maximum van € 24.999."],
+                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM aanvragen?","Ja! De SLIM-subsidie is juist bedoeld om die investering mogelijk te maken. De subsidie dekt 60% van uw investering."],
+                      ["Wat betekent inloting precies?","Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting beoordeelt RVO uw aanvraag inhoudelijk. Wij begeleiden dit traject voor dezelfde vaste succesfee."],
+                      ["Wat is de succesfee en wanneer betaal ik die?","De vaste succesfee bedraagt € 2.500 (excl. btw) — uitsluitend bij toekenning van de subsidie. De dieptecheck (€ 200 early bird of € 250 regulier, excl. btw) wordt bij toekenning terugbetaald. Geen toekenning = geen succesfee."],
+                    ].map(([q,a],i)=>(
+                      <div key={i} className="hp-faq-item" onClick={e=>e.currentTarget.classList.toggle("open")}>
+                        <div className="hp-faq-q">{q}<span className="hp-faq-arr">+</span></div>
+                        <div className="hp-faq-a"><p>{a}</p></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="hp-cta-section">
+                <div className="hp-si">
+                  <div className="hp-slbl" style={{color:"var(--blue-light)",textAlign:"center"}}>Tijdvak 2 2026 — opening 10 augustus</div>
+                  <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br/>voor <span>SLIM-subsidie</span>?</h2>
+                  <p className="hp-cta-sub">Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de dieptecheck voor € 200 (excl. btw) en profiteer van de early bird korting.</p>
+                  <div style={{display:"flex",justifyContent:"center"}}>
+                    <button className="hp-btn-p" onClick={()=>setPhase("scan")} style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</button>
+                  </div>
+                  <p className="hp-cta-note">Gratis quickscan · No cure, no pay · Vaste succesfee € 2.500 excl. btw</p>
+                </div>
+              </div>
+
+              {/* FOOTER */}
+              <div className="hp-footer">
+                <div className="hp-ft">
+                  <div className="hp-ft-top">
+                    <div>
+                      <div className="logo-slim">SLIM</div>
+                      <div className="logo-sub">SUBSIDIE</div>
+                      <div className="logo-adv">ADVIES</div>
+                      <p className="hp-ft-desc">De specialist in SLIM-subsidie voor MKB-ondernemers. Van quickscan tot toekenning — inclusief begeleiding van het volledige screeningstraject bij RVO.</p>
+                    </div>
+                    <div>
+                      <div className="hp-ft-h">Navigatie</div>
+                      <ul className="hp-ft-links">
+                        <li><a href="#slim">Wat is SLIM-subsidie?</a></li>
+                        <li><a href="#waarom">Waarom via ons?</a></li>
+                        <li><a href="#cases">Praktijkvoorbeelden</a></li>
+                        <li><a href="#team">Ons team</a></li>
+                        <li><a href="#faq">Veelgestelde vragen</a></li>
+                        <li><button onClick={()=>setPhase("scan")}>Gratis quickscan</button></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="hp-ft-h">Contact</div>
+                      <ul className="hp-ft-links">
+                        <li><a href="mailto:info@slimsubsidieadvies.nl">info@slimsubsidieadvies.nl</a></li>
+                        <li><a href="https://www.instagram.com/slimsubsidieadvies" target="_blank" rel="noreferrer">@slimsubsidieadvies</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="hp-ft-bottom">
+                    <div className="hp-ft-copy">© 2026 SLIM Subsidie Advies · www.slimsubsidieadvies.nl</div>
+                    <div className="hp-ft-legal">
+                      <a href="#privacy">Privacyverklaring</a>
+                      <a href="#av">Algemene voorwaarden</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* SCAN */}
           {phase==="scan"&&(
