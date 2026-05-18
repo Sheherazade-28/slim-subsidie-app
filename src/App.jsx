@@ -82,8 +82,6 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .est-item{flex:1;min-width:110px;background:var(--white);border:1px solid var(--border-l);border-radius:var(--rs);padding:10px 12px;}
 .est-item-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:3px;}
 .est-item-val{font-size:14px;font-weight:600;color:var(--navy);}
-
-/* LOTING STATS BOX */
 .loting-box{background:var(--orange-l);border:1px solid var(--orange-b);border-radius:var(--r);padding:18px 20px;margin-bottom:14px;animation:up .4s ease;}
 .loting-box-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .loting-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
@@ -99,8 +97,6 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .loting-kans-text strong{color:var(--navy);}
 .loting-cta{font-size:13px;color:var(--orange);font-weight:500;line-height:1.5;}
 .loting-cta strong{color:var(--navy);}
-
-/* LOTING DETAIL (na betaling) */
 .loting-detail{background:var(--navy);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
 .loting-detail-title{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .loting-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
@@ -116,7 +112,6 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .loting-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#2aaae2,#1a6bbf);}
 .loting-insight{background:rgba(255,255,255,0.06);border-radius:var(--rs);padding:12px 14px;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;}
 .loting-insight strong{color:#fff;}
-
 .pricing{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:4px;}
 .pricing-head{background:var(--navy);padding:16px 22px;}
 .pricing-head-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:.5px;}
@@ -209,35 +204,14 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .info-list li:last-child{border-bottom:none;}
 .alert-info{background:var(--blue-pale);border:1px solid var(--blue-pale2);border-radius:var(--rs);padding:11px 15px;font-size:12px;color:var(--blue);margin-bottom:12px;}
 .alert-warn{background:#fffbec;border:1px solid #f5e090;border-radius:var(--rs);padding:11px 15px;font-size:12px;color:#7a5800;margin-bottom:12px;}
-@media(max-width:580px){
-  .card{padding:16px;}.pricing-body{padding:14px 16px;}
-  .price-main{font-size:30px;}.est-amount{font-size:26px;}
-  .btn{padding:10px 14px;font-size:13px;}
-  .hdr-inner{padding:14px 14px 0;}.main{padding:14px 12px 48px;}
-  .step-tab{font-size:9px;padding:7px 1px;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .steps-bar{overflow:hidden;}
-  .form-row{flex-direction:column;}.form-row .form-group{min-width:unset;}
-  .loting-detail-grid{grid-template-columns:1fr 1fr;}
-  .success-header{padding:18px 14px 16px;margin:-16px -16px 16px;}
-  .loting-stats{flex-direction:column;}
-  .est-grid{grid-template-columns:1fr 1fr;}
-  .act-card{padding:14px;}
-  .pay-methods{gap:6px;flex-wrap:wrap;}
-  .pay-btn{padding:8px 10px;font-size:12px;gap:4px;}
-  .nocure-note{font-size:11px;}
-  .next-step{gap:10px;}
-  .q-label{font-size:13px;}
-  .opt{padding:9px 12px;font-size:13px;}
-  .card-title{font-size:17px;}
-}
-
-/* ── HOMEPAGE ── */
 .hp{background:var(--white);}
 .hp-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08);overflow:visible;}
 .hp-nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .hp-nav-links{display:flex;align-items:center;gap:22px;list-style:none;}
 .hp-nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
 .hp-nav-links a:hover{color:#fff;}
+.hp-nav-links button{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500;font-family:'Barlow',sans-serif;transition:color .2s;padding:0;}
+.hp-nav-links button:hover{color:#fff;}
 .hp-nav-cta{background:var(--blue-light);color:#fff!important;padding:7px 16px;border-radius:6px;font-weight:700!important;cursor:pointer;border:none;font-family:'Barlow',sans-serif;font-size:13px;}
 .hp-nav-cta:hover{background:#1a9fd4;}
 .hp-hero{background:var(--navy);padding:72px 20px 0;position:relative;overflow:hidden;}
@@ -284,7 +258,6 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-l-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px 16px;text-align:center;}
 .hp-l-num{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;line-height:1;margin-bottom:5px;}
 .hp-l-num.w{color:#fff;}.hp-l-num.r{color:#ff8080;}.hp-l-num.b{color:var(--blue-light);}.hp-l-num.g{color:#60e0a0;}
-.hp-l-lbl{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.4;}
 .hp-l-insight{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;display:flex;gap:14px;}
 .hp-l-insight p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
 .hp-l-insight p strong{color:#fff;}
@@ -344,7 +317,52 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-ft-legal{display:flex;gap:16px;}
 .hp-ft-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;}
 .hp-ft-legal a:hover{color:rgba(255,255,255,0.5);}
-/* ── RESPONSIVE — tablet & mobiel ── */
+
+/* ── LOTINGSUITSLAGEN PAGINA ── */
+.lp-page{max-width:860px;margin:0 auto;padding:2rem 0 4rem;}
+.lp-hero{padding-bottom:1.5rem;border-bottom:1px solid var(--border-l);margin-bottom:2rem;}
+.lp-overline{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;}
+.lp-h1{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:0.75rem;line-height:1.2;}
+.lp-intro{font-size:15px;color:var(--muted);line-height:1.7;max-width:640px;}
+.lp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:2rem;}
+.lp-stat{background:var(--off);border-radius:var(--rs);padding:1rem;}
+.lp-stat-label{font-size:12px;color:var(--muted);margin-bottom:4px;}
+.lp-stat-value{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--navy);}
+.lp-stat-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.lp-infobox{background:var(--blue-pale);border:1px solid var(--blue-pale2);border-radius:var(--rs);padding:0.875rem 1.1rem;margin-bottom:2rem;font-size:13px;color:var(--blue);line-height:1.6;display:flex;gap:10px;align-items:flex-start;}
+.lp-section-title{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border-l);}
+.lp-card{background:var(--white);border:1px solid var(--border-l);border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:10px;}
+.lp-card-top{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;}
+.lp-card-left{flex:1;min-width:200px;}
+.lp-card-header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.lp-card-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--navy);}
+.lp-badge-green{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--green-l);color:var(--green);font-weight:600;}
+.lp-badge-blue{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--blue-pale);color:var(--blue);font-weight:600;}
+.lp-card-meta{font-size:13px;color:var(--muted);}
+.lp-card-notitie{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;}
+.lp-card-right{text-align:right;min-width:120px;flex-shrink:0;}
+.lp-budget{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--navy);}
+.lp-budget-label{font-size:11px;color:var(--muted);}
+.lp-guaranteed{font-size:12px;color:var(--muted);margin-top:2px;}
+.lp-kans-wrap{margin-top:0.875rem;padding-top:0.875rem;border-top:1px solid var(--border-l);}
+.lp-kans-labels{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;flex-wrap:wrap;gap:4px;}
+.lp-kans-title{font-size:12px;color:var(--muted);}
+.lp-kans-numbers{font-size:12px;color:var(--muted);}
+.lp-bar-track{background:var(--off);border-radius:99px;height:8px;overflow:hidden;}
+.lp-bar-fill{height:8px;border-radius:99px;}
+.lp-kans-detail{display:flex;gap:1.5rem;margin-top:8px;flex-wrap:wrap;}
+.lp-kans-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+.lp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block;}
+.lp-source{font-size:11px;color:var(--muted);margin-top:8px;}
+.lp-source a{color:var(--muted);text-decoration:none;}
+.lp-source a:hover{color:var(--navy);}
+.lp-komend{border:1px dashed var(--border);border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.lp-komend-text{font-size:14px;color:var(--muted);line-height:1.6;}
+.lp-divider{border:none;border-top:1px solid var(--border-l);margin:1.5rem 0;}
+.lp-cta{background:var(--blue-pale);border-radius:var(--r);padding:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;}
+.lp-cta-h{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.lp-cta-p{font-size:13px;color:var(--muted);}
+
 @media(max-width:900px){
   .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:repeat(2,1fr);}
   .hp-l-grid{grid-template-columns:repeat(2,1fr);}
@@ -352,11 +370,9 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
   .hp-card{display:none;}
 }
 @media(max-width:640px){
-  /* Nav — hamburger vervangen door compacte CTA */
   .hp-nav-links{display:none;}
   .hp-nav-inner{justify-content:space-between;}
   .hp-nav-cta{display:block;}
-  /* Hero */
   .hp-h1{font-size:34px;line-height:1.05;}
   .hp-sub{font-size:15px;}
   .hp-ctas{flex-direction:column;align-items:flex-start;}
@@ -364,50 +380,48 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
   .hp-stats{gap:12px;flex-wrap:wrap;}
   .hp-stat-num{font-size:26px;}
   .hp-hero{padding:48px 16px 0;}
-  /* Secties */
   .hp-section{padding:48px 16px;}
   .hp-loting{padding:48px 16px;}
   .hp-cta-section{padding:56px 16px;}
-  /* Grids — altijd 1 kolom op mobiel */
   .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;gap:14px;}
   .hp-l-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
   .hp-l-num{font-size:30px;}
   .hp-stitle{font-size:26px;}
   .hp-cta-title{font-size:28px;}
-  /* Footer */
   .hp-ft-top{grid-template-columns:1fr;gap:28px;}
   .hp-ft-bottom{flex-direction:column;align-items:flex-start;gap:8px;}
-  /* FAQ */
   .hp-faq-q{font-size:13px;padding:14px 16px;}
   .hp-faq-a{padding:0 16px;}
   .hp-faq-item.open .hp-faq-a{padding:0 16px 14px;}
-  /* Insight box */
   .hp-l-insight{flex-direction:column;gap:8px;}
+  .lp-page{padding:1.5rem 0 3rem;}
+  .lp-cta{flex-direction:column;align-items:flex-start;}
 }
-/* ── Quickscan flow responsive ── */
 @media(max-width:580px){
-  .card{padding:16px;}
-  .main{padding:16px 12px 48px;}
-  .step-tab{font-size:9px;padding:8px 2px;letter-spacing:0;}
-  .hdr-inner{padding:14px 14px 0;}
-  .hdr-title{font-size:16px;}
-  .hdr-sub{font-size:11px;}
+  .card{padding:16px;}.pricing-body{padding:14px 16px;}
+  .price-main{font-size:30px;}.est-amount{font-size:26px;}
   .btn{padding:10px 14px;font-size:13px;}
-  .price-main{font-size:30px;}
-  .est-amount{font-size:26px;}
-  .form-row{flex-direction:column;}
-  .form-row .form-group{min-width:unset;}
+  .hdr-inner{padding:14px 14px 0;}.main{padding:14px 12px 48px;}
+  .step-tab{font-size:9px;padding:7px 1px;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .steps-bar{overflow:hidden;}
+  .form-row{flex-direction:column;}.form-row .form-group{min-width:unset;}
   .loting-detail-grid{grid-template-columns:1fr 1fr;}
-  .success-header{padding:20px 16px 18px;margin:-16px -16px 18px;}
-  .act-grid{gap:10px;}
-  .pay-methods{gap:6px;}
-  .pay-btn{padding:8px 12px;font-size:12px;}
+  .success-header{padding:18px 14px 16px;margin:-16px -16px 16px;}
+  .loting-stats{flex-direction:column;}
+  .est-grid{grid-template-columns:1fr 1fr;}
+  .act-card{padding:14px;}
+  .pay-methods{gap:6px;flex-wrap:wrap;}
+  .pay-btn{padding:8px 10px;font-size:12px;gap:4px;}
+  .nocure-note{font-size:11px;}
+  .next-step{gap:10px;}
+  .q-label{font-size:13px;}
+  .opt{padding:9px 12px;font-size:13px;}
+  .card-title{font-size:17px;}
 }
-/* ── Cross-browser fixes ── */
 .hp-btn-p,.hp-btn-s,.hp-nav-cta{-webkit-appearance:none;-moz-appearance:none;}
 .hp-faq-a{-webkit-transition:max-height .3s ease,padding .3s ease;transition:max-height .3s ease,padding .3s ease;}
 input,select,textarea{-webkit-appearance:none;-moz-appearance:none;}
-* {-webkit-tap-highlight-color:transparent;}
+*{-webkit-tap-highlight-color:transparent;}
 a,button{touch-action:manipulation;}
 `;
 
@@ -431,27 +445,54 @@ const ACTIVITEITEN=[
   {id:"C",tag:"Activiteit C",tagClass:"c",title:"Ontwikkelen of invoeren van een L&O-methode",desc:"Ontwikkel of implementeer een structurele methode die werknemers stimuleert kennis en vaardigheden te blijven ontwikkelen op de werkvloer. (Art. 2.4 lid 1c SLIM-regeling)",examples:["Online leerportal / e-learning","Bedrijfsschool opzetten","Videoserie intern leren","Systeem van ontwikkelgesprekken","Workshops en kennissessies","Cursusmateriaal en -modules"],min:"Minimale investering: €8.334 · Minimale subsidie: €5.000"},
 ];
 
-// Officiële lotingscijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026)
 const LOTING={
   tijdvak:"Tijdvak 1 2026",
-  totaalIngediend:3360,       // 3.337 in loting + 23 vóór loting afgekeurd
-  afgekeurdVoorLoting:23,     // afgekeurd vóór loting (fouten in aanvraag)
-  inLoting:3337,              // meegenomen in notariële loting
-  inBehandeling:474,          // in behandeling genomen (bron: RVO 8 mei 2026)
+  totaalIngediend:3360,
+  afgekeurdVoorLoting:23,
+  inLoting:3337,
+  inBehandeling:474,
   budget:11000000,
-  kansRuw:Math.round((474/3360)*100),     // kans o.b.v. totaal ingediend
-  kansInLoting:Math.round((474/3337)*100), // kans o.b.v. gelote aanvragen
+  kansRuw:Math.round((474/3360)*100),
+  kansInLoting:Math.round((474/3337)*100),
 };
+
+// Lotingsdata voor de overzichtspagina
+const LOTING_TIJDVAKKEN=[
+  {
+    jaar:2026,
+    tijdvakken:[
+      {titel:"Tijdvak 1 — april / mei 2026",periode:"7 apr – 4 mei 2026",lotingsdatum:"8 mei 2026",budget:"€ 11 mln",gegarandeerd:474,totaal:3337,url:"https://www.uitvoeringvanbeleidszw.nl/actueel/nieuws/2026/05/08/uitkomst-loting-slim-mkb-tijdvak-1-in-2026"},
+    ],
+    komend:[
+      {titel:"Tijdvak 2 — aug / sep 2026",info:"Aanvragen van 10 aug t/m 7 sep 2026. Lotingsuitslag verwacht begin oktober 2026."},
+      {titel:"Samenwerking — jun / jul 2026",info:"Aanvragen van 8 jun t/m 6 jul 2026. Vanaf 2026 ook via loting (nieuw beleid)."},
+    ],
+  },
+  {
+    jaar:2025,
+    tijdvakken:[
+      {titel:"Tijdvak 2 — september 2025",periode:"1 sep – 30 sep 2025",lotingsdatum:"3 okt 2025",budget:"€ 17,5 mln",gegarandeerd:758,totaal:3270,url:"https://www.uitvoeringvanbeleidszw.nl/actueel/nieuws/2025/10/03/uitkomst-loting-slim-mkb-september-2025"},
+      {titel:"Tijdvak 1 — maart 2025",periode:"3 mrt – 31 mrt 2025",lotingsdatum:"11 apr 2025",budget:"€ 12,5 mln",gegarandeerd:557,totaal:2711,url:"https://www.uitvoeringvanbeleidszw.nl/actueel/nieuws/2025/04/11/uitkomst-loting-slim-mkb-maart-2025"},
+    ],
+    komend:[],
+  },
+  {
+    jaar:2024,
+    tijdvakken:[
+      {titel:"Tijdvak 2 — september 2024",periode:"2 sep – 30 sep 2024",lotingsdatum:"10 okt 2024",budget:"€ 16,1 mln",gegarandeerd:689,totaal:3152,url:"https://www.uitvoeringvanbeleidszw.nl/actueel/nieuws/2024/10/10/uitkomst-loting-slim-mkb-september-2024",notitie:"Plafond verhoogd van € 13,5 mln naar € 16,1 mln op 26 juni 2024."},
+      {titel:"Tijdvak 1 — maart 2024",periode:"1 mrt – 29 mrt 2024",lotingsdatum:"16 apr 2024",budget:"€ 15 mln",gegarandeerd:642,totaal:2838,url:"https://www.uitvoeringvanbeleidszw.nl/actueel/nieuws/2024/04/16/uitkomst-loting-aanvraagtijdvak-maart-2024-slim-regeling",notitie:"Door technische problemen zijn voor 8 aanvragers KvK-nummers (laatste 3 cijfers) gebruikt i.p.v. projectnummers."},
+    ],
+    komend:[],
+  },
+];
 
 function fmt(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);}
 function calcSubsidy(inv,agri){return Math.min(inv*.6,agri?20000:24999);}
 function isEarlyBird(){
   const now=new Date();
-  // Tijdvak 2 2026: early bird t/m 10 juli 2026 (1 maand voor opening 10 aug)
-  const eb2_2026 = now>=new Date(2026,4,5) && now<=new Date(2026,6,10);
-  // Tijdvak 1 2027: early bird vanaf sluiting tijdvak 2 (8 sep 2026) t/m 3 maanden voor opening
-  const eb1_2027 = now>=new Date(2026,8,8) && now<=new Date(2027,0,6);
-  return eb2_2026 || eb1_2027;
+  const eb2_2026=now>=new Date(2026,4,5)&&now<=new Date(2026,6,10);
+  const eb1_2027=now>=new Date(2026,8,8)&&now<=new Date(2027,0,6);
+  return eb2_2026||eb1_2027;
 }
 function nextDeadline(){
   const now=new Date();
@@ -464,7 +505,7 @@ function nextDeadline(){
 }
 
 const STEP_LABELS=["Quickscan","Resultaat","Profiel","Betaling","Analyse"];
-const PHASE_IDX={home:-1,scan:0,ko:0,result:1,profile:2,payment:3,success:4};
+const PHASE_IDX={home:-1,loting:-1,scan:0,ko:0,result:1,profile:2,payment:3,success:4};
 
 export default function App(){
   const [phase,setPhase]=useState("home");
@@ -483,14 +524,13 @@ export default function App(){
   const [profile,setProfile]=useState({medewerkers:"",rechtsvorm:"",sector:"",provincie:""});
   const [selectedActs,setSelectedActs]=useState([]);
 
-  // Scroll naar boven bij elke fase-overgang
-  useEffect(()=>{ window.scrollTo({top:0,behavior:"smooth"}); },[phase]);
+  useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"});},[phase]);
 
   const eb=isEarlyBird();
   const deadline=nextDeadline();
   const basePrice=250;
   const finalPrice=eb?basePrice*.8:basePrice;
-  const successFee=2500; // Succesfee altijd €2.500 excl. btw
+  const successFee=2500;
   const isAgri=answers.agriculture==="yes";
   const invNum=parseFloat(investment.replace(",","."))||0;
   const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
@@ -508,7 +548,6 @@ export default function App(){
   function toggleAct(id){setSelectedActs(p=>p.includes(id)?p.filter(x=>x!==id):[...p,id]);}
   function doKvk(){
     if(kvkInput.length<8)return;
-    // Zet kvkDone op true zodat de klant de naam zelf kan invullen
     setKvkDone(true);
     setKvkBedrijf("");
     setContact(p=>({...p,bedrijf:""}));
@@ -560,14 +599,9 @@ Bespreek in vier alinea's:
   function submitPayment(){
     if(!contact.naam||!contact.email){alert("Vul uw naam en e-mailadres in.");return;}
     setProcessing(true);
-    setTimeout(()=>{
-      setProcessing(false);
-      setPhase("success");
-      generateAnalysis();
-    },2000);
+    setTimeout(()=>{setProcessing(false);setPhase("success");generateAnalysis();},2000);
   }
 
-  // ── LOTING STATS COMPONENT (gebruikt op 2 plekken) ──
   function LotingBox({compact=false}){
     const barPct=Math.round((LOTING.inBehandeling/LOTING.totaalIngediend)*100);
     if(compact){
@@ -575,24 +609,13 @@ Bespreek in vier alinea's:
         <div className="loting-box">
           <div className="loting-box-title">⚠️ Lotingscijfers {LOTING.tijdvak} — ken de realiteit</div>
           <div className="loting-stats">
-            <div className="loting-stat">
-              <div className="loting-stat-num orange">{LOTING.inLoting.toLocaleString("nl-NL")}</div>
-              <div className="loting-stat-label">in loting (van 3.360 ingediend)</div>
-            </div>
-            <div className="loting-stat">
-              <div className="loting-stat-num red">{LOTING.afgekeurdVoorLoting}</div>
-              <div className="loting-stat-label">afgekeurd vóór loting</div>
-            </div>
-            <div className="loting-stat">
-              <div className="loting-stat-num green">{LOTING.inBehandeling}</div>
-              <div className="loting-stat-label">in behandeling</div>
-            </div>
+            <div className="loting-stat"><div className="loting-stat-num orange">{LOTING.inLoting.toLocaleString("nl-NL")}</div><div className="loting-stat-label">in loting (van 3.360 ingediend)</div></div>
+            <div className="loting-stat"><div className="loting-stat-num red">{LOTING.afgekeurdVoorLoting}</div><div className="loting-stat-label">afgekeurd vóór loting</div></div>
+            <div className="loting-stat"><div className="loting-stat-num green">{LOTING.inBehandeling}</div><div className="loting-stat-label">in behandeling</div></div>
           </div>
           <div className="loting-kans">
             <div className="loting-kans-pct">~{LOTING.kansRuw}%</div>
-            <div className="loting-kans-text">
-              <strong>Effectieve slaagkans zonder begeleiding.</strong> Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} indieners werden slechts {LOTING.inBehandeling} meegenomen. Bovendien vielen al <strong>{LOTING.afgekeurdVoorLoting} aanvragen vóór de loting af</strong> door fouten — volledig vermijdbaar met professionele begeleiding.
-            </div>
+            <div className="loting-kans-text"><strong>Effectieve slaagkans zonder begeleiding.</strong> Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} indieners werden slechts {LOTING.inBehandeling} meegenomen. Bovendien vielen al <strong>{LOTING.afgekeurdVoorLoting} aanvragen vóór de loting af</strong> door fouten — volledig vermijdbaar met professionele begeleiding.</div>
           </div>
           <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Daarna bepaalt de loting uw kans. Wij zorgen voor stap één.</div>
         </div>
@@ -602,38 +625,128 @@ Bespreek in vier alinea's:
       <div className="loting-detail">
         <div className="loting-detail-title">📊 Lotingscijfers {LOTING.tijdvak} <span style={{fontSize:12,fontWeight:400,opacity:.6}}>(bron: RVO, 8 mei 2026)</span></div>
         <div className="loting-detail-grid">
-          <div className="loting-detail-item">
-            <div className="loting-detail-num">{LOTING.totaalIngediend.toLocaleString("nl-NL")}</div>
-            <div className="loting-detail-label">aanvragen ingediend in totaal</div>
-          </div>
-          <div className="loting-detail-item">
-            <div className="loting-detail-num">{LOTING.inLoting.toLocaleString("nl-NL")}</div>
-            <div className="loting-detail-label">meegenomen in notariële loting</div>
-          </div>
-          <div className="loting-detail-item">
-            <div className="loting-detail-num bad">{LOTING.afgekeurdVoorLoting}</div>
-            <div className="loting-detail-label">afgekeurd vóór loting — fouten in aanvraag</div>
-          </div>
-          <div className="loting-detail-item">
-            <div className="loting-detail-num accent">{LOTING.inBehandeling}</div>
-            <div className="loting-detail-label">in behandeling genomen</div>
-          </div>
-          <div className="loting-detail-item">
-            <div className="loting-detail-num warn">~{LOTING.kansRuw}%</div>
-            <div className="loting-detail-label">effectieve slaagkans per aanvraag</div>
-          </div>
+          <div className="loting-detail-item"><div className="loting-detail-num">{LOTING.totaalIngediend.toLocaleString("nl-NL")}</div><div className="loting-detail-label">aanvragen ingediend in totaal</div></div>
+          <div className="loting-detail-item"><div className="loting-detail-num">{LOTING.inLoting.toLocaleString("nl-NL")}</div><div className="loting-detail-label">meegenomen in notariële loting</div></div>
+          <div className="loting-detail-item"><div className="loting-detail-num bad">{LOTING.afgekeurdVoorLoting}</div><div className="loting-detail-label">afgekeurd vóór loting — fouten in aanvraag</div></div>
+          <div className="loting-detail-item"><div className="loting-detail-num accent">{LOTING.inBehandeling}</div><div className="loting-detail-label">in behandeling genomen</div></div>
+          <div className="loting-detail-item"><div className="loting-detail-num warn">~{LOTING.kansRuw}%</div><div className="loting-detail-label">effectieve slaagkans per aanvraag</div></div>
         </div>
         <div className="loting-bar-wrap">
-          <div className="loting-bar-label">
-            <span>In behandeling ({LOTING.inBehandeling})</span>
-            <span>Niet in behandeling ({LOTING.totaalIngediend - LOTING.inBehandeling})</span>
-          </div>
-          <div className="loting-bar-track">
-            <div className="loting-bar-fill" style={{width:`${barPct}%`}}/>
-          </div>
+          <div className="loting-bar-label"><span>In behandeling ({LOTING.inBehandeling})</span><span>Niet in behandeling ({LOTING.totaalIngediend-LOTING.inBehandeling})</span></div>
+          <div className="loting-bar-track"><div className="loting-bar-fill" style={{width:`${barPct}%`}}/></div>
         </div>
-        <div className="loting-insight" style={{marginTop:12}}>
-          <strong>Let op:</strong> {LOTING.afgekeurdVoorLoting} aanvragen werden al vóór de loting afgekeurd door fouten of onvolledige documenten. Dit is volledig vermijdbaar. Met SLIM Subsidie Advies valt uw aanvraag nooit af vóór de loting.
+        <div className="loting-insight" style={{marginTop:12}}><strong>Let op:</strong> {LOTING.afgekeurdVoorLoting} aanvragen werden al vóór de loting afgekeurd door fouten of onvolledige documenten. Dit is volledig vermijdbaar. Met SLIM Subsidie Advies valt uw aanvraag nooit af vóór de loting.</div>
+      </div>
+    );
+  }
+
+  // ── LOTINGSUITSLAGEN OVERZICHTSPAGINA ──
+  function LotingsuitslagenPage(){
+    const allTv=LOTING_TIJDVAKKEN.flatMap(j=>j.tijdvakken);
+    const gemAanvragen=Math.round(allTv.reduce((s,t)=>s+t.totaal,0)/allTv.length);
+    return(
+      <div className="lp-page">
+        <button className="btn btn-ghost" onClick={()=>setPhase("home")} style={{marginBottom:"1.5rem"}}>← Terug naar home</button>
+
+        {/* Hero */}
+        <div className="lp-hero">
+          <p className="lp-overline">Overzicht lotingsuitslagen</p>
+          <h1 className="lp-h1">SLIM-subsidie lotingsuitslagen 2024 – 2026</h1>
+          <p className="lp-intro">Per tijdvak vind je het subsidieplafond, het totale aantal aanvragen dat heeft meegeloot, hoeveel aanvragen gegarandeerd worden beoordeeld, en wat dat betekent voor je kans. Alle cijfers zijn afkomstig uit de officiële notariële lotingen van Uitvoering Van Beleid (UVB).</p>
+        </div>
+
+        {/* Statistieken */}
+        <div className="lp-stats">
+          {[
+            {label:"Tijdvakken gedocumenteerd",value:"5",sub:"2024 t/m tv1 2026"},
+            {label:"Gem. aanvragen per tijdvak",value:gemAanvragen.toLocaleString("nl-NL"),sub:"mkb individueel"},
+            {label:"Gem. directe kans",value:"~20%",sub:"gegarandeerde beoordeling"},
+            {label:"Regeling loopt tot",value:"2029",sub:"verlengd dec 2024"},
+          ].map(s=>(
+            <div key={s.label} className="lp-stat">
+              <div className="lp-stat-label">{s.label}</div>
+              <div className="lp-stat-value">{s.value}</div>
+              <div className="lp-stat-sub">{s.sub}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Info */}
+        <div className="lp-infobox">
+          <span style={{flexShrink:0}}>ℹ️</span>
+          <span>Elk tijdvak was zwaar overvraagd. Gemiddeld deden ruim 3.000 bedrijven mee aan de loting, terwijl slechts 15–25% direct wordt beoordeeld. De rest komt alleen aan bod als er budget overblijft na afwijzingen of terugtrekkingen van hogere nummers.</span>
+        </div>
+
+        {/* Tijdvakken per jaar */}
+        {LOTING_TIJDVAKKEN.map((jaar,ji)=>(
+          <div key={jaar.jaar} style={{marginBottom:"2rem"}}>
+            <h2 className="lp-section-title">{jaar.jaar}</h2>
+
+            {jaar.tijdvakken.map(tv=>{
+              const pct=((tv.gegarandeerd/tv.totaal)*100).toFixed(1);
+              const barColor=parseFloat(pct)>=22?"var(--green)":parseFloat(pct)>=18?"var(--orange)":"var(--red)";
+              const rest=tv.totaal-tv.gegarandeerd;
+              return(
+                <div key={tv.titel} className="lp-card">
+                  <div className="lp-card-top">
+                    <div className="lp-card-left">
+                      <div className="lp-card-header">
+                        <span className="lp-card-title">{tv.titel}</span>
+                        <span className="lp-badge-green">Uitslag bekend</span>
+                        <span className="lp-badge-blue">mkb individueel</span>
+                      </div>
+                      <div className="lp-card-meta">
+                        <span style={{marginRight:"1rem"}}>📅 {tv.periode}</span>
+                        <span>⚖️ Loting: {tv.lotingsdatum}</span>
+                      </div>
+                      {tv.notitie&&<p className="lp-card-notitie">{tv.notitie}</p>}
+                    </div>
+                    <div className="lp-card-right">
+                      <div className="lp-budget">{tv.budget}</div>
+                      <div className="lp-budget-label">subsidieplafond</div>
+                      <div className="lp-guaranteed">{tv.gegarandeerd.toLocaleString("nl-NL")} gegarandeerd</div>
+                    </div>
+                  </div>
+
+                  {/* Kansbar */}
+                  <div className="lp-kans-wrap">
+                    <div className="lp-kans-labels">
+                      <span className="lp-kans-title">Lotingskansen</span>
+                      <span className="lp-kans-numbers">
+                        <strong style={{color:"var(--navy)"}}>{tv.gegarandeerd.toLocaleString("nl-NL")}</strong> van <strong style={{color:"var(--navy)"}}>{tv.totaal.toLocaleString("nl-NL")}</strong> aanvragen gegarandeerd · <strong style={{color:"var(--navy)"}}>{pct}%</strong> directe kans
+                      </span>
+                    </div>
+                    <div className="lp-bar-track">
+                      <div className="lp-bar-fill" style={{width:`${pct}%`,background:barColor}}/>
+                    </div>
+                    <div className="lp-kans-detail">
+                      <span className="lp-kans-item"><span className="lp-dot" style={{background:"var(--green)"}}/>{tv.gegarandeerd.toLocaleString("nl-NL")} direct beoordeeld</span>
+                      <span className="lp-kans-item"><span className="lp-dot" style={{background:"var(--border)"}}/>{rest.toLocaleString("nl-NL")} afhankelijk van restbudget</span>
+                    </div>
+                    <p className="lp-source">Bron notariële loting: <a href={tv.url} target="_blank" rel="noopener noreferrer">uitvoeringvanbeleidszw.nl ↗</a></p>
+                  </div>
+                </div>
+              );
+            })}
+
+            {jaar.komend.map(k=>(
+              <div key={k.titel} className="lp-komend">
+                <span style={{fontSize:16,flexShrink:0,color:"var(--muted)"}}>🕐</span>
+                <p className="lp-komend-text"><strong style={{color:"var(--navy)"}}>{k.titel}</strong> · {k.info}</p>
+              </div>
+            ))}
+
+            {ji<LOTING_TIJDVAKKEN.length-1&&<hr className="lp-divider"/>}
+          </div>
+        ))}
+
+        {/* CTA */}
+        <div className="lp-cta">
+          <div>
+            <h3 className="lp-cta-h">Wil je weten of jouw aanvraag kans maakt?</h3>
+            <p className="lp-cta-p">Doe de gratis quickscan — binnen 2 minuten weet je of jouw bedrijf in aanmerking komt voor SLIM-subsidie.</p>
+          </div>
+          <button className="btn btn-primary" onClick={()=>setPhase("scan")}>Doe de quickscan →</button>
         </div>
       </div>
     );
@@ -643,32 +756,36 @@ Bespreek in vier alinea's:
     <>
       <style>{css}</style>
       <div className="app">
-        {phase!=="home"&&(
-        <header className="hdr">
-          <div className="hdr-inner">
-            <div className="logo" style={{cursor:"pointer"}} onClick={()=>setPhase("home")}>
-              <span className="logo-slim">SLIM</span>
-              <span className="logo-sub">SUBSIDIE</span>
-              <span className="logo-adv">ADVIES</span>
+
+        {/* Header — alleen tonen bij scan-flow, niet op home en loting */}
+        {phase!=="home"&&phase!=="loting"&&(
+          <header className="hdr">
+            <div className="hdr-inner">
+              <div className="logo" style={{cursor:"pointer"}} onClick={()=>setPhase("home")}>
+                <span className="logo-slim">SLIM</span>
+                <span className="logo-sub">SUBSIDIE</span>
+                <span className="logo-adv">ADVIES</span>
+              </div>
+              <p className="hdr-title">Komt uw bedrijf in aanmerking voor <span>SLIM-subsidie</span>?</p>
+              <p className="hdr-sub">Gratis quickscan · Bedrijfsprofiel · Betaling · Persoonlijke AI-analyse</p>
+              <div className="prog-bar"><div className="prog-fill" style={{width:`${progress[Math.max(0,curStep)]}%`}}/></div>
             </div>
-            <p className="hdr-title">Komt uw bedrijf in aanmerking voor <span>SLIM-subsidie</span>?</p>
-            <p className="hdr-sub">Gratis quickscan · Bedrijfsprofiel · Betaling · Persoonlijke AI-analyse</p>
-            <div className="prog-bar"><div className="prog-fill" style={{width:`${progress[Math.max(0,curStep)]}%`}}/></div>
-          </div>
-          <div className="steps-bar">
-            {STEP_LABELS.map((l,i)=>(
-              <div key={i} className={`step-tab ${i<curStep?"done":i===curStep?"active":""}`}>{l}</div>
-            ))}
-          </div>
-        </header>
+            <div className="steps-bar">
+              {STEP_LABELS.map((l,i)=>(
+                <div key={i} className={`step-tab ${i<curStep?"done":i===curStep?"active":""}`}>{l}</div>
+              ))}
+            </div>
+          </header>
         )}
 
         <main className="main">
 
+          {/* ── LOTINGSUITSLAGEN ── */}
+          {phase==="loting"&&<LotingsuitslagenPage/>}
+
           {/* ── HOME ── */}
           {phase==="home"&&(
             <div className="hp">
-              {/* HP NAV */}
               <nav className="hp-nav">
                 <div className="hp-nav-inner">
                   <div className="logo" style={{cursor:"pointer"}} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}>
@@ -682,12 +799,12 @@ Bespreek in vier alinea's:
                     <li><a href="#cases">Cases</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#faq">FAQ</a></li>
+                    <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
                     <li><button className="hp-nav-cta" onClick={()=>setPhase("scan")}>Gratis quickscan →</button></li>
                   </ul>
                 </div>
               </nav>
 
-              {/* HERO */}
               <div className="hp-hero">
                 <div className="hp-hero-inner">
                   <div>
@@ -722,7 +839,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* LOTINGSCIJFERS */}
               <div className="hp-loting">
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Tijdvak 1 2026 — bron: RVO, 8 mei 2026</div>
@@ -738,10 +854,12 @@ Bespreek in vier alinea's:
                     <span style={{fontSize:22,flexShrink:0}}>💡</span>
                     <p><strong>Wat betekent inloting?</strong> Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting volgt een inhoudelijke beoordeling door RVO. Wij begeleiden dit screeningstraject voor dezelfde vaste succesfee van <strong>€ 2.500 (excl. btw)</strong>.</p>
                   </div>
+                  <div style={{marginTop:20,textAlign:"center"}}>
+                    <button className="hp-btn-s" onClick={()=>setPhase("loting")}>Bekijk alle lotingsuitslagen 2024–2026 →</button>
+                  </div>
                 </div>
               </div>
 
-              {/* WAT IS SLIM */}
               <div id="slim" className="hp-section" style={{background:"var(--off)"}}>
                 <div className="hp-si">
                   <div className="hp-slbl">De SLIM-regeling</div>
@@ -755,7 +873,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* WAAROM WIJ */}
               <div id="waarom" className="hp-section" style={{background:"var(--white)"}}>
                 <div className="hp-si">
                   <div className="hp-slbl">Onze aanpak</div>
@@ -772,7 +889,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* CASES */}
               <div id="cases" className="hp-loting" style={{padding:"72px 20px"}}>
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Praktijkvoorbeelden</div>
@@ -786,7 +902,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* TEAM */}
               <div id="team" className="hp-section" style={{background:"var(--off)"}}>
                 <div className="hp-si">
                   <div className="hp-slbl">Ons team</div>
@@ -800,7 +915,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* FAQ */}
               <div id="faq" className="hp-section" style={{background:"var(--white)"}}>
                 <div className="hp-si">
                   <div className="hp-slbl">Veelgestelde vragen</div>
@@ -811,7 +925,7 @@ Bespreek in vier alinea's:
                       ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 250 medewerkers bent u een MKB-onderneming met recht op 60% subsidie over uw subsidiabele investering, tot een maximum van € 24.999."],
                       ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie is juist bedoeld om die investering in leren en ontwikkelen mogelijk te maken. De subsidie dekt 60% van uw investering in opleiding en scholing van medewerkers."],
                       ["Wat betekent inloting precies?","Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting beoordeelt RVO uw aanvraag inhoudelijk. Wij begeleiden dit traject voor dezelfde vaste succesfee."],
-                      ["Wat is de succesfee en wanneer betaal ik die?","De vaste succesfee bedraagt € 2.500 (excl. btw) — uitsluitend bij toekenning van de subsidie. De dieptecheck (€ 200 early bird of € 250 regulier, excl. btw) wordt bij toekenning terugbetaald. Geen toekenning = geen succesfee."],
+                      ["Wat is de succesfee en wanneer betaal ik die?","De vaste succesfee bedraagt € 2.500 (excl. btw) — uitsluitend bij toekenning van de subsidie. De kosten van de dieptecheck (€ 200 early bird of € 250 regulier, excl. btw) worden u bij toekenning terugbetaald. Geen subsidie = geen succesfee."],
                     ].map(([q,a],i)=>(
                       <div key={i} className="hp-faq-item" onClick={e=>e.currentTarget.classList.toggle("open")}>
                         <div className="hp-faq-q">{q}<span className="hp-faq-arr">+</span></div>
@@ -822,7 +936,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="hp-cta-section">
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)",textAlign:"center"}}>Tijdvak 2 2026 — opening 10 augustus</div>
@@ -835,7 +948,6 @@ Bespreek in vier alinea's:
                 </div>
               </div>
 
-              {/* FOOTER */}
               <div className="hp-footer">
                 <div className="hp-ft">
                   <div className="hp-ft-top">
@@ -853,6 +965,7 @@ Bespreek in vier alinea's:
                         <li><a href="#cases">Praktijkvoorbeelden</a></li>
                         <li><a href="#team">Ons team</a></li>
                         <li><a href="#faq">Veelgestelde vragen</a></li>
+                        <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
                         <li><button onClick={()=>setPhase("scan")}>Gratis quickscan</button></li>
                       </ul>
                     </div>
@@ -876,7 +989,7 @@ Bespreek in vier alinea's:
             </div>
           )}
 
-          {/* SCAN */}
+          {/* ── SCAN ── */}
           {phase==="scan"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Stap 1 — Gratis Quickscan</div>
@@ -913,7 +1026,7 @@ Bespreek in vier alinea's:
             </>
           )}
 
-          {/* KO */}
+          {/* ── KO ── */}
           {phase==="ko"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot" style={{background:"var(--red)"}}/>Resultaat Quickscan</div>
@@ -937,7 +1050,7 @@ Bespreek in vier alinea's:
             </>
           )}
 
-          {/* RESULT */}
+          {/* ── RESULT ── */}
           {phase==="result"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Stap 2 — Resultaat Quickscan</div>
@@ -956,10 +1069,7 @@ Bespreek in vier alinea's:
                   </div>
                 </div>
               </div>
-
-              {/* LOTING STATS — compact, urgentie toon */}
               <LotingBox compact={true}/>
-
               <div className="card">
                 <div className="card-title">Uw kans is reëel — maar alleen met een sterke aanvraag</div>
                 <p className="card-sub">U heeft zojuist gezien dat uw bedrijf in aanmerking lijkt te komen voor tot <strong>{fmt(subsidyEst)}</strong> subsidie. Dat is veelbelovend. Maar van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} ingediende aanvragen in tijdvak 1 2026 werd slechts 14% ingeloot — en vielen er al 23 uit vóór de loting door vermijdbare fouten. Een sterke, foutloze aanvraag is uw eerste en belangrijkste stap. Onze AI-dieptecheck analyseert uw specifieke situatie en onze adviseurs begeleiden u van aanvraag tot en met het volledige screeningstraject bij RVO.</p>
@@ -996,7 +1106,7 @@ Bespreek in vier alinea's:
             </>
           )}
 
-          {/* PROFIEL */}
+          {/* ── PROFIEL ── */}
           {phase==="profile"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Stap 3 — Bedrijfsprofiel</div>
@@ -1082,7 +1192,7 @@ Bespreek in vier alinea's:
             </>
           )}
 
-          {/* PAYMENT */}
+          {/* ── PAYMENT ── */}
           {phase==="payment"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Stap 4 — Betaling</div>
@@ -1141,7 +1251,7 @@ Bespreek in vier alinea's:
             </>
           )}
 
-          {/* SUCCESS + ANALYSE */}
+          {/* ── SUCCESS ── */}
           {phase==="success"&&(
             <>
               <div className="phase-lbl"><span className="phase-dot"/>Uw persoonlijke SLIM-analyse</div>
@@ -1152,8 +1262,6 @@ Bespreek in vier alinea's:
                   <p className="success-header-sub">Bedankt, <strong>{contact.naam}</strong>. Een bevestiging is verstuurd naar <strong>{contact.email}</strong>.</p>
                   <div className="paid-badge">✓ {fmt(finalPrice)} betaald via {payMethod==="ideal"?"iDEAL":payMethod==="creditcard"?"Creditcard":"Bancontact"}</div>
                 </div>
-
-                {/* AI Analyse */}
                 <div className="ai-box">
                   <div className="ai-label">Uw Persoonlijke AI Diepteanalyse — SLIM Subsidie Advies</div>
                   {loadingAI?(
@@ -1165,7 +1273,6 @@ Bespreek in vier alinea's:
                     <div className="ai-text">{analysis}</div>
                   )}
                 </div>
-
                 {!loadingAI&&(
                   <div className="est-box" style={{marginBottom:0}}>
                     <div className="est-label">Uw subsidie-indicatie</div>
@@ -1178,45 +1285,16 @@ Bespreek in vier alinea's:
                   </div>
                 )}
               </div>
-
-              {/* LOTING DETAIL — uitgebreid, informatief toon */}
               {!loadingAI&&<LotingBox compact={false}/>}
-
-              {/* Volgende stappen */}
               {!loadingAI&&(
                 <div className="next-steps">
                   <div className="next-steps-title">Wat gebeurt er nu?</div>
-                  <div className="next-step">
-                    <div className="next-step-num">1</div>
-                    <div className="next-step-body">
-                      <div className="next-step-title">Terugbelafspraak binnen 5 werkdagen</div>
-                      <div className="next-step-sub">Uw adviseur van SLIM Subsidie Advies neemt contact met u op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div>
-                    </div>
-                  </div>
-                  <div className="next-step">
-                    <div className="next-step-num">2</div>
-                    <div className="next-step-body">
-                      <div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div>
-                      <div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div>
-                    </div>
-                  </div>
-                  <div className="next-step">
-                    <div className="next-step-num">3</div>
-                    <div className="next-step-body">
-                      <div className="next-step-title">Foutloze indiening & begeleid screeningstraject</div>
-                      <div className="next-step-sub">Wij zorgen voor een correcte en complete aanvraag vóór indiening, zodat uw aanvraag niet uitvalt vóór de loting. Na inloting wordt uw aanvraag inhoudelijk beoordeeld door RVO. Wij begeleiden ook dit screeningstraject — inclusief eventuele toelichting- en inhoudelijke vragen van de subsidiebeoordelaars. Dit alles voor dezelfde vaste fee.</div>
-                    </div>
-                  </div>
-                  <div className="next-step">
-                    <div className="next-step-num">4</div>
-                    <div className="next-step-body">
-                      <div className="next-step-title">Lotingsresultaat & succesfee</div>
-                      <div className="next-step-sub">Bij toekenning is een succesfee van € 2.500 (excl. btw) verschuldigd. De kosten van de dieptecheck worden terugbetaald. Geen toekenning = geen succesfee.</div>
-                    </div>
-                  </div>
+                  <div className="next-step"><div className="next-step-num">1</div><div className="next-step-body"><div className="next-step-title">Terugbelafspraak binnen 5 werkdagen</div><div className="next-step-sub">Uw adviseur van SLIM Subsidie Advies neemt contact met u op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">2</div><div className="next-step-body"><div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div><div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">3</div><div className="next-step-body"><div className="next-step-title">Foutloze indiening & begeleid screeningstraject</div><div className="next-step-sub">Wij zorgen voor een correcte en complete aanvraag vóór indiening, zodat uw aanvraag niet uitvalt vóór de loting. Na inloting wordt uw aanvraag inhoudelijk beoordeeld door RVO. Wij begeleiden ook dit screeningstraject — inclusief eventuele toelichting- en inhoudelijke vragen van de subsidiebeoordelaars. Dit alles voor dezelfde vaste fee.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">4</div><div className="next-step-body"><div className="next-step-title">Lotingsresultaat & succesfee</div><div className="next-step-sub">Bij toekenning is een succesfee van € 2.500 (excl. btw) verschuldigd. De kosten van de dieptecheck worden terugbetaald. Geen toekenning = geen succesfee.</div></div></div>
                 </div>
               )}
-
               <div className="summary">
                 <div className="sum-lbl">Uw betalingsoverzicht</div>
                 {[["Bedrijf",bedrijfsnaam],["Sector",profile.sector],["Activiteit(en)",selectedActs.join(" + ")],["Indicatief subsidiebedrag",fmt(subsidyEst)],["Aanvraagtijdvak",deadline.label],["Betaald",fmt(finalPrice)],["Succesfee bij toekenning","€ 2.500 (excl. btw)"]].map(([k,v])=>(
