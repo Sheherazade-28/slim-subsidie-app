@@ -63,8 +63,8 @@ export function buildInvoiceHtml({
       <div style="margin-top:12px;font-size:12px;color:#5a6e82;line-height:1.8;">
         www.slimsubsidieadvies.nl<br>
         info@slimsubsidieadvies.nl<br>
-        KvK: <strong>[VOEL IN: KVK-NUMMER]</strong><br>
-        BTW: <strong>[VOEL IN: BTW-NUMMER]</strong>
+        KvK: <strong>83970614</strong><br>
+        BTW: <strong>NL863053907B01</strong>
       </div>
     </td>
     <td style="border:none;padding:0;text-align:right;vertical-align:top;">
@@ -133,7 +133,7 @@ export function buildInvoiceHtml({
 <!-- Bankgegevens -->
 <div style="font-size:12px;color:#5a6e82;line-height:1.8;border-top:1px solid #e8edf3;padding-top:20px;">
   <strong style="color:#0d2e5a;">Bankgegevens SLIM Subsidie Advies</strong><br>
-  IBAN: <strong>[VOEL IN: IBAN]</strong> · BIC: <strong>[VOEL IN: BIC]</strong><br>
+  IBAN: <strong>NL91ABNA0892920394</strong> · BIC: <strong>ABNANL2A</strong><br>
   Ten name van: SLIM Subsidie Advies<br>
   <span style="font-size:11px;color:#9ca3af;">Deze factuur is automatisch gegenereerd en geldig zonder handtekening.</span>
 </div>
