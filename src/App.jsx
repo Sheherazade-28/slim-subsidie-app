@@ -596,10 +596,34 @@ Bespreek in vier alinea's:
     setLoadingAI(false);
   }
 
-  function submitPayment(){
+  async function submitPayment(){
     if(!contact.naam||!contact.email){alert("Vul uw naam en e-mailadres in.");return;}
     setProcessing(true);
-    setTimeout(()=>{setProcessing(false);setPhase("success");generateAnalysis();},2000);
+    try{
+      const res=await fetch("/api/create-payment",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          naam:contact.naam,
+          bedrijf:contact.bedrijf,
+          email:contact.email,
+          telefoon:contact.telefoon,
+          methode:payMethod,
+          activiteiten:selectedActs,
+          subsidyEst,
+        }),
+      });
+      const data=await res.json();
+      if(data.checkoutUrl){
+        window.location.href=data.checkoutUrl;
+      }else{
+        alert(data.error||"Er ging iets mis. Probeer het opnieuw.");
+        setProcessing(false);
+      }
+    }catch(err){
+      alert("Er ging iets mis. Probeer het opnieuw.");
+      setProcessing(false);
+    }
   }
 
   function LotingBox({compact=false}){
