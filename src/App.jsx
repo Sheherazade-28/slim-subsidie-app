@@ -693,7 +693,7 @@ Bespreek in vier alinea's:
                   <div>
                     <div className="hp-badge"><span className="phase-dot"/>&nbsp;Specialist in SLIM-subsidie voor MKB</div>
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
-                    <p className="hp-sub">De SLIM-subsidie vergoedt 60% van uw investering in leren en ontwikkelen. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
+                    <p className="hp-sub">De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in MKB-ondernemingen) vergoedt 60% van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle SLIM-subsidie aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
                     <div className="hp-ctas">
                       <button className="hp-btn-p" onClick={()=>setPhase("scan")}>Doe de gratis quickscan →</button>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
@@ -746,7 +746,7 @@ Bespreek in vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl">De SLIM-regeling</div>
                   <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
-                  <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in het ontwikkelen van een leercultuur. Beschikbaar voor alle MKB-ondernemingen met personeel. De regeling loopt tot eind 2029.</p>
+                  <p className="hp-ssub">De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in MKB-ondernemingen) is een subsidie van het Ministerie van Sociale Zaken en Werkgelegenheid. De regeling vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De SLIM-regeling loopt tot eind 2029 en kent twee aanvraagtijdvakken per jaar.</p>
                   <div className="hp-act-grid">
                     <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
                     <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
@@ -760,7 +760,7 @@ Bespreek in vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl">Onze aanpak</div>
                   <h2 className="hp-stitle">Waarom via SLIM Subsidie Advies?</h2>
-                  <p className="hp-ssub">Wij zijn de enige specialist die zich 100% focust op de SLIM-subsidie. Van quickscan tot toekenning — én het volledige screeningstraject daarna.</p>
+                  <p className="hp-ssub">SLIM Subsidie Advies is dé specialist in SLIM-subsidie aanvragen voor MKB-ondernemers. Wij zijn de enige subsidieadviseur die zich 100% focust op de SLIM-regeling. Van gratis quickscan tot succesvolle toekenning — én het volledige screeningstraject bij RVO daarna.</p>
                   <div className="hp-why-grid">
                     <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">No cure, no pay</div><div className="hp-why-text">Vaste succesfee van € 2.500 (excl. btw) — alleen bij toekenning. De dieptecheck wordt bij toekenning terugbetaald. Geen toekenning = geen succesfee.</div></div>
@@ -777,7 +777,7 @@ Bespreek in vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Praktijkvoorbeelden</div>
                   <h2 className="hp-stitle" style={{color:"#fff"}}>Wat wij voor ondernemers realiseerden</h2>
-                  <p className="hp-ssub" style={{color:"rgba(255,255,255,0.5)"}}>Drie voorbeelden van succesvolle SLIM-aanvragen die wij van begin tot eind hebben begeleid.</p>
+                  <p className="hp-ssub" style={{color:"rgba(255,255,255,0.5)"}}>Drie voorbeelden van succesvolle SLIM-subsidie aanvragen die wij van begin tot eind hebben begeleid — van quickscan tot toekenning door RVO.</p>
                   <div className="hp-cases-grid">
                     <div className="hp-case-card"><div className="hp-case-sector">Zorgvervoer</div><div className="hp-case-title">Ingebedde leermethodiek voor taxibedrijf in zorgvervoer</div><div className="hp-case-desc">Kritische operationele kennis structureel borgen bij alle chauffeurs via een ingebedde leermethodiek.</div><div className="hp-case-act">Activiteit C — L&O-methode</div></div>
                     <div className="hp-case-card"><div className="hp-case-sector">Interieurverzorging</div><div className="hp-case-title">Leerwerkplek methodiek voor luxe interieurverzorgingsbedrijf</div><div className="hp-case-desc">Vakkennis van ervaren medewerkers structureel overdragen aan nieuwe collega's via een leerwerkplek.</div><div className="hp-case-act">Activiteit C — Leerwerkplek</div></div>
@@ -809,7 +809,7 @@ Bespreek in vier alinea's:
                     {[
                       ["Ik ben ZZP-er. Kom ik in aanmerking?","Nee. Alleen mkb-bedrijven mét personeel in loondienst kunnen SLIM-subsidie aanvragen. De regeling stimuleert leren en ontwikkelen bij werknemers."],
                       ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 250 medewerkers bent u een MKB-onderneming met recht op 60% subsidie over uw subsidiabele investering, tot een maximum van € 24.999."],
-                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM aanvragen?","Ja! De SLIM-subsidie is juist bedoeld om die investering mogelijk te maken. De subsidie dekt 60% van uw investering."],
+                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie is juist bedoeld om die investering in leren en ontwikkelen mogelijk te maken. De subsidie dekt 60% van uw investering in opleiding en scholing van medewerkers."],
                       ["Wat betekent inloting precies?","Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting beoordeelt RVO uw aanvraag inhoudelijk. Wij begeleiden dit traject voor dezelfde vaste succesfee."],
                       ["Wat is de succesfee en wanneer betaal ik die?","De vaste succesfee bedraagt € 2.500 (excl. btw) — uitsluitend bij toekenning van de subsidie. De dieptecheck (€ 200 early bird of € 250 regulier, excl. btw) wordt bij toekenning terugbetaald. Geen toekenning = geen succesfee."],
                     ].map(([q,a],i)=>(
