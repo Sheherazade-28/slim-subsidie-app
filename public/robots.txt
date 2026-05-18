@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.slimsubsidieadvies.nl/sitemap.xml
+
+# Block dev/api routes
+Disallow: /api/
