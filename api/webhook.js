@@ -55,7 +55,9 @@ export default async function handler(req, res) {
 
     // ── Betaling geslaagd ──
     const meta = payment.metadata || {};
-    const { naam, bedrijf, email, activiteiten, subsidyEst, earlyBird, bedrag } = meta;
+    // FIX: bedragExcl en bedragIncl gebruiken (zoals opgeslagen in create-payment.js)
+    // 'bedrag' bestond niet in metadata — was altijd undefined
+    const { naam, bedrijf, email, activiteiten, subsidyEst, earlyBird, bedragExcl, bedragIncl } = meta;
 
     if (!email) {
       console.error("Geen e-mail in metadata voor payment:", id);
@@ -67,14 +69,15 @@ export default async function handler(req, res) {
     const factuurNr = `SSA-${datum.getFullYear()}${String(datum.getMonth() + 1).padStart(2, "0")}${String(datum.getDate()).padStart(2, "0")}-${id.slice(-6).toUpperCase()}`;
 
     // Bouw e-mail en factuur HTML
+    // bedragExcl = excl. BTW (bijv. "200.00"), bedragIncl = incl. BTW (bijv. "242.00")
     const emailHtml = buildConfirmationEmail({
       naam, bedrijf, email, activiteiten, subsidyEst,
-      earlyBird, bedrag, factuurNr, datum, paymentId: id,
+      earlyBird, bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
     });
 
     const factuurHtml = buildInvoiceHtml({
       naam, bedrijf, email, activiteiten,
-      earlyBird, bedrag, factuurNr, datum, paymentId: id,
+      earlyBird, bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
     });
 
     if (!resendKey) {
