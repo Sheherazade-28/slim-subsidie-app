@@ -233,15 +233,15 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-tl-dot.done{background:var(--green);}
 .hp-tl-dot.active{background:var(--blue-light);box-shadow:0 0 0 3px rgba(42,170,226,0.2);}
 .hp-tl-dot.future{background:rgba(255,255,255,0.18);}
-.hp-tl-text{font-size:13px;color:rgba(255,255,255,0.65);}
+.hp-tl-text{font-size:13px;color:rgba(255,255,255,0.8);}
 .hp-tl-text strong{color:#fff;}
 .hp-tl-badge{margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
 .hp-tl-badge.open{background:rgba(42,170,226,0.2);color:var(--blue-light);}
-.hp-tl-badge.closed{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.3);}
+.hp-tl-badge.closed{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);}
 .hp-eb{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
-.hp-eb-lbl{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:3px;}
+.hp-eb-lbl{font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:3px;}
 .hp-eb-price{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:#fff;}
-.hp-eb-sub{font-size:11px;color:rgba(255,255,255,0.3);}
+.hp-eb-sub{font-size:11px;color:rgba(255,255,255,0.55);}
 .hp-section{padding:72px 20px;}
 .hp-si{max-width:1100px;margin:0 auto;}
 .hp-slbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
@@ -251,6 +251,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-l-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0;}
 .hp-l-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px 16px;text-align:center;}
 .hp-l-num{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;line-height:1;margin-bottom:5px;}
+.hp-l-lbl{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.4;}
 .hp-l-num.w{color:#fff;}.hp-l-num.r{color:#ff8080;}.hp-l-num.b{color:var(--blue-light);}.hp-l-num.g{color:#60e0a0;}
 .hp-l-insight{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;display:flex;gap:14px;}
 .hp-l-insight p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
@@ -297,12 +298,12 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-cta-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;color:#fff;margin-bottom:14px;line-height:1.05;}
 .hp-cta-title span{color:var(--blue-light);}
 .hp-cta-sub{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:32px;line-height:1.65;}
-.hp-cta-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,0.3);}
+.hp-cta-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,0.5);}
 .hp-footer{background:#070d18;padding:48px 20px 22px;}
 .hp-ft{max-width:1100px;margin:0 auto;}
 .hp-ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:36px;}
-.hp-ft-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.7;margin-top:10px;}
-.hp-ft-h{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:12px;}
+.hp-ft-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:10px;}
+.hp-ft-h{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;}
 .hp-ft-links{list-style:none;display:flex;flex-direction:column;gap:7px;}
 .hp-ft-links a,.hp-ft-links button{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;padding:0;}
 .hp-ft-links a:hover,.hp-ft-links button:hover{color:#fff;}
@@ -747,7 +748,7 @@ Bespreek in vier alinea's:
                           </div>
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>50%</div>
                         </div>
-                        <div style={{fontSize:11,color:"rgba(255,255,255,0.3)",textAlign:"center",paddingTop:2}}>Maximaal subsidiebedrag: € 24.999 per aanvraag.</div>
+                        <div style={{fontSize:11,color:"rgba(255,255,255,0.55)",textAlign:"center",paddingTop:2}}>Maximaal subsidiebedrag: € 24.999 per aanvraag.</div>
                       </div>
                       <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
                       <div className="hp-tl">
