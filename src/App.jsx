@@ -801,6 +801,7 @@ Bespreek in vier alinea's:
                     <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">No cure, no pay</div><div className="hp-why-text">Vaste succesfee van € 2.500 (excl. btw) — alleen bij toekenning. De dieptecheck wordt bij toekenning terugbetaald.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">✅</span><div className="hp-why-title">Foutloze indiening</div><div className="hp-why-text">23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">🔄</span><div className="hp-why-title">Herindienen tot inloting</div><div className="hp-why-text">Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">📋</span><div className="hp-why-title">Van A tot Z begeleiding</div><div className="hp-why-text">Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">💰</span><div className="hp-why-title">Scherpste fee-garantie</div><div className="hp-why-text">Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">⚡</span><div className="hp-why-title">Direct starten</div><div className="hp-why-text">Via onze gratis online quickscan weet u binnen 2 minuten of uw bedrijf in aanmerking komt.</div></div>
@@ -965,7 +966,7 @@ Bespreek in vier alinea's:
                 <div className="pricing">
                   <div className="pricing-head">
                     <div className="pricing-head-title">SLIM DIEPTECHECK + AANVRAAGBEGELEIDING</div>
-                    <div className="pricing-head-sub">Van analyse tot foutloze indiening — alles inbegrepen</div>
+                    <div className="pricing-head-sub">Van analyse tot foutloze indiening — én herindienen totdat u ingeloot wordt</div>
                   </div>
                   <div className="pricing-body">
                     {eb&&<div className="eb-badge">⏰ Early Bird — 20% korting</div>}
@@ -981,6 +982,7 @@ Bespreek in vier alinea's:
                       <li><span className="feat-check">✓</span>Foutloze aanvraag — nooit afgekeurd vóór de loting</li>
                       <li><span className="feat-check">✓</span>Activiteitenplan, begroting en documentenverzameling</li>
                       <li><span className="feat-check">✓</span>Compliance-check en indiening via RVO e-portaal</li>
+                      <li><span className="feat-check">✓</span><strong>Niet ingeloot?</strong> Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt</li>
                     </ul>
                     <div className="nocure-note"><strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€ 2.500</strong> (excl. btw). De kosten van de dieptecheck worden u bij toekenning terugbetaald. Geen subsidie = geen succesfee.</div>
                     <div className="btn-row">
@@ -1054,6 +1056,7 @@ Bespreek in vier alinea's:
                   <li><span className="feat-check">✓</span>Bevestigingsmail met factuur</li>
                   <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 5 werkdagen</li>
                   <li><span className="feat-check">✓</span>Start volledige aanvraagbegeleiding richting {deadline.label}</li>
+                  <li><span className="feat-check">✓</span><strong>Herindienen inbegrepen:</strong> niet ingeloot? Wij actualiseren uw aanvraag ieder tijdvak en dienen opnieuw in — totdat u ingeloot wordt</li>
                 </ul>
               </div>
               <div className="card">
@@ -1151,6 +1154,7 @@ Bespreek in vier alinea's:
                   <div className="next-step"><div className="next-step-num">2</div><div className="next-step-body"><div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div><div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div></div></div>
                   <div className="next-step"><div className="next-step-num">3</div><div className="next-step-body"><div className="next-step-title">Foutloze indiening & begeleid screeningstraject</div><div className="next-step-sub">Wij zorgen voor een correcte aanvraag vóór indiening. Na inloting begeleiden wij ook het screeningstraject bij RVO. Alles voor dezelfde vaste fee.</div></div></div>
                   <div className="next-step"><div className="next-step-num">4</div><div className="next-step-body"><div className="next-step-title">Lotingsresultaat & succesfee</div><div className="next-step-sub">Bij toekenning is een succesfee van € 2.500 (excl. btw) verschuldigd. De dieptecheck wordt terugbetaald. Geen toekenning = geen succesfee.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">5</div><div className="next-step-body"><div className="next-step-title">Niet ingeloot? Wij dienen opnieuw in — ieder tijdvak</div><div className="next-step-sub">Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen uw aanvraag in het volgende tijdvak opnieuw in. Wij blijven dit doen totdat u ingeloot wordt. Geen extra kosten — inbegrepen in uw pakket.</div></div></div>
                 </div>
               )}
               <div className="summary">

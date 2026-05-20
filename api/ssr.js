@@ -62,7 +62,15 @@ export default function handler(req, res) {
         "name": "Wat kost de begeleiding van SLIM Subsidie Advies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "De quickscan is volledig gratis en vrijblijvend. Onze begeleiding bij de aanvraag werkt op no cure no pay basis — u betaalt alleen bij een succesvolle toekenning van de subsidie."
+          "text": "De quickscan is volledig gratis en vrijblijvend. De aanvraagbegeleiding kost €200 (early bird) of €250 excl. btw, inclusief herindienservice. Wordt u niet ingeloot, dan dienen wij uw aanvraag ieder tijdvak opnieuw in totdat u ingeloot wordt — inclusief actualisatie van de documenten, zonder extra kosten. U betaalt de succesfee uitsluitend bij toekenning van de subsidie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wat gebeurt er als mijn SLIM-subsidie aanvraag niet ingeloot wordt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De SLIM-subsidie wordt verdeeld via een notariële loting. Niet ingeloot worden betekent niet dat uw aanvraag is afgewezen — u kunt het volgende tijdvak opnieuw indienen. SLIM Subsidie Advies doet dit automatisch voor u: wij actualiseren alle benodigde documenten en dienen uw aanvraag ieder tijdvak opnieuw in, totdat u ingeloot wordt. Dit is inbegrepen in de begeleiding, zonder extra kosten."
         }
       },
       {
@@ -139,6 +147,7 @@ export default function handler(req, res) {
         <span class="badge">50–60% vergoeding</span>
         <span class="badge">Alle MKB-sectoren</span>
         <span class="badge">No cure no pay</span>
+        <span class="badge">Herindienen tot inloting</span>
       </div>
     </section>
 
@@ -171,7 +180,12 @@ export default function handler(req, res) {
         <li><strong>Ontvang uw persoonlijke subsidieadvies</strong> — inclusief verwacht subsidiebedrag</li>
         <li><strong>Wij verzorgen de volledige aanvraag</strong> — van activiteitenplan tot indiening</li>
         <li><strong>No cure no pay</strong> — u betaalt alleen bij een succesvolle toekenning</li>
+        <li><strong>Niet ingeloot? Wij dienen opnieuw in</strong> — ieder tijdvak actualiseren wij uw aanvraag en dienen deze opnieuw in, totdat u ingeloot wordt. Inbegrepen, zonder extra kosten.</li>
       </ol>
+      <div class="highlight-box" style="margin-top:1.25rem">
+        <strong>Wat onderscheidt ons?</strong><br />
+        De SLIM-subsidie gaat door een notariële loting. Niet ingeloot zijn betekent <em>niet</em> dat uw aanvraag wordt afgewezen — het betekent dat u de volgende ronde opnieuw kunt indienen. Wij doen dat automatisch voor u, ieder tijdvak, totdat u wél ingeloot wordt. Inclusief actualisatie van alle benodigde documenten.
+      </div>
     </section>
 
     <section>
@@ -183,8 +197,8 @@ export default function handler(req, res) {
       <h3>Wanneer kan ik aanvragen in 2026?</h3>
       <p>Het eerstvolgende tijdvak voor <strong>individuele MKB-aanvragen</strong> loopt van <strong>10 augustus 2026 (09:00 uur)</strong> tot <strong>7 september 2026 (17:00 uur)</strong>. Aanvragen worden via loting behandeld — het maakt dus niet uit op welke dag u indient, als de aanvraag maar volledig en correct is. Daarna is het eerste tijdvak van 2027 de eerstvolgende mogelijkheid.</p>
 
-      <h3>Wat als mijn aanvraag wordt afgewezen?</h3>
-      <p>Bij no cure no pay betaalt u niets als de aanvraag niet wordt toegekend. Wij zorgen voor een zo volledig en kansrijke aanvraag als mogelijk.</p>
+      <h3>Wat als mijn aanvraag niet ingeloot wordt?</h3>
+      <p>De SLIM-subsidie wordt verdeeld via een notariële loting. Wordt uw aanvraag niet ingeloot, dan dienen wij uw aanvraag in het volgende tijdvak opnieuw in — inclusief actualisatie van alle benodigde documenten. Dit herhalen wij ieder tijdvak totdat u ingeloot wordt. Inbegrepen in de begeleiding, zonder extra kosten. U betaalt de succesfee uitsluitend bij toekenning.</p>
 
       <h3>Hoe lang duurt het proces?</h3>
       <p>De quickscan duurt 2 minuten. De voorbereiding van een volledige aanvraag duurt 2 tot 4 weken. Wij adviseren minimaal 4 weken voor de deadline te starten.</p>
