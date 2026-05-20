@@ -8,7 +8,8 @@ export function buildConfirmationEmail({
   activiteiten = [],
   subsidyEst = 0,
   earlyBird = false,
-  bedrag = "250.00",
+  bedragExcl = "200.00",   // excl. BTW — was voorheen "bedrag"
+  bedragIncl = "242.00",   // incl. BTW (21%)
   factuurNr,
   datum,
   paymentId,
@@ -17,9 +18,9 @@ export function buildConfirmationEmail({
     day: "numeric", month: "long", year: "numeric",
   });
 
-  const bedragNum = parseFloat(bedrag);
-  const btw = (bedragNum * 0.21).toFixed(2);
-  const totaal = (bedragNum * 1.21).toFixed(2);
+  const bedragExclNum = parseFloat(bedragExcl);
+  const bedragInclNum = parseFloat(bedragIncl);
+  const btw = (bedragInclNum - bedragExclNum).toFixed(2);
 
   const subsidyFmt = new Intl.NumberFormat("nl-NL", {
     style: "currency", currency: "EUR", maximumFractionDigits: 0,
@@ -69,9 +70,9 @@ export function buildConfirmationEmail({
                 <tr><td style="font-size:13px;color:#5a6e82;padding:5px 0;">Datum</td><td style="font-size:13px;font-weight:600;color:#0d2e5a;text-align:right;">${datumStr}</td></tr>
                 <tr><td style="font-size:13px;color:#5a6e82;padding:5px 0;">Product</td><td style="font-size:13px;font-weight:600;color:#0d2e5a;text-align:right;">SLIM Dieptecheck${earlyBird ? " (Early Bird)" : ""}</td></tr>
                 <tr><td colspan="2" style="border-top:1px solid #e8edf3;padding-top:10px;"></td></tr>
-                <tr><td style="font-size:13px;color:#5a6e82;padding:4px 0;">Bedrag excl. btw</td><td style="font-size:13px;color:#0d2e5a;text-align:right;">€ ${bedragNum.toFixed(2)}</td></tr>
+                <tr><td style="font-size:13px;color:#5a6e82;padding:4px 0;">Bedrag excl. btw</td><td style="font-size:13px;color:#0d2e5a;text-align:right;">€ ${bedragExclNum.toFixed(2)}</td></tr>
                 <tr><td style="font-size:13px;color:#5a6e82;padding:4px 0;">BTW (21%)</td><td style="font-size:13px;color:#0d2e5a;text-align:right;">€ ${btw}</td></tr>
-                <tr><td style="font-size:14px;font-weight:700;color:#0d2e5a;padding:8px 0 4px;">Totaal betaald</td><td style="font-size:14px;font-weight:700;color:#0d2e5a;text-align:right;">€ ${totaal}</td></tr>
+                <tr><td style="font-size:14px;font-weight:700;color:#0d2e5a;padding:8px 0 4px;">Totaal betaald</td><td style="font-size:14px;font-weight:700;color:#0d2e5a;text-align:right;">€ ${bedragInclNum.toFixed(2)}</td></tr>
               </table>
             </td></tr>
           </table>
