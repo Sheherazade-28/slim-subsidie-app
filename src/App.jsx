@@ -429,7 +429,13 @@ const LOTING_TIJDVAKKEN=[
 
 function fmt(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);}
 function fmt2(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
-function calcSubsidy(inv,agri){return Math.min(inv*.6,agri?20000:24999);}
+function calcSubsidy(inv,agri,medewerkers){
+  // Vanaf 2025: klein MKB (<50 mw) = 60%, middelgroot (50-250 mw) = 50%
+  const mwStr=medewerkers||"";
+  const isKlein=mwStr===""||["1–5 medewerkers","6–10 medewerkers","11–25 medewerkers","26–50 medewerkers"].includes(mwStr);
+  const pct=isKlein?0.60:0.50;
+  return Math.min(inv*pct,agri?20000:24999);
+}
 function isEarlyBird(){const now=new Date();return(now>=new Date(2026,4,5)&&now<=new Date(2026,6,10))||(now>=new Date(2026,8,8)&&now<=new Date(2027,0,6));}
 function nextDeadline(){
   const now=new Date();
@@ -470,19 +476,39 @@ export default function App(){
   const finalPriceIncl=finalPrice*1.21;
   const isAgri=answers.agriculture==="yes";
   const invNum=parseFloat(investment.replace(",","."))||0;
-  const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
+  const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri,profile.medewerkers):0;
   const allScanDone=QUESTIONS.every(q=>answers[q.id]!==undefined)&&invNum>=8334;
   const profileOk=profile.medewerkers&&profile.rechtsvorm&&profile.sector&&profile.provincie&&selectedActs.length>0&&contact.bedrijf;
   const progress=[10,25,45,68,100];
   const curStep=PHASE_IDX[phase]||0;
   const bedrijfsnaam=contact.bedrijf;
 
+  // ── Herstel profiel na Mollie redirect ──
+  useEffect(()=>{
+    if(phase==="success"){
+      const saved=sessionStorage.getItem("slimProfiel");
+      if(saved){
+        try{
+          const p=JSON.parse(saved);
+          if(p.contact)setContact(p.contact);
+          if(p.profile)setProfile(p.profile);
+          if(p.selectedActs)setSelectedActs(p.selectedActs);
+          if(p.answers)setAnswers(p.answers);
+          if(p.investment)setInvestment(p.investment);
+          sessionStorage.removeItem("slimProfiel");
+        }catch(e){console.error("Herstel profiel mislukt:",e);}
+      }
+    }
+  },[]);
+
   useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"});},[phase]);
 
   // ── FIX 2: start AI analyse automatisch na Mollie redirect ──
+  // Wacht even zodat het sessionStorage-herstel (hierboven) eerst kan landen
   useEffect(()=>{
     if(phase==="success"&&!analysis&&!loadingAI){
-      generateAnalysis();
+      const timer=setTimeout(()=>generateAnalysis(),300);
+      return()=>clearTimeout(timer);
     }
   },[phase]);
 
@@ -540,6 +566,10 @@ Bespreek in vier alinea's:
     if(!contact.naam||!contact.email){alert("Vul uw naam en e-mailadres in.");return;}
     setProcessing(true);
     try{
+      // Sla profiel op zodat we het kunnen herstellen na Mollie redirect
+      sessionStorage.setItem("slimProfiel",JSON.stringify({
+        contact,profile,selectedActs,answers,investment,subsidyEst
+      }));
       const res=await fetch("/api/create-payment",{
         method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify({naam:contact.naam,bedrijf:contact.bedrijf,email:contact.email,telefoon:contact.telefoon,methode:payMethod,activiteiten:selectedActs,subsidyEst}),
@@ -895,11 +925,11 @@ Bespreek in vier alinea's:
                 <div className="est-box">
                   <div className="est-label">Indicatief subsidiebedrag</div>
                   <div className="est-amount">{fmt(subsidyEst)}</div>
-                  <div className="est-sub">60% van {fmt(invNum)}{isAgri?" (max. €20.000 voor landbouw)":" (max. €24.999)"}</div>
+                  <div className="est-sub">{["51–100 medewerkers","101–249 medewerkers","250+ medewerkers"].includes(profile.medewerkers)?"50%":"60%"} van {fmt(invNum)}{isAgri?" (max. €20.000 voor landbouw)":" (max. €24.999)"}</div>
                   <div className="est-grid">
                     <div className="est-item"><div className="est-item-label">Tijdvak</div><div className="est-item-val">{deadline.label}</div></div>
                     <div className="est-item"><div className="est-item-label">Opening aanvraag</div><div className="est-item-val">{deadline.open.toLocaleDateString("nl-NL")}</div></div>
-                    <div className="est-item"><div className="est-item-label">Subsidie %</div><div className="est-item-val">60%</div></div>
+                    <div className="est-item"><div className="est-item-label">Subsidie %</div><div className="est-item-val">{["51–100 medewerkers","101–249 medewerkers","250+ medewerkers"].includes(profile.medewerkers)?"50%":"60%"}</div></div>
                   </div>
                 </div>
               </div>
