@@ -713,7 +713,7 @@ Bespreek in vier alinea's:
                   <div>
                     <div className="hp-badge"><span className="phase-dot"/>&nbsp;Specialist in SLIM-subsidie voor MKB</div>
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
-                    <p className="hp-sub">De SLIM-subsidie vergoedt <strong style={{color:"var(--blue-light)"}}>tot 60%</strong> van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
+                    <p className="hp-sub">De SLIM-subsidie vergoedt <strong style={{color:"var(--blue-light)"}}>tot 60%</strong> van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. Dieptecheck: €200 (early bird) of €250 excl. btw. De succesfee is no cure, no pay.</p>
                     <div className="hp-ctas">
                       <button className="hp-btn-p" onClick={()=>setPhase("scan")}>Doe de gratis quickscan →</button>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
@@ -799,7 +799,7 @@ Bespreek in vier alinea's:
                   <p className="hp-ssub">De specialist in SLIM-subsidie aanvragen voor MKB-ondernemers. Van gratis quickscan tot toekenning — én het volledige screeningstraject bij RVO.</p>
                   <div className="hp-why-grid">
                     <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
-                    <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">No cure, no pay</div><div className="hp-why-text">Vaste succesfee van € 2.500 (excl. btw) — alleen bij toekenning. De dieptecheck wordt bij toekenning terugbetaald.</div></div>
+                    <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">Succesfee: no cure, no pay</div><div className="hp-why-text">De dieptecheck kost €200 (early bird t/m 10 juli) of €250 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de dieptecheck wordt dan terugbetaald.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">✅</span><div className="hp-why-title">Foutloze indiening</div><div className="hp-why-text">23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🔄</span><div className="hp-why-title">Herindienen tot inloting</div><div className="hp-why-text">Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">📋</span><div className="hp-why-title">Van A tot Z begeleiding</div><div className="hp-why-text">Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen.</div></div>
@@ -860,7 +860,7 @@ Bespreek in vier alinea's:
                   <div style={{display:"flex",justifyContent:"center"}}>
                     <button className="hp-btn-p" onClick={()=>setPhase("scan")} style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</button>
                   </div>
-                  <p className="hp-cta-note">Gratis quickscan · No cure, no pay · Vaste succesfee € 2.500 excl. btw</p>
+                  <p className="hp-cta-note">Gratis quickscan · Dieptecheck €200 (early bird) of €250 excl. btw · Succesfee €2.500 excl. btw — no cure, no pay</p>
                 </div>
               </div>
               <div className="hp-footer">

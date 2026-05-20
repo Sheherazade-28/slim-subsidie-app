@@ -8,13 +8,13 @@ export default function handler(req, res) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SLIM Subsidie Aanvragen | Tot €24.999 voor MKB | SLIM Subsidie Advies</title>
-  <meta name="description" content="Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan, no cure no pay. Doe de check in 2 minuten." />
+  <meta name="description" content="Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan · Dieptecheck €200 (early bird) of €250 excl. btw · Succesfee no cure no pay. Doe de check in 2 minuten." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.slimsubsidieadvies.nl/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="SLIM Subsidie Aanvragen | Tot €24.999 voor MKB" />
-  <meta property="og:description" content="Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen. Gratis quickscan, no cure no pay." />
+  <meta property="og:description" content="Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen. Gratis quickscan · Dieptecheck €200/€250 excl. btw · Succesfee no cure no pay." />
   <meta property="og:url" content="https://www.slimsubsidieadvies.nl/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="nl_NL" />
@@ -92,13 +92,13 @@ export default function handler(req, res) {
     "@type": "ProfessionalService",
     "name": "SLIM Subsidie Advies",
     "url": "https://www.slimsubsidieadvies.nl",
-    "description": "Specialist in SLIM-subsidie aanvragen voor MKB. Gratis quickscan, no cure no pay begeleiding.",
+    "description": "Specialist in SLIM-subsidie aanvragen voor MKB. Gratis quickscan, dieptecheck €200/€250 excl. btw, succesfee no cure no pay.",
     "areaServed": {
       "@type": "Country",
       "name": "Nederland"
     },
     "serviceType": "Subsidieadvies",
-    "priceRange": "No cure no pay"
+    "priceRange": "Dieptecheck €200–€250 excl. btw · Succesfee €2500 no cure no pay"
   }
   </script>
 
@@ -128,7 +128,7 @@ export default function handler(req, res) {
 
   <header>
     <h1>SLIM Subsidie Aanvragen voor MKB</h1>
-    <p>Tot €24.999 subsidie voor leren &amp; ontwikkelen · Gratis quickscan · No cure no pay</p>
+    <p>Tot €24.999 subsidie voor leren &amp; ontwikkelen · Gratis quickscan · Succesfee no cure no pay</p>
     <a href="https://www.slimsubsidieadvies.nl/" class="cta-btn">Doe gratis de quickscan →</a>
   </header>
 
@@ -146,7 +146,7 @@ export default function handler(req, res) {
         <span class="badge">Tot €24.999 per aanvraag</span>
         <span class="badge">50–60% vergoeding</span>
         <span class="badge">Alle MKB-sectoren</span>
-        <span class="badge">No cure no pay</span>
+        <span class="badge">Succesfee no cure no pay</span>
         <span class="badge">Herindienen tot inloting</span>
       </div>
     </section>
@@ -179,7 +179,7 @@ export default function handler(req, res) {
         <li><strong>Doe de gratis quickscan</strong> — weet in 2 minuten of u in aanmerking komt</li>
         <li><strong>Ontvang uw persoonlijke subsidieadvies</strong> — inclusief verwacht subsidiebedrag</li>
         <li><strong>Wij verzorgen de volledige aanvraag</strong> — van activiteitenplan tot indiening</li>
-        <li><strong>No cure no pay</strong> — u betaalt alleen bij een succesvolle toekenning</li>
+        <li><strong>Dieptecheck €200 (early bird) of €250 excl. btw</strong> — de dieptecheck wordt terugbetaald bij toekenning; de succesfee van €2.500 excl. btw is <strong>no cure no pay</strong>: uitsluitend verschuldigd bij succesvolle toekenning</li>
         <li><strong>Niet ingeloot? Wij dienen opnieuw in</strong> — ieder tijdvak actualiseren wij uw aanvraag en dienen deze opnieuw in, totdat u ingeloot wordt. Inbegrepen, zonder extra kosten.</li>
       </ol>
       <div class="highlight-box" style="margin-top:1.25rem">
