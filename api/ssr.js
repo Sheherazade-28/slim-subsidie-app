@@ -30,7 +30,7 @@ export default function handler(req, res) {
         "name": "Hoeveel SLIM-subsidie kan ik als MKB-er krijgen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Als MKB-ondernemer kunt u maximaal €24.999 per aanvraag ontvangen. Kleinbedrijven met tot 50 medewerkers ontvangen 80% vergoeding. Bedrijven met 50-250 medewerkers ontvangen 60% vergoeding over de subsidiabele kosten."
+          "text": "Als MKB-ondernemer kunt u maximaal €24.999 per aanvraag ontvangen. Kleine ondernemingen (tot 50 medewerkers) ontvangen 60% vergoeding. Middelgrote ondernemingen (50-250 medewerkers) ontvangen 50% vergoeding over de subsidiabele kosten. Deze percentages gelden vanaf 2025."
         }
       },
       {
@@ -38,7 +38,7 @@ export default function handler(req, res) {
         "name": "Wanneer kan ik SLIM-subsidie aanvragen in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Samenwerkingsverbanden in het MKB kunnen SLIM-subsidie aanvragen van 8 juni 2026 tot 6 juli 2026. De exacte openstellingsdata voor individuele MKB-aanvragen worden nog bekendgemaakt. Meld u nu aan voor een gratis quickscan zodat u direct kunt indienen zodra het tijdvak opent."
+          "text": "Het eerstvolgende tijdvak voor individuele MKB-aanvragen is van 10 augustus 2026 (09:00 uur) tot 7 september 2026 (17:00 uur). Aanvragen gaan via loting, dus het maakt niet uit of u op dag 1 of dag 20 indient — zolang uw aanvraag volledig en correct is. Begin minimaal 4 weken voor de deadline met de voorbereiding."
         }
       },
       {
@@ -127,8 +127,8 @@ export default function handler(req, res) {
   <main>
 
     <div class="highlight-box">
-      <strong>⏰ Let op: aanvraagtijdvak 2026</strong><br />
-      Samenwerkingsverbanden kunnen SLIM-subsidie aanvragen van <strong>8 juni tot 6 juli 2026</strong>. Begin nu met de gratis quickscan zodat u klaarstaat.
+      <strong>⏰ Eerstvolgende aanvraagtijdvak: 10 augustus – 7 september 2026</strong><br />
+      Individuele MKB-ondernemingen kunnen SLIM-subsidie aanvragen van <strong>10 augustus 2026 (09:00 uur)</strong> tot <strong>7 september 2026 (17:00 uur)</strong>. Aanvragen gaan via loting — begin nu met de gratis quickscan zodat uw aanvraag klaar staat.
     </div>
 
     <section>
@@ -136,7 +136,7 @@ export default function handler(req, res) {
       <p>De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in MKB-ondernemingen) is een regeling van het Ministerie van Sociale Zaken en Werkgelegenheid. MKB-bedrijven kunnen subsidie ontvangen voor initiatieven die leren en ontwikkelen structureel verankeren in de organisatie.</p>
       <div class="badge-row">
         <span class="badge">Tot €24.999 per aanvraag</span>
-        <span class="badge">60–80% vergoeding</span>
+        <span class="badge">50–60% vergoeding</span>
         <span class="badge">Alle MKB-sectoren</span>
         <span class="badge">No cure no pay</span>
       </div>
@@ -178,10 +178,10 @@ export default function handler(req, res) {
       <h2>Veelgestelde vragen over SLIM-subsidie</h2>
 
       <h3>Hoeveel subsidie kan ik krijgen?</h3>
-      <p>Kleinbedrijven (tot 50 medewerkers) ontvangen <strong>80% vergoeding</strong> over de eerste €25.000 aan kosten — dus tot €20.000 netto subsidie. Bedrijven met 50–250 medewerkers ontvangen 60%, tot een maximum van €24.999.</p>
+      <p>Kleine ondernemingen (tot 50 medewerkers) ontvangen <strong>60% vergoeding</strong> over de subsidiabele kosten. Middelgrote ondernemingen (50–250 medewerkers) ontvangen 50%. Het maximale subsidiebedrag per aanvraag blijft €24.999.</p>
 
       <h3>Wanneer kan ik aanvragen in 2026?</h3>
-      <p>Samenwerkingsverbanden kunnen aanvragen van <strong>8 juni tot 6 juli 2026</strong>. De data voor individuele MKB-aanvragen worden nog bekendgemaakt. Doe nu de quickscan zodat u klaarstaat zodra het tijdvak opent.</p>
+      <p>Het eerstvolgende tijdvak voor <strong>individuele MKB-aanvragen</strong> loopt van <strong>10 augustus 2026 (09:00 uur)</strong> tot <strong>7 september 2026 (17:00 uur)</strong>. Aanvragen worden via loting behandeld — het maakt dus niet uit op welke dag u indient, als de aanvraag maar volledig en correct is. Daarna is het eerste tijdvak van 2027 de eerstvolgende mogelijkheid.</p>
 
       <h3>Wat als mijn aanvraag wordt afgewezen?</h3>
       <p>Bij no cure no pay betaalt u niets als de aanvraag niet wordt toegekend. Wij zorgen voor een zo volledig en kansrijke aanvraag als mogelijk.</p>
