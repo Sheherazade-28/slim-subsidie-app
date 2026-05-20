@@ -225,7 +225,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;}
 .hp-stat-num em{color:var(--blue-light);font-style:normal;}
 .hp-stat-lbl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px;}
-.hp-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px 16px 0 0;padding:26px;}
+.hp-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:26px;}
 .hp-card-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
 .hp-tl{display:flex;flex-direction:column;gap:11px;}
 .hp-tl-item{display:flex;align-items:center;gap:11px;}
@@ -712,23 +712,47 @@ Bespreek in vier alinea's:
                   <div>
                     <div className="hp-badge"><span className="phase-dot"/>&nbsp;Specialist in SLIM-subsidie voor MKB</div>
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
-                    <p className="hp-sub">De SLIM-subsidie vergoedt 60% van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
+                    <p className="hp-sub">De SLIM-subsidie vergoedt <strong style={{color:"var(--blue-light)"}}>tot 60%</strong> van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. No cure, no pay.</p>
                     <div className="hp-ctas">
                       <button className="hp-btn-p" onClick={()=>setPhase("scan")}>Doe de gratis quickscan →</button>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
                     </div>
                     <div className="hp-stats">
                       <div><div className="hp-stat-num">€<em>24.999</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
-                      <div><div className="hp-stat-num"><em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
+                      <div><div className="hp-stat-num">tot <em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
                       <div><div className="hp-stat-num">€<em>2.500</em></div><div className="hp-stat-lbl">Vaste succesfee (excl. btw)</div></div>
                     </div>
                   </div>
                   <div>
                     <div className="hp-card">
-                      <div className="hp-card-title">Aanvraagtijdvakken 2026</div>
+                      <div className="hp-card-title">Subsidiepercentages</div>
+                      <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:16}}>
+                        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"12px 16px"}}>
+                          <div style={{display:"flex",alignItems:"center",gap:10}}>
+                            <span style={{fontSize:20}}>👤</span>
+                            <div>
+                              <div style={{fontSize:13,fontWeight:600,color:"#fff"}}>Klein bedrijf</div>
+                              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>tot 50 medewerkers</div>
+                            </div>
+                          </div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>60%</div>
+                        </div>
+                        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"12px 16px"}}>
+                          <div style={{display:"flex",alignItems:"center",gap:10}}>
+                            <span style={{fontSize:20}}>👥</span>
+                            <div>
+                              <div style={{fontSize:13,fontWeight:600,color:"#fff"}}>Middelgroot bedrijf</div>
+                              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>51 t/m 250 medewerkers</div>
+                            </div>
+                          </div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>50%</div>
+                        </div>
+                        <div style={{fontSize:11,color:"rgba(255,255,255,0.3)",textAlign:"center",paddingTop:2}}>Maximaal subsidiebedrag: € 24.999 per aanvraag.</div>
+                      </div>
+                      <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
                       <div className="hp-tl">
                         <div className="hp-tl-item"><div className="hp-tl-dot done"/><div className="hp-tl-text"><strong>Tijdvak 1</strong> — 7 april t/m 4 mei 2026</div><span className="hp-tl-badge closed">Gesloten</span></div>
-                        <div className="hp-tl-item"><div className="hp-tl-dot active"/><div className="hp-tl-text"><strong>Tijdvak 2</strong> — 10 aug t/m 7 sep 2026</div><span className="hp-tl-badge open">Open</span></div>
+                        <div className="hp-tl-item"><div className="hp-tl-dot active"/><div className="hp-tl-text"><strong>Tijdvak 2</strong> — 10 aug t/m 7 sep 2026</div><span className="hp-tl-badge open">Opent binnenkort</span></div>
                         <div className="hp-tl-item"><div className="hp-tl-dot future"/><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge closed">Volgt</span></div>
                       </div>
                       <div className="hp-eb">
@@ -759,7 +783,7 @@ Bespreek in vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl">De SLIM-regeling</div>
                   <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
-                  <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
+                  <p className="hp-ssub">De SLIM-subsidie vergoedt tot 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers. Klein MKB (tot 50 medewerkers) ontvangt 60%, middelgroot MKB (51–250 medewerkers) 50%. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
                   <div className="hp-act-grid">
                     <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
                     <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
@@ -813,8 +837,8 @@ Bespreek in vier alinea's:
                   <div className="hp-faq-list">
                     {[
                       ["Ik ben ZZP-er. Kom ik in aanmerking?","Nee. Alleen mkb-bedrijven mét personeel in loondienst kunnen SLIM-subsidie aanvragen."],
-                      ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 250 medewerkers bent u een MKB-onderneming met recht op 60% subsidie, tot een maximum van € 24.999."],
-                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie dekt 60% van uw investering in opleiding en scholing van medewerkers."],
+                      ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 50 medewerkers valt u onder het klein MKB en ontvangt u 60% subsidie op uw investering, tot een maximum van € 24.999. Bedrijven met 51–250 medewerkers ontvangen 50%."],
+                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie dekt 50–60% van uw investering in opleiding en scholing van medewerkers, afhankelijk van uw bedrijfsgrootte."],
                       ["Wat betekent inloting precies?","Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting beoordeelt RVO uw aanvraag inhoudelijk."],
                       ["Wat kost SLIM-subsidie aanvragen via SLIM Subsidie Advies?","De quickscan is gratis. Dieptecheck kost € 200 excl. btw (early bird) of € 250 excl. btw (€ 242 resp. € 302,50 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw. Geen toekenning = geen succesfee."],
                     ].map(([q,a],i)=>(
