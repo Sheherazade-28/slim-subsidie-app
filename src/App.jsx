@@ -448,6 +448,29 @@ function nextDeadline(){
 const STEP_LABELS=["Quickscan","Resultaat","Profiel","Betaling","Analyse"];
 const PHASE_IDX={home:-1,loting:-1,scan:0,ko:0,result:1,profile:2,payment:3,success:4};
 
+const PAGE_META={
+  home:{
+    title:"SLIM Subsidie Aanvragen | Tot €24.999 voor MKB | SLIM Subsidie Advies",
+    desc:"Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan, no cure no pay. Doe de check in 2 minuten.",
+    canonical:"https://www.slimsubsidieadvies.nl/",
+  },
+  scan:{
+    title:"Gratis SLIM Subsidie Quickscan | SLIM Subsidie Advies",
+    desc:"Doe de gratis quickscan en weet in 2 minuten of uw bedrijf in aanmerking komt voor SLIM-subsidie. Tot €24.999 voor MKB-ondernemers met personeel in loondienst.",
+    canonical:"https://www.slimsubsidieadvies.nl/scan",
+  },
+  loting:{
+    title:"SLIM Subsidie Lotingsuitslagen 2024–2026 | SLIM Subsidie Advies",
+    desc:"Bekijk alle SLIM-subsidie lotingsuitslagen van 2024 tot 2026. Per tijdvak: subsidieplafond, aantal aanvragen, lotingskansen en directe kans op subsidie.",
+    canonical:"https://www.slimsubsidieadvies.nl/lotingsuitslagen",
+  },
+  projecten:{
+    title:"SLIM Subsidie Projecten Database | 6.208 Gehonoreerde Projecten",
+    desc:"Doorzoek 6.208 gehonoreerde SLIM-subsidie projecten. Filter op categorie, tijdvak en locatie. Laat je inspireren door succesvolle MKB-aanvragen.",
+    canonical:"https://www.slimsubsidieadvies.nl/projecten",
+  },
+};
+
 export default function App(){
   // ── FIX 1: detecteer Mollie redirect ──
   const [phase,setPhase]=useState(()=>{
@@ -511,6 +534,14 @@ export default function App(){
   },[]);
 
   useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"});},[phase]);
+
+  // ── Meta tags per pagina ──
+  useEffect(()=>{
+    const m=PAGE_META[phase]||PAGE_META.home;
+    document.title=m.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content",m.desc);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href",m.canonical);
+  },[phase]);
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
   useEffect(()=>{
