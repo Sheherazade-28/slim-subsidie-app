@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SlimDatabase from "./SlimDatabase";
 
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
@@ -675,7 +676,8 @@ Bespreek in vier alinea's:
   return(
     <>
       <style>{css}</style>
-      <div className="app">
+      {phase==="projecten"&&<SlimDatabase/>}
+      {phase!=="projecten"&&<div className="app">
 
         {phase!=="home"&&phase!=="loting"&&(
           <header className="hdr">
@@ -704,6 +706,7 @@ Bespreek in vier alinea's:
                   <ul className="hp-nav-links">
                     <li><a href="#slim">Wat is SLIM?</a></li><li><a href="#waarom">Waarom wij?</a></li><li><a href="#cases">Cases</a></li><li><a href="#team">Team</a></li><li><a href="#faq">FAQ</a></li>
                     <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
+                    <li><button onClick={()=>setPhase("projecten")}>Projecten</button></li>
                     <li><button className="hp-nav-cta" onClick={()=>setPhase("scan")}>Gratis quickscan →</button></li>
                   </ul>
                 </div>
@@ -1167,7 +1170,7 @@ Bespreek in vier alinea's:
           )}
 
         </main>
-      </div>
+      </div>}
     </>
   );
 }
