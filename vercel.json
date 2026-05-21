@@ -1,7 +1,10 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ],
   "headers": [
     {
@@ -13,7 +16,7 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     },
     {
-      "source": "/(.*)\\.(?:ico|png|svg|jpg|jpeg|gif|webp|woff2|woff)$",
+      "source": "/:path*.(ico|png|svg|jpg|jpeg|gif|webp|woff2|woff)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
