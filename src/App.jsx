@@ -454,6 +454,7 @@ export default function App(){
     if(typeof window!=="undefined"){
       const params=new URLSearchParams(window.location.search);
       if(params.get("betaling")==="geslaagd") return "success";
+      if(window.location.pathname==="/projecten") return "projecten";
     }
     return "home";
   });
@@ -504,6 +505,18 @@ export default function App(){
   },[]);
 
   useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"});},[phase]);
+
+  // ── URL sync: /projecten ↔ phase, alles anders → / ──
+  useEffect(()=>{
+    const target=phase==="projecten"?"/projecten":"/";
+    if(window.location.pathname!==target) window.history.pushState({},"",target);
+  },[phase]);
+
+  useEffect(()=>{
+    function onPop(){setPhase(window.location.pathname==="/projecten"?"projecten":"home");}
+    window.addEventListener("popstate",onPop);
+    return()=>window.removeEventListener("popstate",onPop);
+  },[]);
 
   // ── FIX 2: start AI analyse automatisch na Mollie redirect ──
   // Wacht even zodat het sessionStorage-herstel (hierboven) eerst kan landen
