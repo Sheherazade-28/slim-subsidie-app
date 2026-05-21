@@ -458,6 +458,8 @@ export default function App(){
       if(window.location.pathname==="/lotingsuitslagen") return "loting";
       if(window.location.pathname==="/scan") return "scan";
       if(window.location.pathname==="/resultaat") return "result";
+      if(window.location.pathname==="/profiel") return "profile";
+      if(window.location.pathname==="/betaling") return "payment";
     }
     return "home";
   });
@@ -511,12 +513,12 @@ export default function App(){
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
   useEffect(()=>{
-    const target=phase==="projecten"?"/projecten":phase==="loting"?"/lotingsuitslagen":phase==="scan"?"/scan":phase==="result"?"/resultaat":"/";
+    const target=phase==="projecten"?"/projecten":phase==="loting"?"/lotingsuitslagen":phase==="scan"?"/scan":phase==="result"?"/resultaat":phase==="profile"?"/profiel":phase==="payment"?"/betaling":"/";
     if(window.location.pathname!==target) window.history.pushState({},"",target);
   },[phase]);
 
   useEffect(()=>{
-    function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":p==="/scan"?"scan":p==="/resultaat"?"result":"home");}
+    function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":p==="/scan"?"scan":p==="/resultaat"?"result":p==="/profiel"?"profile":p==="/betaling"?"payment":"home");}
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
