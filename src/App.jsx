@@ -398,6 +398,14 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 input,select,textarea{-webkit-appearance:none;-moz-appearance:none;}
 *{-webkit-tap-highlight-color:transparent;}
 a,button{touch-action:manipulation;}
+.hp-how{background:#e8f4fc;padding:60px 20px;}
+.hp-how-grid{display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr;gap:0;margin-top:32px;align-items:start;}
+.hp-how-card{background:#fff;border:1px solid #d0e8f7;border-radius:10px;padding:24px 22px;}
+.hp-how-num{width:34px;height:34px;border-radius:50%;background:#0d2e5a;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.hp-how-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:#0d2e5a;margin-bottom:6px;}
+.hp-how-text{font-size:13px;color:#5a6e82;line-height:1.65;}
+.hp-how-arrow{text-align:center;font-size:22px;color:#2aaae2;padding-top:28px;}
+@media(max-width:900px){.hp-how-grid{grid-template-columns:1fr;gap:12px;}.hp-how-arrow{display:none;}}
 `;
 
 const QUESTIONS=[
@@ -814,9 +822,9 @@ Bespreek in vier alinea's:
               <div className="hp-hero">
                 <div className="hp-hero-inner">
                   <div>
-                    <div className="hp-badge"><span className="phase-dot"/>&nbsp;Specialist in SLIM-subsidie voor MKB</div>
+                    <div className="hp-badge"><span className="phase-dot"/>&nbsp;Gratis quickscan · Start vanaf €200 excl. btw · Retour bij inloting</div>
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
-                    <p className="hp-sub">De SLIM-subsidie vergoedt <strong style={{color:"var(--blue-light)"}}>tot 60%</strong> van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. Dieptecheck: €200 (early bird) of €250 excl. btw. De succesfee is no cure, no pay.</p>
+                    <p className="hp-sub">Wij verzorgen de volledige SLIM subsidieaanvraag voor MKB ondernemers. Start met een gratis online quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
                     <div className="hp-ctas">
                       <a href="/scan" className="hp-btn-p" onClick={e=>{e.preventDefault();setPhase("scan");}}>Doe de gratis quickscan →</a>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
@@ -824,7 +832,7 @@ Bespreek in vier alinea's:
                     <div className="hp-stats">
                       <div><div className="hp-stat-num">€<em>24.999</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
                       <div><div className="hp-stat-num">tot <em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
-                      <div><div className="hp-stat-num">€<em>2.500</em></div><div className="hp-stat-lbl">Vaste succesfee (excl. btw)</div></div>
+                      <div><div className="hp-stat-num">€<em>200</em></div><div className="hp-stat-lbl">Instap early bird (excl. btw)</div></div>
                     </div>
                   </div>
                   <div>
@@ -868,6 +876,31 @@ Bespreek in vier alinea's:
                   </div>
                 </div>
               </div>
+              <div className="hp-how">
+                <div className="hp-si">
+                  <div className="hp-slbl">In 3 stappen</div>
+                  <h2 className="hp-stitle">Zo werkt het</h2>
+                  <div className="hp-how-grid">
+                    <div className="hp-how-card">
+                      <div className="hp-how-num">1</div>
+                      <div className="hp-how-title">Gratis quickscan</div>
+                      <div className="hp-how-text">Controleer vrijblijvend in 2 minuten of uw onderneming in aanmerking komt. Geen verplichtingen.</div>
+                    </div>
+                    <div className="hp-how-arrow">→</div>
+                    <div className="hp-how-card">
+                      <div className="hp-how-num">2</div>
+                      <div className="hp-how-title">Diepteanalyse & aanvraag</div>
+                      <div className="hp-how-text">Voor €200 excl. btw in de early bird periode verzorgen wij de diepteanalyse en stellen wij de volledige aanvraag op. Na de early bird periode is dit €250 excl. btw. Niet ingeloot? Dan actualiseren wij uw aanvraag ieder nieuw tijdvak opnieuw binnen hetzelfde traject, totdat u wordt ingeloot.</div>
+                    </div>
+                    <div className="hp-how-arrow">→</div>
+                    <div className="hp-how-card">
+                      <div className="hp-how-num">3</div>
+                      <div className="hp-how-title">Ingeloot? Volledige begeleiding</div>
+                      <div className="hp-how-text">U ontvangt de kosten voor de dieptecheck retour. Voor een vaste fee van €2.500 excl. btw begeleiden wij u volledig, van inhoudelijke beoordeling en vragenbeantwoording tot review van het eindproduct.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="hp-loting">
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)"}}>Tijdvak 1 2026 — bron: RVO, 8 mei 2026</div>
@@ -901,10 +934,10 @@ Bespreek in vier alinea's:
                   <h2 className="hp-stitle">Waarom via SLIM Subsidie Advies?</h2>
                   <p className="hp-ssub">De specialist in SLIM-subsidie aanvragen voor MKB-ondernemers. Van gratis quickscan tot toekenning — én het volledige screeningstraject bij RVO.</p>
                   <div className="hp-why-grid">
+                    <div className="hp-why-card"><span className="hp-why-icon">🔄</span><div className="hp-why-title">Herindienen tot inloting</div><div className="hp-why-text">Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">Succesfee: no cure, no pay</div><div className="hp-why-text">De dieptecheck kost €200 (early bird t/m 10 juli) of €250 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de dieptecheck wordt dan terugbetaald.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">✅</span><div className="hp-why-title">Foutloze indiening</div><div className="hp-why-text">23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet.</div></div>
-                    <div className="hp-why-card"><span className="hp-why-icon">🔄</span><div className="hp-why-title">Herindienen tot inloting</div><div className="hp-why-text">Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">📋</span><div className="hp-why-title">Van A tot Z begeleiding</div><div className="hp-why-text">Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">💰</span><div className="hp-why-title">Scherpste fee-garantie</div><div className="hp-why-text">Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">⚡</span><div className="hp-why-title">Direct starten</div><div className="hp-why-text">Via onze gratis online quickscan weet u binnen 2 minuten of uw bedrijf in aanmerking komt.</div></div>
