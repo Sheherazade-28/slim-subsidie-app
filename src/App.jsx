@@ -448,6 +448,42 @@ function nextDeadline(){
 const STEP_LABELS=["Quickscan","Resultaat","Profiel","Betaling","Analyse"];
 const PHASE_IDX={home:-1,loting:-1,scan:0,ko:0,result:1,profile:2,payment:3,success:4};
 
+const PAGE_SCHEMA={
+  projecten:{
+    "@context":"https://schema.org",
+    "@type":"Dataset",
+    "name":"SLIM Subsidie Projecten Database",
+    "description":"Doorzoekbare database van 6.208 gehonoreerde SLIM-subsidie projecten (2020–2024), gebaseerd op openbare publicatielijsten van het Ministerie van SZW.",
+    "url":"https://www.slimsubsidieadvies.nl/projecten",
+    "creator":{"@type":"Organization","name":"SLIM Subsidie Advies","url":"https://www.slimsubsidieadvies.nl"},
+    "publisher":{"@type":"Organization","name":"Uitvoering van Beleid — Ministerie van SZW","url":"https://www.uitvoeringvanbeleidszw.nl"},
+    "keywords":["SLIM subsidie","MKB subsidie","leren en ontwikkelen","scholing personeel","RVO subsidie"],
+    "temporalCoverage":"2020/2024",
+    "spatialCoverage":"NL",
+    "license":"https://www.uitvoeringvanbeleidszw.nl/subsidies-en-regelingen/bedrijven/slim/verleende-aavragen",
+  },
+  loting:{
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"SLIM Subsidie Lotingsuitslagen 2024–2026",
+    "description":"Overzicht van alle SLIM-subsidie lotingsuitslagen van 2024 tot 2026. Per tijdvak: subsidieplafond, aantal aanvragen, lotingskansen en directe kans op subsidie.",
+    "url":"https://www.slimsubsidieadvies.nl/lotingsuitslagen",
+    "publisher":{"@type":"Organization","name":"SLIM Subsidie Advies","url":"https://www.slimsubsidieadvies.nl"},
+    "mainEntity":{
+      "@type":"ItemList",
+      "name":"SLIM Subsidie Lotingsuitslagen per tijdvak",
+      "numberOfItems":5,
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Tijdvak 1 2026 — april/mei 2026","description":"3.337 aanvragen in loting, 474 in behandeling, budget €11 mln"},
+        {"@type":"ListItem","position":2,"name":"Tijdvak 2 2025 — september 2025","description":"3.270 aanvragen in loting, 758 in behandeling, budget €17,5 mln"},
+        {"@type":"ListItem","position":3,"name":"Tijdvak 1 2025 — maart 2025","description":"2.711 aanvragen in loting, 557 in behandeling, budget €12,5 mln"},
+        {"@type":"ListItem","position":4,"name":"Tijdvak 2 2024 — september 2024","description":"3.152 aanvragen in loting, 689 in behandeling, budget €16,1 mln"},
+        {"@type":"ListItem","position":5,"name":"Tijdvak 1 2024 — maart 2024","description":"2.838 aanvragen in loting, 642 in behandeling, budget €15 mln"},
+      ],
+    },
+  },
+};
+
 const PAGE_META={
   home:{
     title:"SLIM Subsidie Aanvragen | Tot €24.999 voor MKB | SLIM Subsidie Advies",
@@ -554,6 +590,8 @@ export default function App(){
     document.querySelector('meta[property="og:url"]')?.setAttribute("content",m.canonical);
     document.querySelector('meta[name="twitter:title"]')?.setAttribute("content",m.ogTitle||m.title);
     document.querySelector('meta[name="twitter:description"]')?.setAttribute("content",m.ogDesc||m.desc);
+    const schemaEl=document.getElementById("page-schema");
+    if(schemaEl) schemaEl.textContent=PAGE_SCHEMA[phase]?JSON.stringify(PAGE_SCHEMA[phase]):"";
   },[phase]);
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
