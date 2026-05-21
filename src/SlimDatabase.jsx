@@ -48,11 +48,22 @@ function Banner({ items }) {
 }
 
 // ─── Project kaart ────────────────────────────────────────────────────────────
+function truncateWords(text, max) {
+  if (text.length <= max) return text;
+  const cut = text.lastIndexOf(" ", max);
+  return text.slice(0, cut > 0 ? cut : max);
+}
+
 function Card({ item }) {
+  const [expanded, setExpanded] = useState(false);
   const catBg  = item.cat === "MKB" ? "#e8f4fc" : item.cat === "SAM" ? "#f0ebff" : "#fff3e8";
   const catClr = item.cat === "MKB" ? "#0d2e5a" : item.cat === "SAM" ? "#5b21b6" : "#7c3a00";
   const subDisplay = fmtSub(item.sub);
   const isUnpublished = !item.sub;
+  const hasLongSummary = item.sum && item.sum.length > 200;
+  const displayText = item.sum
+    ? (hasLongSummary && !expanded ? truncateWords(item.sum, 200) + "…" : item.sum)
+    : null;
 
   return (
     <div style={{ background: "#fff", border: "1px solid #e8edf3", borderRadius: 10, padding: "18px 20px", marginBottom: 10, boxShadow: "0 1px 4px rgba(13,46,90,0.06)" }}>
@@ -72,9 +83,15 @@ function Card({ item }) {
           <div style={{ fontSize: 11, color: "#8a9eb0", marginTop: 2 }}>subsidie</div>
         </div>
       </div>
-      {item.sum && (
-        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid #e8edf3", fontSize: 13, color: "#1a2a3a", lineHeight: 1.7 }}>
-          {item.sum}
+      {displayText && (
+        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid #e8edf3" }}>
+          <div style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.7 }}>{displayText}</div>
+          {hasLongSummary && (
+            <button onClick={() => setExpanded(e => !e)}
+              style={{ marginTop: 6, fontSize: 12, color: "#2aaae2", background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: "inherit" }}>
+              {expanded ? "Lees minder ↑" : "Lees meer ↓"}
+            </button>
+          )}
         </div>
       )}
     </div>
