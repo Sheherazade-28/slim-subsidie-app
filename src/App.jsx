@@ -878,6 +878,7 @@ Bespreek in vier alinea's:
                       <ul className="hp-ft-links">
                         <li><a href="#slim">Wat is SLIM-subsidie?</a></li><li><a href="#waarom">Waarom via ons?</a></li><li><a href="#cases">Praktijkvoorbeelden</a></li><li><a href="#team">Ons team</a></li><li><a href="#faq">Veelgestelde vragen</a></li>
                         <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
+                        <li><button onClick={()=>setPhase("projecten")}>Projecten</button></li>
                         <li><button onClick={()=>setPhase("scan")}>Gratis quickscan</button></li>
                       </ul>
                     </div>
