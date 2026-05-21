@@ -139,9 +139,19 @@ export default function SlimDatabase({ onBack }) {
           <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.1, color: "#fff" }}>
             SLIM Subsidie<br /><span style={{ color: "#2aaae2" }}>Projecten Database</span>
           </h1>
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", maxWidth: 560, lineHeight: 1.7, margin: "0 0 28px" }}>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", maxWidth: 560, lineHeight: 1.7, margin: "0 0 20px" }}>
             Doorzoek alle {stats.totaal.toLocaleString("nl-NL")} gehonoreerde SLIM-projecten. Laat je inspireren door wat andere MKB-bedrijven hebben bereikt.
           </p>
+
+          <div style={{ background: "#e8f4fc", borderLeft: "3px solid #2aaae2", borderRadius: "0 6px 6px 0", padding: "12px 16px", maxWidth: 640, marginBottom: 28 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#0d2e5a", letterSpacing: "0.5px", textTransform: "uppercase", marginBottom: 5 }}>Over deze database</div>
+            <p style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.65, margin: 0 }}>
+              Deze database is gebaseerd op de openbaar gepubliceerde subsidiegegevens van Uitvoering van Beleid (Ministerie van SZW). Bedrijven hebben bij hun aanvraag toestemming gegeven voor publicatie van hun naam en projectomschrijving. Wij maken deze gegevens — die officieel alleen als CSV-bestand beschikbaar zijn — doorzoekbaar ter inspiratie voor andere MKB-ondernemers.{" "}
+              <a href="https://www.uitvoeringvanbeleidszw.nl/subsidies-en-regelingen/bedrijven/slim/verleende-aavragen" target="_blank" rel="noopener noreferrer" style={{ color: "#1a6bbf", fontWeight: 600, textDecoration: "none" }}>
+                Officiële bronpagina Uitvoering van Beleid ↗
+              </a>
+            </p>
+          </div>
 
           {!loading && (
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
