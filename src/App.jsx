@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SlimDatabase from "./SlimDatabase";
 
 const css = `
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#0d2e5a;--blue:#1a6bbf;--blue-light:#2aaae2;
