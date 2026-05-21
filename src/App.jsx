@@ -676,7 +676,7 @@ Bespreek in vier alinea's:
   return(
     <>
       <style>{css}</style>
-      {phase==="projecten"&&<SlimDatabase/>}
+      {phase==="projecten"&&<SlimDatabase onBack={()=>setPhase("home")}/>}
       {phase!=="projecten"&&<div className="app">
 
         {phase!=="home"&&phase!=="loting"&&(

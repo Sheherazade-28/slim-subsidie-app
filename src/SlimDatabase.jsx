@@ -1,8 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 
-// ─── Inline data loader ───────────────────────────────────────────────────────
-// De JSON wordt geladen vanuit /slim_data.json (zet dit bestand in /public/)
-
 const CATS = [
   { key: "all", label: "Alle categorieën" },
   { key: "MKB", label: "Individueel MKB" },
@@ -19,12 +16,17 @@ function fmt(n) {
   return new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 }
 
-// ─── Lopende banner ───────────────────────────────────────────────────────────
+function fmtSub(n) {
+  if (!n) return "Niet gepubliceerd";
+  return new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+}
+
+// ─── Lopende banner (donkerblauwe achtergrond per huisstijl) ──────────────────
 function Banner({ items }) {
   const track = useRef(null);
   const content = items.slice(0, 40);
   return (
-    <div style={{ overflow: "hidden", background: "rgba(255,255,255,0.04)", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "12px 0" }}>
+    <div style={{ overflow: "hidden", background: "#0d2e5a", borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.12)", padding: "12px 0" }}>
       <style>{`
         @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
         .marquee-track { display: flex; gap: 0; animation: marquee 80s linear infinite; white-space: nowrap; }
@@ -32,12 +34,12 @@ function Banner({ items }) {
       `}</style>
       <div className="marquee-track" ref={track}>
         {[...content, ...content].map((item, i) => (
-          <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "0 24px", borderRight: "1px solid rgba(255,255,255,0.1)", fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
+          <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "0 24px", borderRight: "1px solid rgba(255,255,255,0.08)", fontSize: 13, color: "rgba(255,255,255,0.75)" }}>
             <span style={{ color: "#2aaae2", fontWeight: 600 }}>{item.nm}</span>
-            <span style={{ color: "rgba(255,255,255,0.35)" }}>·</span>
+            <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
             <span>{item.pnm}</span>
-            <span style={{ color: "rgba(255,255,255,0.35)" }}>·</span>
-            <span style={{ color: "#4ade80", fontSize: 12 }}>{fmt(item.sub)}</span>
+            <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
+            <span style={{ color: "#6ee7b7", fontSize: 12 }}>{fmt(item.sub)}</span>
           </span>
         ))}
       </div>
@@ -47,32 +49,32 @@ function Banner({ items }) {
 
 // ─── Project kaart ────────────────────────────────────────────────────────────
 function Card({ item }) {
-  const [open, setOpen] = useState(false);
-  const catColor = item.cat === "MKB" ? "#2aaae2" : item.cat === "SAM" ? "#a78bfa" : "#fb923c";
+  const catBg  = item.cat === "MKB" ? "#e8f4fc" : item.cat === "SAM" ? "#f0ebff" : "#fff3e8";
+  const catClr = item.cat === "MKB" ? "#0d2e5a" : item.cat === "SAM" ? "#5b21b6" : "#7c3a00";
+  const subDisplay = fmtSub(item.sub);
+  const isUnpublished = !item.sub;
+
   return (
-    <div onClick={() => setOpen(o => !o)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "18px 20px", cursor: "pointer", transition: "background 0.15s", marginBottom: 10 }}
-      onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.07)"}
-      onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.04)"}>
+    <div style={{ background: "#fff", border: "1px solid #e8edf3", borderRadius: 10, padding: "18px 20px", marginBottom: 10, boxShadow: "0 1px 4px rgba(13,46,90,0.06)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
-            <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: `${catColor}20`, color: catColor, letterSpacing: "0.5px" }}>{item.cl}</span>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>Tijdvak {item.tv}</span>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>·</span>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>{item.loc}</span>
+            <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 20, background: catBg, color: catClr, letterSpacing: "0.5px" }}>{item.cl}</span>
+            <span style={{ fontSize: 11, color: "#5a6e82" }}>Tijdvak {item.tv}</span>
+            <span style={{ fontSize: 11, color: "#b0bec8" }}>·</span>
+            <span style={{ fontSize: 11, color: "#5a6e82" }}>{item.loc}</span>
           </div>
-          <div style={{ fontSize: 15, fontWeight: 600, color: "#fff", marginBottom: 4 }}>{item.nm}</div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>{item.pnm}</div>
+          <div style={{ fontSize: 15, fontWeight: 600, color: "#0d2e5a", marginBottom: 4 }}>{item.nm}</div>
+          <div style={{ fontSize: 13, color: "#5a6e82", fontStyle: "italic" }}>{item.pnm}</div>
         </div>
         <div style={{ textAlign: "right", flexShrink: 0 }}>
-          <div style={{ fontSize: 16, fontWeight: 700, color: "#4ade80" }}>{fmt(item.sub)}</div>
-          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginTop: 2 }}>subsidie</div>
-          <div style={{ fontSize: 18, color: "rgba(255,255,255,0.3)", marginTop: 6 }}>{open ? "▲" : "▼"}</div>
+          <div style={{ fontSize: 16, fontWeight: 700, color: isUnpublished ? "#5a6e82" : "#1a7a4a" }}>{subDisplay}</div>
+          <div style={{ fontSize: 11, color: "#8a9eb0", marginTop: 2 }}>subsidie</div>
         </div>
       </div>
-      {open && item.sum && (
-        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.08)", fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.7 }}>
-          {item.sum}{item.sum.length >= 400 ? "…" : ""}
+      {item.sum && (
+        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid #e8edf3", fontSize: 13, color: "#1a2a3a", lineHeight: 1.7 }}>
+          {item.sum}
         </div>
       )}
     </div>
@@ -80,7 +82,7 @@ function Card({ item }) {
 }
 
 // ─── Hoofd component ──────────────────────────────────────────────────────────
-export default function SlimDatabase() {
+export default function SlimDatabase({ onBack }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,6 +90,8 @@ export default function SlimDatabase() {
   const [cat, setCat] = useState("all");
   const [tijdvak, setTijdvak] = useState("Alle tijdvakken");
   const [page, setPage] = useState(1);
+
+  const handleBack = onBack || (() => { window.location.href = "/"; });
 
   useEffect(() => {
     fetch("/slim_data.json")
@@ -101,7 +105,7 @@ export default function SlimDatabase() {
     return data.filter(item => {
       if (cat !== "all" && item.cat !== cat) return false;
       if (tijdvak !== "Alle tijdvakken" && item.tv !== tijdvak) return false;
-      if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !item.sum.toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
+      if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !(item.sum||"").toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
       return true;
     });
   }, [data, zoek, cat, tijdvak]);
@@ -122,30 +126,34 @@ export default function SlimDatabase() {
   }), [data]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0a1628", fontFamily: "'Segoe UI', system-ui, sans-serif", color: "#fff" }}>
-      {/* Header */}
-      <div style={{ background: "linear-gradient(180deg, #0d2e5a 0%, #0a1628 100%)", padding: "48px 20px 0" }}>
+    <div style={{ minHeight: "100vh", background: "#f2f5f9", fontFamily: "'Barlow', 'Segoe UI', system-ui, sans-serif", color: "#1a2a3a" }}>
+
+      {/* Header — donkerblauw passend bij de hoofdsite */}
+      <div style={{ background: "#0d2e5a", padding: "32px 20px 36px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#2aaae2", textTransform: "uppercase", marginBottom: 12 }}>SLIM Subsidie Advies</div>
-          <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 }}>
+          <button onClick={handleBack}
+            style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 6, padding: "7px 14px", color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 500, cursor: "pointer", marginBottom: 24, fontFamily: "inherit" }}>
+            ← Terug naar home
+          </button>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#2aaae2", textTransform: "uppercase", marginBottom: 10 }}>SLIM Subsidie Advies</div>
+          <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.1, color: "#fff" }}>
             SLIM Subsidie<br /><span style={{ color: "#2aaae2" }}>Projecten Database</span>
           </h1>
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", maxWidth: 560, lineHeight: 1.7, margin: "0 0 32px" }}>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", maxWidth: 560, lineHeight: 1.7, margin: "0 0 28px" }}>
             Doorzoek alle {stats.totaal.toLocaleString("nl-NL")} gehonoreerde SLIM-projecten. Laat je inspireren door wat andere MKB-bedrijven hebben bereikt.
           </p>
 
-          {/* Stats */}
           {!loading && (
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               {[
                 { label: "Totaal projecten", val: stats.totaal.toLocaleString("nl-NL") },
                 { label: "Individueel MKB", val: stats.mkb.toLocaleString("nl-NL") },
                 { label: "Samenwerkingsverbanden", val: stats.sam.toLocaleString("nl-NL") },
                 { label: "Totaal subsidie", val: fmt(stats.totaalSub) },
               ].map(s => (
-                <div key={s.label} style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "12px 18px" }}>
+                <div key={s.label} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 10, padding: "12px 18px" }}>
                   <div style={{ fontSize: 20, fontWeight: 700, color: "#fff" }}>{s.val}</div>
-                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 2 }}>{s.label}</div>
+                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -156,65 +164,57 @@ export default function SlimDatabase() {
       {/* Banner */}
       {!loading && bannerItems.length > 0 && <Banner items={bannerItems} />}
 
-      {/* Filters */}
+      {/* Filters + resultaten */}
       <div style={{ maxWidth: 1000, margin: "0 auto", padding: "28px 20px 0" }}>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
-          {/* Zoekbalk */}
           <input
             value={zoek}
             onChange={e => setZoek(e.target.value)}
             placeholder="Zoek op bedrijf, project, locatie..."
-            style={{ flex: "1 1 280px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, padding: "10px 14px", color: "#fff", fontSize: 14, outline: "none" }}
+            style={{ flex: "1 1 280px", background: "#fff", border: "1px solid #d4dde8", borderRadius: 8, padding: "10px 14px", color: "#1a2a3a", fontSize: 14, outline: "none", fontFamily: "inherit" }}
           />
-          {/* Categorie */}
           <select value={cat} onChange={e => setCat(e.target.value)}
-            style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, padding: "10px 14px", color: "#fff", fontSize: 13, cursor: "pointer" }}>
-            {CATS.map(c => <option key={c.key} value={c.key} style={{ background: "#0d2e5a" }}>{c.label}</option>)}
+            style={{ background: "#fff", border: "1px solid #d4dde8", borderRadius: 8, padding: "10px 14px", color: "#1a2a3a", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>
+            {CATS.map(c => <option key={c.key} value={c.key}>{c.label}</option>)}
           </select>
-          {/* Tijdvak */}
           <select value={tijdvak} onChange={e => setTijdvak(e.target.value)}
-            style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, padding: "10px 14px", color: "#fff", fontSize: 13, cursor: "pointer" }}>
-            {TIJDVAKKEN.map(t => <option key={t} value={t} style={{ background: "#0d2e5a" }}>{t}</option>)}
+            style={{ background: "#fff", border: "1px solid #d4dde8", borderRadius: 8, padding: "10px 14px", color: "#1a2a3a", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>
+            {TIJDVAKKEN.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
 
-        {/* Resultaten teller */}
-        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 16 }}>
+        <div style={{ fontSize: 13, color: "#5a6e82", marginBottom: 16 }}>
           {loading ? "Data laden..." : `${filtered.length.toLocaleString("nl-NL")} projecten gevonden`}
-          {zoek && <span> voor "<strong style={{ color: "#2aaae2" }}>{zoek}</strong>"</span>}
+          {zoek && <span> voor "<strong style={{ color: "#0d2e5a" }}>{zoek}</strong>"</span>}
         </div>
 
-        {/* Loading */}
         {loading && (
-          <div style={{ textAlign: "center", padding: "80px 0", color: "rgba(255,255,255,0.4)" }}>
+          <div style={{ textAlign: "center", padding: "80px 0", color: "#5a6e82" }}>
             <div style={{ fontSize: 32, marginBottom: 12 }}>⏳</div>
             <div>Database laden ({(6208).toLocaleString("nl-NL")} projecten)...</div>
           </div>
         )}
 
-        {/* Error */}
         {error && (
-          <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 10, padding: 20, color: "#fca5a5" }}>
+          <div style={{ background: "#fdf0ee", border: "1px solid #f0b8b0", borderRadius: 10, padding: 20, color: "#8a1a0a" }}>
             {error} — zorg dat slim_data.json in de /public map staat.
           </div>
         )}
 
-        {/* Resultaten */}
         {!loading && !error && (
           <>
             {paginated.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "60px 0", color: "rgba(255,255,255,0.3)" }}>
+              <div style={{ textAlign: "center", padding: "60px 0", color: "#8a9eb0" }}>
                 Geen projecten gevonden. Probeer een andere zoekterm.
               </div>
             ) : (
               paginated.map(item => <Card key={item.id} item={item} />)
             )}
 
-            {/* Laad meer */}
             {hasMore && (
               <div style={{ textAlign: "center", padding: "24px 0 48px" }}>
                 <button onClick={() => setPage(p => p + 1)}
-                  style={{ background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+                  style={{ background: "#0d2e5a", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
                   Meer laden ({filtered.length - paginated.length} resterend)
                 </button>
               </div>
@@ -222,16 +222,16 @@ export default function SlimDatabase() {
           </>
         )}
 
-        {/* CTA */}
         {!loading && (
           <div style={{ background: "linear-gradient(135deg, #0d2e5a, #1a4a7a)", border: "1px solid rgba(42,170,226,0.3)", borderRadius: 16, padding: "32px", margin: "32px 0 48px", textAlign: "center" }}>
-            <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Wil jij ook een succesvol SLIM-project?</div>
+            <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, color: "#fff" }}>Wil jij ook een succesvol SLIM-project?</div>
             <p style={{ color: "rgba(255,255,255,0.6)", marginBottom: 20, fontSize: 14 }}>
               Doe gratis de quickscan en weet in 2 minuten of jouw bedrijf in aanmerking komt voor het tijdvak van 10 augustus – 7 september 2026.
             </p>
-            <a href="/" style={{ display: "inline-block", background: "#f59e0b", color: "#1a1a2e", fontWeight: 700, padding: "12px 28px", borderRadius: 8, textDecoration: "none", fontSize: 15 }}>
+            <button onClick={handleBack}
+              style={{ background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 15, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
               Doe gratis de quickscan →
-            </a>
+            </button>
           </div>
         )}
       </div>
