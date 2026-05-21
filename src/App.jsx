@@ -453,21 +453,29 @@ const PAGE_META={
     title:"SLIM Subsidie Aanvragen | Tot €24.999 voor MKB | SLIM Subsidie Advies",
     desc:"Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan, no cure no pay. Doe de check in 2 minuten.",
     canonical:"https://www.slimsubsidieadvies.nl/",
+    ogTitle:"SLIM Subsidie Aanvragen | Tot €24.999 voor MKB",
+    ogDesc:"Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen. Gratis quickscan, no cure no pay.",
   },
   scan:{
     title:"Gratis SLIM Subsidie Quickscan | SLIM Subsidie Advies",
     desc:"Doe de gratis quickscan en weet in 2 minuten of uw bedrijf in aanmerking komt voor SLIM-subsidie. Tot €24.999 voor MKB-ondernemers met personeel in loondienst.",
     canonical:"https://www.slimsubsidieadvies.nl/scan",
+    ogTitle:"Gratis SLIM Subsidie Quickscan",
+    ogDesc:"Weet in 2 minuten of jouw bedrijf in aanmerking komt voor SLIM-subsidie. Tot €24.999 voor MKB met personeel.",
   },
   loting:{
     title:"SLIM Subsidie Lotingsuitslagen 2024–2026 | SLIM Subsidie Advies",
     desc:"Bekijk alle SLIM-subsidie lotingsuitslagen van 2024 tot 2026. Per tijdvak: subsidieplafond, aantal aanvragen, lotingskansen en directe kans op subsidie.",
     canonical:"https://www.slimsubsidieadvies.nl/lotingsuitslagen",
+    ogTitle:"SLIM Subsidie Lotingsuitslagen 2024–2026",
+    ogDesc:"Bekijk alle SLIM-subsidie lotingsuitslagen. Per tijdvak: budget, aantal aanvragen en lotingskansen.",
   },
   projecten:{
     title:"SLIM Subsidie Projecten Database | 6.208 Gehonoreerde Projecten",
     desc:"Doorzoek 6.208 gehonoreerde SLIM-subsidie projecten. Filter op categorie, tijdvak en locatie. Laat je inspireren door succesvolle MKB-aanvragen.",
     canonical:"https://www.slimsubsidieadvies.nl/projecten",
+    ogTitle:"SLIM Subsidie Projecten Database | 6.208 Projecten",
+    ogDesc:"Doorzoek 6.208 gehonoreerde SLIM-subsidie projecten. Filter op categorie en tijdvak. Laat je inspireren.",
   },
 };
 
@@ -541,6 +549,11 @@ export default function App(){
     document.title=m.title;
     document.querySelector('meta[name="description"]')?.setAttribute("content",m.desc);
     document.querySelector('link[rel="canonical"]')?.setAttribute("href",m.canonical);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content",m.ogTitle||m.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content",m.ogDesc||m.desc);
+    document.querySelector('meta[property="og:url"]')?.setAttribute("content",m.canonical);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content",m.ogTitle||m.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content",m.ogDesc||m.desc);
   },[phase]);
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
@@ -717,7 +730,7 @@ Bespreek in vier alinea's:
         ))}
         <div className="lp-cta">
           <div><h3 className="lp-cta-h">Wil je weten of jouw aanvraag kans maakt?</h3><p className="lp-cta-p">Doe de gratis quickscan — binnen 2 minuten weet je of jouw bedrijf in aanmerking komt.</p></div>
-          <button className="btn btn-primary" onClick={()=>setPhase("scan")}>Doe de quickscan →</button>
+          <a href="/scan" className="btn btn-primary" onClick={e=>{e.preventDefault();setPhase("scan");}}>Doe de quickscan →</a>
         </div>
       </div>
     );
@@ -755,9 +768,9 @@ Bespreek in vier alinea's:
                   </div>
                   <ul className="hp-nav-links">
                     <li><a href="#slim">Wat is SLIM?</a></li><li><a href="#waarom">Waarom wij?</a></li><li><a href="#cases">Cases</a></li><li><a href="#team">Team</a></li><li><a href="#faq">FAQ</a></li>
-                    <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
-                    <li><button onClick={()=>setPhase("projecten")}>Projecten</button></li>
-                    <li><button className="hp-nav-cta" onClick={()=>setPhase("scan")}>Gratis quickscan →</button></li>
+                    <li><a href="/lotingsuitslagen" onClick={e=>{e.preventDefault();setPhase("loting");}}>Lotingsuitslagen</a></li>
+                    <li><a href="/projecten" onClick={e=>{e.preventDefault();setPhase("projecten");}}>Projecten</a></li>
+                    <li><a href="/scan" className="hp-nav-cta" onClick={e=>{e.preventDefault();setPhase("scan");}}>Gratis quickscan →</a></li>
                   </ul>
                 </div>
               </nav>
@@ -768,7 +781,7 @@ Bespreek in vier alinea's:
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
                     <p className="hp-sub">De SLIM-subsidie vergoedt <strong style={{color:"var(--blue-light)"}}>tot 60%</strong> van uw investering in scholing en ontwikkeling van uw medewerkers. Wij regelen de héle aanvraag — van quickscan tot toekenning én het screeningstraject bij RVO. Dieptecheck: €200 (early bird) of €250 excl. btw. De succesfee is no cure, no pay.</p>
                     <div className="hp-ctas">
-                      <button className="hp-btn-p" onClick={()=>setPhase("scan")}>Doe de gratis quickscan →</button>
+                      <a href="/scan" className="hp-btn-p" onClick={e=>{e.preventDefault();setPhase("scan");}}>Doe de gratis quickscan →</a>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
                     </div>
                     <div className="hp-stats">
@@ -830,7 +843,7 @@ Bespreek in vier alinea's:
                     <div className="hp-l-card"><div className="hp-l-num g">~14%</div><div className="hp-l-lbl">effectieve kans per aanvraag</div></div>
                   </div>
                   <div className="hp-l-insight"><span style={{fontSize:22,flexShrink:0}}>💡</span><p><strong>Wat betekent inloting?</strong> Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting volgt een inhoudelijke beoordeling door RVO. Wij begeleiden dit screeningstraject voor dezelfde vaste succesfee van <strong>€ 2.500 (excl. btw)</strong>.</p></div>
-                  <div style={{marginTop:20,textAlign:"center"}}><button className="hp-btn-s" onClick={()=>setPhase("loting")}>Bekijk alle lotingsuitslagen 2024–2026 →</button></div>
+                  <div style={{marginTop:20,textAlign:"center"}}><a href="/lotingsuitslagen" className="hp-btn-s" onClick={e=>{e.preventDefault();setPhase("loting");}}>Bekijk alle lotingsuitslagen 2024–2026 →</a></div>
                 </div>
               </div>
               <div id="slim" className="hp-section" style={{background:"var(--off)"}}>
@@ -911,7 +924,7 @@ Bespreek in vier alinea's:
                   <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br/>voor <span>SLIM-subsidie</span>?</h2>
                   <p className="hp-cta-sub">Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de dieptecheck voor € 200 excl. btw (€ 242 incl. btw).</p>
                   <div style={{display:"flex",justifyContent:"center"}}>
-                    <button className="hp-btn-p" onClick={()=>setPhase("scan")} style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</button>
+                    <a href="/scan" className="hp-btn-p" onClick={e=>{e.preventDefault();setPhase("scan");}} style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</a>
                   </div>
                   <p className="hp-cta-note">Gratis quickscan · Dieptecheck €200 (early bird) of €250 excl. btw · Succesfee €2.500 excl. btw — no cure, no pay</p>
                 </div>
@@ -927,9 +940,9 @@ Bespreek in vier alinea's:
                       <div className="hp-ft-h">Navigatie</div>
                       <ul className="hp-ft-links">
                         <li><a href="#slim">Wat is SLIM-subsidie?</a></li><li><a href="#waarom">Waarom via ons?</a></li><li><a href="#cases">Praktijkvoorbeelden</a></li><li><a href="#team">Ons team</a></li><li><a href="#faq">Veelgestelde vragen</a></li>
-                        <li><button onClick={()=>setPhase("loting")}>Lotingsuitslagen</button></li>
-                        <li><button onClick={()=>setPhase("projecten")}>Projecten</button></li>
-                        <li><button onClick={()=>setPhase("scan")}>Gratis quickscan</button></li>
+                        <li><a href="/lotingsuitslagen" onClick={e=>{e.preventDefault();setPhase("loting");}}>Lotingsuitslagen</a></li>
+                        <li><a href="/projecten" onClick={e=>{e.preventDefault();setPhase("projecten");}}>Projecten</a></li>
+                        <li><a href="/scan" onClick={e=>{e.preventDefault();setPhase("scan");}}>Gratis quickscan</a></li>
                       </ul>
                     </div>
                     <div>
