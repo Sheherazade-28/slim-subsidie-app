@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /resultaat
+Disallow: /profiel
+Disallow: /betaling
+Disallow: /analyse
 Sitemap: https://www.slimsubsidieadvies.nl/sitemap.xml
