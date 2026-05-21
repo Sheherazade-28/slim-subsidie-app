@@ -124,7 +124,7 @@ export default function SlimDatabase({ onBack }) {
       if (tijdvak !== "Alle tijdvakken" && item.tv !== tijdvak) return false;
       if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !(item.sum||"").toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
       return true;
-    });
+    }).sort((a, b) => a.nm.localeCompare(b.nm, 'nl'));
   }, [data, zoek, cat, tijdvak]);
 
   const paginated = useMemo(() => filtered.slice(0, page * PAGE_SIZE), [filtered, page]);
