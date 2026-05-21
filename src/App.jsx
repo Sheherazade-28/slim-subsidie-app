@@ -455,6 +455,7 @@ export default function App(){
       const params=new URLSearchParams(window.location.search);
       if(params.get("betaling")==="geslaagd") return "success";
       if(window.location.pathname==="/projecten") return "projecten";
+      if(window.location.pathname==="/lotingsuitslagen") return "loting";
     }
     return "home";
   });
@@ -508,12 +509,12 @@ export default function App(){
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
   useEffect(()=>{
-    const target=phase==="projecten"?"/projecten":"/";
+    const target=phase==="projecten"?"/projecten":phase==="loting"?"/lotingsuitslagen":"/";
     if(window.location.pathname!==target) window.history.pushState({},"",target);
   },[phase]);
 
   useEffect(()=>{
-    function onPop(){setPhase(window.location.pathname==="/projecten"?"projecten":"home");}
+    function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":"home");}
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
