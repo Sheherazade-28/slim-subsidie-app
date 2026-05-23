@@ -265,7 +265,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-act-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
 .hp-act-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .hp-act-tag-sm{font-size:11px;background:var(--off);border:1px solid var(--border-l);border-radius:20px;padding:2px 8px;color:var(--muted);}
-.hp-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.hp-why-intro{font-size:16px;color:var(--muted);margin-bottom:24px;font-style:italic;}.hp-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
 .hp-why-card{padding:24px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
 .hp-why-icon{font-size:28px;margin-bottom:10px;display:block;}
 .hp-why-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;}
@@ -824,7 +824,7 @@ Bespreek in vier alinea's:
                   <div>
                     <div className="hp-badge"><span className="phase-dot"/>&nbsp;Gratis quickscan · Start vanaf €200 excl. btw · Retour bij inloting</div>
                     <h1 className="hp-h1">Laat geen<br/><span>€ 24.999</span><br/>subsidie liggen</h1>
-                    <p className="hp-sub">Wij verzorgen de volledige SLIM subsidieaanvraag voor MKB ondernemers. Start met een gratis online quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
+                    <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
                     <div className="hp-ctas">
                       <a href="/scan" className="hp-btn-p" onClick={e=>{e.preventDefault();setPhase("scan");}}>Doe de gratis quickscan →</a>
                       <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
@@ -933,7 +933,7 @@ Bespreek in vier alinea's:
                   <div className="hp-slbl">Onze aanpak</div>
                   <h2 className="hp-stitle">Waarom via SLIM Subsidie Advies?</h2>
                   <p className="hp-ssub">De specialist in SLIM-subsidie aanvragen voor MKB-ondernemers. Van gratis quickscan tot toekenning — én het volledige screeningstraject bij RVO.</p>
-                  <div className="hp-why-grid">
+                  <p className="hp-why-intro">Geen ingewikkeld subsidietraject, wel een kansrijke aanvraag.</p><div className="hp-why-grid">
                     <div className="hp-why-card"><span className="hp-why-icon">🔄</span><div className="hp-why-title">Herindienen tot inloting</div><div className="hp-why-text">Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🎯</span><div className="hp-why-title">100% SLIM-specialist</div><div className="hp-why-text">Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie.</div></div>
                     <div className="hp-why-card"><span className="hp-why-icon">🛡️</span><div className="hp-why-title">Succesfee: no cure, no pay</div><div className="hp-why-text">De dieptecheck kost €200 (early bird t/m 10 juli) of €250 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de dieptecheck wordt dan terugbetaald.</div></div>
@@ -992,7 +992,7 @@ Bespreek in vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl" style={{color:"var(--blue-light)",textAlign:"center"}}>Tijdvak 2 2026 — opening 10 augustus</div>
                   <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br/>voor <span>SLIM-subsidie</span>?</h2>
-                  <p className="hp-cta-sub">Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de dieptecheck voor € 200 excl. btw (€ 242 incl. btw).</p>
+                  <p className="hp-cta-sub">Speciaal voor MKB-ondernemers die willen groeien. Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de dieptecheck voor € 200 excl. btw (€ 242 incl. btw).</p>
                   <div style={{display:"flex",justifyContent:"center"}}>
                     <a href="/scan" className="hp-btn-p" onClick={e=>{e.preventDefault();setPhase("scan");}} style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</a>
                   </div>
