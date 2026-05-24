@@ -406,6 +406,22 @@ a,button{touch-action:manipulation;}
 .hp-how-text{font-size:13px;color:#5a6e82;line-height:1.65;}
 .hp-how-arrow{text-align:center;font-size:22px;color:#2aaae2;padding-top:28px;}
 @media(max-width:900px){.hp-how-grid{grid-template-columns:1fr;gap:12px;}.hp-how-arrow{display:none;}}
+
+/* PRIVACY PAGE */
+.privacy-hdr{background:var(--navy);padding:20px 24px;}
+.privacy-hdr-inner{max-width:820px;margin:0 auto;}
+.privacy-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--blue-light);text-decoration:none;font-weight:600;margin-top:12px;}
+.privacy-back:hover{text-decoration:underline;}
+.privacy-page{max-width:820px;margin:0 auto;padding:32px 20px 60px;}
+.privacy-h1{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:var(--navy);margin-bottom:4px;letter-spacing:.5px;}
+.privacy-meta{font-size:13px;color:var(--muted);margin-bottom:30px;}
+.privacy-sec{margin-bottom:24px;}
+.privacy-sec h2{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;letter-spacing:.3px;border-bottom:1px solid var(--border-l);padding-bottom:5px;}
+.privacy-sec p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:8px;}
+.privacy-sec ul{font-size:14px;color:var(--text);line-height:1.75;padding-left:20px;margin-bottom:8px;}
+.privacy-sec li{margin-bottom:4px;}
+.privacy-sec a{color:var(--blue);text-decoration:none;}
+.privacy-sec a:hover{text-decoration:underline;}
 `;
 
 const QUESTIONS=[
@@ -522,6 +538,129 @@ const PAGE_META={
   },
 };
 
+function PrivacyPage(){
+  return(
+    <div className="privacy-page">
+      <h1 className="privacy-h1">Privacyverklaring</h1>
+      <p className="privacy-meta">SLIM Subsidie Advies | Inscentia BV &nbsp;·&nbsp; Versie 1.0 — mei 2026</p>
+
+      <div className="privacy-sec">
+        <h2>Wie zijn wij?</h2>
+        <p>SLIM Subsidie Advies is een handelsnaam van Inscentia BV, gevestigd in Utrecht. Wij begeleiden MKB-ondernemers bij het aanvragen van de SLIM-subsidie.</p>
+        <ul>
+          <li><strong>Handelsnaam:</strong> SLIM Subsidie Advies</li>
+          <li><strong>Juridische entiteit:</strong> Inscentia BV</li>
+          <li><strong>KvK-nummer:</strong> 83970614</li>
+          <li><strong>BTW-nummer:</strong> NL863053907B01</li>
+          <li><strong>Adres:</strong> Floridadreef 100, 3565 AM Utrecht</li>
+          <li><strong>E-mail:</strong> <a href="mailto:info@slimsubsidieadvies.nl">info@slimsubsidieadvies.nl</a></li>
+          <li><strong>Telefoon:</strong> (030) 88 99 045</li>
+          <li><strong>Website:</strong> <a href="https://www.slimsubsidieadvies.nl" target="_blank" rel="noopener noreferrer">www.slimsubsidieadvies.nl</a></li>
+        </ul>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Welke persoonsgegevens verwerken wij?</h2>
+        <ul>
+          <li><strong>Contactgegevens:</strong> naam, e-mailadres, telefoonnummer, bedrijfsnaam.</li>
+          <li><strong>Bedrijfsgegevens:</strong> rechtsvorm, sector, provincie, aantal medewerkers.</li>
+          <li><strong>Financiële gegevens:</strong> investeringsbedrag, indicatief subsidiebedrag, betalingsgegevens via Mollie.</li>
+          <li><strong>Gebruiksgegevens:</strong> antwoorden op de quickscan en dieptecheck, gekozen subsidieactiviteiten, IP-adres en browsergegevens.</li>
+        </ul>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Waarvoor gebruiken wij uw gegevens?</h2>
+        <ul>
+          <li><strong>Uitvoering van de overeenkomst:</strong> beoordelen subsidiekansen, opstellen activiteitenplan en begroting, begeleiden subsidieaanvraag bij RVO.</li>
+          <li><strong>Communicatie:</strong> contact opnemen voor begeleiding, afspraken inplannen, voortgang delen.</li>
+          <li><strong>E-mailmarketing:</strong> informeren over SLIM-subsidie, aanvraagtijdvakken en onze diensten. U kunt zich altijd afmelden via de afmeldlink in onze e-mails.</li>
+          <li><strong>Administratie en facturatie:</strong> verwerken van betalingen en financiële administratie.</li>
+          <li><strong>AI-analyse:</strong> uw bedrijfsprofiel en quickscanresultaten worden gebruikt om via Claude (Anthropic) een gepersonaliseerde subsidieanalyse op te stellen.</li>
+        </ul>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Op welke grondslag verwerken wij uw gegevens?</h2>
+        <ul>
+          <li>Uitvoering van een overeenkomst</li>
+          <li>Gerechtvaardigd belang (zakelijke e-mailcommunicatie)</li>
+          <li>Toestemming (e-mailmarketing)</li>
+          <li>Wettelijke verplichting (financiële administratie, bewaartermijn 7 jaar)</li>
+        </ul>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Hoe lang bewaren wij uw gegevens?</h2>
+        <ul>
+          <li><strong>Klantgegevens en dossiers:</strong> 7 jaar na afloop van de opdracht.</li>
+          <li><strong>E-mailmarketinggegevens:</strong> totdat u zich afmeldt of wij uw gegevens verwijderen op uw verzoek.</li>
+          <li><strong>Websitegebruiksgegevens:</strong> maximaal 26 maanden.</li>
+          <li><strong>Contactgegevens zonder opdracht:</strong> maximaal 1 jaar.</li>
+        </ul>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Delen wij uw gegevens met derden?</h2>
+        <p><strong>Externe verwerkers:</strong></p>
+        <ul>
+          <li><strong>HubSpot (VS)</strong> — CRM en e-mailmarketing. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
+          <li><strong>Mollie (NL)</strong> — betalingsverwerking. Gevestigd in Nederland, valt onder de AVG.</li>
+          <li><strong>Anthropic/Claude (VS)</strong> — AI-analyse. Verwerking op basis van standaard contractbepalingen (SCC's).</li>
+          <li><strong>Exact (NL)</strong> — boekhoudsoftware. Gevestigd in Nederland.</li>
+          <li><strong>Google Workspace (VS)</strong> — e-mail, opslag en videovergaderen. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
+          <li><strong>Microsoft Teams (VS)</strong> — videovergaderen. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
+          <li><strong>Dropbox (VS)</strong> — bestandsopslag. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
+          <li><strong>Calendly (VS)</strong> — afsprakenbeheer. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
+        </ul>
+        <p><strong>RVO:</strong> bij het indienen van een subsidieaanvraag delen wij benodigde bedrijfs- en projectgegevens met RVO.</p>
+        <p>Wij verkopen uw persoonsgegevens nooit aan derden.</p>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Uw rechten</h2>
+        <p>U heeft de volgende rechten op grond van de AVG:</p>
+        <ul>
+          <li>Recht op inzage</li>
+          <li>Recht op rectificatie</li>
+          <li>Recht op verwijdering</li>
+          <li>Recht op beperking</li>
+          <li>Recht op overdraagbaarheid</li>
+          <li>Recht van bezwaar</li>
+          <li>Recht om toestemming in te trekken</li>
+        </ul>
+        <p>Verzoeken indienen via <a href="mailto:info@slimsubsidieadvies.nl">info@slimsubsidieadvies.nl</a>. Wij reageren binnen 30 dagen.</p>
+        <p>Klachten kunt u indienen bij de Autoriteit Persoonsgegevens: <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer">www.autoriteitpersoonsgegevens.nl</a></p>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Beveiliging</h2>
+        <p>Wij nemen passende technische en organisatorische maatregelen waaronder versleutelde verbindingen (HTTPS), toegangsbeveiliging, wachtwoordbeleid en beperkte toegang tot persoonsgegevens.</p>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Cookies</h2>
+        <p>Onze website gebruikt functionele cookies voor het correct functioneren van de website. Wij plaatsen geen tracking- of advertentiecookies zonder uw toestemming.</p>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Wijzigingen</h2>
+        <p>Wij kunnen deze privacyverklaring aanpassen. De meest actuele versie is altijd te vinden op onze website. Datum laatste wijziging: mei 2026.</p>
+      </div>
+
+      <div className="privacy-sec">
+        <h2>Contact</h2>
+        <p>Vragen over deze privacyverklaring? Neem contact op:</p>
+        <ul>
+          <li><strong>E-mail:</strong> <a href="mailto:info@slimsubsidieadvies.nl">info@slimsubsidieadvies.nl</a></li>
+          <li><strong>Telefoon:</strong> (030) 88 99 045</li>
+          <li><strong>Post:</strong> Inscentia BV, t.a.v. Privacy, Floridadreef 100, 3565 AM Utrecht</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default function App(){
   // ── FIX 1: detecteer Mollie redirect ──
   const [phase,setPhase]=useState(()=>{
@@ -611,6 +750,13 @@ export default function App(){
     function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":p==="/scan"?"scan":p==="/resultaat"?"result":p==="/profiel"?"profile":p==="/betaling"?"payment":p==="/analyse"?"success":"home");}
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
+  },[]);
+
+  const [showPrivacy,setShowPrivacy]=useState(()=>window.location.hash==='#privacy');
+  useEffect(()=>{
+    const onHash=()=>setShowPrivacy(window.location.hash==='#privacy');
+    window.addEventListener('hashchange',onHash);
+    return()=>window.removeEventListener('hashchange',onHash);
   },[]);
 
   // ── FIX 2: start AI analyse automatisch na Mollie redirect ──
@@ -784,6 +930,28 @@ Bespreek in vier alinea's:
   return(
     <>
       <style>{css}</style>
+      {showPrivacy?(
+        <div className="app">
+          <div className="privacy-hdr">
+            <div className="privacy-hdr-inner">
+              <div className="logo" style={{cursor:"pointer"}} onClick={()=>{window.location.hash='';setShowPrivacy(false);}}>
+                <span className="logo-slim">SLIM</span><span className="logo-sub">SUBSIDIE</span><span className="logo-adv">ADVIES</span>
+              </div>
+              <a href="/" className="privacy-back" onClick={e=>{e.preventDefault();window.location.hash='';setShowPrivacy(false);}}>← Terug naar de website</a>
+            </div>
+          </div>
+          <PrivacyPage/>
+          <div className="hp-footer" style={{padding:"24px 20px"}}>
+            <div className="hp-ft">
+              <div className="hp-ft-bottom" style={{borderTop:"none",paddingTop:0}}>
+                <div className="hp-ft-copy">© 2026 Inscentia BV, handelsnaam SLIM Subsidie Advies &nbsp;·&nbsp; KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</div>
+                <div className="hp-ft-legal"><a href="/#privacy">Privacyverklaring</a><a href="/#av">Algemene voorwaarden</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ):(
+      <>
       {phase==="projecten"&&<SlimDatabase onBack={()=>setPhase("home")}/>}
       {phase!=="projecten"&&<div className="app">
 
@@ -1024,8 +1192,8 @@ Bespreek in vier alinea's:
                     </div>
                   </div>
                   <div className="hp-ft-bottom">
-                    <div className="hp-ft-copy">© 2026 SLIM Subsidie Advies · www.slimsubsidieadvies.nl</div>
-                    <div className="hp-ft-legal"><a href="#privacy">Privacyverklaring</a><a href="#av">Algemene voorwaarden</a></div>
+                    <div className="hp-ft-copy">© 2026 Inscentia BV, handelsnaam SLIM Subsidie Advies &nbsp;·&nbsp; KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</div>
+                    <div className="hp-ft-legal"><a href="/#privacy">Privacyverklaring</a><a href="/#av">Algemene voorwaarden</a></div>
                   </div>
                 </div>
               </div>
@@ -1305,6 +1473,8 @@ Bespreek in vier alinea's:
 
         </main>
       </div>}
+      </>
+      )}
     </>
   );
 }
