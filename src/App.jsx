@@ -1007,8 +1007,7 @@ export default function App(){
   // ── FIX 1: detecteer Mollie redirect ──
   const [phase,setPhase]=useState(()=>{
     if(typeof window!=="undefined"){
-      const params=new URLSearchParams(window.location.search);
-      if(params.get("betaling")==="geslaagd") return "success";
+      if(window.location.pathname==="/succes") return "success";
       if(window.location.pathname==="/projecten") return "projecten";
       if(window.location.pathname==="/lotingsuitslagen") return "loting";
       if(window.location.pathname==="/scan") return "scan";
@@ -1089,7 +1088,7 @@ export default function App(){
   },[phase]);
 
   useEffect(()=>{
-    function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":p==="/scan"?"scan":p==="/resultaat"?"result":p==="/profiel"?"profile":p==="/betaling"?"payment":p==="/analyse"?"success":"home");}
+    function onPop(){const p=window.location.pathname;setPhase(p==="/projecten"?"projecten":p==="/lotingsuitslagen"?"loting":p==="/scan"?"scan":p==="/resultaat"?"result":p==="/profiel"?"profile":p==="/betaling"?"payment":p==="/analyse"?"success":p==="/succes"?"success":"home");}
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
@@ -1125,7 +1124,13 @@ export default function App(){
         method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify({
           model:"claude-haiku-4-5-20251001",max_tokens:1400,
-          messages:[{role:"user",content:`Je bent een expert SLIM-subsidieadviseur van SLIM Subsidie Advies. De ondernemer heeft zojuist betaald voor een persoonlijke diepteanalyse. Schrijf een waardevolle, professionele en bemoedigende analyse in het Nederlands (max 380 woorden, geen markdown, gebruik alinea's met witregel, spreek de ondernemer aan met "u"). Begin positief en bevestigend.
+          messages:[{role:"user",content:`Je bent gespecialiseerd adviseur bij SLIM Subsidie Advies. Schrijf een persoonlijke SLIM-subsidieanalyse in het Nederlands voor de ondernemer hieronder.
+
+STRIKTE RICHTLIJNEN:
+- Bespreek UITSLUITEND de SLIM-subsidie (Stimulering Leren en Ontwikkelen in het MKB, SLIM-regeling SZW)
+- Noem NOOIT andere subsidies, innovatieprogramma's, groeifondsen of regelingen — ook niet als suggestie
+- Focus op leren en ontwikkelen van medewerkers en de RVO-aanvraagprocedure
+- Max 380 woorden · geen markdown · alinea's gescheiden door een witregel · spreek ondernemer aan met "u"
 
 Bedrijfsprofiel:
 - Bedrijf: ${bedrijfsnaam||"onbekend"}
@@ -1136,22 +1141,20 @@ Bedrijfsprofiel:
 - Provincie: ${profile.provincie||"onbekend"}
 - Landbouwsector: ${isAgri?"Ja":"Nee"}
 - Investering: ${fmt(invNum)}
-- Indicatief subsidiebedrag: ${fmt(subsidyEst)}
-- Gekozen activiteit(en): ${actNames}
-- Tijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
+- Indicatief SLIM-subsidiebedrag (60% klein MKB / 50% middelgroot, max. €24.999): ${fmt(subsidyEst)}
+- Gekozen SLIM-activiteit(en): ${actNames}
+- Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 
-Actuele lotingscijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026):
-- 3.360 aanvragen ingediend in totaal
-- 23 aanvragen afgekeurd VÓÓR de loting (fouten in aanvraag)
-- 3.337 aanvragen meegenomen in de notariële loting
-- 474 van de 3.337 aanvragen ingeloot (~14%)
-- Budget: €11 miljoen
+Actuele lotingscijfers tijdvak 1 2026 (RVO, 8 mei 2026):
+- 3.360 SLIM-aanvragen ingediend
+- 23 afgekeurd vóór loting wegens fouten in de aanvraag
+- 474 van 3.337 ingeloot (~14%) — budget €11 mln
 
-Bespreek in vier alinea's:
-1. Positieve opening + kansrijkheid gelet op sector, omvang en activiteitenkeuze
-2. Of de gekozen activiteit(en) goed passen — eventueel een betere of aanvullende suggestie
-3. Lotingsrisico realistisch geduid met de actuele cijfers
-4. Twee concrete tips voor een sterke aanvraag + motiverende afsluiting`}]
+Schrijf vier alinea's:
+1. Kansrijkheid voor de SLIM-subsidie: waarom is dit bedrijf een sterke SLIM-kandidaat gezien sector, omvang en activiteit(en)?
+2. Beoordeling gekozen SLIM-activiteit(en): passen ze bij dit bedrijf en bij de SLIM-regeling-vereisten (bijv. externe gekwalificeerde adviseur voor activiteit A, Noloc-gecertificeerd voor activiteit B, min. €8.334 investering voor A en C)? Eventueel aanvullende of alternatieve SLIM-activiteit.
+3. Lotingsrisico: realistische duiding met actuele RVO-cijfers en wat een correcte aanvraag betekent voor de slaagkansen.
+4. Twee concrete tips voor een foutloze SLIM-aanvraag bij RVO + motiverende afsluiting gericht op het behalen van de SLIM-subsidie.`}]
         })
       });
       const data=await res.json();

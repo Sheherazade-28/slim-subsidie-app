@@ -45,7 +45,7 @@ export default async function handler(req, res) {
   const body = {
     amount: { value: bedragMollie, currency: "EUR" },
     description: omschrijving,
-    redirectUrl: `${siteUrl}/?betaling=geslaagd`,
+    redirectUrl: `${siteUrl}/succes`,
     webhookUrl: `${siteUrl}/api/webhook`,
     method: methodeMap[methode] || "ideal",
     locale: "nl_NL",

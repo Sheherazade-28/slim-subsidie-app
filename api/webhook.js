@@ -107,7 +107,13 @@ export default async function handler(req, res) {
     const anthropicKey = process.env.ANTHROPIC_API_KEY;
     if (anthropicKey) {
       try {
-        const prompt = `Je bent een expert SLIM-subsidieadviseur van SLIM Subsidie Advies. De ondernemer heeft zojuist betaald voor een persoonlijke diepteanalyse. Schrijf een waardevolle, professionele en bemoedigende analyse in het Nederlands (max 380 woorden, geen markdown, gebruik alinea's met witregel, spreek de ondernemer aan met "u"). Begin positief en bevestigend.
+        const prompt = `Je bent gespecialiseerd adviseur bij SLIM Subsidie Advies. Schrijf een persoonlijke SLIM-subsidieanalyse in het Nederlands voor de ondernemer hieronder.
+
+STRIKTE RICHTLIJNEN:
+- Bespreek UITSLUITEND de SLIM-subsidie (Stimulering Leren en Ontwikkelen in het MKB, SLIM-regeling SZW)
+- Noem NOOIT andere subsidies, innovatieprogramma's, groeifondsen of regelingen — ook niet als suggestie
+- Focus op leren en ontwikkelen van medewerkers en de RVO-aanvraagprocedure
+- Max 380 woorden · geen markdown · alinea's gescheiden door een witregel · spreek ondernemer aan met "u"
 
 Bedrijfsprofiel:
 - Bedrijf: ${bedrijfsnaam || "onbekend"}
@@ -118,22 +124,20 @@ Bedrijfsprofiel:
 - Provincie: ${profile?.provincie || "onbekend"}
 - Landbouwsector: ${isAgri ? "Ja" : "Nee"}
 - Investering: ${fmtEur(invNum)}
-- Indicatief subsidiebedrag: ${fmtEur(subsidyEst || 0)}
-- Gekozen activiteit(en): ${actNames}
-- Tijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
+- Indicatief SLIM-subsidiebedrag (60% klein MKB / 50% middelgroot, max. €24.999): ${fmtEur(subsidyEst || 0)}
+- Gekozen SLIM-activiteit(en): ${actNames}
+- Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 
-Actuele lotingscijfers tijdvak 1 2026 (bron: RVO, 8 mei 2026):
-- 3.360 aanvragen ingediend in totaal
-- 23 aanvragen afgekeurd VÓÓR de loting (fouten in aanvraag)
-- 3.337 aanvragen meegenomen in de notariële loting
-- 474 van de 3.337 aanvragen ingeloot (~14%)
-- Budget: €11 miljoen
+Actuele lotingscijfers tijdvak 1 2026 (RVO, 8 mei 2026):
+- 3.360 SLIM-aanvragen ingediend
+- 23 afgekeurd vóór loting wegens fouten in de aanvraag
+- 474 van 3.337 ingeloot (~14%) — budget €11 mln
 
-Bespreek in vier alinea's:
-1. Positieve opening + kansrijkheid gelet op sector, omvang en activiteitenkeuze
-2. Of de gekozen activiteit(en) goed passen — eventueel een betere of aanvullende suggestie
-3. Lotingsrisico realistisch geduid met de actuele cijfers
-4. Twee concrete tips voor een sterke aanvraag + motiverende afsluiting`;
+Schrijf vier alinea's:
+1. Kansrijkheid voor de SLIM-subsidie: waarom is dit bedrijf een sterke SLIM-kandidaat gezien sector, omvang en activiteit(en)?
+2. Beoordeling gekozen SLIM-activiteit(en): passen ze bij dit bedrijf en bij de SLIM-regeling-vereisten (bijv. externe gekwalificeerde adviseur voor activiteit A, Noloc-gecertificeerd voor activiteit B, min. €8.334 investering voor A en C)? Eventueel aanvullende of alternatieve SLIM-activiteit.
+3. Lotingsrisico: realistische duiding met actuele RVO-cijfers en wat een correcte aanvraag betekent voor de slaagkansen.
+4. Twee concrete tips voor een foutloze SLIM-aanvraag bij RVO + motiverende afsluiting gericht op het behalen van de SLIM-subsidie.`;
 
         const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
           method: "POST",
@@ -230,20 +234,7 @@ Bespreek in vier alinea's:
         from: "SLIM Subsidie App <noreply@slimsubsidieadvies.nl>",
         to: ["info@slimsubsidieadvies.nl"],
         subject: `Nieuwe betaling — ${naam}${bedrijf ? ` (${bedrijf})` : ""} · ${factuurNr}`,
-        html: `<p>Nieuwe SLIM Dieptecheck betaling ontvangen.</p>
-<ul>
-  <li><strong>Factuur:</strong> ${factuurNr}</li>
-  <li><strong>Naam:</strong> ${naam}</li>
-  <li><strong>Bedrijf:</strong> ${bedrijf || "—"}</li>
-  <li><strong>E-mail:</strong> ${email}</li>
-  <li><strong>Bedrag incl. BTW:</strong> € ${bedragIncl}</li>
-  <li><strong>Early bird:</strong> ${earlyBird ? "ja" : "nee"}</li>
-  <li><strong>Activiteiten:</strong> ${Array.isArray(activiteiten) ? activiteiten.join(", ") : activiteiten || "—"}</li>
-  <li><strong>Medewerkers:</strong> ${profile?.medewerkers || "—"}</li>
-  <li><strong>Sector:</strong> ${profile?.sector || "—"}</li>
-  <li><strong>Investering:</strong> ${invNum > 0 ? `€ ${invNum.toLocaleString("nl-NL")}` : "—"}</li>
-  <li><strong>Payment ID:</strong> ${id}</li>
-</ul>`,
+        html: emailHtml,
       }),
     });
     if (!ownerMail.ok) {

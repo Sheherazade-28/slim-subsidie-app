@@ -63,6 +63,15 @@ export function buildConfirmationEmail({
             Eén van onze adviseurs neemt binnen <strong style="color:#0d2e5a;">5 werkdagen</strong> contact met u op.
           </p>
 
+          <!-- Quickscan samenvatting -->
+          ${quickscanHtml ? `
+          <div style="margin-bottom:24px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:10px;">Uw quickscan samenvatting</div>
+            <div style="background:#f7f9fc;border-radius:8px;border:1px solid #e8edf3;padding:12px 16px;">
+              ${quickscanHtml}
+            </div>
+          </div>` : ""}
+
           <!-- Bestelling -->
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f9fc;border-radius:8px;border:1px solid #e8edf3;margin-bottom:28px;">
             <tr><td style="padding:20px 24px;">
@@ -84,15 +93,6 @@ export function buildConfirmationEmail({
             <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:10px;">Gekozen activiteit(en)</div>
             <ul style="font-size:14px;color:#5a6e82;line-height:1.8;margin:0;padding-left:20px;">${actList}</ul>
           </div>
-
-          <!-- Quickscan samenvatting -->
-          ${quickscanHtml ? `
-          <div style="margin-bottom:24px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:10px;">Uw quickscan samenvatting</div>
-            <div style="background:#f7f9fc;border-radius:8px;border:1px solid #e8edf3;padding:12px 16px;">
-              ${quickscanHtml}
-            </div>
-          </div>` : ""}
 
           <!-- Subsidie indicatie -->
           ${subsidyEst > 0 ? `
