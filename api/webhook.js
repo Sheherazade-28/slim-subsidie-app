@@ -115,6 +115,13 @@ STRIKTE RICHTLIJNEN:
 - Focus op leren en ontwikkelen van medewerkers en de RVO-aanvraagprocedure
 - Max 380 woorden · geen markdown · alinea's gescheiden door een witregel · spreek ondernemer aan met "u"
 
+VERMIJD deze formuleringen:
+- Gebruik NOOIT "vergroot uw inlotkans" — gebruik in plaats daarvan "zorgt ervoor dat u aan de loting kunt deelnemen"
+- Gebruik NOOIT "erkend staat in de SLIM-database" — gebruik "in het bezit is van de juiste certificering en als erkend vermeld staat in de SLIM-database"
+- Gebruik NOOIT vage termen als "demonstreert ernst" — gebruik "versterkt de kwaliteit van uw aanvraag"
+- Schrijf ALTIJD grammaticaal correct Nederlands, controleer werkwoordsvervoegingen
+- Sluit ALTIJD af met een concrete, bemoedigende zin over tijdvak 2 2026 met correcte werkwoordsvorm "voorbereiden" niet "voorbereiding"
+
 Bedrijfsprofiel:
 - Bedrijf: ${bedrijfsnaam || "onbekend"}
 - Bedrijfsgrootte: ${answers?.size === "groot" ? "Grootbedrijf landbouw/horeca/recreatie" : "MKB"}
