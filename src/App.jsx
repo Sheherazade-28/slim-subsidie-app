@@ -461,6 +461,16 @@ a,button{touch-action:manipulation;}
 .bt-cta{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--blue);border:1.5px solid var(--blue-pale2);padding:12px 24px;border-radius:var(--rs);font-size:14px;font-weight:600;text-decoration:none;transition:all .18s;margin-top:8px;}
 .bt-cta:hover{background:var(--blue-pale);border-color:var(--blue);}
 .bt-actions{display:flex;flex-direction:column;align-items:center;gap:4px;}
+
+/* GEDEELDE FOOTER (.ftr) — whitepaper + bedankt pagina's */
+.ftr{background:var(--navy);color:rgba(255,255,255,0.6);font-size:12px;padding:24px 24px;margin-top:auto;}
+.ftr-inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.ftr-links{display:flex;gap:20px;flex-wrap:wrap;}
+.ftr-links a{color:var(--blue-light);text-decoration:none;font-weight:500;}
+.ftr-links a:hover{text-decoration:underline;color:#fff;}
+.ftr-company{display:flex;flex-direction:column;gap:3px;}
+.ftr-company span{color:rgba(255,255,255,0.55);line-height:1.6;}
+.ftr-company strong{color:rgba(255,255,255,0.8);font-weight:600;}
 `;
 
 const QUESTIONS=[
@@ -671,8 +681,10 @@ function WhitepaperPage(){
               <a href="/#privacy">Privacyverklaring</a>
               <a href="/#av">Algemene Voorwaarden</a>
             </div>
-            <p>Handelsnaam: SLIM Subsidie Advies, onderdeel van Inscentia BV</p>
-            <p>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</p>
+            <div className="ftr-company">
+              <span><strong>SLIM Subsidie Advies</strong> — onderdeel van Inscentia BV</span>
+              <span>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01 &nbsp;·&nbsp; <a href="mailto:info@slimsubsidieadvies.nl" style={{color:"var(--blue-light)",textDecoration:"none"}}>info@slimsubsidieadvies.nl</a></span>
+            </div>
           </div>
         </footer>
       </div>
@@ -713,8 +725,10 @@ function BedanktPage(){
               <a href="/#privacy">Privacyverklaring</a>
               <a href="/#av">Algemene Voorwaarden</a>
             </div>
-            <p>Handelsnaam: SLIM Subsidie Advies, onderdeel van Inscentia BV</p>
-            <p>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</p>
+            <div className="ftr-company">
+              <span><strong>SLIM Subsidie Advies</strong> — onderdeel van Inscentia BV</span>
+              <span>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01 &nbsp;·&nbsp; <a href="mailto:info@slimsubsidieadvies.nl" style={{color:"var(--blue-light)",textDecoration:"none"}}>info@slimsubsidieadvies.nl</a></span>
+            </div>
           </div>
         </footer>
       </div>
