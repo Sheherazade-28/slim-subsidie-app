@@ -1362,6 +1362,7 @@ Schrijf vier alinea's:
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:800,color:"var(--blue-light)",lineHeight:1}}>60%</div>
                         <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €24.999<br/><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB</span></div>
                       </div>
+                      <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginTop:-10,marginBottom:16,lineHeight:1.4}}>* Uitzondering: landbouwbedrijven max. €20.000 (art. 2.20 lid 1 SLIM-regeling)</div>
                       <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
                       <div className="hp-tl">
                         <div className="hp-tl-item"><div className="hp-tl-dot done"/><div className="hp-tl-text"><strong>Tijdvak 1</strong> — 7 april t/m 4 mei 2026</div><span className="hp-tl-badge closed">Gesloten</span></div>
