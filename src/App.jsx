@@ -1358,28 +1358,9 @@ Schrijf vier alinea's:
                   <div>
                     <div className="hp-card">
                       <div className="hp-card-title">Subsidiepercentages</div>
-                      <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:16}}>
-                        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"12px 16px"}}>
-                          <div style={{display:"flex",alignItems:"center",gap:10}}>
-                            <span style={{fontSize:20}}>👤</span>
-                            <div>
-                              <div style={{fontSize:13,fontWeight:600,color:"#fff"}}>Klein bedrijf</div>
-                              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>tot 50 medewerkers</div>
-                            </div>
-                          </div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>60%</div>
-                        </div>
-                        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"12px 16px"}}>
-                          <div style={{display:"flex",alignItems:"center",gap:10}}>
-                            <span style={{fontSize:20}}>👥</span>
-                            <div>
-                              <div style={{fontSize:13,fontWeight:600,color:"#fff"}}>Middelgroot bedrijf</div>
-                              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>51 t/m 250 medewerkers</div>
-                            </div>
-                          </div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>60%</div>
-                        </div>
-                        <div style={{fontSize:11,color:"rgba(255,255,255,0.55)",textAlign:"center",paddingTop:2}}>Maximaal subsidiebedrag: € 24.999 per aanvraag.</div>
+                      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"14px 18px",marginBottom:16}}>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:800,color:"var(--blue-light)",lineHeight:1}}>60%</div>
+                        <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €24.999<br/><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB</span></div>
                       </div>
                       <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
                       <div className="hp-tl">
