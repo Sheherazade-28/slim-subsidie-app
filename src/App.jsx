@@ -1170,7 +1170,7 @@ Bespreek in vier alinea's:
       }));
       const res=await fetch("/api/create-payment",{
         method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({naam:contact.naam,bedrijf:contact.bedrijf,email:contact.email,telefoon:contact.telefoon,methode:payMethod,activiteiten:selectedActs,subsidyEst}),
+        body:JSON.stringify({naam:contact.naam,bedrijf:contact.bedrijf,email:contact.email,telefoon:contact.telefoon,methode:payMethod,activiteiten:selectedActs,subsidyEst,profile,answers,investment:invNum}),
       });
       const data=await res.json();
       if(data.checkoutUrl){window.location.href=data.checkoutUrl;}

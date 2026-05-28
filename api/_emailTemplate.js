@@ -13,6 +13,8 @@ export function buildConfirmationEmail({
   factuurNr,
   datum,
   paymentId,
+  quickscanHtml = "",
+  analysisText = "",
 }) {
   const datumStr = new Date(datum).toLocaleDateString("nl-NL", {
     day: "numeric", month: "long", year: "numeric",
@@ -83,6 +85,15 @@ export function buildConfirmationEmail({
             <ul style="font-size:14px;color:#5a6e82;line-height:1.8;margin:0;padding-left:20px;">${actList}</ul>
           </div>
 
+          <!-- Quickscan samenvatting -->
+          ${quickscanHtml ? `
+          <div style="margin-bottom:24px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:10px;">Uw quickscan samenvatting</div>
+            <div style="background:#f7f9fc;border-radius:8px;border:1px solid #e8edf3;padding:12px 16px;">
+              ${quickscanHtml}
+            </div>
+          </div>` : ""}
+
           <!-- Subsidie indicatie -->
           ${subsidyEst > 0 ? `
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#e6f5ee;border:1px solid #a8d8bc;border-radius:8px;margin-bottom:28px;">
@@ -92,6 +103,15 @@ export function buildConfirmationEmail({
               <div style="font-size:12px;color:#1a7a4a;margin-top:2px;">60% van uw investering · max. €24.999</div>
             </td></tr>
           </table>` : ""}
+
+          <!-- AI diepteanalyse -->
+          ${analysisText ? `
+          <div style="margin-bottom:28px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:10px;">Uw persoonlijke AI-diepteanalyse</div>
+            <div style="background:#f7f9fc;border-radius:8px;border:1px solid #e8edf3;padding:20px 24px;">
+              ${analysisText.split(/\n\n+/).map(p => `<p style="font-size:13px;color:#1a2a3a;line-height:1.7;margin:0 0 12px;">${p.replace(/\n/g, "<br>")}</p>`).join("")}
+            </div>
+          </div>` : ""}
 
           <!-- Volgende stappen -->
           <div style="margin-bottom:28px;">

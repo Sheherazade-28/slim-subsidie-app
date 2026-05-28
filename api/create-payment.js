@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Betaling niet geconfigureerd." });
   }
 
-  const { naam, bedrijf, email, telefoon, methode, activiteiten, subsidyEst } = req.body;
+  const { naam, bedrijf, email, telefoon, methode, activiteiten, subsidyEst, profile, answers, investment } = req.body;
 
   if (!naam || !email || !methode) {
     return res.status(400).json({ error: "Naam, e-mail en betaalmethode zijn verplicht." });
@@ -59,6 +59,9 @@ export default async function handler(req, res) {
       earlyBird,
       bedragExcl: bedragExcl.toString(),   // voor factuur: excl. BTW
       bedragIncl: bedragMollie,             // voor factuur: incl. BTW
+      profile: profile || {},
+      answers: answers || {},
+      investment: investment || 0,
     },
   };
 
