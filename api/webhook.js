@@ -5,8 +5,6 @@
 // Environment variables:
 //   MOLLIE_API_KEY  → zelfde sleutel als in create-payment.js
 //   RESEND_API_KEY  → van resend.com (gratis: 3.000 mails/maand)
-//   MAIL_FROM       → bijv. "SLIM Subsidie Advies <info@slimsubsidieadvies.nl>"
-//   MAIL_BCC        → bijv. info@slimsubsidieadvies.nl (kopie naar jezelf)
 
 import { buildConfirmationEmail } from "./_emailTemplate.js";
 import { buildInvoiceHtml } from "./_invoiceTemplate.js";
@@ -85,36 +83,59 @@ export default async function handler(req, res) {
       return res.status(200).end();
     }
 
-    // Verstuur via Resend REST API (geen npm nodig)
-    const mailBody = {
-      from: process.env.MAIL_FROM || "SLIM Subsidie Advies <info@slimsubsidieadvies.nl>",
-      to: [email],
-      bcc: process.env.MAIL_BCC ? [process.env.MAIL_BCC] : [],
-      subject: `Bevestiging betaling SLIM Dieptecheck — ${factuurNr}`,
-      html: emailHtml,
-      attachments: [
-        {
-          filename: `Factuur-${factuurNr}.html`,
-          content: Buffer.from(factuurHtml).toString("base64"),
-        },
-      ],
+    const resendHeaders = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${resendKey}`,
     };
 
-    const mailRes = await fetch("https://api.resend.com/emails", {
+    // 1. Bevestigingsmail naar klant
+    const customerMail = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${resendKey}`,
-      },
-      body: JSON.stringify(mailBody),
+      headers: resendHeaders,
+      body: JSON.stringify({
+        from: "SLIM Subsidie Advies <noreply@slimsubsidieadvies.nl>",
+        to: [email],
+        subject: `Bevestiging betaling SLIM Dieptecheck — ${factuurNr}`,
+        html: emailHtml,
+        attachments: [
+          {
+            filename: `Factuur-${factuurNr}.html`,
+            content: Buffer.from(factuurHtml).toString("base64"),
+          },
+        ],
+      }),
     });
-
-    const mailData = await mailRes.json();
-
-    if (!mailRes.ok) {
-      console.error("Resend fout:", JSON.stringify(mailData));
+    if (!customerMail.ok) {
+      console.error("Resend klant-mail fout:", JSON.stringify(await customerMail.json()));
     } else {
-      console.log(`✓ Bevestiging verstuurd naar ${email} — ${factuurNr}`);
+      console.log(`✓ Bevestiging verstuurd naar klant: ${email} — ${factuurNr}`);
+    }
+
+    // 2. Notificatie naar eigenaar
+    const ownerMail = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: resendHeaders,
+      body: JSON.stringify({
+        from: "SLIM Subsidie App <noreply@slimsubsidieadvies.nl>",
+        to: ["info@slimsubsidieadvies.nl"],
+        subject: `Nieuwe betaling — ${naam}${bedrijf ? ` (${bedrijf})` : ""} · ${factuurNr}`,
+        html: `<p>Nieuwe SLIM Dieptecheck betaling ontvangen.</p>
+<ul>
+  <li><strong>Factuur:</strong> ${factuurNr}</li>
+  <li><strong>Naam:</strong> ${naam}</li>
+  <li><strong>Bedrijf:</strong> ${bedrijf || "—"}</li>
+  <li><strong>E-mail:</strong> ${email}</li>
+  <li><strong>Bedrag incl. BTW:</strong> € ${bedragIncl}</li>
+  <li><strong>Early bird:</strong> ${earlyBird ? "ja" : "nee"}</li>
+  <li><strong>Activiteiten:</strong> ${Array.isArray(activiteiten) ? activiteiten.join(", ") : activiteiten || "—"}</li>
+  <li><strong>Payment ID:</strong> ${id}</li>
+</ul>`,
+      }),
+    });
+    if (!ownerMail.ok) {
+      console.error("Resend eigenaar-mail fout:", JSON.stringify(await ownerMail.json()));
+    } else {
+      console.log(`✓ Notificatie verstuurd naar info@slimsubsidieadvies.nl`);
     }
 
     return res.status(200).end();
