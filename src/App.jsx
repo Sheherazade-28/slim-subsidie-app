@@ -503,12 +503,8 @@ const LOTING_TIJDVAKKEN=[
 
 function fmt(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);}
 function fmt2(n){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
-function calcSubsidy(inv,agri,medewerkers){
-  // Vanaf 2025: klein MKB (<50 mw) = 60%, middelgroot (50-250 mw) = 50%
-  const mwStr=medewerkers||"";
-  const isKlein=mwStr===""||["1–5 medewerkers","6–10 medewerkers","11–25 medewerkers","26–50 medewerkers"].includes(mwStr);
-  const pct=isKlein?0.60:0.50;
-  return Math.min(inv*pct,agri?20000:24999);
+function calcSubsidy(inv,agri){
+  return Math.min(inv*0.60,agri?20000:24999);
 }
 function isEarlyBird(){const now=new Date();return(now>=new Date(2026,4,5)&&now<=new Date(2026,6,10))||(now>=new Date(2026,8,8)&&now<=new Date(2027,0,6));}
 function nextDeadline(){
@@ -1039,7 +1035,7 @@ export default function App(){
   const finalPriceIncl=finalPrice*1.21;
   const isAgri=answers.agriculture==="yes";
   const invNum=parseFloat(investment.replace(",","."))||0;
-  const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri,profile.medewerkers):0;
+  const subsidyEst=invNum>=8334?calcSubsidy(invNum,isAgri):0;
   const allScanDone=QUESTIONS.every(q=>answers[q.id]!==undefined)&&invNum>=8334;
   const profileOk=profile.medewerkers&&profile.rechtsvorm&&profile.sector&&profile.provincie&&selectedActs.length>0&&contact.bedrijf;
   const progress=[10,25,45,68,100];
@@ -1148,7 +1144,7 @@ Bedrijfsprofiel:
 - Provincie: ${profile.provincie||"onbekend"}
 - Landbouwsector: ${isAgri?"Ja":"Nee"}
 - Investering: ${fmt(invNum)}
-- Indicatief SLIM-subsidiebedrag (60% klein MKB / 50% middelgroot, max. €24.999): ${fmt(subsidyEst)}
+- Indicatief SLIM-subsidiebedrag (60% MKB, max. €24.999; max. €20.000 voor landbouw): ${fmt(subsidyEst)}
 - Gekozen SLIM-activiteit(en): ${actNames}
 - Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 
@@ -1444,7 +1440,7 @@ Schrijf vier alinea's:
                 <div className="hp-si">
                   <div className="hp-slbl">De SLIM-regeling</div>
                   <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
-                  <p className="hp-ssub">De SLIM-subsidie vergoedt tot 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers. Klein MKB (tot 50 medewerkers) ontvangt 60%, middelgroot MKB (51–250 medewerkers) 50%. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
+                  <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot een maximum van €24.999. Landbouwbedrijven: max. €20.000. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
                   <div className="hp-act-grid">
                     <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
                     <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
@@ -1499,8 +1495,8 @@ Schrijf vier alinea's:
                   <div className="hp-faq-list">
                     {[
                       ["Ik ben ZZP-er. Kom ik in aanmerking?","Nee. Alleen mkb-bedrijven mét personeel in loondienst kunnen SLIM-subsidie aanvragen."],
-                      ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Tot 50 medewerkers valt u onder het klein MKB en ontvangt u 60% subsidie op uw investering, tot een maximum van € 24.999. Bedrijven met 51–250 medewerkers ontvangen 50%."],
-                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie dekt 50–60% van uw investering in opleiding en scholing van medewerkers, afhankelijk van uw bedrijfsgrootte."],
+                      ["Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?","Ja! Als MKB-ondernemer ontvangt u 60% subsidie op uw investering, tot een maximum van € 24.999. Landbouwbedrijven hebben een maximum van € 20.000."],
+                      ["Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?","Ja! De SLIM-subsidie dekt 60% van uw investering in opleiding en scholing van medewerkers. Het minimum is € 8.334 investering (= € 5.000 subsidie)."],
                       ["Wat betekent inloting precies?","Inloting betekent dat uw aanvraag in behandeling wordt genomen — niet dat subsidie is toegekend. Na inloting beoordeelt RVO uw aanvraag inhoudelijk."],
                       ["Wat kost SLIM-subsidie aanvragen via SLIM Subsidie Advies?","De quickscan is gratis. Dieptecheck kost € 200 excl. btw (early bird) of € 250 excl. btw (€ 242 resp. € 302,50 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw. Geen toekenning = geen succesfee."],
                     ].map(([q,a],i)=>(
@@ -1612,11 +1608,11 @@ Schrijf vier alinea's:
                 <div className="est-box">
                   <div className="est-label">Indicatief subsidiebedrag</div>
                   <div className="est-amount">{fmt(subsidyEst)}</div>
-                  <div className="est-sub">{["51–100 medewerkers","101–249 medewerkers","250+ medewerkers"].includes(profile.medewerkers)?"50%":"60%"} van {fmt(invNum)}{isAgri?" (max. €20.000 voor landbouw)":" (max. €24.999)"}</div>
+                  <div className="est-sub">60% van {fmt(invNum)}{isAgri?" (max. €20.000 voor landbouw)":" (max. €24.999)"}</div>
                   <div className="est-grid">
                     <div className="est-item"><div className="est-item-label">Tijdvak</div><div className="est-item-val">{deadline.label}</div></div>
                     <div className="est-item"><div className="est-item-label">Opening aanvraag</div><div className="est-item-val">{deadline.open.toLocaleDateString("nl-NL")}</div></div>
-                    <div className="est-item"><div className="est-item-label">Subsidie %</div><div className="est-item-val">{["51–100 medewerkers","101–249 medewerkers","250+ medewerkers"].includes(profile.medewerkers)?"50%":"60%"}</div></div>
+                    <div className="est-item"><div className="est-item-label">Subsidie %</div><div className="est-item-val">60%</div></div>
                   </div>
                 </div>
               </div>
