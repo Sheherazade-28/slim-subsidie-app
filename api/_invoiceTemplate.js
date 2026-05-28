@@ -8,7 +8,8 @@ export function buildInvoiceHtml({
   email,
   activiteiten = [],
   earlyBird = false,
-  bedrag = "250.00",
+  bedragExcl = "200.00",
+  bedragIncl = "242.00",
   factuurNr,
   datum,
   paymentId,
@@ -17,9 +18,9 @@ export function buildInvoiceHtml({
     day: "numeric", month: "long", year: "numeric",
   });
 
-  const bedragNum = parseFloat(bedrag);
-  const btw = bedragNum * 0.21;
-  const totaal = bedragNum + btw;
+  const bedragNum = parseFloat(bedragExcl);
+  const btw = parseFloat(bedragIncl) - bedragNum;
+  const totaal = parseFloat(bedragIncl);
 
   const fmt = (n) =>
     new Intl.NumberFormat("nl-NL", {
@@ -125,8 +126,8 @@ export function buildInvoiceHtml({
 <!-- No cure no pay -->
 <div style="background:#f7f9fc;border-left:3px solid #0d2e5a;padding:14px 18px;margin-bottom:36px;border-radius:0 8px 8px 0;">
   <div style="font-size:12px;color:#5a6e82;line-height:1.7;">
-    <strong style="color:#0d2e5a;">No cure, no pay:</strong> Bij toekenning van de SLIM-subsidie is een succesfee van € 2.500 (excl. btw) verschuldigd.
-    De kosten van de dieptecheck (${fmt(bedragNum)} excl. btw) worden bij toekenning terugbetaald. Geen subsidietoekenning = geen succesfee.
+    <strong style="color:#0d2e5a;">No cure, no pay:</strong> Bij toekenning van de SLIM-subsidie is een succesfee verschuldigd.
+    De kosten van de dieptecheck (${fmt(bedragNum)} excl. btw) worden hierop in mindering gebracht. Geen subsidietoekenning = geen succesfee.
   </div>
 </div>
 
