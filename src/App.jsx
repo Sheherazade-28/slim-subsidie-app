@@ -708,8 +708,8 @@ function BedanktPage(){
         </div>
         <div className="bt-body">
           <span className="bt-icon">📄</span>
-          <h1 className="bt-h1">Bedankt! Uw whitepaper staat klaar.</h1>
-          <p className="bt-sub">Klik op de knop hieronder om de State of SLIM 2026 direct te downloaden.</p>
+          <h1 className="bt-h1">Goed besluit.</h1>
+          <p className="bt-sub">U bent een van de eersten met inzicht in 5.891 gehonoreerde SLIM-projecten.</p>
           <div className="bt-actions">
             <a className="bt-download" href="/State_of_SLIM_2026.pdf" download="State_of_SLIM_2026.pdf">
               ⬇ Download State of SLIM 2026.pdf
