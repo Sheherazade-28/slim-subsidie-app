@@ -422,6 +422,44 @@ a,button{touch-action:manipulation;}
 .privacy-sec li{margin-bottom:4px;}
 .privacy-sec a{color:var(--blue);text-decoration:none;}
 .privacy-sec a:hover{text-decoration:underline;}
+
+/* WHITEPAPER PAGE */
+.wp-page{min-height:100vh;display:flex;flex-direction:column;}
+.wp-hdr{background:var(--navy);padding:28px 24px 36px;position:relative;overflow:hidden;}
+.wp-hdr::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(26,107,191,0.15);pointer-events:none;}
+.wp-hdr-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.wp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(42,170,226,0.2);border:1px solid rgba(42,170,226,0.4);color:var(--blue-light);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px;}
+.wp-h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(26px,5vw,40px);color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:.5px;}
+.wp-h1 span{color:var(--blue-light);}
+.wp-subkop{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.65;max-width:600px;}
+.wp-body{max-width:760px;margin:0 auto;padding:36px 20px 60px;flex:1;}
+.wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.wp-usps{background:var(--off);border:1px solid var(--border-l);border-radius:var(--r);padding:24px;}
+.wp-usps-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;}
+.wp-usp{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border-l);}
+.wp-usp:last-child{border-bottom:none;padding-bottom:0;}
+.wp-usp-icon{width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--blue-light);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.wp-usp-text{font-size:14px;color:var(--text);line-height:1.55;font-weight:500;}
+.wp-form-card{background:var(--white);border:1px solid var(--border-l);border-radius:var(--r);box-shadow:var(--shadow);padding:28px;}
+.wp-form-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:.3px;}
+.wp-form-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.55;}
+.wp-submit{width:100%;padding:13px 20px;background:var(--navy);color:#fff;border:none;border-radius:var(--rs);font-size:15px;font-weight:600;font-family:'Barlow',sans-serif;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;}
+.wp-submit:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 4px 14px rgba(13,46,90,0.2);}
+.wp-submit:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none;}
+.wp-meta{font-size:11px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5;}
+@media(max-width:620px){.wp-grid{grid-template-columns:1fr;}.wp-hdr{padding:22px 16px 28px;}.wp-body{padding:24px 14px 50px;}}
+
+/* BEDANKT PAGE */
+.bt-page{min-height:100vh;display:flex;flex-direction:column;}
+.bt-body{max-width:600px;margin:0 auto;padding:48px 20px 60px;flex:1;text-align:center;}
+.bt-icon{font-size:56px;display:block;margin-bottom:20px;}
+.bt-h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,5vw,36px);font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:.5px;}
+.bt-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:32px;}
+.bt-download{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:var(--rs);font-size:15px;font-weight:600;text-decoration:none;transition:all .18s;margin-bottom:16px;}
+.bt-download:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 4px 14px rgba(13,46,90,0.2);}
+.bt-cta{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--blue);border:1.5px solid var(--blue-pale2);padding:12px 24px;border-radius:var(--rs);font-size:14px;font-weight:600;text-decoration:none;transition:all .18s;margin-top:8px;}
+.bt-cta:hover{background:var(--blue-pale);border-color:var(--blue);}
+.bt-actions{display:flex;flex-direction:column;align-items:center;gap:4px;}
 `;
 
 const QUESTIONS=[
@@ -537,6 +575,133 @@ const PAGE_META={
     ogDesc:"Doorzoek 6.208 gehonoreerde SLIM-subsidie projecten. Filter op categorie en tijdvak. Laat je inspireren.",
   },
 };
+
+function WhitepaperPage(){
+  const [form,setForm]=useState({naam:"",bedrijf:"",email:""});
+  const [submitting,setSubmitting]=useState(false);
+  const allFilled=form.naam.trim()&&form.bedrijf.trim()&&form.email.includes("@");
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(!allFilled)return;
+    setSubmitting(true);
+    localStorage.setItem("wp_lead",JSON.stringify({...form,ts:Date.now()}));
+    window.location.href="/bedankt";
+  }
+
+  return(
+    <>
+      <style>{css}</style>
+      <div className="wp-page">
+        <div className="wp-hdr">
+          <div className="wp-hdr-inner">
+            <div className="logo" style={{marginBottom:20}}>
+              <span className="logo-slim">SLIM</span>
+              <span className="logo-sub">SUBSIDIE</span>
+              <span className="logo-adv">ADVIES</span>
+            </div>
+            <div className="wp-badge">✦ Gratis whitepaper</div>
+            <h1 className="wp-h1">State of SLIM <span>2026</span> — Gratis whitepaper</h1>
+            <p className="wp-subkop">De eerste onafhankelijke benchmarkanalyse van 5.891 gehonoreerde MKB-projecten (2020–2024)</p>
+          </div>
+        </div>
+        <div className="wp-body">
+          <div className="wp-grid">
+            <div className="wp-usps">
+              <div className="wp-usps-title">Wat vindt u in dit rapport</div>
+              <div className="wp-usp">
+                <div className="wp-usp-icon">1</div>
+                <div className="wp-usp-text">Welke thema's scoren het beste — en welke worden gemist</div>
+              </div>
+              <div className="wp-usp">
+                <div className="wp-usp-icon">2</div>
+                <div className="wp-usp-text">De witte vlek: omscholing &amp; conversie wordt door 0,2% benut</div>
+              </div>
+              <div className="wp-usp">
+                <div className="wp-usp-icon">3</div>
+                <div className="wp-usp-text">Regionale atlas + 7 belangrijkste inzichten voor uw aanvraag</div>
+              </div>
+            </div>
+            <div className="wp-form-card">
+              <div className="wp-form-title">Download gratis whitepaper</div>
+              <div className="wp-form-sub">Vul uw gegevens in en ontvang direct toegang tot het volledige rapport.</div>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label className="form-label">Naam</label>
+                  <input className="form-input" type="text" placeholder="Uw naam" value={form.naam} onChange={e=>setForm(p=>({...p,naam:e.target.value}))} required/>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Bedrijfsnaam</label>
+                  <input className="form-input" type="text" placeholder="Naam van uw bedrijf" value={form.bedrijf} onChange={e=>setForm(p=>({...p,bedrijf:e.target.value}))} required/>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">E-mailadres</label>
+                  <input className="form-input" type="email" placeholder="uwmail@bedrijf.nl" value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} required/>
+                </div>
+                <button className="wp-submit" type="submit" disabled={!allFilled||submitting}>
+                  {submitting?"Even geduld…":"Download gratis whitepaper →"}
+                </button>
+                <p className="wp-meta">Geen spam. Uw gegevens worden vertrouwelijk behandeld conform onze <a href="/#privacy" style={{color:"var(--blue)"}}>privacyverklaring</a>.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <footer className="ftr">
+          <div className="ftr-inner">
+            <div className="ftr-links">
+              <a href="/#privacy">Privacyverklaring</a>
+              <a href="/#av">Algemene Voorwaarden</a>
+            </div>
+            <p>Handelsnaam: SLIM Subsidie Advies, onderdeel van Inscentia BV</p>
+            <p>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</p>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+}
+
+function BedanktPage(){
+  return(
+    <>
+      <style>{css}</style>
+      <div className="bt-page">
+        <div className="privacy-hdr">
+          <div className="privacy-hdr-inner">
+            <div className="logo">
+              <span className="logo-slim">SLIM</span>
+              <span className="logo-sub">SUBSIDIE</span>
+              <span className="logo-adv">ADVIES</span>
+            </div>
+          </div>
+        </div>
+        <div className="bt-body">
+          <span className="bt-icon">📄</span>
+          <h1 className="bt-h1">Bedankt! Uw whitepaper staat klaar.</h1>
+          <p className="bt-sub">Klik op de knop hieronder om de State of SLIM 2026 direct te downloaden.</p>
+          <div className="bt-actions">
+            <a className="bt-download" href="/State_of_SLIM_2026.pdf" download="State_of_SLIM_2026.pdf">
+              ⬇ Download State of SLIM 2026.pdf
+            </a>
+            <a className="bt-cta" href="/quickscan">
+              Doe ook de gratis quickscan →
+            </a>
+          </div>
+        </div>
+        <footer className="ftr">
+          <div className="ftr-inner">
+            <div className="ftr-links">
+              <a href="/#privacy">Privacyverklaring</a>
+              <a href="/#av">Algemene Voorwaarden</a>
+            </div>
+            <p>Handelsnaam: SLIM Subsidie Advies, onderdeel van Inscentia BV</p>
+            <p>KvK: 83970614 &nbsp;·&nbsp; BTW: NL863053907B01</p>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+}
 
 function PrivacyPage(){
   return(
@@ -1070,6 +1235,10 @@ Bespreek in vier alinea's:
       </div>
     );
   }
+
+  const pathname=window.location.pathname;
+  if(pathname==='/whitepaper') return <WhitepaperPage/>;
+  if(pathname==='/bedankt') return <BedanktPage/>;
 
   return(
     <>
