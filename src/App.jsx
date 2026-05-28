@@ -1377,7 +1377,7 @@ Schrijf vier alinea's:
                               <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>51 t/m 250 medewerkers</div>
                             </div>
                           </div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>50%</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:800,color:"var(--blue-light)"}}>60%</div>
                         </div>
                         <div style={{fontSize:11,color:"rgba(255,255,255,0.55)",textAlign:"center",paddingTop:2}}>Maximaal subsidiebedrag: € 24.999 per aanvraag.</div>
                       </div>
