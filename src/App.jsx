@@ -902,7 +902,7 @@ function AvPage(){
       <div className="privacy-sec">
         <h2>Artikel 4 — Dienstverlening</h2>
         <ul>
-          <li><strong>Dieptecheck</strong> (€ 200 excl. btw early bird / € 250 excl. btw regulier): persoonlijke AI-diepteanalyse, telefonisch adviesgesprek binnen 5 werkdagen, en start aanvraagbegeleiding.</li>
+          <li><strong>Dieptecheck</strong> (€ 200 excl. btw early bird / € 250 excl. btw regulier): persoonlijke AI-diepteanalyse, telefonisch adviesgesprek binnen 8 werkdagen, en start aanvraagbegeleiding.</li>
           <li><strong>Aanvraagbegeleiding:</strong> opstellen activiteitenplan, begroting en documenten; compliance-check; indiening via RVO e-portaal; begeleiding screeningstraject na inloting.</li>
           <li><strong>Herindienen:</strong> wordt de aanvraag niet ingeloot, dan actualiseert Opdrachtnemer de aanvraag elk volgend tijdvak en dient deze opnieuw in totdat inloting plaatsvindt — zonder extra kosten.</li>
           <li>Opdrachtnemer spant zich in voor een correcte en volledige aanvraag, doch kan geen garantie geven op inloting of toekenning door RVO.</li>
@@ -1632,7 +1632,7 @@ Schrijf vier alinea's:
                     <p className="price-incl-note">📌 Totaal af te schrijven: <strong>{fmt2(finalPriceIncl)} incl. btw</strong> ({fmt(finalPrice)} + 21% btw)</p>
                     <ul className="features">
                       <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> Persoonlijke AI-diepteanalyse van uw situatie en lotingskansen</li>
-                      <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 5 werkdagen</li>
+                      <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 8 werkdagen</li>
                       <li><span className="feat-check">✓</span>Foutloze aanvraag — nooit afgekeurd vóór de loting</li>
                       <li><span className="feat-check">✓</span>Activiteitenplan, begroting en documentenverzameling</li>
                       <li><span className="feat-check">✓</span>Compliance-check en indiening via RVO e-portaal</li>
@@ -1708,7 +1708,7 @@ Schrijf vier alinea's:
                 <ul className="features" style={{marginBottom:0}}>
                   <li><span className="feat-check">✓</span><strong>Uw persoonlijke AI-diepteanalyse</strong> — direct zichtbaar na terugkeer van de betaalpagina</li>
                   <li><span className="feat-check">✓</span>Bevestigingsmail met factuur</li>
-                  <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 5 werkdagen</li>
+                  <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 8 werkdagen</li>
                   <li><span className="feat-check">✓</span>Start volledige aanvraagbegeleiding richting {deadline.label}</li>
                   <li><span className="feat-check">✓</span><strong>Herindienen inbegrepen:</strong> niet ingeloot? Wij actualiseren uw aanvraag ieder tijdvak en dienen opnieuw in — totdat u ingeloot wordt</li>
                 </ul>
@@ -1804,10 +1804,10 @@ Schrijf vier alinea's:
               {!loadingAI&&(
                 <div className="next-steps">
                   <div className="next-steps-title">Wat gebeurt er nu?</div>
-                  <div className="next-step"><div className="next-step-num">1</div><div className="next-step-body"><div className="next-step-title">Terugbelafspraak binnen 5 werkdagen</div><div className="next-step-sub">Uw adviseur neemt contact op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">1</div><div className="next-step-body"><div className="next-step-title">Terugbelafspraak binnen 8 werkdagen</div><div className="next-step-sub">Uw adviseur neemt contact op om de analyse door te nemen en de aanvraagstrategie te bespreken.</div></div></div>
                   <div className="next-step"><div className="next-step-num">2</div><div className="next-step-body"><div className="next-step-title">Complete en correcte aanvraagvoorbereiding</div><div className="next-step-sub">Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor.</div></div></div>
-                  <div className="next-step"><div className="next-step-num">3</div><div className="next-step-body"><div className="next-step-title">Foutloze indiening & begeleid screeningstraject</div><div className="next-step-sub">Wij zorgen voor een correcte aanvraag vóór indiening. Na inloting begeleiden wij ook het screeningstraject bij RVO. Alles voor dezelfde vaste fee.</div></div></div>
-                  <div className="next-step"><div className="next-step-num">4</div><div className="next-step-body"><div className="next-step-title">Lotingsresultaat & succesfee</div><div className="next-step-sub">Bij toekenning is een succesfee van € 2.500 (excl. btw) verschuldigd. De dieptecheck wordt terugbetaald. Geen toekenning = geen succesfee.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">3</div><div className="next-step-body"><div className="next-step-title">Foutloze & tijdige indiening</div><div className="next-step-sub">Wij zorgen voor een correcte aanvraagindiening via de E-portal. Binnen de deadline.</div></div></div>
+                  <div className="next-step"><div className="next-step-num">4</div><div className="next-step-body"><div className="next-step-title">Ingeloot? Vragenbeantwoording & review</div><div className="next-step-sub">Bij toekenning begeleiden wij u tijdens het subsidie-beoordelingstraject door RVO. En we reviewen uw eindoplevering en dossier. Alles voor dezelfde vaste succesfee van € 2.500 (excl. BTW). De dieptecheck wordt terugbetaald. Geen toekenning = geen succesfee.</div></div></div>
                   <div className="next-step"><div className="next-step-num">5</div><div className="next-step-body"><div className="next-step-title">Niet ingeloot? Wij dienen opnieuw in — ieder tijdvak</div><div className="next-step-sub">Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen uw aanvraag in het volgende tijdvak opnieuw in. Wij blijven dit doen totdat u ingeloot wordt. Geen extra kosten — inbegrepen in uw pakket.</div></div></div>
                 </div>
               )}
