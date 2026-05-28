@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import SlimDatabase from "./SlimDatabase";
 
 const css = `
@@ -577,15 +578,9 @@ const PAGE_META={
 };
 
 function WhitepaperPage(){
-  const [form,setForm]=useState({naam:"",bedrijf:"",email:""});
-  const [submitting,setSubmitting]=useState(false);
-  const allFilled=form.naam.trim()&&form.bedrijf.trim()&&form.email.includes("@");
+  const [state,handleSubmit]=useForm("mvzydeqk");
 
-  function handleSubmit(e){
-    e.preventDefault();
-    if(!allFilled)return;
-    setSubmitting(true);
-    localStorage.setItem("wp_lead",JSON.stringify({...form,ts:Date.now()}));
+  if(state.succeeded){
     window.location.href="/bedankt";
   }
 
@@ -627,19 +622,43 @@ function WhitepaperPage(){
               <div className="wp-form-sub">Vul uw gegevens in en ontvang direct toegang tot het volledige rapport.</div>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label className="form-label">Naam</label>
-                  <input className="form-input" type="text" placeholder="Uw naam" value={form.naam} onChange={e=>setForm(p=>({...p,naam:e.target.value}))} required/>
+                  <label className="form-label">Voornaam</label>
+                  <input className="form-input" type="text" name="voornaam" placeholder="Voornaam" required/>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Zakelijk e-mailadres</label>
+                  <input className="form-input" type="email" name="email" placeholder="Zakelijk e-mailadres" required/>
+                  <ValidationError field="email" errors={state.errors} className="form-hint" style={{color:"var(--red)"}}/>
                 </div>
                 <div className="form-group">
                   <label className="form-label">Bedrijfsnaam</label>
-                  <input className="form-input" type="text" placeholder="Naam van uw bedrijf" value={form.bedrijf} onChange={e=>setForm(p=>({...p,bedrijf:e.target.value}))} required/>
+                  <input className="form-input" type="text" name="bedrijfsnaam" placeholder="Bedrijfsnaam" required/>
                 </div>
                 <div className="form-group">
-                  <label className="form-label">E-mailadres</label>
-                  <input className="form-input" type="email" placeholder="uwmail@bedrijf.nl" value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} required/>
+                  <label className="form-label">Aantal medewerkers</label>
+                  <select className="form-select" name="medewerkers" required defaultValue="">
+                    <option value="" disabled>Aantal medewerkers</option>
+                    <option value="1-5">1–5</option>
+                    <option value="5-10">5–10</option>
+                    <option value="10-25">10–25</option>
+                    <option value="25-50">25–50</option>
+                    <option value="50-100">50–100</option>
+                    <option value="100+">100+</option>
+                  </select>
                 </div>
-                <button className="wp-submit" type="submit" disabled={!allFilled||submitting}>
-                  {submitting?"Even geduld…":"Download gratis whitepaper →"}
+                <div className="form-group">
+                  <label className="form-label">Rol / functie</label>
+                  <select className="form-select" name="rol" required defaultValue="">
+                    <option value="" disabled>Rol / functie</option>
+                    <option value="Eigenaar/DGA">Eigenaar / DGA</option>
+                    <option value="HR/L&D">HR &amp; Learning Development</option>
+                    <option value="Operations">Operations / Bedrijfsvoering</option>
+                    <option value="Finance">Finance / Administratie</option>
+                    <option value="Anders">Anders</option>
+                  </select>
+                </div>
+                <button className="wp-submit" type="submit" disabled={state.submitting}>
+                  {state.submitting?"Even geduld…":"Download gratis whitepaper →"}
                 </button>
                 <p className="wp-meta">Geen spam. Uw gegevens worden vertrouwelijk behandeld conform onze <a href="/#privacy" style={{color:"var(--blue)"}}>privacyverklaring</a>.</p>
               </form>
