@@ -1746,7 +1746,7 @@ Schrijf vier alinea's:
                 <div className="card-title" style={{marginBottom:14}}>Bevestiging</div>
                 <label className={`ccheck ${confirmed.terms?"on":""}`} onClick={()=>setConfirmed(p=>({...p,terms:!p.terms}))}>
                   <span className="cbox">{confirmed.terms&&"✓"}</span>
-                  <span className="ccheck-text">Ik ga akkoord met de algemene voorwaarden en de privacyverklaring van SLIM Subsidie Advies.</span>
+                  <span className="ccheck-text">Ik ga akkoord met de <a href="https://www.slimsubsidieadvies.nl/#av" target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()}>algemene voorwaarden</a> en de <a href="https://www.slimsubsidieadvies.nl/#privacy" target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()}>privacyverklaring</a> van SLIM Subsidie Advies.</span>
                 </label>
                 <label className={`ccheck ${confirmed.nocure?"on":""}`} onClick={()=>setConfirmed(p=>({...p,nocure:!p.nocure}))}>
                   <span className="cbox">{confirmed.nocure&&"✓"}</span>
