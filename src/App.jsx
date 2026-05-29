@@ -266,6 +266,12 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-act-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
 .hp-act-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .hp-act-tag-sm{font-size:11px;background:var(--off);border:1px solid var(--border-l);border-radius:20px;padding:2px 8px;color:var(--muted);}
+.hp-req-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:32px 0 12px;}
+.hp-req-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.hp-req-card{background:var(--off);border-radius:10px;padding:22px 24px;border:1px solid var(--border-l);}
+.hp-req-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.hp-req-item{font-size:13px;color:var(--text);line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
+.hp-req-dot{width:5px;height:5px;border-radius:50%;background:var(--blue-light);flex-shrink:0;margin-top:6px;}
 .hp-why-intro{font-size:16px;color:var(--muted);margin-bottom:24px;font-style:italic;}.hp-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
 .hp-why-card{padding:24px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
 .hp-why-icon{font-size:28px;margin-bottom:10px;display:block;}
@@ -357,7 +363,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .lp-cta-h{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px;}
 .lp-cta-p{font-size:13px;color:var(--muted);}
 @media(max-width:900px){
-  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:repeat(2,1fr);}
+  .hp-act-grid,.hp-req-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:repeat(2,1fr);}
   .hp-l-grid{grid-template-columns:repeat(2,1fr);}
   .hp-hero-inner{grid-template-columns:1fr;}
   .hp-card{display:none;}
@@ -370,7 +376,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
   .hp-btn-p,.hp-btn-s{width:100%;justify-content:center;padding:13px 20px;}
   .hp-stats{gap:12px;flex-wrap:wrap;}.hp-stat-num{font-size:26px;}
   .hp-hero{padding:48px 16px 32px;}.hp-section{padding:48px 16px;}.hp-loting{padding:48px 16px;}.hp-cta-section{padding:56px 16px;}
-  .hp-act-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;gap:14px;}
+  .hp-act-grid,.hp-req-grid,.hp-why-grid,.hp-cases-grid,.hp-team-grid{grid-template-columns:1fr;gap:14px;}
   .hp-l-grid{grid-template-columns:repeat(2,1fr);gap:10px;}.hp-l-num{font-size:30px;}
   .hp-stitle{font-size:26px;}.hp-cta-title{font-size:28px;}
   .hp-ft-top{grid-template-columns:1fr;gap:28px;}
@@ -1427,6 +1433,12 @@ Schrijf vier alinea's:
                     <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
                     <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
                     <div className="hp-act-card"><div className="hp-act-tag c">Activiteit C</div><div className="hp-act-title">Ontwikkelen of invoeren van een L&O-methode</div><div className="hp-act-desc">Structurele methode die medewerkers stimuleert kennis te blijven ontwikkelen op de werkvloer.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Online leerportal</span><span className="hp-act-tag-sm">Bedrijfsschool</span><span className="hp-act-tag-sm">Videoserie</span></div></div>
+                  </div>
+                  <div className="hp-req-label">Subsidievereisten per activiteit</div>
+                  <div className="hp-req-grid">
+                    <div className="hp-req-card"><div className="hp-act-tag a">Activiteit A</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot"/><span>Min. investering: <strong>€8.334</strong></span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Max. uurtarief adviseur: <strong>€135</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Vereist: opleidings- of ontwikkelplan als eindproduct</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Geen Noloc-certificering vereist</span></li></ul></div>
+                    <div className="hp-req-card"><div className="hp-act-tag b">Activiteit B</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot"/><span>Subsidie: <strong>€700</strong> per afgerond loopbaantraject</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Min. contacttijd: <strong>4 uur</strong> per deelnemer</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Vereist: Noloc Register Loopbaanprofessional certificering adviseur</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Vereist: prestatieverklaring getekend door adviseur én deelnemer</span></li></ul></div>
+                    <div className="hp-req-card"><div className="hp-act-tag c">Activiteit C</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot"/><span>Min. investering: <strong>€8.334</strong></span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Max. uurtarief adviseur: <strong>€135</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Vereist: producten van de gerealiseerde L&O-methode als eindproduct</span></li><li className="hp-req-item"><span className="hp-req-dot"/><span>Geen Noloc-certificering vereist</span></li></ul></div>
                   </div>
                 </div>
               </div>
