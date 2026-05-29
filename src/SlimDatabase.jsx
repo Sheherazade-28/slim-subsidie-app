@@ -213,6 +213,12 @@ export default function SlimDatabase({ onBack }) {
                 Officiële bronpagina Uitvoering van Beleid ↗
               </a>
             </p>
+            <p style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.65, margin: "10px 0 0" }}>
+              Een selectie van projecten is verrijkt met praktijkverhalen van Katapult, het netwerk voor samenwerking tussen onderwijs en bedrijfsleven. Bij deze cases combineren we de officiële subsidiegegevens uit het register met de context erachter — wie, waarom en hoe — herkenbaar aan het label "Uitgelicht door Katapult".{" "}
+              <a href="https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/" target="_blank" rel="noopener noreferrer" style={{ color: "#1a6bbf", fontWeight: 600, textDecoration: "none" }}>
+                Bekijk alle voorbeelden op Katapult ↗
+              </a>
+            </p>
           </div>
 
           {!loading && (
@@ -257,7 +263,7 @@ export default function SlimDatabase({ onBack }) {
             title="Toon alleen uitgelichte voorbeeldcases (bron: Katapult)"
             style={{ background: alleenUitgelicht ? "#2aaae2" : "#fff", border: "1px solid " + (alleenUitgelicht ? "#2aaae2" : "#d4dde8"), borderRadius: 8, padding: "10px 14px", color: alleenUitgelicht ? "#fff" : "#1a2a3a", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "inline-flex", alignItems: "center", gap: 6 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: alleenUitgelicht ? "#fff" : "#2aaae2" }} />
-            Alleen uitgelichte cases
+            Alleen Katapult-cases
           </button>
         </div>
 
