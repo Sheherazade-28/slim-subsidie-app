@@ -60,7 +60,7 @@ export function buildConfirmationEmail({
           <p style="font-size:16px;color:#1a2a3a;margin:0 0 20px;">Beste ${naam},</p>
           <p style="font-size:14px;color:#5a6e82;line-height:1.7;margin:0 0 24px;">
             Bedankt voor uw betaling. Uw SLIM Dieptecheck is bevestigd${bedrijf ? ` voor <strong style="color:#1a2a3a;">${bedrijf}</strong>` : ""}.
-            Eén van onze adviseurs neemt binnen <strong style="color:#0d2e5a;">5 werkdagen</strong> contact met u op.
+            Eén van onze adviseurs neemt binnen <strong style="color:#0d2e5a;">8 werkdagen</strong> contact met u op.
           </p>
 
           <!-- Quickscan samenvatting -->
@@ -117,7 +117,7 @@ export function buildConfirmationEmail({
           <div style="margin-bottom:28px;">
             <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5a6e82;margin-bottom:14px;">Wat gebeurt er nu?</div>
             ${[
-              ["1","Terugbelafspraak binnen 5 werkdagen","Uw adviseur neemt contact op om de strategie te bespreken."],
+              ["1","Terugbelafspraak binnen 8 werkdagen","Uw adviseur neemt contact op om de strategie te bespreken."],
               ["2","Aanvraagvoorbereiding","Wij stellen het activiteitenplan, begroting en documenten op."],
               ["3","Foutloze indiening","Indiening via het RVO e-portaal, inclusief begeleiding screeningstraject."],
               ["4","Succesfee bij toekenning","€ 2.500 excl. btw — alleen bij toekenning. Dieptecheck wordt terugbetaald."],

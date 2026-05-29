@@ -1079,7 +1079,7 @@ export default function App(){
 
   // ── URL sync: /projecten ↔ phase, alles anders → / ──
   useEffect(()=>{
-    const target=phase==="projecten"?"/projecten":phase==="loting"?"/lotingsuitslagen":phase==="scan"?"/scan":phase==="result"?"/resultaat":phase==="profile"?"/profiel":phase==="payment"?"/betaling":phase==="success"?"/analyse":"/";
+    const target=phase==="projecten"?"/projecten":phase==="loting"?"/lotingsuitslagen":phase==="scan"?"/scan":phase==="result"?"/resultaat":phase==="profile"?"/profiel":phase==="payment"?"/betaling":phase==="success"?"/succes":"/";
     if(window.location.pathname!==target) window.history.pushState({},"",target);
   },[phase]);
 
@@ -1196,7 +1196,7 @@ Schrijf vier alinea's:
         </div>
         <div className="loting-kans">
           <div className="loting-kans-pct">~{LOTING.kansRuw}%</div>
-          <div className="loting-kans-text"><strong>Effectieve slaagkans.</strong> Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} indieners werden slechts {LOTING.inBehandeling} meegenomen. Bovendien vielen al <strong>{LOTING.afgekeurdVoorLoting} aanvragen vóór de loting af</strong> door fouten — volledig vermijdbaar.</div>
+          <div className="loting-kans-text">Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} ingediende aanvragen zijn i.v.m. het maximale subsidiebudget de eerste {LOTING.inBehandeling} aanvragen van de lotingslijst in behandeling genomen.</div>
         </div>
         <div className="loting-cta">💡 <strong>Conclusie:</strong> een correcte, complete aanvraag is de eerste stap. Wij zorgen voor stap één.</div>
       </div>
@@ -1616,7 +1616,7 @@ Schrijf vier alinea's:
                     </div>
                     <p className="price-incl-note">📌 Totaal af te schrijven: <strong>{fmt2(finalPriceIncl)} incl. btw</strong> ({fmt(finalPrice)} + 21% btw)</p>
                     <ul className="features">
-                      <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> Persoonlijke AI-diepteanalyse van uw situatie en lotingskansen</li>
+                      <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> AI-diepteanalyse van uw situatie</li>
                       <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 8 werkdagen</li>
                       <li><span className="feat-check">✓</span>Foutloze aanvraag — nooit afgekeurd vóór de loting</li>
                       <li><span className="feat-check">✓</span>Activiteitenplan, begroting en documentenverzameling</li>
