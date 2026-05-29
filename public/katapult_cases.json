@@ -1,0 +1,39 @@
+[
+  {
+    "matchId": "2021SLIM2022529",
+    "titel": "Gesprekscyclus",
+    "bedrijven": ["Looye Kwekers"],
+    "samenvatting": "Tomatenkweker Looye zet een structurele gesprekscyclus op, ondersteund door een digitale ontwikkeltoolbox, om de groei en ontwikkeling van medewerkers permanent te volgen en te koppelen aan strategische personeelsplanning.",
+    "bronUrl": "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/looye"
+  },
+  {
+    "matchId": "2024SLIM2022856",
+    "titel": "Bedrijfsacademie Metaalindustrie",
+    "bedrijven": ["Metaalwarenfabriek G. Zijlmans", "RVM Industries", "CNC Totaal"],
+    "samenvatting": "Drie metaalbedrijven — met Zijlmans als penvoerder — richten samen een interne bedrijfsacademie op om medewerkers tot erkende vakmensen op te leiden en het structurele tekort aan technisch personeel op te vangen in een snel innoverende sector.",
+    "bronUrl": "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/bedrijfsacademie-metaalindustrie"
+  },
+  {
+    "matchId": "2023SLIM2021714",
+    "titel": "V-Tas en CertiFlex leggen de lat hoger",
+    "bedrijven": ["V-Tas", "CertiFlex", "THAR (extern)"],
+    "samenvatting": "Examenbureau CertiFlex en opleider V-Tas bouwen samen met expert THAR een online leermethodiek voor de transportsector, die de ontwikkeling van vakmensen meetbaar maakt langs een 'digitale lat'.",
+    "bronUrl": "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/-v-tas-en-certiflex-leggen-de-lat-hoger"
+  },
+  {
+    "matchId": null,
+    "standalone": {
+      "id": "kat-van-der-valk-venlo",
+      "cat": "MKB",
+      "cl": "Individueel MKB",
+      "tv": "2022",
+      "nm": "Van der Valk Hotel Venlo",
+      "loc": "Venlo",
+      "pnm": "Een heldere ontwikkelstrategie"
+    },
+    "titel": "Een heldere ontwikkelstrategie voor Van der Valk Venlo",
+    "bedrijven": ["Van der Valk Hotel Venlo"],
+    "samenvatting": "Van der Valk Hotel Venlo bracht na corona de ontwikkelbehoefte van een grotendeels nieuw team in kaart, bood 25 sleutelmedewerkers individueel ontwikkeladvies en digitaliseerde de gesprekscyclus om een sterke leercultuur neer te zetten.",
+    "bronUrl": "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/een-heldere-ontwikkelstrategie-voor-van-der-valk-venlo"
+  }
+]

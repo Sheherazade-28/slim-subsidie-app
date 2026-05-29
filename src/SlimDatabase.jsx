@@ -11,28 +11,11 @@ const TIJDVAKKEN = ["Alle tijdvakken", "2024", "2023", "2022", "2021", "2020"];
 
 const PAGE_SIZE = 20;
 
-// ─── Katapult voorbeeldcases (complementaire laag) ────────────────────────────
-// Auteursrecht-veilig: GEEN Katapult-tekst overnemen. Alleen feiten + eigen
-// samenvatting + verplichte bronlink terug naar de Katapult-pagina.
-const KATAPULT_CASES = [
-  {
-    id: "kat-bedrijfsacademie-metaalindustrie",
-    cat: "SAM", cl: "Samenwerkingsverband", tv: "2024",
-    nm: "Bedrijfsacademie Metaalindustrie", loc: "Noord-Brabant",
-    pnm: "Zijlmans Metaalwarenfabriek · RVM Industries · CNC Totaal",
-    sum: "Drie metaalbedrijven bundelen hun krachten in een gezamenlijke interne bedrijfsacademie om medewerkers op te leiden tot erkende vakmensen en het structurele tekort aan technisch personeel op te vangen in een snel innoverende sector.",
-    sub: null, bron: ["Katapult"],
-    bronUrl: "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/bedrijfsacademie-metaalindustrie",
-  },
-  {
-    id: "kat-looye-gesprekscyclus",
-    cat: "MKB", cl: "Individueel MKB", tv: "2023",
-    nm: "Looye Kwekers", loc: "Naaldwijk", pnm: "Gesprekscyclus",
-    sum: "Tomatenkweker Looye voert een structurele gesprekscyclus in, ondersteund door een digitale ontwikkeltoolbox, om de ontwikkeling en betrokkenheid van medewerkers blijvend te volgen en te koppelen aan strategische personeelsplanning.",
-    sub: null, bron: ["SLIM", "Katapult"],
-    bronUrl: "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/looye",
-  },
-];
+// ─── Katapult-bronlaag ────────────────────────────────────────────────────────
+// Cases komen uit /public/katapult_cases.json en worden bij het laden gekoppeld
+// aan de juiste register-rij (combi) of als losse case toegevoegd (standalone).
+// Auteursrecht-veilig: GEEN Katapult-tekst overnemen — alleen eigen samenvatting
+// + verplichte bronlink terug naar de Katapult-pagina.
 
 function fmt(n) {
   if (!n) return "–";
@@ -119,6 +102,7 @@ function Card({ item }) {
       </div>
       {displayText && (
         <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid #e8edf3" }}>
+          {item.katapult && <div style={{ fontSize: 11, fontWeight: 700, color: "#0d2e5a", letterSpacing: "0.3px", marginBottom: 6 }}>Projectomschrijving · SLIM-register</div>}
           <div style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.7 }}>{displayText}</div>
           {hasLongSummary && (
             <button onClick={() => setExpanded(e => !e)}
@@ -126,11 +110,17 @@ function Card({ item }) {
               {expanded ? "Lees minder ↑" : "Lees meer ↓"}
             </button>
           )}
+          {item.katapult && <div style={{ fontSize: 11, color: "#8a9eb0", marginTop: 6 }}>Bron: SLIM-register · Uitvoering van Beleid (SZW)</div>}
         </div>
       )}
-      {item.bronUrl && (
-        <div style={{ marginTop: displayText ? 10 : 12, paddingTop: displayText ? 0 : 12, borderTop: displayText ? "none" : "1px solid #e8edf3" }}>
-          <a href={item.bronUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#2aaae2", textDecoration: "none", fontWeight: 600 }}>Bron: Katapult ↗</a>
+      {item.katapult && (
+        <div style={{ marginTop: displayText ? 12 : 14, paddingTop: displayText ? 12 : 14, borderTop: "1px solid #e8edf3" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#0e6f9e", letterSpacing: "0.3px", marginBottom: 6 }}>Katapult-context</div>
+          <div style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.7 }}>{item.katapult.samenvatting}</div>
+          {item.katapult.bedrijven && item.katapult.bedrijven.length > 0 && (
+            <div style={{ fontSize: 12, color: "#5a6e82", marginTop: 6 }}>Betrokken: {item.katapult.bedrijven.join(", ")}</div>
+          )}
+          <a href={item.katapult.bronUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: "#2aaae2", textDecoration: "none", fontWeight: 600, marginTop: 8 }}>Bron: Katapult ↗</a>
         </div>
       )}
     </div>
@@ -151,9 +141,26 @@ export default function SlimDatabase({ onBack }) {
   const handleBack = onBack || (() => { window.location.href = "/"; });
 
   useEffect(() => {
-    fetch("/slim_data.json")
-      .then(r => { if (!r.ok) throw new Error("Kan data niet laden"); return r.json(); })
-      .then(d => { setData([...KATAPULT_CASES, ...d]); setLoading(false); })
+    Promise.all([
+      fetch("/slim_data.json").then(r => { if (!r.ok) throw new Error("Kan data niet laden"); return r.json(); }),
+      fetch("/katapult_cases.json").then(r => (r.ok ? r.json() : [])).catch(() => []),
+    ])
+      .then(([rows, kat]) => {
+        const byId = new Map(rows.map(r => [r.id, r]));
+        const standalones = [];
+        for (const k of kat) {
+          const katObj = { titel: k.titel, samenvatting: k.samenvatting, bronUrl: k.bronUrl, bedrijven: k.bedrijven };
+          if (k.matchId && byId.has(k.matchId)) {
+            const row = byId.get(k.matchId);
+            row.katapult = katObj;
+            row.bron = ["SLIM", "Katapult"];
+          } else if (k.standalone) {
+            standalones.push({ ...k.standalone, sub: null, bron: ["Katapult"], katapult: katObj });
+          }
+        }
+        setData([...standalones, ...rows]);
+        setLoading(false);
+      })
       .catch(e => { setError(e.message); setLoading(false); });
   }, []);
 
