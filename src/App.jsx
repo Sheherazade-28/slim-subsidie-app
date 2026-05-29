@@ -268,7 +268,7 @@ body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--text);f
 .hp-act-tag-sm{font-size:11px;background:var(--off);border:1px solid var(--border-l);border-radius:20px;padding:2px 8px;color:var(--muted);}
 .hp-req-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:32px 0 12px;}
 .hp-req-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.hp-req-card{background:var(--white);border-radius:10px;padding:22px 24px;border:1px solid var(--border-l);}
+.hp-req-card{background:var(--white);border-radius:10px;padding:22px 24px;border:1px solid var(--border);}
 .hp-req-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;}
 .hp-req-item{font-size:13px;color:var(--text);line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
 .hp-req-dot{width:5px;height:5px;border-radius:50%;background:var(--blue-light);flex-shrink:0;margin-top:6px;}
