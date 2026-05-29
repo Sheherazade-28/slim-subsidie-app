@@ -85,11 +85,8 @@ function Card({ item }) {
             <span style={{ fontSize: 11, color: "#5a6e82" }}>{item.loc}</span>
             {isKatapult && (
               <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20, border: "1px solid #2aaae2", color: "#0e6f9e", letterSpacing: "0.4px", display: "inline-flex", alignItems: "center", gap: 4 }}>
-                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#2aaae2" }} />Katapult
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#2aaae2" }} />{isCombi ? "Uitgelicht door Katapult" : "Katapult"}
               </span>
-            )}
-            {isCombi && (
-              <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20, border: "1px solid #1a7a4a", color: "#1a7a4a", letterSpacing: "0.4px" }}>Ook in SLIM-register</span>
             )}
           </div>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#0d2e5a", marginBottom: 4 }}>{item.nm}</div>
