@@ -49,16 +49,7 @@
     "bronUrl": "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/digital-ai-academy"
   },
   {
-    "matchId": null,
-    "standalone": {
-      "id": "kat-van-der-valk-venlo",
-      "cat": "MKB",
-      "cl": "Individueel MKB",
-      "tv": "2022",
-      "nm": "Van der Valk Hotel Venlo",
-      "loc": "Venlo",
-      "pnm": "Een heldere ontwikkelstrategie"
-    },
+    "matchId": "2024SLIM2022885",
     "titel": "Een heldere ontwikkelstrategie voor Van der Valk Venlo",
     "bedrijven": ["Van der Valk Hotel Venlo"],
     "samenvatting": "Van der Valk Hotel Venlo bracht na corona de ontwikkelbehoefte van een grotendeels nieuw team in kaart, bood 25 sleutelmedewerkers individueel ontwikkeladvies en digitaliseerde de gesprekscyclus om een sterke leercultuur neer te zetten.",
