@@ -11,6 +11,29 @@ const TIJDVAKKEN = ["Alle tijdvakken", "2024", "2023", "2022", "2021", "2020"];
 
 const PAGE_SIZE = 20;
 
+// ─── Katapult voorbeeldcases (complementaire laag) ────────────────────────────
+// Auteursrecht-veilig: GEEN Katapult-tekst overnemen. Alleen feiten + eigen
+// samenvatting + verplichte bronlink terug naar de Katapult-pagina.
+const KATAPULT_CASES = [
+  {
+    id: "kat-bedrijfsacademie-metaalindustrie",
+    cat: "SAM", cl: "Samenwerkingsverband", tv: "2024",
+    nm: "Bedrijfsacademie Metaalindustrie", loc: "Noord-Brabant",
+    pnm: "Zijlmans Metaalwarenfabriek · RVM Industries · CNC Totaal",
+    sum: "Drie metaalbedrijven bundelen hun krachten in een gezamenlijke interne bedrijfsacademie om medewerkers op te leiden tot erkende vakmensen en het structurele tekort aan technisch personeel op te vangen in een snel innoverende sector.",
+    sub: null, bron: ["Katapult"],
+    bronUrl: "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/bedrijfsacademie-metaalindustrie",
+  },
+  {
+    id: "kat-looye-gesprekscyclus",
+    cat: "MKB", cl: "Individueel MKB", tv: "2023",
+    nm: "Looye Kwekers", loc: "Naaldwijk", pnm: "Gesprekscyclus",
+    sum: "Tomatenkweker Looye voert een structurele gesprekscyclus in, ondersteund door een digitale ontwikkeltoolbox, om de ontwikkeling en betrokkenheid van medewerkers blijvend te volgen en te koppelen aan strategische personeelsplanning.",
+    sub: null, bron: ["SLIM", "Katapult"],
+    bronUrl: "https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/looye",
+  },
+];
+
 function fmt(n) {
   if (!n) return "–";
   return new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
@@ -60,6 +83,9 @@ function Card({ item }) {
   const catClr = item.cat === "MKB" ? "#0d2e5a" : item.cat === "SAM" ? "#5b21b6" : "#7c3a00";
   const subDisplay = fmtSub(item.sub);
   const isUnpublished = !item.sub;
+  const bron = item.bron || ["SLIM"];
+  const isKatapult = bron.includes("Katapult");
+  const isCombi = isKatapult && bron.includes("SLIM");
   const hasLongSummary = item.sum && item.sum.length > 200;
   const displayText = item.sum
     ? (hasLongSummary && !expanded ? truncateWords(item.sum, 200) + "…" : item.sum)
@@ -74,6 +100,14 @@ function Card({ item }) {
             <span style={{ fontSize: 11, color: "#5a6e82" }}>Tijdvak {item.tv}</span>
             <span style={{ fontSize: 11, color: "#b0bec8" }}>·</span>
             <span style={{ fontSize: 11, color: "#5a6e82" }}>{item.loc}</span>
+            {isKatapult && (
+              <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20, border: "1px solid #2aaae2", color: "#0e6f9e", letterSpacing: "0.4px", display: "inline-flex", alignItems: "center", gap: 4 }}>
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#2aaae2" }} />Katapult
+              </span>
+            )}
+            {isCombi && (
+              <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20, border: "1px solid #1a7a4a", color: "#1a7a4a", letterSpacing: "0.4px" }}>Ook in SLIM-register</span>
+            )}
           </div>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#0d2e5a", marginBottom: 4 }}>{item.nm}</div>
           <div style={{ fontSize: 13, color: "#5a6e82", fontStyle: "italic" }}>{item.pnm}</div>
@@ -94,6 +128,11 @@ function Card({ item }) {
           )}
         </div>
       )}
+      {item.bronUrl && (
+        <div style={{ marginTop: displayText ? 10 : 12, paddingTop: displayText ? 0 : 12, borderTop: displayText ? "none" : "1px solid #e8edf3" }}>
+          <a href={item.bronUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#2aaae2", textDecoration: "none", fontWeight: 600 }}>Bron: Katapult ↗</a>
+        </div>
+      )}
     </div>
   );
 }
@@ -106,6 +145,7 @@ export default function SlimDatabase({ onBack }) {
   const [zoek, setZoek] = useState("");
   const [cat, setCat] = useState("all");
   const [tijdvak, setTijdvak] = useState("Alle tijdvakken");
+  const [alleenUitgelicht, setAlleenUitgelicht] = useState(false);
   const [page, setPage] = useState(1);
 
   const handleBack = onBack || (() => { window.location.href = "/"; });
@@ -113,7 +153,7 @@ export default function SlimDatabase({ onBack }) {
   useEffect(() => {
     fetch("/slim_data.json")
       .then(r => { if (!r.ok) throw new Error("Kan data niet laden"); return r.json(); })
-      .then(d => { setData(d); setLoading(false); })
+      .then(d => { setData([...KATAPULT_CASES, ...d]); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
   }, []);
 
@@ -122,15 +162,16 @@ export default function SlimDatabase({ onBack }) {
     return data.filter(item => {
       if (cat !== "all" && item.cat !== cat) return false;
       if (tijdvak !== "Alle tijdvakken" && item.tv !== tijdvak) return false;
+      if (alleenUitgelicht && !(item.bron && item.bron.includes("Katapult"))) return false;
       if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !(item.sum||"").toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
       return true;
     }).sort((a, b) => a.nm.localeCompare(b.nm, 'nl'));
-  }, [data, zoek, cat, tijdvak]);
+  }, [data, zoek, cat, tijdvak, alleenUitgelicht]);
 
   const paginated = useMemo(() => filtered.slice(0, page * PAGE_SIZE), [filtered, page]);
   const hasMore = paginated.length < filtered.length;
 
-  useEffect(() => { setPage(1); }, [zoek, cat, tijdvak]);
+  useEffect(() => { setPage(1); }, [zoek, cat, tijdvak, alleenUitgelicht]);
 
   const bannerItems = useMemo(() => data.filter(d => d.sub > 20000).slice(0, 80), [data]);
 
@@ -208,6 +249,12 @@ export default function SlimDatabase({ onBack }) {
             style={{ background: "#fff", border: "1px solid #d4dde8", borderRadius: 8, padding: "10px 14px", color: "#1a2a3a", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>
             {TIJDVAKKEN.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
+          <button onClick={() => setAlleenUitgelicht(v => !v)}
+            title="Toon alleen uitgelichte voorbeeldcases (bron: Katapult)"
+            style={{ background: alleenUitgelicht ? "#2aaae2" : "#fff", border: "1px solid " + (alleenUitgelicht ? "#2aaae2" : "#d4dde8"), borderRadius: 8, padding: "10px 14px", color: alleenUitgelicht ? "#fff" : "#1a2a3a", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "inline-flex", alignItems: "center", gap: 6 }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: alleenUitgelicht ? "#fff" : "#2aaae2" }} />
+            Alleen uitgelichte cases
+          </button>
         </div>
 
         <div style={{ fontSize: 13, color: "#5a6e82", marginBottom: 16 }}>
