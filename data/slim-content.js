@@ -414,6 +414,10 @@ export const FAQ_SLIM_SUBSIDIE = [
     q: "Kan een grootbedrijf ook SLIM-subsidie aanvragen?",
     a: "Grootbedrijven kunnen alleen deelnemen via een samenwerkingsverband met minimaal één MKB-onderneming. Een uitzondering geldt voor grootbedrijven in de landbouw, horeca en recreatiesector — zij mogen ook individueel aanvragen.",
   },
+  {
+    q: "Kan ik meerdere activiteiten combineren in één aanvraag?",
+    a: "Ja, dat is mogelijk. Een SLIM-subsidieaanvraag kan bestaan uit meerdere activiteiten (artikel 2.8 lid 5 SLIM-regeling). U kunt bijvoorbeeld activiteit A (doorlichting) combineren met activiteit C (L&O-methode), of activiteit B (loopbaanadviezen) combineren met activiteit C. U mag per tijdvak maximaal één aanvraag indienen, maar die aanvraag mag meerdere activiteiten bevatten. Het maximale subsidiebedrag blijft tot €25.000 voor de gecombineerde aanvraag.",
+  },
 ];
 
 export const BEDRIJFSINFO = {

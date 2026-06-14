@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "@/components/layout/Navigation";
-import { SUBSIDIE, LOTING, TIJDVAKKEN_2026, PRICING, fmtEur } from "@/data/slim-content";
+import FAQAccordeon from "@/components/ui/FAQAccordeon";
+import { SUBSIDIE, LOTING, TIJDVAKKEN_2026, PRICING, FAQ_SLIM_SUBSIDIE, fmtEur } from "@/data/slim-content";
 
 export const metadata = {
   title: "SLIM-subsidie aanvragen in 2026: stappenplan en tijdvakken",
@@ -266,12 +267,25 @@ export default function SlimSubsidieAanvragenPage() {
           <h2 style={{ fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: 800, color: "#fff", marginBottom: 16, marginTop: 0 }}>
             Waarom professionele begeleiding loont
           </h2>
-          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.65)", lineHeight: 1.75, maxWidth: 680, marginBottom: 28 }}>
+          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.65)", lineHeight: 1.75, maxWidth: 680, marginBottom: 20 }}>
             In tijdvak 1 2026 werden {LOTING.afgekeurdVoorLoting} aanvragen afgewezen vóór de
             notariële loting wegens procedurele fouten. Dit zijn aanvragen die nooit meededen —
             volledig vermijdbaar met de juiste begeleiding. Van de {LOTING.inLoting.toLocaleString("nl-NL")} aanvragen
             die wél werden ingeloot, werd slechts {LOTING.kansRuw}% daadwerkelijk geselecteerd.
             Uw aanvraag moet foutloos zijn om überhaupt mee te doen aan de loting.
+          </p>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, maxWidth: 680, marginBottom: 20 }}>
+            De SLIM-regelgeving wijzigt regelmatig. Subsidiepercentages, subsidiabele activiteiten
+            en aanvraagvereisten veranderen per tijdvak. Wat in 2024 gold, geldt in 2026 niet meer —
+            zoals de afschaffing van activiteit D en de 80%-regeling voor klein-MKB. Een adviseur
+            die de actuele regelgeving kent, voorkomt dat uw aanvraag op verouderde gronden wordt
+            ingediend.
+          </p>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, maxWidth: 680, marginBottom: 28 }}>
+            Daarnaast stelt RVO tijdens de screeningsperiode inhoudelijke onderbouwingsvragen over
+            uw projectplan. Deze vragen vereisen subsidie-expertise: een onderbouwing die niet
+            aansluit op de beoordelingscriteria van RVO kan leiden tot afwijzing, ook na inloting.
+            SLIM Subsidie Advies begeleidt u bij het beantwoorden van deze vragen.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16, marginBottom: 32 }}>
             {[
@@ -287,6 +301,32 @@ export default function SlimSubsidieAanvragenPage() {
             ))}
           </div>
           <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
+        </div>
+      </div>
+
+      {/* ── FAQ ── */}
+      <div style={{ background: "var(--white)", ...stijl.sectie }}>
+        <div style={stijl.inner}>
+          <div style={stijl.slbl}>Veelgestelde vragen</div>
+          <h2 style={{ fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: 800, color: "var(--navy)", marginBottom: 24, marginTop: 0 }}>
+            Vragen over de aanvraagprocedure
+          </h2>
+          <FAQAccordeon items={FAQ_SLIM_SUBSIDIE.filter((item) =>
+            item.q.toLowerCase().includes("activiteit") ||
+            item.q.toLowerCase().includes("aanvra") ||
+            item.q.toLowerCase().includes("inlot") ||
+            item.q.toLowerCase().includes("toekenning") ||
+            item.q.toLowerCase().includes("combineren") ||
+            item.q.toLowerCase().includes("meerdere") ||
+            item.q.toLowerCase().includes("looptijd") ||
+            item.q.toLowerCase().includes("voorschot") ||
+            item.q.toLowerCase().includes("vastgest")
+          )} />
+          <div style={{ marginTop: 20 }}>
+            <Link href="/slim-subsidie" style={{ color: "var(--blue)", fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
+              Alle veelgestelde vragen over SLIM-subsidie →
+            </Link>
+          </div>
         </div>
       </div>
 
