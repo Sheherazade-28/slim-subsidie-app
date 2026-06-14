@@ -195,6 +195,9 @@ Schrijf vier alinea's:
       return new NextResponse(null, { status: 200 });
     }
 
+    const mailFrom = process.env.MAIL_FROM || "SLIM Subsidie Advies <noreply@slimsubsidieadvies.nl>";
+    const mailBcc = process.env.MAIL_BCC;
+
     const resendHeaders = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${resendKey}`,
@@ -204,8 +207,9 @@ Schrijf vier alinea's:
       method: "POST",
       headers: resendHeaders,
       body: JSON.stringify({
-        from: "SLIM Subsidie Advies <noreply@slimsubsidieadvies.nl>",
+        from: mailFrom,
         to: [email],
+        ...(mailBcc && { bcc: [mailBcc] }),
         subject: `Bevestiging betaling SLIM Dieptecheck — ${factuurNr}`,
         html: emailHtml,
         attachments: [
@@ -226,8 +230,9 @@ Schrijf vier alinea's:
       method: "POST",
       headers: resendHeaders,
       body: JSON.stringify({
-        from: "SLIM Subsidie App <noreply@slimsubsidieadvies.nl>",
+        from: mailFrom,
         to: ["info@slimsubsidieadvies.nl"],
+        ...(mailBcc && { bcc: [mailBcc] }),
         subject: `Nieuwe betaling — ${naam}${bedrijf ? ` (${bedrijf})` : ""} · ${factuurNr}`,
         html: emailHtml,
       }),
