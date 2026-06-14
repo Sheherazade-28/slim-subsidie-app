@@ -6,7 +6,7 @@ import { useForm, ValidationError } from "@formspree/react";
 
 export default function WhitepaperPage() {
   const router = useRouter();
-  const [state, handleSubmit] = useForm("mvzydeqk");
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID);
 
   if (state.succeeded) {
     router.push("/bedankt");
