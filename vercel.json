@@ -1,11 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
+  "framework": "nextjs",
   "headers": [
     {
       "source": "/fonts/(.*)",
@@ -21,10 +15,6 @@
     },
     {
       "source": "/site.webmanifest",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-    },
-    {
-      "source": "/sitemap.xml",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     }
   ]

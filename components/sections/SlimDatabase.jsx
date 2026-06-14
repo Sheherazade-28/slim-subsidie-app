@@ -1,4 +1,8 @@
+"use client";
+
 import { useState, useEffect, useMemo, useRef } from "react";
+import Link from "next/link";
+import Navigation from "@/components/layout/Navigation";
 
 const CATS = [
   { key: "all", label: "Alle categorieën" },
@@ -11,12 +15,6 @@ const TIJDVAKKEN = ["Alle tijdvakken", "2024", "2023", "2022", "2021", "2020"];
 
 const PAGE_SIZE = 20;
 
-// ─── Katapult-bronlaag ────────────────────────────────────────────────────────
-// Cases komen uit /public/katapult_cases.json en worden bij het laden gekoppeld
-// aan de juiste register-rij (combi) of als losse case toegevoegd (standalone).
-// Auteursrecht-veilig: GEEN Katapult-tekst overnemen — alleen eigen samenvatting
-// + verplichte bronlink terug naar de Katapult-pagina.
-
 function fmt(n) {
   if (!n) return "–";
   return new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
@@ -27,7 +25,6 @@ function fmtSub(n) {
   return new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 }
 
-// ─── Lopende banner (donkerblauwe achtergrond per huisstijl) ──────────────────
 function Banner({ items }) {
   const track = useRef(null);
   const content = items.slice(0, 40);
@@ -53,7 +50,6 @@ function Banner({ items }) {
   );
 }
 
-// ─── Project kaart ────────────────────────────────────────────────────────────
 function truncateWords(text, max) {
   if (text.length <= max) return text;
   const cut = text.lastIndexOf(" ", max);
@@ -124,8 +120,7 @@ function Card({ item }) {
   );
 }
 
-// ─── Hoofd component ──────────────────────────────────────────────────────────
-export default function SlimDatabase({ onBack }) {
+export default function SlimDatabase() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -134,8 +129,6 @@ export default function SlimDatabase({ onBack }) {
   const [tijdvak, setTijdvak] = useState("Alle tijdvakken");
   const [alleenUitgelicht, setAlleenUitgelicht] = useState(false);
   const [page, setPage] = useState(1);
-
-  const handleBack = onBack || (() => { window.location.href = "/"; });
 
   useEffect(() => {
     Promise.all([
@@ -167,9 +160,9 @@ export default function SlimDatabase({ onBack }) {
       if (cat !== "all" && item.cat !== cat) return false;
       if (tijdvak !== "Alle tijdvakken" && item.tv !== tijdvak) return false;
       if (alleenUitgelicht && !(item.bron && item.bron.includes("Katapult"))) return false;
-      if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !(item.sum||"").toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
+      if (q && !item.nm.toLowerCase().includes(q) && !item.pnm.toLowerCase().includes(q) && !(item.sum || "").toLowerCase().includes(q) && !item.loc.toLowerCase().includes(q)) return false;
       return true;
-    }).sort((a, b) => a.nm.localeCompare(b.nm, 'nl'));
+    }).sort((a, b) => a.nm.localeCompare(b.nm, "nl"));
   }, [data, zoek, cat, tijdvak, alleenUitgelicht]);
 
   const paginated = useMemo(() => filtered.slice(0, page * PAGE_SIZE), [filtered, page]);
@@ -183,20 +176,16 @@ export default function SlimDatabase({ onBack }) {
     totaal: data.length,
     mkb: data.filter(d => d.cat === "MKB").length,
     sam: data.filter(d => d.cat === "SAM").length,
-    grb: data.filter(d => d.cat === "GRB").length,
     totaalSub: data.reduce((s, d) => s + (d.sub || 0), 0),
   }), [data]);
 
   return (
     <div style={{ minHeight: "100vh", background: "#f2f5f9", fontFamily: "'Barlow', 'Segoe UI', system-ui, sans-serif", color: "#1a2a3a" }}>
 
-      {/* Header — donkerblauw passend bij de hoofdsite */}
+      <Navigation />
+
       <div style={{ background: "#0d2e5a", padding: "32px 20px 36px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <button onClick={handleBack}
-            style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 6, padding: "7px 14px", color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 500, cursor: "pointer", marginBottom: 24, fontFamily: "inherit" }}>
-            ← Terug naar home
-          </button>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#2aaae2", textTransform: "uppercase", marginBottom: 10 }}>SLIM Subsidie Advies</div>
           <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.1, color: "#fff" }}>
             SLIM Subsidie<br /><span style={{ color: "#2aaae2" }}>Projecten Database</span>
@@ -214,7 +203,7 @@ export default function SlimDatabase({ onBack }) {
               </a>
             </p>
             <p style={{ fontSize: 13, color: "#1a2a3a", lineHeight: 1.65, margin: "10px 0 0" }}>
-              Een selectie van projecten is verrijkt met praktijkverhalen van Katapult, het netwerk voor samenwerking tussen onderwijs en bedrijfsleven. Bij deze cases combineren we de officiële subsidiegegevens uit het register met de context erachter — wie, waarom en hoe — herkenbaar aan het label "Uitgelicht door Katapult".{" "}
+              Een selectie van projecten is verrijkt met praktijkverhalen van Katapult, het netwerk voor samenwerking tussen onderwijs en bedrijfsleven. Bij deze cases combineren we de officiële subsidiegegevens uit het register met de context erachter — wie, waarom en hoe — herkenbaar aan het label &ldquo;Uitgelicht door Katapult&rdquo;.{" "}
               <a href="https://www.wijzijnkatapult.nl/leren-ontwikkelen-mkb/voorbeelden-slim-projecten/" target="_blank" rel="noopener noreferrer" style={{ color: "#1a6bbf", fontWeight: 600, textDecoration: "none" }}>
                 Bekijk alle voorbeelden op Katapult ↗
               </a>
@@ -239,10 +228,8 @@ export default function SlimDatabase({ onBack }) {
         </div>
       </div>
 
-      {/* Banner */}
       {!loading && bannerItems.length > 0 && <Banner items={bannerItems} />}
 
-      {/* Filters + resultaten */}
       <div style={{ maxWidth: 1000, margin: "0 auto", padding: "28px 20px 0" }}>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
           <input
@@ -269,7 +256,7 @@ export default function SlimDatabase({ onBack }) {
 
         <div style={{ fontSize: 13, color: "#5a6e82", marginBottom: 16 }}>
           {loading ? "Data laden..." : `${filtered.length.toLocaleString("nl-NL")} projecten gevonden`}
-          {zoek && <span> voor "<strong style={{ color: "#0d2e5a" }}>{zoek}</strong>"</span>}
+          {zoek && <span> voor &ldquo;<strong style={{ color: "#0d2e5a" }}>{zoek}</strong>&rdquo;</span>}
         </div>
 
         {loading && (
@@ -312,10 +299,10 @@ export default function SlimDatabase({ onBack }) {
             <p style={{ color: "rgba(255,255,255,0.6)", marginBottom: 20, fontSize: 14 }}>
               Doe gratis de quickscan en weet in 2 minuten of jouw bedrijf in aanmerking komt voor het tijdvak van 10 augustus – 7 september 2026.
             </p>
-            <button onClick={handleBack}
-              style={{ background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 15, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+            <Link href="/scan"
+              style={{ display: "inline-block", background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 15, fontWeight: 700, textDecoration: "none" }}>
               Doe gratis de quickscan →
-            </button>
+            </Link>
           </div>
         )}
       </div>
