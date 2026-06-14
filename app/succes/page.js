@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LOTING, calcSubsidy, isEarlyBird, nextDeadline, fmtEur, fmtEur2, ACTIVITEITEN } from "@/data/slim-content";
+import { LOTING, calcSubsidy, nextDeadline, fmtEur, fmtEur2, ACTIVITEITEN } from "@/data/slim-content";
 
 function LotingBoxFull() {
   const barPct = Math.round((LOTING.inBehandeling / LOTING.totaalIngediend) * 100);
@@ -212,7 +212,7 @@ Schrijf vier alinea's:
               ["1","Terugbelafspraak binnen 8 werkdagen","Uw adviseur neemt contact op om de analyse door te nemen en de aanvraagstrategie te bespreken."],
               ["2","Complete en correcte aanvraagvoorbereiding","Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor."],
               ["3","Foutloze & tijdige indiening","Wij zorgen voor een correcte aanvraagindiening via de E-portal. Binnen de deadline."],
-              ["4","Ingeloot? Vragenbeantwoording & review","Bij toekenning begeleiden wij u tijdens het subsidie-beoordelingstraject door RVO. En we reviewen uw eindoplevering en dossier. Alles voor dezelfde vaste succesfee van € 2.500 (excl. BTW). De dieptecheck wordt terugbetaald. Geen toekenning = geen succesfee."],
+              ["4","Ingeloot? Vragenbeantwoording & review","Bij toekenning begeleiden wij u tijdens het subsidie-beoordelingstraject door RVO. En we reviewen uw eindoplevering en dossier. Alles voor dezelfde vaste succesfee van € 2.500 (excl. BTW). De reserveringsfee wordt terugbetaald. Geen toekenning = geen succesfee."],
               ["5","Niet ingeloot? Wij dienen opnieuw in — ieder tijdvak","Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen uw aanvraag in het volgende tijdvak opnieuw in. Wij blijven dit doen totdat u ingeloot wordt. Geen extra kosten — inbegrepen in uw pakket."],
             ].map(([num, title, sub]) => (
               <div key={num} className="next-step">

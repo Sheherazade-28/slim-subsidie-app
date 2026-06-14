@@ -3,32 +3,55 @@
 
 export const SUBSIDIE = {
   percentage: 60,
-  maxBedrag: 24999,
+  maxBedrag: 25000,
   maxBedragLandbouw: 20000,
+  maxBedragSamenwerking: 500000,
+  maxPerPartnerSamenwerking: 200000,
   minInvestering: 8334,
-  minSubsidie: 5000,
+  minSubsidiabeleKostenAC: 5000,
+  forfaireOpslag: 0.15,
+  opslagInterneLoonkosten: 0.32,
+  werkbareUren: 1720,
+  controleverklaringBedrag: 3000,
+  voorschot: 0.5,
+  looptijdMKB: 12,
+  looptijdSamenwerking: 24,
+  maxUurtarief: 135,
+  loopbaanVergoeding: 700,
 };
 
 export const PRICING = {
-  dieptecheck: 250,          // excl. BTW regulier
-  dieptecheck_early_bird: 200, // excl. BTW early bird
-  succesfee: 2500,           // excl. BTW
+  reserveringsfee: 199,
+  succesfee: 2500,
   btw: 0.21,
 };
 
 export const TIJDVAKKEN_2026 = [
   {
     label: "Tijdvak 1 2026",
-    open: new Date(2026, 3, 7),
-    close: new Date(2026, 4, 4),
+    type: "individueel",
+    status: "gesloten",
+    open: new Date(2026, 3, 7, 9, 0),
+    close: new Date(2026, 4, 4, 17, 0),
+  },
+  {
+    label: "Samenwerking 2026",
+    type: "samenwerking",
+    status: "binnenkort",
+    open: new Date(2026, 5, 22, 9, 0),
+    close: new Date(2026, 6, 20, 17, 0),
   },
   {
     label: "Tijdvak 2 2026",
-    open: new Date(2026, 7, 10),
-    close: new Date(2026, 8, 7),
+    type: "individueel",
+    status: "binnenkort",
+    open: new Date(2026, 7, 10, 9, 0),
+    close: new Date(2026, 8, 7, 17, 0),
   },
   {
     label: "Tijdvak 1 2027",
+    type: "individueel",
+    status: "volgt",
     open: new Date(2027, 3, 6),
     close: new Date(2027, 4, 4),
   },
@@ -66,7 +89,7 @@ export const LOTING_TIJDVAKKEN = [
       },
       {
         titel: "Samenwerking — jun / jul 2026",
-        info: "Aanvragen van 8 jun t/m 6 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
+        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
       },
     ],
   },
@@ -122,6 +145,20 @@ export const LOTING_TIJDVAKKEN = [
     komend: [],
   },
 ];
+
+export const BUDGET_2026 = {
+  totaal: 45000000,
+  individueel: 25000000,
+  samenwerking: 20000000,
+};
+
+export const STATE_OF_SLIM = {
+  totaalProjecten: 6208,
+  individueelMKB: 5891,
+  samenwerkingsverbanden: 317,
+  totaleSubsidie: 124935598,
+  conversieProjecten: 19,
+};
 
 export const QUESTIONS = [
   {
@@ -211,7 +248,7 @@ export const QUESTIONS = [
   {
     id: "agriculture",
     label: "Is uw bedrijf actief in de landbouwsector?",
-    hint: "Bepaalt het maximale subsidiebedrag (€20.000 i.p.v. €24.999) — geen uitsluitingsgrond.",
+    hint: "Bepaalt het maximale subsidiebedrag (€20.000 i.p.v. €25.000) — geen uitsluitingsgrond.",
     options: [
       { v: "no", l: "Nee, wij zijn niet actief in de landbouw" },
       { v: "yes", l: "Ja, wij zijn een landbouwbedrijf" },
@@ -318,7 +355,7 @@ export const FAQ = [
   },
   {
     q: "Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?",
-    a: "Ja! Als MKB-ondernemer ontvangt u 60% subsidie op uw investering, tot een maximum van € 24.999. Landbouwbedrijven hebben een maximum van € 20.000.",
+    a: "Ja! Als MKB-ondernemer ontvangt u 60% subsidie op uw investering, tot een maximum van € 25.000. Landbouwbedrijven hebben een maximum van € 20.000.",
   },
   {
     q: "Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?",
@@ -330,7 +367,62 @@ export const FAQ = [
   },
   {
     q: "Wat kost SLIM-subsidie aanvragen via SLIM Subsidie Advies?",
-    a: "De quickscan is gratis. Dieptecheck kost € 200 excl. btw (early bird) of € 250 excl. btw (€ 242 resp. € 302,50 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw. Geen toekenning = geen succesfee.",
+    a: "De quickscan is gratis. De reserveringsfee bedraagt € 199 excl. btw (€ 240,79 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw, en wordt de reserveringsfee terugbetaald. Geen toekenning = geen succesfee.",
+  },
+];
+
+export const FAQ_SLIM_SUBSIDIE = [
+  {
+    q: "Wat is het subsidiepercentage voor de SLIM-subsidie?",
+    a: "Het subsidiepercentage is 60% voor alle MKB-ondernemingen — klein én middelgroot. Sommige adviseurs vermelden nog een percentage van 80% voor klein-MKB, maar die regeling bestaat niet meer. Per 5 juli 2025 (artikel 2.20 SLIM-regeling) geldt voor alle MKB een uniform percentage van 60%. Landbouwbedrijven vallen onder een apart maximumbedrag van €20.000.",
+  },
+  {
+    q: "Hoeveel subsidie kan ik maximaal ontvangen?",
+    a: "Als individuele MKB-ondernemer kunt u tot €25.000 SLIM-subsidie ontvangen (60% van uw subsidiabele kosten). Voor samenwerkingsverbanden bedraagt het maximum €500.000 per aanvraag, met maximaal €200.000 per deelnemende onderneming. Landbouwbedrijven hebben een individueel maximum van €20.000.",
+  },
+  {
+    q: "Is er een minimumbedrag voor de SLIM-subsidie?",
+    a: "Voor activiteiten A (doorlichting) en C (L&O-methode) bedragen de minimale subsidiabele kosten €5.000. Bij een subsidiepercentage van 60% betekent dit een minimale investering van circa €8.334. Voor activiteit B (loopbaanadviezen) geldt een vaste vergoeding van €700 per afgerond traject, zonder minimumdrempel.",
+  },
+  {
+    q: "Wat is de maximale looptijd van een SLIM-subsidieproject?",
+    a: "Voor individuele MKB-aanvragen bedraagt de maximale looptijd 12 maanden, gerekend vanaf de datum van de subsidiebeschikking. Voor samenwerkingsverbanden geldt een maximale looptijd van 24 maanden. Activiteiten die starten vóór de subsidiebeschikking zijn niet subsidiabel.",
+  },
+  {
+    q: "Wanneer ontvang ik het geld na toekenning?",
+    a: "Na toekenning van de SLIM-subsidie ontvangt u direct 50% als voorschot. De resterende 50% wordt uitbetaald na vaststelling van het project — nadat u heeft aangetoond dat de activiteiten conform de subsidiebeschikking zijn uitgevoerd.",
+  },
+  {
+    q: "Mag ik meerdere SLIM-aanvragen per tijdvak indienen?",
+    a: "Nee, per onderneming is maximaal één aanvraag per aanvraagtijdvak toegestaan. U kunt wel ieder volgend tijdvak opnieuw aanvragen als u niet wordt ingeloot. SLIM Subsidie Advies actualiseert daarvoor uw aanvraag kosteloos.",
+  },
+  {
+    q: "Wat als ik niet word ingeloot?",
+    a: "Niet ingeloot worden betekent dat het budget voor dat tijdvak niet toereikend was — niet dat uw aanvraag werd afgewezen. SLIM Subsidie Advies dient uw geactualiseerde aanvraag ieder volgend tijdvak opnieuw in, kosteloos, totdat u ingeloot wordt. Dit is standaard inbegrepen.",
+  },
+  {
+    q: "Bestaat de 80%-subsidieregeling voor klein-MKB nog?",
+    a: "Nee. De hogere subsidie van 80% voor kleine ondernemingen is afgeschaft per 5 juli 2025. Artikel 2.20 van de SLIM-regeling bepaalt sindsdien een uniform percentage van 60% voor alle MKB. Adviseurs die nog 80% vermelden, werken met verouderde informatie.",
+  },
+  {
+    q: "Hoeveel wordt er vergoed voor een loopbaanadviseur?",
+    a: "De SLIM-subsidie vergoedt €700 per afgerond loopbaantraject (activiteit B). Een traject bestaat uit minimaal 4 uur individuele begeleiding per medewerker. De adviseur moet geregistreerd zijn als Noloc Register Loopbaanprofessional of beschikken over een gelijkwaardige erkenning.",
+  },
+  {
+    q: "Zijn gewone cursuskosten subsidiabel?",
+    a: "Nee. Reguliere opleidingen, cursussen en trainingen zijn niet subsidiabel onder de SLIM-regeling. De subsidie is uitsluitend bedoeld voor de drie structurele activiteiten: doorlichting (A), loopbaanadvies (B) en L&O-methodiek (C). Loonverletkosten, BTW, overhead en huisvestingskosten zijn evenmin subsidiabel.",
+  },
+  {
+    q: "Wat is het verschil tussen inloting en toekenning?",
+    a: "Inloting betekent dat uw aanvraag in behandeling wordt genomen door RVO — het budget was voldoende voor uw aanvraag in de loting. Toekenning is het definitieve besluit van RVO dat de subsidie wordt verleend, na inhoudelijke beoordeling van uw activiteitenplan en begroting. De succesfee van SLIM Subsidie Advies is alleen verschuldigd na toekenning.",
+  },
+  {
+    q: "Kan een grootbedrijf ook SLIM-subsidie aanvragen?",
+    a: "Grootbedrijven kunnen alleen deelnemen via een samenwerkingsverband met minimaal één MKB-onderneming. Een uitzondering geldt voor grootbedrijven in de landbouw, horeca en recreatiesector — zij mogen ook individueel aanvragen.",
+  },
+  {
+    q: "Kan ik meerdere activiteiten combineren in één aanvraag?",
+    a: "Ja, dat is mogelijk. Een SLIM-subsidieaanvraag kan bestaan uit meerdere activiteiten (artikel 2.8 lid 5 SLIM-regeling). U kunt bijvoorbeeld activiteit A (doorlichting) combineren met activiteit C (L&O-methode), of activiteit B (loopbaanadviezen) combineren met activiteit C. U mag per tijdvak maximaal één aanvraag indienen, maar die aanvraag mag meerdere activiteiten bevatten. Het maximale subsidiebedrag blijft tot €25.000 voor de gecombineerde aanvraag.",
   },
 ];
 
@@ -369,17 +461,10 @@ export function calcSubsidy(investering, isLandbouw) {
   );
 }
 
-export function isEarlyBird() {
-  const now = new Date();
-  return (
-    (now >= new Date(2026, 4, 5) && now <= new Date(2026, 6, 10)) ||
-    (now >= new Date(2026, 8, 8) && now <= new Date(2027, 0, 6))
-  );
-}
-
 export function nextDeadline() {
   const now = new Date();
-  return TIJDVAKKEN_2026.find((d) => now < d.close) || TIJDVAKKEN_2026[TIJDVAKKEN_2026.length - 1];
+  const individueel = TIJDVAKKEN_2026.filter((d) => d.type !== "samenwerking");
+  return individueel.find((d) => now < d.close) || individueel[individueel.length - 1];
 }
 
 export function fmtEur(n) {

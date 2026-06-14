@@ -77,7 +77,7 @@ export async function POST(request) {
     }
 
     const meta = payment.metadata || {};
-    const { naam, bedrijf, email, activiteiten, subsidyEst, earlyBird, bedragExcl, bedragIncl, profile, answers, investment } = meta;
+    const { naam, bedrijf, email, activiteiten, subsidyEst, bedragExcl, bedragIncl, profile, answers, investment } = meta;
 
     if (!email) {
       console.error("Geen e-mail in metadata voor payment:", id);
@@ -123,7 +123,7 @@ Bedrijfsprofiel:
 - Provincie: ${profile?.provincie || "onbekend"}
 - Landbouwsector: ${isAgri ? "Ja" : "Nee"}
 - Investering: ${fmtEur(invNum)}
-- Indicatief SLIM-subsidiebedrag (60% klein MKB / 50% middelgroot, max. €24.999): ${fmtEur(subsidyEst || 0)}
+- Indicatief SLIM-subsidiebedrag (60% voor alle MKB, tot €25.000): ${fmtEur(subsidyEst || 0)}
 - Gekozen SLIM-activiteit(en): ${actNames}
 - Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 
@@ -181,13 +181,13 @@ Schrijf vier alinea's:
 
     const emailHtml = buildConfirmationEmail({
       naam, bedrijf, email, activiteiten, subsidyEst,
-      earlyBird, bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
+      bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
       quickscanHtml, analysisText,
     });
 
     const factuurHtml = buildInvoiceHtml({
       naam, bedrijf, email, activiteiten,
-      earlyBird, bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
+      bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
     });
 
     if (!resendKey) {
@@ -210,7 +210,7 @@ Schrijf vier alinea's:
         from: mailFrom,
         to: [email],
         ...(mailBcc && { bcc: [mailBcc] }),
-        subject: `Bevestiging betaling SLIM Dieptecheck — ${factuurNr}`,
+        subject: `Bevestiging betaling SLIM Reservering — ${factuurNr}`,
         html: emailHtml,
         attachments: [
           {

@@ -31,7 +31,7 @@ export default function AvPage() {
               <li><strong>Opdrachtnemer:</strong> Inscentia BV, handelend onder de naam SLIM Subsidie Advies, gevestigd te Utrecht, KvK-nummer 83970614.</li>
               <li><strong>Opdrachtgever:</strong> de rechtspersoon of natuurlijk persoon die een overeenkomst aangaat met Opdrachtnemer.</li>
               <li><strong>Dienst:</strong> het pakket van advisering, begeleiding en indiening in het kader van de SLIM-subsidieregeling.</li>
-              <li><strong>Dieptecheck:</strong> de betaalde analyse van de subsidiekansen van de Opdrachtgever, inclusief persoonlijke AI-analyse en adviesgesprek.</li>
+              <li><strong>Reserveringsfee:</strong> de betaalde reservering voor de dienstverlening van Opdrachtnemer, inclusief persoonlijke AI-analyse en adviesgesprek.</li>
               <li><strong>Aanvraagbegeleiding:</strong> de volledige begeleiding van de subsidieaanvraag bij RVO, inclusief opstelling documenten, indiening en begeleiding van het screeningstraject na inloting.</li>
               <li><strong>SLIM-subsidie:</strong> de Stimuleringsregeling Leren en Ontwikkelen in het Mkb, uitgevoerd door de Rijksdienst voor Ondernemend Nederland (RVO).</li>
               <li><strong>Inloting:</strong> het proces waarbij RVO door middel van notariële loting bepaalt welke aanvragen in behandeling worden genomen.</li>
@@ -53,7 +53,7 @@ export default function AvPage() {
             <h2>Artikel 3 — Aanbod en totstandkoming overeenkomst</h2>
             <ul>
               <li>Alle aanbiedingen van Opdrachtnemer zijn vrijblijvend, tenzij uitdrukkelijk anders aangegeven.</li>
-              <li>De overeenkomst komt tot stand op het moment dat de Opdrachtgever de Dieptecheck betaalt via het online betaalplatform op de website van Opdrachtnemer.</li>
+              <li>De overeenkomst komt tot stand op het moment dat de Opdrachtgever de reserveringsfee betaalt via het online betaalplatform op de website van Opdrachtnemer.</li>
               <li>Opdrachtnemer heeft het recht een opdracht zonder opgave van redenen te weigeren.</li>
             </ul>
           </div>
@@ -61,7 +61,7 @@ export default function AvPage() {
           <div className="privacy-sec">
             <h2>Artikel 4 — Dienstverlening</h2>
             <ul>
-              <li><strong>Dieptecheck</strong> (€ 200 excl. btw early bird / € 250 excl. btw regulier): persoonlijke AI-diepteanalyse, telefonisch adviesgesprek binnen 8 werkdagen, en start aanvraagbegeleiding.</li>
+              <li><strong>Reserveringsfee</strong> (€ 199 excl. btw): persoonlijke AI-diepteanalyse, telefonisch adviesgesprek binnen 8 werkdagen, en start aanvraagbegeleiding.</li>
               <li><strong>Aanvraagbegeleiding:</strong> opstellen activiteitenplan, begroting en documenten; compliance-check; indiening via RVO e-portaal; begeleiding screeningstraject na inloting.</li>
               <li><strong>Herindienen:</strong> wordt de aanvraag niet ingeloot, dan actualiseert Opdrachtnemer de aanvraag elk volgend tijdvak en dient deze opnieuw in totdat inloting plaatsvindt — zonder extra kosten.</li>
               <li>Opdrachtnemer spant zich in voor een correcte en volledige aanvraag, doch kan geen garantie geven op inloting of toekenning door RVO.</li>
@@ -74,8 +74,8 @@ export default function AvPage() {
             <ul>
               <li>De diensten van Opdrachtnemer zijn gebaseerd op een no cure, no pay principe voor de Succesfee.</li>
               <li>De Succesfee bedraagt € 2.500 excl. btw en is uitsluitend verschuldigd bij Toekenning van de SLIM-subsidie door RVO.</li>
-              <li>Bij Toekenning wordt de reeds betaalde vergoeding voor de Dieptecheck volledig terugbetaald aan de Opdrachtgever; de effectieve kosten zijn dan beperkt tot de Succesfee.</li>
-              <li>Indien de subsidie niet wordt toegekend, is de Succesfee niet verschuldigd. De vergoeding voor de Dieptecheck wordt in dat geval niet gerestitueerd.</li>
+              <li>Bij Toekenning wordt de reeds betaalde Reserveringsfee volledig terugbetaald aan de Opdrachtgever; de effectieve kosten zijn dan beperkt tot de Succesfee.</li>
+              <li>Indien de subsidie niet wordt toegekend, is de Succesfee niet verschuldigd. De Reserveringsfee wordt in dat geval niet gerestitueerd.</li>
               <li>Inloting houdt in dat de aanvraag in behandeling wordt genomen door RVO, niet dat de subsidie reeds is toegekend. De Succesfee is uitsluitend opeisbaar na het definitieve toekenningsbesluit van RVO.</li>
             </ul>
           </div>
@@ -84,7 +84,7 @@ export default function AvPage() {
             <h2>Artikel 6 — Tarieven en betaling</h2>
             <ul>
               <li>Alle genoemde tarieven zijn exclusief btw, tenzij uitdrukkelijk anders vermeld.</li>
-              <li>Betaling van de Dieptecheck geschiedt vooraf via het online betaalplatform op de website (iDEAL, creditcard of Bancontact).</li>
+              <li>Betaling van de Reserveringsfee geschiedt vooraf via het online betaalplatform op de website (iDEAL, creditcard of Bancontact).</li>
               <li>De Succesfee wordt gefactureerd na ontvangst van het definitieve toekenningsbesluit van RVO. Betaling dient te geschieden binnen 14 dagen na factuurdatum.</li>
               <li>Bij niet-tijdige betaling is Opdrachtgever van rechtswege in verzuim. Opdrachtnemer is gerechtigd wettelijke handelsrente en buitengerechtelijke incassokosten conform de Wet normering buitengerechtelijke incassokosten in rekening te brengen.</li>
             </ul>
@@ -104,7 +104,7 @@ export default function AvPage() {
             <h2>Artikel 8 — Aansprakelijkheid</h2>
             <ul>
               <li>Opdrachtnemer is uitsluitend aansprakelijk voor directe schade die het rechtstreekse gevolg is van een toerekenbare tekortkoming in de nakoming van de overeenkomst.</li>
-              <li>De aansprakelijkheid van Opdrachtnemer is te allen tijde beperkt tot het bedrag van de door Opdrachtgever reeds betaalde vergoeding voor de Dieptecheck, exclusief de Succesfee.</li>
+              <li>De aansprakelijkheid van Opdrachtnemer is te allen tijde beperkt tot het bedrag van de door Opdrachtgever reeds betaalde Reserveringsfee, exclusief de Succesfee.</li>
               <li>Opdrachtnemer is nimmer aansprakelijk voor indirecte schade, gevolgschade, gederfde winst, gemiste subsidie of schade wegens het niet toekennen of terugvorderen van de subsidie door RVO.</li>
               <li>Voorgaande beperkingen gelden niet in geval van opzet of bewuste roekeloosheid van Opdrachtnemer.</li>
             </ul>
@@ -138,7 +138,7 @@ export default function AvPage() {
             <h2>Artikel 12 — Duur en beëindiging</h2>
             <ul>
               <li>De overeenkomst loopt totdat de dienstverlening is voltooid: na definitieve beschikking van RVO, of totdat Opdrachtgever de opdracht schriftelijk beëindigt.</li>
-              <li>Opdrachtgever kan de overeenkomst te allen tijde schriftelijk opzeggen. De reeds betaalde vergoeding voor de Dieptecheck wordt niet gerestitueerd, tenzij Opdrachtnemer nog geen aanvang heeft gemaakt met de werkzaamheden.</li>
+              <li>Opdrachtgever kan de overeenkomst te allen tijde schriftelijk opzeggen. De reeds betaalde Reserveringsfee wordt niet gerestitueerd, tenzij Opdrachtnemer nog geen aanvang heeft gemaakt met de werkzaamheden.</li>
               <li>Opdrachtnemer kan de overeenkomst beëindigen indien Opdrachtgever zijn verplichtingen niet nakomt, faillissement aanvraagt of surseance van betaling verkrijgt.</li>
             </ul>
           </div>

@@ -45,7 +45,7 @@ export default function PrivacyPage() {
               <li><strong>Contactgegevens:</strong> naam, e-mailadres, telefoonnummer, bedrijfsnaam.</li>
               <li><strong>Bedrijfsgegevens:</strong> rechtsvorm, sector, provincie, aantal medewerkers.</li>
               <li><strong>Financiële gegevens:</strong> investeringsbedrag, indicatief subsidiebedrag, betalingsgegevens via Mollie.</li>
-              <li><strong>Gebruiksgegevens:</strong> antwoorden op de quickscan en dieptecheck, gekozen subsidieactiviteiten, IP-adres en browsergegevens.</li>
+              <li><strong>Gebruiksgegevens:</strong> antwoorden op de quickscan en reservering, gekozen subsidieactiviteiten, IP-adres en browsergegevens.</li>
             </ul>
           </div>
 
