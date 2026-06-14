@@ -1,9 +1,32 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { LOTING, LOTING_TIJDVAKKEN, FAQ, BEDRIJFSINFO } from "@/data/slim-content";
 import Navigation from "@/components/layout/Navigation";
+
+function TeamAvatar({ slug, naam }) {
+  const initials = naam.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+  return (
+    <div style={{ position: "relative", width: 120, height: 120, margin: "0 auto 12px" }}>
+      <Image
+        src={`/images/team/${slug}.png`}
+        alt={`${naam} — SLIM Subsidieadviseur`}
+        width={120}
+        height={120}
+        style={{ borderRadius: "50%", objectFit: "cover", objectPosition: "center top" }}
+        onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.nextSibling.style.display = "flex"; }}
+      />
+      <div
+        className="hp-avatar"
+        style={{ display: "none", position: "absolute", inset: 0, borderRadius: "50%", alignItems: "center", justifyContent: "center" }}
+      >
+        {initials}
+      </div>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -170,9 +193,18 @@ export default function HomePage() {
           <h2 className="hp-stitle">Uw SLIM-subsidieadviseurs</h2>
           <p className="hp-ssub">Drie specialisten met diepgaande kennis van de SLIM-regeling en het beoordelingsproces van RVO.</p>
           <div className="hp-team-grid">
-            <div className="hp-team-card"><div className="hp-avatar hp-av-d">DS</div><div className="hp-t-name">Daniel Sharif</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Specialist in het begeleiden van MKB-aanvragen van quickscan tot succesvolle toekenning.</div></div>
-            <div className="hp-team-card"><div className="hp-avatar hp-av-e">EV</div><div className="hp-t-name">Esther Valerius</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening.</div></div>
-            <div className="hp-team-card"><div className="hp-avatar hp-av-r">RF</div><div className="hp-t-name">Rudolf Favier</div><div className="hp-t-role">SLIM Subsidieadviseur</div><div className="hp-t-bio">Gespecialiseerd in het screeningstraject na inloting. Begeleidt de inhoudelijke beoordeling bij RVO.</div></div>
+            {[
+              { slug: "nasser-sharifi", naam: "Nasser Sharifi", bio: "Specialist in het intelligent matchen van MKB-aanvragen met de diverse SLIM-subsidietoepassingen." },
+              { slug: "esther-valerius", naam: "Esther Valerius", bio: "SLIM-subsidie-expert. Begeleidt de inhoudelijke beoordeling bij RVO." },
+              { slug: "rudolf-favier", naam: "Rudolf Favier", bio: "Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening." },
+            ].map(({ slug, naam, bio }) => (
+              <div key={slug} className="hp-team-card">
+                <TeamAvatar slug={slug} naam={naam} />
+                <div className="hp-t-name">{naam}</div>
+                <div className="hp-t-role">SLIM Subsidieadviseur</div>
+                <div className="hp-t-bio">{bio}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
