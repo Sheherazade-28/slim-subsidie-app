@@ -67,14 +67,14 @@ export default function HomePage() {
             <div className="hp-how-arrow">→</div>
             <div className="hp-how-card">
               <div className="hp-how-num">2</div>
-              <div className="hp-how-title">Diepteanalyse & aanvraag</div>
-              <div className="hp-how-text">Voor €199 excl. btw verzorgen wij de diepteanalyse en stellen wij de volledige aanvraag op. Niet ingeloot? Dan actualiseren wij uw aanvraag ieder nieuw tijdvak opnieuw binnen hetzelfde traject, totdat u wordt ingeloot.</div>
+              <div className="hp-how-title">Reserveer uw aanvraagplaats</div>
+              <div className="hp-how-text">Voor €199 excl. btw reserveert u uw aanvraagplaats. Wij verzorgen het intakegesprek, de beoordeling van uw projectidee en de volledige aanvraagvoorbereiding. Niet ingeloot? Dan dienen wij uw aanvraag kosteloos opnieuw in elk volgend tijdvak, totdat u wordt ingeloot.</div>
             </div>
             <div className="hp-how-arrow">→</div>
             <div className="hp-how-card">
               <div className="hp-how-num">3</div>
               <div className="hp-how-title">Ingeloot? Volledige begeleiding</div>
-              <div className="hp-how-text">U ontvangt de reserveringsfee retour. Voor een vaste fee van €2.500 excl. btw begeleiden wij u volledig, van inhoudelijke beoordeling en vragenbeantwoording tot review van het eindproduct.</div>
+              <div className="hp-how-text">U ontvangt de reserveringsfee retour bij toekenning. Voor een vaste succesfee van €2.500 excl. btw begeleiden wij u volledig, van inhoudelijke beoordeling en vragenbeantwoording tot review van het eindproduct.</div>
             </div>
           </div>
         </div>
