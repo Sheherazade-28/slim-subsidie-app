@@ -116,14 +116,17 @@ export default function ScanPage() {
     antwoorden.gestart === "ja" ||
     antwoorden.deminimis === "ja";
 
+  // Q6 verschijnt pas als Q1–Q5 allemaal positief zijn beantwoord
+  const toonQ6 =
+    antwoorden.personeel === "ja" &&
+    (antwoorden.mkb === "ja" || antwoorden.mkb === "uitzondering") &&
+    antwoorden.nederland === "ja" &&
+    antwoorden.gestart === "nee" &&
+    (antwoorden.deminimis === "nee" || antwoorden.deminimis === "weet-niet");
+
   const vragenKlaar =
     isVroegUitgesloten ||
-    (antwoorden.personeel &&
-      antwoorden.mkb &&
-      antwoorden.nederland &&
-      antwoorden.gestart &&
-      antwoorden.deminimis &&
-      (antwoorden.investering ?? "") !== "");
+    (toonQ6 && (antwoorden.investering ?? "") !== "");
 
   const contactKlaar =
     contact.voornaam &&
@@ -221,8 +224,8 @@ export default function ScanPage() {
                 </div>
               ))}
 
-              {/* Vraag 6: Investering — alleen tonen als er geen vroege uitsluitingsgrond is */}
-              {!isVroegUitgesloten && (
+              {/* Vraag 6: Investering — alleen tonen als Q1–Q5 allemaal positief zijn */}
+              {toonQ6 && (
                 <div className="q-block">
                   <div className="q-label"><span className="q-num">6</span>Wat is de verwachte totale investering in leer- en ontwikkelactiviteiten?</div>
                   <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>
@@ -253,6 +256,9 @@ export default function ScanPage() {
                   {isVroegUitgesloten ? "Bekijk resultaat →" : "Naar contactgegevens →"}
                 </button>
               </div>
+              <p style={{ fontSize: 11, color: "var(--muted)", marginTop: 12 }}>
+                🔒 Uw gegevens worden veilig verwerkt en niet gedeeld met derden.
+              </p>
             </div>
           </>
         )}
