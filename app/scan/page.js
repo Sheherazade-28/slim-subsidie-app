@@ -7,45 +7,91 @@ import { PRICING, SUBSIDIE, TIJDVAKKEN_2026 } from "@/data/slim-content";
 const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
 const tv2OpenLabel = `${tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })} om ${tv2.open.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" })} uur`;
 
+const MIN_KANSRIJK = SUBSIDIE.minSubsidiabeleKostenAC; // €5.000
+const MIN_MOGELIJK = 3000; // quickscan drempel voor 'mogelijk kansrijk'
+
 const STAP_LABELS = ["Quickscan", "Resultaat", "Reservering", "Intake"];
+
+const MEDEWERKERS_OPTIES = ["2–10", "11–50", "51–100", "101–250"];
 
 const VRAGEN = [
   {
-    id: "medewerkers",
-    vraag: "Heeft uw organisatie tussen de 2 en 250 medewerkers?",
+    id: "personeel",
+    vraag: "Heeft uw bedrijf personeel in dienst?",
+    subtekst: "Minimaal één werknemer met arbeidscontract (geen aandeelhouders-DGA of zzp'ers).",
     opties: [
-      { v: "ja", l: "Ja" },
-      { v: "nee", l: "Nee" },
+      { v: "ja", l: "Ja, wij hebben minimaal 1 werknemer in dienst" },
+      { v: "nee", l: "Nee, ik werk alleen / uitsluitend met zzp'ers" },
     ],
   },
   {
-    id: "leren",
-    vraag: "Werkt uw organisatie actief aan leren en ontwikkelen van medewerkers, of wilt u hiermee starten?",
+    id: "mkb",
+    vraag: "Valt uw bedrijf binnen het midden- en kleinbedrijf (MKB)?",
+    subtekst: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln. Uitzondering: grootbedrijf in landbouw, horeca of recreatie mag ook aanvragen.",
     opties: [
-      { v: "ja", l: "Ja, we werken hier al aan" },
-      { v: "start", l: "We willen hiermee starten" },
-      { v: "nee", l: "Nee, dit speelt niet bij ons" },
+      { v: "ja", l: "Ja, wij zijn een MKB-onderneming" },
+      { v: "uitzondering", l: "Nee, maar wij zijn grootbedrijf in landbouw, horeca of recreatie" },
+      { v: "nee", l: "Nee, wij vallen buiten het MKB" },
     ],
   },
   {
-    id: "eerder",
-    vraag: "Heeft uw organisatie eerder SLIM-subsidie aangevraagd?",
+    id: "nederland",
+    vraag: "Is uw bedrijf in Nederland gevestigd en vinden de activiteiten in Nederland plaats?",
+    subtekst: "Zowel vestiging als activiteiten moeten in Nederland zijn.",
     opties: [
-      { v: "nooit", l: "Nee, nooit" },
-      { v: "toegekend", l: "Ja, en de aanvraag is toegekend" },
-      { v: "niet-ingeloot", l: "Ja, maar we zijn niet ingeloot" },
+      { v: "ja", l: "Ja, wij zijn in Nederland gevestigd en actief" },
+      { v: "nee", l: "Nee, wij zijn (deels) buiten Nederland gevestigd" },
+    ],
+  },
+  {
+    id: "gestart",
+    vraag: "Zijn de geplande activiteiten al gestart?",
+    subtekst: "Activiteiten mogen nog niet begonnen zijn vóór de subsidieverlening.",
+    opties: [
+      { v: "nee", l: "Nee, de activiteiten zijn nog niet gestart" },
+      { v: "ja", l: "Ja, we zijn al begonnen" },
+    ],
+  },
+  {
+    id: "deminimis",
+    vraag: "Heeft uw bedrijf de afgelopen 3 jaar meer dan €300.000 aan staatssteun ontvangen?",
+    subtekst: "Alle de-minimissteun bij elkaar opgeteld.",
+    opties: [
+      { v: "nee", l: "Nee, wij zijn ruim onder het plafond" },
+      { v: "weet-niet", l: "Ik weet het niet zeker" },
+      { v: "ja", l: "Ja, meer dan €300.000 ontvangen" },
     ],
   },
 ];
 
-const MEDEWERKERS_OPTIES = ["2–10", "11–50", "51–100", "101–250"];
+const NIET_KANSRIJK_REDEN = {
+  personeel: "De SLIM-subsidie vereist minimaal één werknemer met een arbeidscontract. ZZP'ers en DGA's zonder personeel komen niet in aanmerking.",
+  mkb: "De SLIM-subsidie is alleen beschikbaar voor MKB-ondernemingen en grootbedrijven in landbouw, horeca of recreatie.",
+  nederland: "Uw bedrijf en activiteiten moeten in Nederland gevestigd en actief zijn.",
+  gestart: "Activiteiten die al zijn gestart vóór subsidieverlening komen niet in aanmerking. U kunt wel aanvragen voor toekomstige activiteiten.",
+  deminimis: "Bij meer dan €300.000 staatssteun in de afgelopen 3 jaar kunt u mogelijk geen de-minimissteun meer ontvangen.",
+  investering: `De minimale subsidiabele investering is €${MIN_KANSRIJK.toLocaleString("nl-NL")} voor activiteiten A en C.`,
+};
 
 function bepaalUitslag(antwoorden) {
-  if (antwoorden.medewerkers === "nee") return "niet-kansrijk";
-  if (antwoorden.leren === "nee") return "niet-kansrijk";
-  if (antwoorden.leren === "ja") return "kansrijk";
-  if (antwoorden.leren === "start") return "mogelijk-kansrijk";
-  return "niet-kansrijk";
+  if (antwoorden.personeel === "nee") return "niet-kansrijk";
+  if (antwoorden.mkb === "nee") return "niet-kansrijk";
+  if (antwoorden.nederland === "nee") return "niet-kansrijk";
+  if (antwoorden.gestart === "ja") return "niet-kansrijk";
+  if (antwoorden.deminimis === "ja") return "niet-kansrijk";
+  const inv = parseInt(antwoorden.investering, 10) || 0;
+  if (inv < MIN_MOGELIJK) return "niet-kansrijk";
+  if (antwoorden.deminimis === "weet-niet" || inv < MIN_KANSRIJK) return "mogelijk-kansrijk";
+  return "kansrijk";
+}
+
+function getUitsluitingsReden(antwoorden) {
+  if (antwoorden.personeel === "nee") return "personeel";
+  if (antwoorden.mkb === "nee") return "mkb";
+  if (antwoorden.nederland === "nee") return "nederland";
+  if (antwoorden.gestart === "ja") return "gestart";
+  if (antwoorden.deminimis === "ja") return "deminimis";
+  return "investering";
 }
 
 export default function ScanPage() {
@@ -54,11 +100,24 @@ export default function ScanPage() {
   const [contact, setContact] = useState({ voornaam: "", achternaam: "", email: "", telefoon: "", bedrijf: "", medewerkers: "" });
   const [verzenden, setVerzenden] = useState(false);
   const [uitslag, setUitslag] = useState(null);
+  const [uitslReden, setUitslReden] = useState(null);
+
+  // Vroege uitsluitingsgronden: sla Q6 en contactstap over
+  const isVroegUitgesloten =
+    antwoorden.personeel === "nee" ||
+    antwoorden.mkb === "nee" ||
+    antwoorden.nederland === "nee" ||
+    antwoorden.gestart === "ja" ||
+    antwoorden.deminimis === "ja";
 
   const vragenKlaar =
-    antwoorden.medewerkers &&
-    (antwoorden.medewerkers === "nee" ||
-      (antwoorden.leren && antwoorden.eerder));
+    isVroegUitgesloten ||
+    (antwoorden.personeel &&
+      antwoorden.mkb &&
+      antwoorden.nederland &&
+      antwoorden.gestart &&
+      antwoorden.deminimis &&
+      (antwoorden.investering ?? "") !== "");
 
   const contactKlaar =
     contact.voornaam &&
@@ -75,8 +134,10 @@ export default function ScanPage() {
   }
 
   function naarContact() {
-    if (antwoorden.medewerkers === "nee") {
+    const result = bepaalUitslag(antwoorden);
+    if (result === "niet-kansrijk") {
       setUitslag("niet-kansrijk");
+      setUitslReden(getUitsluitingsReden(antwoorden));
       setFase("resultaat");
     } else {
       setFase("contact");
@@ -88,6 +149,7 @@ export default function ScanPage() {
     setVerzenden(true);
     const result = bepaalUitslag(antwoorden);
     setUitslag(result);
+    if (result === "niet-kansrijk") setUitslReden(getUitsluitingsReden(antwoorden));
 
     try {
       await fetch("/api/quickscan", {
@@ -130,11 +192,14 @@ export default function ScanPage() {
         {/* ── STAP 1: VRAGEN ── */}
         {fase === "vragen" && (
           <>
-            <div className="phase-lbl"><span className="phase-dot" />Quickscan — 3 vragen, minder dan 1 minuut</div>
+            <div className="phase-lbl"><span className="phase-dot" />Quickscan — 6 vragen, minder dan 2 minuten</div>
             <div className="card">
               {VRAGEN.map((v, i) => (
                 <div key={v.id} className="q-block">
                   <div className="q-label"><span className="q-num">{i + 1}</span>{v.vraag}</div>
+                  {v.subtekst && (
+                    <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>{v.subtekst}</div>
+                  )}
                   <div className="options">
                     {v.opties.map((o) => (
                       <label
@@ -149,13 +214,37 @@ export default function ScanPage() {
                   </div>
                 </div>
               ))}
+
+              {/* Vraag 6: Investering — alleen tonen als er geen vroege uitsluitingsgrond is */}
+              {!isVroegUitgesloten && (
+                <div className="q-block">
+                  <div className="q-label"><span className="q-num">6</span>Wat is de verwachte totale investering in leer- en ontwikkelactiviteiten?</div>
+                  <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>
+                    Uren medewerkers + externe kosten. Minimaal €{MIN_KANSRIJK.toLocaleString("nl-NL")} aan subsidiabele kosten vereist voor activiteiten A en C.
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 15, fontWeight: 600, color: "var(--navy)" }}>€</span>
+                    <input
+                      className="form-input"
+                      type="number"
+                      inputMode="numeric"
+                      min="0"
+                      placeholder="Bijv. 10000"
+                      value={antwoorden.investering ?? ""}
+                      onChange={(e) => antwoord("investering", e.target.value)}
+                      style={{ maxWidth: 200 }}
+                    />
+                  </div>
+                </div>
+              )}
+
               <div className="btn-row">
                 <button
                   className="btn btn-primary"
                   onClick={naarContact}
                   disabled={!vragenKlaar}
                 >
-                  {antwoorden.medewerkers === "nee" ? "Bekijk resultaat →" : "Naar contactgegevens →"}
+                  {isVroegUitgesloten ? "Bekijk resultaat →" : "Naar contactgegevens →"}
                 </button>
               </div>
             </div>
@@ -222,7 +311,7 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ── STAP 3: RESULTAAT ── */}
+        {/* ── STAP 3: RESULTAAT — KANSRIJK ── */}
         {fase === "resultaat" && uitslag === "kansrijk" && (
           <>
             <div className="phase-lbl"><span className="phase-dot" />Resultaat quickscan</div>
@@ -236,10 +325,7 @@ export default function ScanPage() {
             </div>
             <div className="card" style={{ borderLeft: "3px solid var(--blue-light)", textAlign: "center" }}>
               <div className="card-title">Reserveer uw aanvraagplaats</div>
-              <p className="card-sub">
-                Wij werken met een beperkt aantal aanvraagplaatsen per tijdvak.
-                Reserveer nu en wij nemen contact op voor de intake.
-              </p>
+              <p className="card-sub">Wij werken met een beperkt aantal aanvraagplaatsen per tijdvak.</p>
               <div className="btn-row" style={{ justifyContent: "center" }}>
                 <Link href="/reserveren" className="btn btn-primary" style={{ fontSize: 16, padding: "14px 32px" }}>
                   Reserveer uw aanvraagplaats voor €{PRICING.reserveringsfee} →
@@ -256,6 +342,7 @@ export default function ScanPage() {
           </>
         )}
 
+        {/* ── STAP 3: RESULTAAT — MOGELIJK KANSRIJK ── */}
         {fase === "resultaat" && uitslag === "mogelijk-kansrijk" && (
           <>
             <div className="phase-lbl"><span className="phase-dot" />Resultaat quickscan</div>
@@ -268,9 +355,7 @@ export default function ScanPage() {
             </div>
             <div className="card" style={{ textAlign: "center" }}>
               <div className="card-title">Reserveer uw aanvraagplaats</div>
-              <p className="card-sub">
-                Wij nemen contact op en beoordelen samen uw kansen voor tijdvak 2 ({tv2OpenLabel}).
-              </p>
+              <p className="card-sub">Wij werken met een beperkt aantal aanvraagplaatsen per tijdvak.</p>
               <div className="btn-row" style={{ justifyContent: "center" }}>
                 <Link href="/reserveren" className="btn btn-primary" style={{ fontSize: 16, padding: "14px 32px" }}>
                   Reserveer uw aanvraagplaats voor €{PRICING.reserveringsfee} →
@@ -287,6 +372,7 @@ export default function ScanPage() {
           </>
         )}
 
+        {/* ── STAP 3: RESULTAAT — NIET KANSRIJK ── */}
         {fase === "resultaat" && uitslag === "niet-kansrijk" && (
           <>
             <div className="phase-lbl"><span className="phase-dot" style={{ background: "var(--muted)" }} />Resultaat quickscan</div>
@@ -294,20 +380,13 @@ export default function ScanPage() {
               <span className="result-icon">✗</span>
               <div className="result-title">Op basis van de huidige informatie lijkt een aanvraag minder kansrijk</div>
               <p className="result-body">
-                De SLIM-subsidie is bedoeld voor MKB-ondernemingen met minimaal 2 medewerkers
-                (exclusief directeur-grootaandeelhouder). Heeft u vragen over uw situatie?
+                {uitslReden ? NIET_KANSRIJK_REDEN[uitslReden] : "Heeft u vragen over uw situatie?"}
               </p>
             </div>
             <div className="card">
-              <div className="card-title">Wat kunt u nu doen?</div>
-              <ul className="info-list">
-                <li><span>📞</span>Neem contact op — wij denken graag mee over alternatieven.</li>
-                <li><span>🤝</span>U kunt mogelijk deelnemen als partner in een samenwerkingsverband.</li>
-                <li><span>🔄</span>Is de situatie binnenkort anders? Doe opnieuw de quickscan.</li>
-              </ul>
               <div className="btn-row">
-                <a href="mailto:info@slimsubsidieadvies.nl" className="btn btn-primary">Neem contact op →</a>
-                <button className="btn btn-ghost" onClick={() => { setFase("vragen"); setAntwoorden({}); setUitslag(null); }}>
+                <a href="mailto:info@slimsubsidieadvies.nl" className="btn btn-primary">Neem contact op voor advies →</a>
+                <button className="btn btn-ghost" onClick={() => { setFase("vragen"); setAntwoorden({}); setUitslag(null); setUitslReden(null); }}>
                   ← Opnieuw beginnen
                 </button>
               </div>
