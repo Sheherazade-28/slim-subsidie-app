@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Wat is SLIM-subsidie? Activiteiten A, B en C | SLIM Subsidie Advies",
-  description: "De SLIM-subsidie vergoedt 60% van uw investering in leren en ontwikkelen van medewerkers, tot €24.999. Ontdek de drie activiteiten A, B en C en de subsidiebedragen.",
+  description: "De SLIM-subsidie vergoedt 60% van uw investering in leren en ontwikkelen van medewerkers, tot €25.000. Ontdek de drie activiteiten A, B en C en de subsidiebedragen.",
 };
 
 export default function SlimPage() {
@@ -16,7 +16,7 @@ export default function SlimPage() {
           <div className="hp-slbl" style={{ color: "var(--blue-light)" }}>De SLIM-regeling</div>
           <h1 className="hp-stitle" style={{ color: "#fff" }}>Wat is SLIM-subsidie?</h1>
           <p className="hp-ssub" style={{ color: "rgba(255,255,255,0.6)" }}>
-            De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot een maximum van €24.999. Landbouwbedrijven: max. €20.000. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.
+            De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot €25.000. Landbouwbedrijven: tot €20.000. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.
           </p>
         </div>
       </div>
