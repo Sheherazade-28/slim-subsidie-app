@@ -6,7 +6,7 @@ import { useState } from "react";
 import { LOTING, LOTING_TIJDVAKKEN, FAQ, BEDRIJFSINFO } from "@/data/slim-content";
 import Navigation from "@/components/layout/Navigation";
 
-function TeamAvatar({ slug, naam }) {
+function TeamAvatar({ slug, naam, objectPosition = "center 20%" }) {
   const initials = naam.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
   return (
     <div style={{ position: "relative", width: 120, height: 120, margin: "0 auto 12px" }}>
@@ -15,7 +15,7 @@ function TeamAvatar({ slug, naam }) {
         alt={`${naam} — SLIM Subsidieadviseur`}
         width={120}
         height={120}
-        style={{ borderRadius: "50%", objectFit: "cover", objectPosition: "center top" }}
+        style={{ borderRadius: "50%", objectFit: "cover", objectPosition }}
         onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.nextSibling.style.display = "flex"; }}
       />
       <div
@@ -194,12 +194,12 @@ export default function HomePage() {
           <p className="hp-ssub">Drie specialisten met diepgaande kennis van de SLIM-regeling en het beoordelingsproces van RVO.</p>
           <div className="hp-team-grid">
             {[
-              { slug: "nasser-sharifi", naam: "Nasser Sharifi", bio: "Specialist in het intelligent matchen van MKB-aanvragen met de diverse SLIM-subsidietoepassingen." },
-              { slug: "esther-valerius", naam: "Esther Valerius", bio: "SLIM-subsidie-expert. Begeleidt de inhoudelijke beoordeling bij RVO." },
-              { slug: "rudolf-favier", naam: "Rudolf Favier", bio: "Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening." },
-            ].map(({ slug, naam, bio }) => (
+              { slug: "nasser-sharifi", naam: "Nasser Sharifi", objectPosition: "center 20%", bio: "Specialist in het intelligent matchen van MKB-aanvragen met de diverse SLIM-subsidietoepassingen." },
+              { slug: "esther-valerius", naam: "Esther Valerius", objectPosition: "center 20%", bio: "SLIM-subsidie-expert. Begeleidt de inhoudelijke beoordeling bij RVO." },
+              { slug: "rudolf-favier", naam: "Rudolf Favier", objectPosition: "center 20%", bio: "Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening." },
+            ].map(({ slug, naam, objectPosition, bio }) => (
               <div key={slug} className="hp-team-card">
-                <TeamAvatar slug={slug} naam={naam} />
+                <TeamAvatar slug={slug} naam={naam} objectPosition={objectPosition} />
                 <div className="hp-t-name">{naam}</div>
                 <div className="hp-t-role">SLIM Subsidieadviseur</div>
                 <div className="hp-t-bio">{bio}</div>
