@@ -1,10 +1,32 @@
 import Navigation from "@/components/layout/Navigation";
+import TeamAvatar from "@/components/ui/TeamAvatar";
 import Link from "next/link";
 
 export const metadata = {
   title: "Ons Team — SLIM-subsidieadviseurs | SLIM Subsidie Advies",
   description: "Drie gespecialiseerde SLIM-subsidieadviseurs met diepgaande kennis van de SLIM-regeling en het beoordelingsproces van RVO. Maak kennis met het team.",
 };
+
+const TEAM = [
+  {
+    slug: "nasser-sharifi",
+    naam: "Nasser Sharifi",
+    objectPosition: "center 20%",
+    bio: "Specialist in het intelligent matchen van MKB-aanvragen met de diverse SLIM-subsidietoepassingen.",
+  },
+  {
+    slug: "esther-valerius",
+    naam: "Esther Valerius",
+    objectPosition: "center 20%",
+    bio: "Expert in SLIM-subsidies, wet- en regelgeving en RVO-beoordelingen. Begeleidt subsidieaanvragen inhoudelijk en zorgt voor een optimale aansluiting op de subsidievoorwaarden.",
+  },
+  {
+    slug: "rudolf-favier",
+    naam: "Rudolf Favier",
+    objectPosition: "center 20%",
+    bio: "Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening.",
+  },
+];
 
 export default function TeamPage() {
   return (
@@ -24,24 +46,14 @@ export default function TeamPage() {
       <div className="hp-section" style={{ background: "var(--off)" }}>
         <div className="hp-si">
           <div className="hp-team-grid">
-            <div className="hp-team-card">
-              <div className="hp-avatar hp-av-d">DS</div>
-              <div className="hp-t-name">Daniel Sharif</div>
-              <div className="hp-t-role">SLIM Subsidieadviseur</div>
-              <div className="hp-t-bio">Specialist in het begeleiden van MKB-aanvragen van quickscan tot succesvolle toekenning.</div>
-            </div>
-            <div className="hp-team-card">
-              <div className="hp-avatar hp-av-e">EV</div>
-              <div className="hp-t-name">Esther Valerius</div>
-              <div className="hp-t-role">SLIM Subsidieadviseur</div>
-              <div className="hp-t-bio">Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening.</div>
-            </div>
-            <div className="hp-team-card">
-              <div className="hp-avatar hp-av-r">RF</div>
-              <div className="hp-t-name">Rudolf Favier</div>
-              <div className="hp-t-role">SLIM Subsidieadviseur</div>
-              <div className="hp-t-bio">Gespecialiseerd in het screeningstraject na inloting. Begeleidt de inhoudelijke beoordeling bij RVO.</div>
-            </div>
+            {TEAM.map(({ slug, naam, objectPosition, bio }) => (
+              <div key={slug} className="hp-team-card">
+                <TeamAvatar slug={slug} naam={naam} objectPosition={objectPosition} />
+                <div className="hp-t-name">{naam}</div>
+                <div className="hp-t-role">SLIM Subsidieadviseur</div>
+                <div className="hp-t-bio">{bio}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
