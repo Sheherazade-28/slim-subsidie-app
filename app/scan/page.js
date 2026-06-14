@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PRICING } from "@/data/slim-content";
+import { PRICING, SUBSIDIE, TIJDVAKKEN_2026 } from "@/data/slim-content";
+
+const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
+const tv2OpenLabel = tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
 
 const STAP_LABELS = ["Quickscan", "Resultaat", "Reservering", "Intake"];
 
@@ -228,7 +231,7 @@ export default function ScanPage() {
               <div className="result-title">Uw organisatie lijkt geschikt voor SLIM-subsidie</div>
               <p className="result-body">
                 Op basis van uw antwoorden lijkt uw organisatie in aanmerking te komen voor een SLIM-subsidieaanvraag.
-                Tot €25.000 subsidie voor leren en ontwikkelen. Tijdvak 2 opent op 10 augustus 2026.
+                Tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")} subsidie voor leren en ontwikkelen. Tijdvak 2 opent op {tv2OpenLabel}.
               </p>
             </div>
             <div className="card" style={{ borderLeft: "3px solid var(--blue-light)", textAlign: "center" }}>
@@ -243,7 +246,7 @@ export default function ScanPage() {
                 </Link>
               </div>
               <div className="nocure-note" style={{ marginTop: 16 }}>
-                <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€2.500</strong> excl. btw.
+                <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€{PRICING.succesfee.toLocaleString("nl-NL")}</strong> excl. btw.
                 De reserveringsfee wordt dan terugbetaald. Geen subsidie = geen succesfee.
               </div>
             </div>
@@ -266,7 +269,7 @@ export default function ScanPage() {
             <div className="card" style={{ textAlign: "center" }}>
               <div className="card-title">Reserveer uw aanvraagplaats</div>
               <p className="card-sub">
-                Wij nemen contact op en beoordelen samen uw kansen voor tijdvak 2 (10 augustus 2026).
+                Wij nemen contact op en beoordelen samen uw kansen voor tijdvak 2 ({tv2OpenLabel}).
               </p>
               <div className="btn-row" style={{ justifyContent: "center" }}>
                 <Link href="/reserveren" className="btn btn-primary" style={{ fontSize: 16, padding: "14px 32px" }}>
@@ -274,7 +277,7 @@ export default function ScanPage() {
                 </Link>
               </div>
               <div className="nocure-note" style={{ marginTop: 16 }}>
-                <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€2.500</strong> excl. btw.
+                <strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€{PRICING.succesfee.toLocaleString("nl-NL")}</strong> excl. btw.
                 De reserveringsfee wordt dan terugbetaald. Geen subsidie = geen succesfee.
               </div>
             </div>

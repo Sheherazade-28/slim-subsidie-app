@@ -1,5 +1,6 @@
 import Navigation from "@/components/layout/Navigation";
 import Link from "next/link";
+import { PRICING, LOTING } from "@/data/slim-content";
 
 export const metadata = {
   title: "Waarom SLIM Subsidie Advies? No Cure, No Pay | SLIM Subsidie Advies",
@@ -28,8 +29,8 @@ export default function WaaromWijPage() {
             {[
               ["🔄", "Herindienen tot inloting", "Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten."],
               ["🎯", "100% SLIM-specialist", "Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie."],
-              ["🛡️", "Succesfee: no cure, no pay", "De reserveringsfee bedraagt €199 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de reserveringsfee wordt dan terugbetaald."],
-              ["✅", "Foutloze indiening", "23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet."],
+              ["🛡️", "Succesfee: no cure, no pay", `De reserveringsfee bedraagt €${PRICING.reserveringsfee} excl. btw. De succesfee van € ${PRICING.succesfee.toLocaleString("nl-NL")} (excl. btw) betaalt u uitsluitend bij toekenning — en de reserveringsfee wordt dan terugbetaald.`],
+              ["✅", "Foutloze indiening", `${LOTING.afgekeurdVoorLoting} aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet.`],
               ["📋", "Van A tot Z begeleiding", "Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen."],
               ["💰", "Scherpste fee-garantie", "Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder."],
               ["⚡", "Direct starten", "Via onze gratis online quickscan weet u binnen 2 minuten of uw bedrijf in aanmerking komt."],

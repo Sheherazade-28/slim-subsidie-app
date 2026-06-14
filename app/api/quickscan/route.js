@@ -1,6 +1,10 @@
 import { sendEmail } from "@/lib/resend";
+import { SUBSIDIE, PRICING, TIJDVAKKEN_2026 } from "@/data/slim-content";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.slimsubsidieadvies.nl";
+
+const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
+const tv2OpenLabel = tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
 
 function uitslagLabel(uitslag) {
   if (uitslag === "kansrijk") return "Kansrijk";
@@ -17,10 +21,10 @@ function buildUserEmail({ voornaam, uitslag }) {
         <a href="${SITE_URL}/reserveren"
            style="display:inline-block;background:#1a56db;color:#fff;text-decoration:none;
                   padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px;">
-          Reserveer uw aanvraagplaats voor €199 →
+          Reserveer uw aanvraagplaats voor €${PRICING.reserveringsfee} →
         </a>
         <p style="font-size:12px;color:#6b7280;margin-top:10px;">
-          Tijdvak 2 opent 10 augustus 2026 · Beperkt aantal aanvraagplaatsen
+          Tijdvak 2 opent ${tv2OpenLabel} · Beperkt aantal aanvraagplaatsen
         </p>
       </div>`
     : `<div style="text-align:center;margin:32px 0;">
@@ -32,7 +36,7 @@ function buildUserEmail({ voornaam, uitslag }) {
       </div>`;
 
   const volgendStap = uitslag === "kansrijk"
-    ? `<p>Op basis van uw antwoorden lijkt uw organisatie geschikt voor SLIM-subsidie — tot €25.000 voor leren en ontwikkelen van medewerkers. Tijdvak 2 opent op 10 augustus 2026.</p>
+    ? `<p>Op basis van uw antwoorden lijkt uw organisatie geschikt voor SLIM-subsidie — tot €${SUBSIDIE.maxBedrag.toLocaleString("nl-NL")} voor leren en ontwikkelen van medewerkers. Tijdvak 2 opent op ${tv2OpenLabel}.</p>
        <p>Reserveer uw aanvraagplaats en wij nemen contact met u op voor de intake.</p>`
     : uitslag === "mogelijk-kansrijk"
     ? `<p>Op basis van uw antwoorden is uw organisatie mogelijk geschikt voor SLIM-subsidie. Tijdens de intake beoordelen wij de subsidiemogelijkheden verder voor uw specifieke situatie.</p>

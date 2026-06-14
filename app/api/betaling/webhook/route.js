@@ -123,7 +123,7 @@ Bedrijfsprofiel:
 - Provincie: ${profile?.provincie || "onbekend"}
 - Landbouwsector: ${isAgri ? "Ja" : "Nee"}
 - Investering: ${fmtEur(invNum)}
-- Indicatief SLIM-subsidiebedrag (60% klein MKB / 50% middelgroot, max. €24.999): ${fmtEur(subsidyEst || 0)}
+- Indicatief SLIM-subsidiebedrag (60% voor alle MKB, tot €25.000): ${fmtEur(subsidyEst || 0)}
 - Gekozen SLIM-activiteit(en): ${actNames}
 - Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
 

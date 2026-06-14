@@ -16,6 +16,8 @@ export const SUBSIDIE = {
   voorschot: 0.5,
   looptijdMKB: 12,
   looptijdSamenwerking: 24,
+  maxUurtarief: 135,
+  loopbaanVergoeding: 700,
 };
 
 export const PRICING = {

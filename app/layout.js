@@ -4,11 +4,11 @@ import "../styles/globals.css";
 export const metadata = {
   metadataBase: new URL("https://www.slimsubsidieadvies.nl"),
   title: {
-    default: "SLIM Subsidie Aanvragen | Tot €24.999 voor MKB | SLIM Subsidie Advies",
+    default: "SLIM Subsidie Aanvragen | Tot €25.000 voor MKB | SLIM Subsidie Advies",
     template: "%s | SLIM Subsidie Advies",
   },
   description:
-    "Kom jij in aanmerking voor SLIM-subsidie? Tot €24.999 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan, no cure no pay. Doe de check in 2 minuten.",
+    "Kom jij in aanmerking voor SLIM-subsidie? Tot €25.000 subsidie voor leren en ontwikkelen in uw MKB-bedrijf. Gratis quickscan, no cure no pay. Doe de check in 2 minuten.",
   keywords:
     "SLIM subsidie aanvragen, SLIM subsidie 2026, SLIM mkb subsidie, subsidie leren en ontwikkelen, subsidie opleiding personeel, SLIM subsidie adviseur, mkb subsidie scholing, SLIM regeling, subsidie leercultuur bedrijf",
   authors: [{ name: "SLIM Subsidie Advies" }],

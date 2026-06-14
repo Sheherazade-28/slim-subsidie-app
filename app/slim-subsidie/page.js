@@ -684,7 +684,7 @@ export default function SlimSubsidiePage() {
               [
                 "🛡️",
                 "No cure, no pay succesfee",
-                `De reserveringsfee bedraagt €${PRICING.reserveringsfee} excl. btw. De succesfee van €2.500 is uitsluitend verschuldigd bij toekenning — en wordt de reserveringsfee terugbetaald.`,
+                `De reserveringsfee bedraagt €${PRICING.reserveringsfee} excl. btw. De succesfee van €${PRICING.succesfee.toLocaleString("nl-NL")} is uitsluitend verschuldigd bij toekenning — en wordt de reserveringsfee terugbetaald.`,
               ],
             ].map(([icon, title, text]) => (
               <div key={title} className="hp-why-card">
@@ -734,7 +734,7 @@ export default function SlimSubsidiePage() {
           </div>
           <p className="hp-cta-note">
             Gratis quickscan · Reserveringsfee €{PRICING.reserveringsfee} excl. btw ·
-            Succesfee €2.500 excl. btw — no cure, no pay
+            Succesfee €{PRICING.succesfee.toLocaleString("nl-NL")} excl. btw — no cure, no pay
           </p>
         </div>
       </div>

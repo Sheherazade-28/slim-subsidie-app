@@ -214,7 +214,7 @@ export default function SlimSubsidieVoorwaardenPage() {
               </div>
               <ul className="hp-req-list">
                 {[
-                  `Externe advieskosten: tot €135 per uur excl. BTW`,
+                  `Externe advieskosten: tot €${SUBSIDIE.maxUurtarief} per uur excl. BTW`,
                   `Interne loonkosten: brutoloon + ${SUBSIDIE.opslagInterneLoonkosten * 100}% opslag (basis: ${SUBSIDIE.werkbareUren} werkbare uren/jaar)`,
                   `${SUBSIDIE.forfaireOpslag * 100}% forfaitaire opslag op de bovenstaande kosten`,
                   `Controleverklaring: ${fmtEur(SUBSIDIE.controleverklaringBedrag)} vast bedrag (uitsluitend bij samenwerkingsverbanden)`,

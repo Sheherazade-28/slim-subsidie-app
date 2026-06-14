@@ -209,7 +209,7 @@ export default function SlimSubsidie2026Page() {
               },
               {
                 nr: "5",
-                titel: "Minimale projectkosten: €5.000",
+                titel: `Minimale projectkosten: ${fmtEur(SUBSIDIE.minSubsidiabeleKostenAC)}`,
                 tekst: `Voor activiteiten A (doorlichting) en C (L&O-methode) bedragen de minimale subsidiabele kosten ${fmtEur(SUBSIDIE.minSubsidiabeleKostenAC)}. Bij ${SUBSIDIE.percentage}% subsidie betekent dit een minimale investering van circa ${fmtEur(SUBSIDIE.minInvestering)}. Voor activiteit B (loopbaanadviezen) geldt geen minimumdrempel.`,
                 type: "blue",
               },

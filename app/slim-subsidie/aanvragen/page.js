@@ -196,9 +196,9 @@ export default function SlimSubsidieAanvragenPage() {
                 tijdvak. Per onderneming is maximaal één aanvraag per tijdvak toegestaan.
               </div>
               <ul style={stijl.lijst}>
-                <li><strong>Tijdvak 1 2026:</strong> 7 april t/m 4 mei 2026</li>
-                <li><strong>Tijdvak 2 2026:</strong> 10 augustus t/m 7 september 2026</li>
-                <li><strong>Samenwerkingsverbanden 2026:</strong> 22 juni t/m 20 juli 2026</li>
+                <li><strong>Tijdvak 1 2026:</strong> {fmtDatum(tv1.open)} – {fmtDatum(tv1.close)}</li>
+                <li><strong>Tijdvak 2 2026:</strong> {fmtDatum(tv2.open)} – {fmtDatum(tv2.close)}</li>
+                <li><strong>Samenwerkingsverbanden 2026:</strong> {fmtDatum(tvSamenwerkng.open)} – {fmtDatum(tvSamenwerkng.close)}</li>
               </ul>
             </div>
           </div>
