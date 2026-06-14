@@ -73,10 +73,9 @@ export default function ReserverenPage() {
   const tv2OpenLabel = fmt(tv2.open, true);
   const tv2CloseLabel = fmt(tv2.close, true);
 
-  const totaalFee = PRICING.reserveringsfee + PRICING.succesfee;
   const voorbeeldProjectkosten = 20000;
   const voorbeeldSubsidie = Math.round(voorbeeldProjectkosten * SUBSIDIE.percentage / 100);
-  const voorbeeldNetto = voorbeeldSubsidie - totaalFee;
+  const voorbeeldNetto = voorbeeldSubsidie - PRICING.succesfee; // reserveringsfee wordt verrekend
 
   const faq = FAQ_ITEMS(tv2CloseLabel);
 
@@ -178,17 +177,32 @@ export default function ReserverenPage() {
               {[
                 ["Projectkosten", `€${voorbeeldProjectkosten.toLocaleString("nl-NL")}`],
                 [`Subsidie (${SUBSIDIE.percentage}%)`, `€${voorbeeldSubsidie.toLocaleString("nl-NL")}`],
-                [`Kosten SLIM Subsidie Advies`, `€${PRICING.reserveringsfee} + €${PRICING.succesfee.toLocaleString("nl-NL")} = €${totaalFee.toLocaleString("nl-NL")}`],
               ].map(([label, waarde]) => (
                 <div key={label} style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, fontSize: 14 }}>
                   <span style={{ color: "rgba(255,255,255,0.65)" }}>{label}</span>
                   <span style={{ fontWeight: 600 }}>{waarde}</span>
                 </div>
               ))}
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: 12, marginTop: 4, display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 14 }}>
+                <span style={{ color: "rgba(255,255,255,0.65)" }}>Reserveringsfee <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>(wordt verrekend bij toekenning)</span></span>
+                <span style={{ fontWeight: 600 }}>€{PRICING.reserveringsfee}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, fontSize: 14 }}>
+                <span style={{ color: "rgba(255,255,255,0.65)" }}>Succesfee bij toekenning</span>
+                <span style={{ fontWeight: 600 }}>€{PRICING.succesfee.toLocaleString("nl-NL")}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4, fontSize: 14 }}>
+                <span style={{ color: "rgba(255,255,255,0.65)" }}>Totale kosten <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>(reserveringsfee wordt terugbetaald)</span></span>
+                <span style={{ fontWeight: 600 }}>€{PRICING.succesfee.toLocaleString("nl-NL")}</span>
+              </div>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: 12, marginTop: 8, display: "flex", justifyContent: "space-between" }}>
                 <span style={{ fontWeight: 700, color: "var(--blue-light)" }}>Netto opbrengst</span>
                 <span style={{ fontWeight: 800, fontSize: 18, color: "var(--blue-light)" }}>€{voorbeeldNetto.toLocaleString("nl-NL")}</span>
               </div>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", marginTop: 14, marginBottom: 0, lineHeight: 1.6 }}>
+                De reserveringsfee van €{PRICING.reserveringsfee} wordt volledig verrekend bij toekenning van de subsidie.
+                U betaalt per saldo alleen de succesfee van €{PRICING.succesfee.toLocaleString("nl-NL")} excl. btw.
+              </p>
             </div>
           </div>
         </div>
