@@ -304,8 +304,7 @@ export default function ScanPage() {
                 <button className="btn btn-ghost" onClick={() => setFase("vragen")}>← Terug</button>
               </div>
               <p style={{ fontSize: 11, color: "var(--muted)", marginTop: 12 }}>
-                🔒 Uw gegevens worden veilig verwerkt conform onze{" "}
-                <Link href="/privacy" style={{ color: "var(--muted)" }}>privacyverklaring</Link>.
+                🔒 Uw gegevens worden veilig verwerkt en niet gedeeld met derden.
               </p>
             </div>
           </>
