@@ -31,18 +31,11 @@ export async function POST(request) {
     return NextResponse.json({ error: "Naam, e-mail en betaalmethode zijn verplicht." }, { status: 400 });
   }
 
-  // Vroegboekerkorting: t/m 10 juli 2026
-  const now = new Date();
-  const earlyBird = now >= new Date(2026, 4, 5) && now <= new Date(2026, 6, 10);
-
-  const bedragExcl = earlyBird ? 200 : 250;
-  const btw = bedragExcl * 0.21;
-  const bedragIncl = bedragExcl + btw; // 242.00 of 302.50
+  const bedragExcl = 199;
+  const bedragIncl = bedragExcl * 1.21;
   const bedragMollie = bedragIncl.toFixed(2);
 
-  const omschrijving = earlyBird
-    ? "SLIM Dieptecheck Early Bird — SLIM Subsidie Advies"
-    : "SLIM Dieptecheck — SLIM Subsidie Advies";
+  const omschrijving = "SLIM Reservering — SLIM Subsidie Advies";
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.slimsubsidieadvies.nl";
 
@@ -62,7 +55,6 @@ export async function POST(request) {
       telefoon: telefoon || "",
       activiteiten: activiteiten || [],
       subsidyEst: subsidyEst || 0,
-      earlyBird,
       bedragExcl: bedragExcl.toString(),
       bedragIncl: bedragMollie,
       profile: profile || {},

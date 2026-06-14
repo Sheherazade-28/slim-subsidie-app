@@ -28,7 +28,7 @@ export default function WaaromWijPage() {
             {[
               ["🔄", "Herindienen tot inloting", "Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten."],
               ["🎯", "100% SLIM-specialist", "Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie."],
-              ["🛡️", "Succesfee: no cure, no pay", "De dieptecheck kost €200 (early bird t/m 10 juli) of €250 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de dieptecheck wordt dan terugbetaald."],
+              ["🛡️", "Succesfee: no cure, no pay", "De reserveringsfee bedraagt €199 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de reserveringsfee wordt dan terugbetaald."],
               ["✅", "Foutloze indiening", "23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet."],
               ["📋", "Van A tot Z begeleiding", "Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen."],
               ["💰", "Scherpste fee-garantie", "Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder."],

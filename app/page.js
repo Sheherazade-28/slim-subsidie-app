@@ -16,17 +16,17 @@ export default function HomePage() {
       <div className="hp-hero">
         <div className="hp-hero-inner">
           <div>
-            <div className="hp-badge"><span className="phase-dot" />&nbsp;Gratis quickscan · Start vanaf €200 excl. btw · Retour bij inloting</div>
-            <h1 className="hp-h1">Laat geen<br /><span>€ 24.999</span><br />subsidie liggen</h1>
+            <div className="hp-badge"><span className="phase-dot" />&nbsp;Gratis quickscan · Start vanaf €199 excl. btw · Retour bij toekenning</div>
+            <h1 className="hp-h1">Laat geen<br /><span>€ 25.000</span><br />subsidie liggen</h1>
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
               <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
               <Link href="/slim" className="hp-btn-s">Meer over SLIM-subsidie</Link>
             </div>
             <div className="hp-stats">
-              <div><div className="hp-stat-num">€<em>24.999</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
+              <div><div className="hp-stat-num">€<em>25.000</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
               <div><div className="hp-stat-num">tot <em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
-              <div><div className="hp-stat-num">€<em>200</em></div><div className="hp-stat-lbl">Instap early bird (excl. btw)</div></div>
+              <div><div className="hp-stat-num">€<em>199</em></div><div className="hp-stat-lbl">Reserveringsfee (excl. btw)</div></div>
             </div>
           </div>
           <div>
@@ -44,9 +44,9 @@ export default function HomePage() {
                 <div className="hp-tl-item"><div className="hp-tl-dot future" /><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge closed">Volgt</span></div>
               </div>
               <div className="hp-eb">
-                <div className="hp-eb-lbl">EARLY BIRD TIJDVAK 2 — t/m 10 juli 2026</div>
-                <div className="hp-eb-price">€ 200 <span style={{fontSize:14,fontWeight:400,color:"rgba(255,255,255,0.3)",textDecoration:"line-through"}}>€ 250</span></div>
-                <div className="hp-eb-sub">dieptecheck excl. btw · bespaar € 50</div>
+                <div className="hp-eb-lbl">RESERVERINGSFEE</div>
+                <div className="hp-eb-price">€ 199</div>
+                <div className="hp-eb-sub">reserveringsfee excl. btw · retour bij toekenning</div>
               </div>
             </div>
           </div>
@@ -68,13 +68,13 @@ export default function HomePage() {
             <div className="hp-how-card">
               <div className="hp-how-num">2</div>
               <div className="hp-how-title">Diepteanalyse & aanvraag</div>
-              <div className="hp-how-text">Voor €200 excl. btw in de early bird periode verzorgen wij de diepteanalyse en stellen wij de volledige aanvraag op. Na de early bird periode is dit €250 excl. btw. Niet ingeloot? Dan actualiseren wij uw aanvraag ieder nieuw tijdvak opnieuw binnen hetzelfde traject, totdat u wordt ingeloot.</div>
+              <div className="hp-how-text">Voor €199 excl. btw verzorgen wij de diepteanalyse en stellen wij de volledige aanvraag op. Niet ingeloot? Dan actualiseren wij uw aanvraag ieder nieuw tijdvak opnieuw binnen hetzelfde traject, totdat u wordt ingeloot.</div>
             </div>
             <div className="hp-how-arrow">→</div>
             <div className="hp-how-card">
               <div className="hp-how-num">3</div>
               <div className="hp-how-title">Ingeloot? Volledige begeleiding</div>
-              <div className="hp-how-text">U ontvangt de kosten voor de dieptecheck retour. Voor een vaste fee van €2.500 excl. btw begeleiden wij u volledig, van inhoudelijke beoordeling en vragenbeantwoording tot review van het eindproduct.</div>
+              <div className="hp-how-text">U ontvangt de reserveringsfee retour. Voor een vaste fee van €2.500 excl. btw begeleiden wij u volledig, van inhoudelijke beoordeling en vragenbeantwoording tot review van het eindproduct.</div>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
         <div className="hp-si">
           <div className="hp-slbl">De SLIM-regeling</div>
           <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
-          <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot een maximum van €24.999. Landbouwbedrijven: max. €20.000. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
+          <p className="hp-ssub">De SLIM-subsidie vergoedt 60% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot een maximum van €25.000. Landbouwbedrijven: max. €20.000. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
           <div className="hp-act-grid">
             <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
             <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
@@ -133,7 +133,7 @@ export default function HomePage() {
             {[
               ["🔄","Herindienen tot inloting","Niet ingeloot? Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt. Inclusief documentactualisatie, zonder extra kosten."],
               ["🎯","100% SLIM-specialist","Wij doen niets anders dan SLIM-subsidie. Diepgaande kennis van de wet- en regelgeving, de valkuilen én de kansen voor uw situatie."],
-              ["🛡️","Succesfee: no cure, no pay","De dieptecheck kost €200 (early bird t/m 10 juli) of €250 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de dieptecheck wordt dan terugbetaald."],
+              ["🛡️","Succesfee: no cure, no pay","De reserveringsfee bedraagt €199 excl. btw. De succesfee van € 2.500 (excl. btw) betaalt u uitsluitend bij toekenning — en de reserveringsfee wordt dan terugbetaald."],
               ["✅","Foutloze indiening","23 aanvragen vielen vóór de loting af door fouten in tijdvak 1 2026. Wij zorgen voor een correcte aanvraag — zodat u überhaupt meedoet."],
               ["📋","Van A tot Z begeleiding","Quickscan, activiteitenplan, begroting, documentenverzameling, indiening én screeningstraject bij RVO. Alles inbegrepen."],
               ["💰","Scherpste fee-garantie","Vindt u een subsidieadviseur met een lagere fee? Wij duiken eronder."],
@@ -202,11 +202,11 @@ export default function HomePage() {
         <div className="hp-si">
           <div className="hp-slbl" style={{color:"var(--blue-light)",textAlign:"center"}}>Tijdvak 2 2026 — opening 10 augustus</div>
           <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br />voor <span>SLIM-subsidie</span>?</h2>
-          <p className="hp-cta-sub">Speciaal voor MKB-ondernemers die willen groeien. Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de dieptecheck voor € 200 excl. btw (€ 242 incl. btw).</p>
+          <p className="hp-cta-sub">Speciaal voor MKB-ondernemers die willen groeien. Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de reserveringsfee van €199 excl. btw (€240,79 incl. btw).</p>
           <div style={{display:"flex",justifyContent:"center"}}>
             <Link href="/scan" className="hp-btn-p" style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</Link>
           </div>
-          <p className="hp-cta-note">Gratis quickscan · Dieptecheck €200 (early bird) of €250 excl. btw · Succesfee €2.500 excl. btw — no cure, no pay</p>
+          <p className="hp-cta-note">Gratis quickscan · Reserveringsfee €199 excl. btw · Succesfee €2.500 excl. btw — no cure, no pay</p>
         </div>
       </div>
 

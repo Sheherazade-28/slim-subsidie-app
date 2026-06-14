@@ -3,32 +3,49 @@
 
 export const SUBSIDIE = {
   percentage: 60,
-  maxBedrag: 24999,
+  maxBedrag: 25000,
   maxBedragLandbouw: 20000,
+  maxBedragSamenwerking: 500000,
+  maxPerPartnerSamenwerking: 200000,
   minInvestering: 8334,
-  minSubsidie: 5000,
+  minSubsidiabeleKostenAC: 5000,
+  forfaireOpslag: 0.15,
+  opslagInterneLoonkosten: 0.32,
+  werkbareUren: 1720,
+  controleverklaringBedrag: 3000,
+  voorschot: 0.5,
+  looptijdMKB: 12,
+  looptijdSamenwerking: 24,
 };
 
 export const PRICING = {
-  dieptecheck: 250,          // excl. BTW regulier
-  dieptecheck_early_bird: 200, // excl. BTW early bird
-  succesfee: 2500,           // excl. BTW
+  reserveringsfee: 199,
+  succesfee: 2500,
   btw: 0.21,
 };
 
 export const TIJDVAKKEN_2026 = [
   {
     label: "Tijdvak 1 2026",
-    open: new Date(2026, 3, 7),
-    close: new Date(2026, 4, 4),
+    type: "individueel",
+    open: new Date(2026, 3, 7, 9, 0),
+    close: new Date(2026, 4, 4, 17, 0),
+  },
+  {
+    label: "Samenwerking 2026",
+    type: "samenwerking",
+    open: new Date(2026, 5, 22, 9, 0),
+    close: new Date(2026, 6, 20, 17, 0),
   },
   {
     label: "Tijdvak 2 2026",
-    open: new Date(2026, 7, 10),
-    close: new Date(2026, 8, 7),
+    type: "individueel",
+    open: new Date(2026, 7, 10, 9, 0),
+    close: new Date(2026, 8, 7, 17, 0),
   },
   {
     label: "Tijdvak 1 2027",
+    type: "individueel",
     open: new Date(2027, 3, 6),
     close: new Date(2027, 4, 4),
   },
@@ -66,7 +83,7 @@ export const LOTING_TIJDVAKKEN = [
       },
       {
         titel: "Samenwerking — jun / jul 2026",
-        info: "Aanvragen van 8 jun t/m 6 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
+        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
       },
     ],
   },
@@ -122,6 +139,20 @@ export const LOTING_TIJDVAKKEN = [
     komend: [],
   },
 ];
+
+export const BUDGET_2026 = {
+  totaal: 45000000,
+  individueel: 25000000,
+  samenwerking: 20000000,
+};
+
+export const STATE_OF_SLIM = {
+  totaalProjecten: 6208,
+  individueelMKB: 5891,
+  samenwerkingsverbanden: 317,
+  totaleSubsidie: 124935598,
+  conversieProjecten: 19,
+};
 
 export const QUESTIONS = [
   {
@@ -211,7 +242,7 @@ export const QUESTIONS = [
   {
     id: "agriculture",
     label: "Is uw bedrijf actief in de landbouwsector?",
-    hint: "Bepaalt het maximale subsidiebedrag (€20.000 i.p.v. €24.999) — geen uitsluitingsgrond.",
+    hint: "Bepaalt het maximale subsidiebedrag (€20.000 i.p.v. €25.000) — geen uitsluitingsgrond.",
     options: [
       { v: "no", l: "Nee, wij zijn niet actief in de landbouw" },
       { v: "yes", l: "Ja, wij zijn een landbouwbedrijf" },
@@ -318,7 +349,7 @@ export const FAQ = [
   },
   {
     q: "Mijn bedrijf heeft 5 medewerkers. Kom ik in aanmerking?",
-    a: "Ja! Als MKB-ondernemer ontvangt u 60% subsidie op uw investering, tot een maximum van € 24.999. Landbouwbedrijven hebben een maximum van € 20.000.",
+    a: "Ja! Als MKB-ondernemer ontvangt u 60% subsidie op uw investering, tot een maximum van € 25.000. Landbouwbedrijven hebben een maximum van € 20.000.",
   },
   {
     q: "Ik heb geen opleidingsbudget. Kan ik dan toch SLIM-subsidie aanvragen?",
@@ -330,7 +361,7 @@ export const FAQ = [
   },
   {
     q: "Wat kost SLIM-subsidie aanvragen via SLIM Subsidie Advies?",
-    a: "De quickscan is gratis. Dieptecheck kost € 200 excl. btw (early bird) of € 250 excl. btw (€ 242 resp. € 302,50 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw. Geen toekenning = geen succesfee.",
+    a: "De quickscan is gratis. De reserveringsfee bedraagt € 199 excl. btw (€ 240,79 incl. btw). Bij toekenning betaalt u € 2.500 succesfee excl. btw, en wordt de reserveringsfee terugbetaald. Geen toekenning = geen succesfee.",
   },
 ];
 
@@ -369,17 +400,10 @@ export function calcSubsidy(investering, isLandbouw) {
   );
 }
 
-export function isEarlyBird() {
-  const now = new Date();
-  return (
-    (now >= new Date(2026, 4, 5) && now <= new Date(2026, 6, 10)) ||
-    (now >= new Date(2026, 8, 8) && now <= new Date(2027, 0, 6))
-  );
-}
-
 export function nextDeadline() {
   const now = new Date();
-  return TIJDVAKKEN_2026.find((d) => now < d.close) || TIJDVAKKEN_2026[TIJDVAKKEN_2026.length - 1];
+  const individueel = TIJDVAKKEN_2026.filter((d) => d.type !== "samenwerking");
+  return individueel.find((d) => now < d.close) || individueel[individueel.length - 1];
 }
 
 export function fmtEur(n) {

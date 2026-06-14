@@ -10,7 +10,6 @@ import {
   PROVINCIES,
   LOTING,
   calcSubsidy,
-  isEarlyBird,
   nextDeadline,
   fmtEur,
   fmtEur2,
@@ -19,7 +18,7 @@ import {
 export const metadata_scan = {
   title: "Gratis SLIM Subsidie Quickscan",
   description:
-    "Doe de gratis quickscan en weet in 2 minuten of uw bedrijf in aanmerking komt voor SLIM-subsidie. Tot €24.999 voor MKB-ondernemers met personeel in loondienst.",
+    "Doe de gratis quickscan en weet in 2 minuten of uw bedrijf in aanmerking komt voor SLIM-subsidie. Tot €25.000 voor MKB-ondernemers met personeel in loondienst.",
 };
 
 const STEP_LABELS = ["Quickscan", "Resultaat", "Profiel", "Betaling", "Analyse"];
@@ -57,11 +56,9 @@ export default function ScanPage() {
   const [profile, setProfile] = useState({ medewerkers: "", rechtsvorm: "", sector: "", provincie: "" });
   const [selectedActs, setSelectedActs] = useState([]);
 
-  const eb = isEarlyBird();
   const deadline = nextDeadline();
-  const basePrice = 250;
-  const finalPrice = eb ? basePrice * 0.8 : basePrice;
-  const finalPriceIncl = finalPrice * 1.21;
+  const price = 199;
+  const priceIncl = price * 1.21;
   const isAgri = answers.agriculture === "yes";
   const invNum = parseFloat(investment.replace(",", ".")) || 0;
   const subsidyEst = invNum >= 8334 ? calcSubsidy(invNum, isAgri) : 0;
@@ -160,7 +157,7 @@ export default function ScanPage() {
             <div className="phase-lbl"><span className="phase-dot" />Stap 1 — Gratis Quickscan</div>
             <div className="card">
               <div className="card-title">Basischeck subsidievoorwaarden</div>
-              <p className="card-sub">Beantwoord 8 korte vragen om te controleren of uw bedrijf in aanmerking komt voor SLIM-subsidie (tot €24.999). Duurt minder dan 2 minuten.</p>
+              <p className="card-sub">Beantwoord 8 korte vragen om te controleren of uw bedrijf in aanmerking komt voor SLIM-subsidie (tot €25.000). Duurt minder dan 2 minuten.</p>
               {QUESTIONS.map((q, i) => (
                 <div key={q.id} className="q-block">
                   <div className="q-label"><span className="q-num">{i + 1}</span>{q.label}</div>
@@ -226,7 +223,7 @@ export default function ScanPage() {
               <div className="est-box">
                 <div className="est-label">Indicatief subsidiebedrag</div>
                 <div className="est-amount">{fmtEur(subsidyEst)}</div>
-                <div className="est-sub">60% van {fmtEur(invNum)}{isAgri ? " (max. €20.000 voor landbouw)" : " (max. €24.999)"}</div>
+                <div className="est-sub">60% van {fmtEur(invNum)}{isAgri ? " (max. €20.000 voor landbouw)" : " (max. €25.000)"}</div>
                 <div className="est-grid">
                   <div className="est-item"><div className="est-item-label">Tijdvak</div><div className="est-item-val">{deadline.label}</div></div>
                   <div className="est-item"><div className="est-item-label">Opening aanvraag</div><div className="est-item-val">{deadline.open.toLocaleDateString("nl-NL")}</div></div>
@@ -240,17 +237,15 @@ export default function ScanPage() {
               <p className="card-sub">Van de {LOTING.totaalIngediend.toLocaleString("nl-NL")} ingediende aanvragen in tijdvak 1 2026 werd slechts 14% ingeloot — en vielen er al 23 uit vóór de loting door vermijdbare fouten.</p>
               <div className="pricing">
                 <div className="pricing-head">
-                  <div className="pricing-head-title">SLIM DIEPTECHECK + AANVRAAGBEGELEIDING</div>
+                  <div className="pricing-head-title">SLIM RESERVERING + AANVRAAGBEGELEIDING</div>
                   <div className="pricing-head-sub">Van analyse tot foutloze indiening — én herindienen totdat u ingeloot wordt</div>
                 </div>
                 <div className="pricing-body">
-                  {eb && <div className="eb-badge">⏰ Early Bird — 20% korting</div>}
                   <div className="price-row">
-                    <span className="price-main">{fmtEur(finalPrice)}</span>
-                    {eb && <span className="price-strike">{fmtEur(basePrice)}</span>}
+                    <span className="price-main">{fmtEur(price)}</span>
                     <span className="price-lbl">excl. btw</span>
                   </div>
-                  <p className="price-incl-note">📌 Totaal af te schrijven: <strong>{fmtEur2(finalPriceIncl)} incl. btw</strong> ({fmtEur(finalPrice)} + 21% btw)</p>
+                  <p className="price-incl-note">📌 Totaal af te schrijven: <strong>{fmtEur2(priceIncl)} incl. btw</strong> ({fmtEur(price)} + 21% btw)</p>
                   <ul className="features">
                     <li><span className="feat-check">✓</span><strong>Direct na betaling:</strong> AI-diepteanalyse van uw situatie</li>
                     <li><span className="feat-check">✓</span>Terugbelafspraak met uw adviseur binnen 8 werkdagen</li>
@@ -259,14 +254,13 @@ export default function ScanPage() {
                     <li><span className="feat-check">✓</span>Compliance-check en indiening via RVO e-portaal</li>
                     <li><span className="feat-check">✓</span><strong>Niet ingeloot?</strong> Wij actualiseren ieder tijdvak uw aanvraag en dienen opnieuw in — totdat u ingeloot wordt</li>
                   </ul>
-                  <div className="nocure-note"><strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€ 2.500</strong> (excl. btw). De kosten van de dieptecheck worden u bij toekenning terugbetaald. Geen subsidie = geen succesfee.</div>
+                  <div className="nocure-note"><strong>No cure, no pay:</strong> Bij toekenning betaalt u een succesfee van <strong>€ 2.500</strong> (excl. btw). De reserveringsfee wordt u bij toekenning terugbetaald. Geen subsidie = geen succesfee.</div>
                   <div className="btn-row">
                     <button className="btn btn-primary" onClick={() => setPhase("profile")}>Vul bedrijfsprofiel in →</button>
                     <button className="btn btn-ghost" onClick={() => { setPhase("scan"); setAnswers({}); }}>← Terug</button>
                   </div>
                 </div>
               </div>
-              {eb && <div className="alert-warn" style={{ marginTop: 12 }}>⏰ <strong>Early Bird actief t/m 10 juli 2026:</strong> U profiteert van {fmtEur(basePrice * 0.2)} korting op de reguliere prijs.</div>}
             </div>
           </>
         )}
@@ -383,9 +377,9 @@ export default function ScanPage() {
               <div className="pay-box">
                 <p style={{ fontSize: 14, color: "var(--muted)", marginBottom: 4 }}>Te betalen (incl. btw)</p>
                 <p style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: 38, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>
-                  {fmtEur2(finalPriceIncl)}{eb && <span style={{ fontSize: 14, color: "var(--blue-light)", marginLeft: 10, fontFamily: "'Barlow',sans-serif", fontWeight: 500 }}>early bird</span>}
+                  {fmtEur2(priceIncl)}
                 </p>
-                <p style={{ fontSize: 12, color: "var(--muted)", margin: "6px 0 14px" }}>{fmtEur(finalPrice)} excl. btw + {fmtEur2(finalPrice * 0.21)} btw (21%)</p>
+                <p style={{ fontSize: 12, color: "var(--muted)", margin: "6px 0 14px" }}>{fmtEur(price)} excl. btw + {fmtEur2(price * 0.21)} btw (21%)</p>
                 <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>Kies uw betaalmethode:</p>
                 <div className="pay-methods">
                   <button className={`pay-btn ${payMethod === "ideal" ? "active" : ""}`} onClick={() => setPayMethod("ideal")}><span className="ideal">iD</span>iDEAL</button>
@@ -402,11 +396,11 @@ export default function ScanPage() {
               </label>
               <label className={`ccheck ${confirmed.nocure ? "on" : ""}`} onClick={() => setConfirmed((p) => ({ ...p, nocure: !p.nocure }))}>
                 <span className="cbox">{confirmed.nocure && "✓"}</span>
-                <span className="ccheck-text">Ik begrijp het no cure, no pay model: bij toekenning betaal ik een succesfee van € 2.500 (excl. btw). De kosten van de dieptecheck worden mij bij toekenning terugbetaald. Geen subsidie = geen succesfee.</span>
+                <span className="ccheck-text">Ik begrijp het no cure, no pay model: bij toekenning betaal ik een succesfee van € 2.500 (excl. btw). De reserveringsfee wordt mij bij toekenning terugbetaald. Geen subsidie = geen succesfee.</span>
               </label>
               <div className="btn-row">
                 <button className="btn btn-primary" onClick={submitPayment} disabled={!confirmed.terms || !confirmed.nocure || !contact.naam || !contact.email || processing}>
-                  {processing ? "Doorsturen naar Mollie…" : `Betaal ${fmtEur2(finalPriceIncl)} incl. btw via Mollie →`}
+                  {processing ? "Doorsturen naar Mollie…" : `Betaal ${fmtEur2(priceIncl)} incl. btw via Mollie →`}
                 </button>
                 <button className="btn btn-ghost" onClick={() => setPhase("profile")}>← Terug</button>
               </div>
