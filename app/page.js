@@ -91,7 +91,7 @@ export default function HomePage() {
             <div className="hp-how-card">
               <div className="hp-how-num">2</div>
               <div className="hp-how-title">Reserveer uw aanvraagplaats</div>
-              <div className="hp-how-text">Voor €199 excl. btw reserveert u uw aanvraagplaats. Wij verzorgen het intakegesprek, de beoordeling van uw projectidee en de volledige aanvraagvoorbereiding. Niet ingeloot? Dan dienen wij uw aanvraag kosteloos opnieuw in elk volgend tijdvak, totdat u wordt ingeloot.</div>
+              <div className="hp-how-text">Voor €199 excl. btw reserveert u uw aanvraagplaats. Wij beoordelen uw projectidee, voeren een intakegesprek en bereiden uw subsidieaanvraag volledig voor. Wordt u niet ingeloot? Dan dienen wij uw aanvraag in een volgend tijdvak kosteloos opnieuw in, totdat u wordt ingeloot.</div>
             </div>
             <div className="hp-how-arrow">→</div>
             <div className="hp-how-card">
@@ -195,7 +195,7 @@ export default function HomePage() {
           <div className="hp-team-grid">
             {[
               { slug: "nasser-sharifi", naam: "Nasser Sharifi", objectPosition: "center 20%", bio: "Specialist in het intelligent matchen van MKB-aanvragen met de diverse SLIM-subsidietoepassingen." },
-              { slug: "esther-valerius", naam: "Esther Valerius", objectPosition: "center 20%", bio: "SLIM-subsidie-expert. Begeleidt de inhoudelijke beoordeling bij RVO." },
+              { slug: "esther-valerius", naam: "Esther Valerius", objectPosition: "center 20%", bio: "Expert in SLIM-subsidies, wet- en regelgeving en RVO-beoordelingen. Begeleidt subsidieaanvragen inhoudelijk en zorgt voor een optimale aansluiting op de subsidievoorwaarden." },
               { slug: "rudolf-favier", naam: "Rudolf Favier", objectPosition: "center 20%", bio: "Expert in compliance en documentenverzameling. Zorgt dat elke aanvraag volledig en correct is vóór indiening." },
             ].map(({ slug, naam, objectPosition, bio }) => (
               <div key={slug} className="hp-team-card">
