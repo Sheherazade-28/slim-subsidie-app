@@ -116,17 +116,26 @@ export default function ScanPage() {
     antwoorden.gestart === "ja" ||
     antwoorden.deminimis === "ja";
 
-  // Q6 verschijnt pas als Q1–Q5 allemaal positief zijn beantwoord
-  const toonQ6 =
+  // Landbouwvraag verschijnt als Q1–Q5 allemaal positief zijn beantwoord
+  const toonLandbouw =
     antwoorden.personeel === "ja" &&
     (antwoorden.mkb === "ja" || antwoorden.mkb === "uitzondering") &&
     antwoorden.nederland === "ja" &&
     antwoorden.gestart === "nee" &&
     (antwoorden.deminimis === "nee" || antwoorden.deminimis === "weet-niet");
 
+  // Q7 (investering) verschijnt pas als ook de landbouwvraag beantwoord is
+  const toonQ7 = toonLandbouw && (antwoorden.landbouw === "nee" || antwoorden.landbouw === "ja");
+
+  const isLandbouwBedrijf = antwoorden.landbouw === "ja";
+  const maxSubsidie = isLandbouwBedrijf ? SUBSIDIE.maxBedragLandbouw : SUBSIDIE.maxBedrag;
+  const invBedrag = parseInt(antwoorden.investering, 10) || 0;
+  const indicatiefSubsidie = Math.min(Math.round(invBedrag * SUBSIDIE.percentage / 100), maxSubsidie);
+  const toonSubsidieIndicator = toonQ7 && (antwoorden.investering ?? "") !== "";
+
   const vragenKlaar =
     isVroegUitgesloten ||
-    (toonQ6 && (antwoorden.investering ?? "") !== "");
+    (toonQ7 && (antwoorden.investering ?? "") !== "");
 
   const contactKlaar =
     contact.voornaam &&
@@ -201,7 +210,7 @@ export default function ScanPage() {
         {/* ── STAP 1: VRAGEN ── */}
         {fase === "vragen" && (
           <>
-            <div className="phase-lbl"><span className="phase-dot" />Quickscan — 6 vragen, minder dan 2 minuten</div>
+            <div className="phase-lbl"><span className="phase-dot" />Quickscan — 7 vragen, minder dan 2 minuten</div>
             <div className="card">
               {VRAGEN.map((v, i) => (
                 <div key={v.id} className="q-block">
@@ -224,10 +233,35 @@ export default function ScanPage() {
                 </div>
               ))}
 
-              {/* Vraag 6: Investering — alleen tonen als Q1–Q5 allemaal positief zijn */}
-              {toonQ6 && (
+              {/* Vraag 6: Landbouw — verschijnt als Q1–Q5 positief zijn */}
+              {toonLandbouw && (
                 <div className="q-block">
-                  <div className="q-label"><span className="q-num">6</span>Wat is de verwachte totale investering in leer- en ontwikkelactiviteiten?</div>
+                  <div className="q-label"><span className="q-num">6</span>Is uw bedrijf actief in de landbouwsector?</div>
+                  <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>
+                    Voor landbouwbedrijven geldt een lager maximaal subsidiebedrag van tot €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")} (art. 2.20 lid 1 SLIM-regeling).
+                  </div>
+                  <div className="options">
+                    {[
+                      { v: "nee", l: "Nee, wij zijn geen landbouwbedrijf" },
+                      { v: "ja", l: "Ja, wij zijn een landbouwbedrijf" },
+                    ].map((o) => (
+                      <label
+                        key={o.v}
+                        className={`opt ${antwoorden.landbouw === o.v ? "sel" : ""}`}
+                        onClick={() => antwoord("landbouw", o.v)}
+                      >
+                        <span className="opt-radio"><span className="opt-dot" /></span>
+                        {o.l}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Vraag 7: Investering — verschijnt als ook de landbouwvraag beantwoord is */}
+              {toonQ7 && (
+                <div className="q-block">
+                  <div className="q-label"><span className="q-num">7</span>Wat is de verwachte totale investering in leer- en ontwikkelactiviteiten?</div>
                   <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>
                     Uren medewerkers + externe kosten. Minimaal €{MIN_KANSRIJK.toLocaleString("nl-NL")} aan subsidiabele kosten vereist voor activiteiten A en C.
                   </div>
@@ -244,6 +278,19 @@ export default function ScanPage() {
                       style={{ maxWidth: 200 }}
                     />
                   </div>
+                  {toonSubsidieIndicator && (
+                    <div style={{
+                      marginTop: 10, fontSize: 13, lineHeight: 1.5, fontWeight: 600,
+                      color: invBedrag < MIN_KANSRIJK ? "#b45309" : "#1a56db",
+                    }}>
+                      {invBedrag < MIN_KANSRIJK
+                        ? `Minimale subsidiabele investering is €${MIN_KANSRIJK.toLocaleString("nl-NL")} voor activiteiten A en C.`
+                        : indicatiefSubsidie >= maxSubsidie
+                          ? `Indicatief subsidiebedrag: tot €${maxSubsidie.toLocaleString("nl-NL")} (maximum${isLandbouwBedrijf ? " landbouwbedrijven" : ""})`
+                          : `Indicatief subsidiebedrag: tot €${indicatiefSubsidie.toLocaleString("nl-NL")}`
+                      }
+                    </div>
+                  )}
                 </div>
               )}
 
