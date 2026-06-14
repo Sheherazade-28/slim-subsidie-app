@@ -365,6 +365,57 @@ export const FAQ = [
   },
 ];
 
+export const FAQ_SLIM_SUBSIDIE = [
+  {
+    q: "Wat is het subsidiepercentage voor de SLIM-subsidie?",
+    a: "Het subsidiepercentage is 60% voor alle MKB-ondernemingen — klein én middelgroot. Sommige adviseurs vermelden nog een percentage van 80% voor klein-MKB, maar die regeling bestaat niet meer. Per 5 juli 2025 (artikel 2.20 SLIM-regeling) geldt voor alle MKB een uniform percentage van 60%. Landbouwbedrijven vallen onder een apart maximumbedrag van €20.000.",
+  },
+  {
+    q: "Hoeveel subsidie kan ik maximaal ontvangen?",
+    a: "Als individuele MKB-ondernemer kunt u tot €25.000 SLIM-subsidie ontvangen (60% van uw subsidiabele kosten). Voor samenwerkingsverbanden bedraagt het maximum €500.000 per aanvraag, met maximaal €200.000 per deelnemende onderneming. Landbouwbedrijven hebben een individueel maximum van €20.000.",
+  },
+  {
+    q: "Is er een minimumbedrag voor de SLIM-subsidie?",
+    a: "Voor activiteiten A (doorlichting) en C (L&O-methode) bedragen de minimale subsidiabele kosten €5.000. Bij een subsidiepercentage van 60% betekent dit een minimale investering van circa €8.334. Voor activiteit B (loopbaanadviezen) geldt een vaste vergoeding van €700 per afgerond traject, zonder minimumdrempel.",
+  },
+  {
+    q: "Wat is de maximale looptijd van een SLIM-subsidieproject?",
+    a: "Voor individuele MKB-aanvragen bedraagt de maximale looptijd 12 maanden, gerekend vanaf de datum van de subsidiebeschikking. Voor samenwerkingsverbanden geldt een maximale looptijd van 24 maanden. Activiteiten die starten vóór de subsidiebeschikking zijn niet subsidiabel.",
+  },
+  {
+    q: "Wanneer ontvang ik het geld na toekenning?",
+    a: "Na toekenning van de SLIM-subsidie ontvangt u direct 50% als voorschot. De resterende 50% wordt uitbetaald na vaststelling van het project — nadat u heeft aangetoond dat de activiteiten conform de subsidiebeschikking zijn uitgevoerd.",
+  },
+  {
+    q: "Mag ik meerdere SLIM-aanvragen per tijdvak indienen?",
+    a: "Nee, per onderneming is maximaal één aanvraag per aanvraagtijdvak toegestaan. U kunt wel ieder volgend tijdvak opnieuw aanvragen als u niet wordt ingeloot. SLIM Subsidie Advies actualiseert daarvoor uw aanvraag kosteloos.",
+  },
+  {
+    q: "Wat als ik niet word ingeloot?",
+    a: "Niet ingeloot worden betekent dat het budget voor dat tijdvak niet toereikend was — niet dat uw aanvraag werd afgewezen. SLIM Subsidie Advies dient uw geactualiseerde aanvraag ieder volgend tijdvak opnieuw in, kosteloos, totdat u ingeloot wordt. Dit is standaard inbegrepen.",
+  },
+  {
+    q: "Bestaat de 80%-subsidieregeling voor klein-MKB nog?",
+    a: "Nee. De hogere subsidie van 80% voor kleine ondernemingen is afgeschaft per 5 juli 2025. Artikel 2.20 van de SLIM-regeling bepaalt sindsdien een uniform percentage van 60% voor alle MKB. Adviseurs die nog 80% vermelden, werken met verouderde informatie.",
+  },
+  {
+    q: "Hoeveel wordt er vergoed voor een loopbaanadviseur?",
+    a: "De SLIM-subsidie vergoedt €700 per afgerond loopbaantraject (activiteit B). Een traject bestaat uit minimaal 4 uur individuele begeleiding per medewerker. De adviseur moet geregistreerd zijn als Noloc Register Loopbaanprofessional of beschikken over een gelijkwaardige erkenning.",
+  },
+  {
+    q: "Zijn gewone cursuskosten subsidiabel?",
+    a: "Nee. Reguliere opleidingen, cursussen en trainingen zijn niet subsidiabel onder de SLIM-regeling. De subsidie is uitsluitend bedoeld voor de drie structurele activiteiten: doorlichting (A), loopbaanadvies (B) en L&O-methodiek (C). Loonverletkosten, BTW, overhead en huisvestingskosten zijn evenmin subsidiabel.",
+  },
+  {
+    q: "Wat is het verschil tussen inloting en toekenning?",
+    a: "Inloting betekent dat uw aanvraag in behandeling wordt genomen door RVO — het budget was voldoende voor uw aanvraag in de loting. Toekenning is het definitieve besluit van RVO dat de subsidie wordt verleend, na inhoudelijke beoordeling van uw activiteitenplan en begroting. De succesfee van SLIM Subsidie Advies is alleen verschuldigd na toekenning.",
+  },
+  {
+    q: "Kan een grootbedrijf ook SLIM-subsidie aanvragen?",
+    a: "Grootbedrijven kunnen alleen deelnemen via een samenwerkingsverband met minimaal één MKB-onderneming. Een uitzondering geldt voor grootbedrijven in de landbouw, horeca en recreatiesector — zij mogen ook individueel aanvragen.",
+  },
+];
+
 export const BEDRIJFSINFO = {
   naam: "SLIM Subsidie Advies",
   handelsnaam: "SLIM Subsidie Advies",
