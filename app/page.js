@@ -57,7 +57,7 @@ export default function HomePage() {
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:800,color:"var(--blue-light)",lineHeight:1}}>{SUBSIDIE.percentage}%</div>
                 <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")}<br /><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB *</span></div>
               </div>
-              <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginBottom:4,lineHeight:1.4}}>* Geldt voor individuele MKB-ondernemingen en samenwerkingsverbanden</div>
+              <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginBottom:4,lineHeight:1.4}}>* Geldt voor individuele MKB-ondernemingen</div>
               <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginBottom:16,lineHeight:1.4}}>** Uitzondering: landbouwbedrijven max. €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")} (art. 2.20 lid 1 SLIM-regeling)</div>
               <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
               <div style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.45)",textTransform:"uppercase",letterSpacing:"0.6px",marginTop:10,marginBottom:6}}>Individueel MKB</div>
