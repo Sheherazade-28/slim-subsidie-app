@@ -17,14 +17,14 @@ export default function HomePage() {
         <div className="hp-hero-inner">
           <div>
             <div className="hp-badge"><span className="phase-dot" />&nbsp;Gratis quickscan · Start vanaf €199 excl. btw · Retour bij toekenning</div>
-            <h1 className="hp-h1">Laat geen<br /><span>€ 25.000</span><br />subsidie liggen</h1>
+            <h1 className="hp-h1">Haal tot €25.000 subsidie op<br />voor leren en<br /><span>ontwikkelen</span></h1>
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
               <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
               <Link href="/slim" className="hp-btn-s">Meer over SLIM-subsidie</Link>
             </div>
             <div className="hp-stats">
-              <div><div className="hp-stat-num">€<em>25.000</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
+              <div><div className="hp-stat-num">tot €<em>25.000</em></div><div className="hp-stat-lbl">subsidie</div></div>
               <div><div className="hp-stat-num">tot <em>60</em>%</div><div className="hp-stat-lbl">Vergoeding investering</div></div>
               <div><div className="hp-stat-num">€<em>199</em></div><div className="hp-stat-lbl">Reserveringsfee (excl. btw)</div></div>
             </div>
@@ -34,7 +34,7 @@ export default function HomePage() {
               <div className="hp-card-title">Subsidiepercentages</div>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"14px 18px",marginBottom:16}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:800,color:"var(--blue-light)",lineHeight:1}}>60%</div>
-                <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €24.999<br /><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB</span></div>
+                <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €25.000<br /><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB</span></div>
               </div>
               <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginTop:-10,marginBottom:16,lineHeight:1.4}}>* Uitzondering: landbouwbedrijven max. €20.000 (art. 2.20 lid 1 SLIM-regeling)</div>
               <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
