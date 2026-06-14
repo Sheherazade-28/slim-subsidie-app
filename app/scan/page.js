@@ -85,13 +85,19 @@ function bepaalUitslag(antwoorden) {
   return "kansrijk";
 }
 
-function getUitsluitingsReden(antwoorden) {
-  if (antwoorden.personeel === "nee") return "personeel";
-  if (antwoorden.mkb === "nee") return "mkb";
-  if (antwoorden.nederland === "nee") return "nederland";
-  if (antwoorden.gestart === "ja") return "gestart";
-  if (antwoorden.deminimis === "ja") return "deminimis";
-  return "investering";
+function getUitsluitingsRedenen(antwoorden) {
+  const redenen = [];
+  if (antwoorden.personeel === "nee") redenen.push("personeel");
+  if (antwoorden.mkb === "nee") redenen.push("mkb");
+  if (antwoorden.nederland === "nee") redenen.push("nederland");
+  if (antwoorden.gestart === "ja") redenen.push("gestart");
+  if (antwoorden.deminimis === "ja") redenen.push("deminimis");
+  // investering alleen controleren als Q6 zichtbaar was (geen vroege uitsluitingsgrond)
+  if ((antwoorden.investering ?? "") !== "") {
+    const inv = parseInt(antwoorden.investering, 10) || 0;
+    if (inv < MIN_MOGELIJK) redenen.push("investering");
+  }
+  return redenen;
 }
 
 export default function ScanPage() {
@@ -100,7 +106,7 @@ export default function ScanPage() {
   const [contact, setContact] = useState({ voornaam: "", achternaam: "", email: "", telefoon: "", bedrijf: "", medewerkers: "" });
   const [verzenden, setVerzenden] = useState(false);
   const [uitslag, setUitslag] = useState(null);
-  const [uitslReden, setUitslReden] = useState(null);
+  const [uitslRedenen, setUitslRedenen] = useState([]);
 
   // Vroege uitsluitingsgronden: sla Q6 en contactstap over
   const isVroegUitgesloten =
@@ -137,7 +143,7 @@ export default function ScanPage() {
     const result = bepaalUitslag(antwoorden);
     if (result === "niet-kansrijk") {
       setUitslag("niet-kansrijk");
-      setUitslReden(getUitsluitingsReden(antwoorden));
+      setUitslRedenen(getUitsluitingsRedenen(antwoorden));
       setFase("resultaat");
     } else {
       setFase("contact");
@@ -149,7 +155,7 @@ export default function ScanPage() {
     setVerzenden(true);
     const result = bepaalUitslag(antwoorden);
     setUitslag(result);
-    if (result === "niet-kansrijk") setUitslReden(getUitsluitingsReden(antwoorden));
+    if (result === "niet-kansrijk") setUitslRedenen(getUitsluitingsRedenen(antwoorden));
 
     try {
       await fetch("/api/quickscan", {
@@ -378,14 +384,25 @@ export default function ScanPage() {
             <div className="result fail">
               <span className="result-icon">✗</span>
               <div className="result-title">Op basis van de huidige informatie lijkt een aanvraag minder kansrijk</div>
-              <p className="result-body">
-                {uitslReden ? NIET_KANSRIJK_REDEN[uitslReden] : "Heeft u vragen over uw situatie?"}
-              </p>
+              {uitslRedenen.length === 1 ? (
+                <p className="result-body">{NIET_KANSRIJK_REDEN[uitslRedenen[0]]}</p>
+              ) : uitslRedenen.length > 1 ? (
+                <div className="result-body">
+                  <p style={{ margin: "0 0 10px" }}>Op basis van uw antwoorden zijn er meerdere punten die een aanvraag in de weg staan:</p>
+                  <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7 }}>
+                    {uitslRedenen.map((r) => (
+                      <li key={r}>{NIET_KANSRIJK_REDEN[r]}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <p className="result-body">Heeft u vragen over uw situatie?</p>
+              )}
             </div>
             <div className="card">
               <div className="btn-row">
                 <a href="mailto:info@slimsubsidieadvies.nl" className="btn btn-primary">Neem contact op voor advies →</a>
-                <button className="btn btn-ghost" onClick={() => { setFase("vragen"); setAntwoorden({}); setUitslag(null); setUitslReden(null); }}>
+                <button className="btn btn-ghost" onClick={() => { setFase("vragen"); setAntwoorden({}); setUitslag(null); setUitslRedenen([]); }}>
                   ← Opnieuw beginnen
                 </button>
               </div>
