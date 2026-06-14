@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PRICING, SUBSIDIE, TIJDVAKKEN_2026 } from "@/data/slim-content";
 
 const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
-const tv2OpenLabel = tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
+const tv2OpenLabel = `${tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })} om ${tv2.open.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" })} uur`;
 
 const STAP_LABELS = ["Quickscan", "Resultaat", "Reservering", "Intake"];
 
