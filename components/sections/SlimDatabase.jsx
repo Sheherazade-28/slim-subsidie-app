@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
+import Navigation from "@/components/layout/Navigation";
 
 const CATS = [
   { key: "all", label: "Alle categorieën" },
@@ -181,12 +182,10 @@ export default function SlimDatabase() {
   return (
     <div style={{ minHeight: "100vh", background: "#f2f5f9", fontFamily: "'Barlow', 'Segoe UI', system-ui, sans-serif", color: "#1a2a3a" }}>
 
+      <Navigation />
+
       <div style={{ background: "#0d2e5a", padding: "32px 20px 36px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <Link href="/"
-            style={{ display: "inline-block", background: "transparent", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 6, padding: "7px 14px", color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 500, textDecoration: "none", marginBottom: 24 }}>
-            ← Terug naar home
-          </Link>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#2aaae2", textTransform: "uppercase", marginBottom: 10 }}>SLIM Subsidie Advies</div>
           <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.1, color: "#fff" }}>
             SLIM Subsidie<br /><span style={{ color: "#2aaae2" }}>Projecten Database</span>

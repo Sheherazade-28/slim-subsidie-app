@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Navigation from "@/components/layout/Navigation";
 import { LOTING_TIJDVAKKEN } from "@/data/slim-content";
 
 export default function LotingsuitslagenPage() {
@@ -8,9 +9,9 @@ export default function LotingsuitslagenPage() {
   const gemAanvragen = Math.round(allTv.reduce((s, t) => s + t.totaal, 0) / allTv.length);
 
   return (
-    <div style={{ background: "var(--cream)", minHeight: "100vh", padding: "24px 20px" }}>
-      <div className="lp-page">
-        <Link href="/" className="btn btn-ghost" style={{ marginBottom: "1.5rem", display: "inline-flex" }}>← Terug naar home</Link>
+    <div style={{ background: "var(--cream)", minHeight: "100vh" }}>
+      <Navigation />
+      <div className="lp-page" style={{ paddingTop: "24px" }}>
         <div className="lp-hero">
           <p className="lp-overline">Overzicht lotingsuitslagen</p>
           <h1 className="lp-h1">SLIM-subsidie lotingsuitslagen 2024 – 2026</h1>

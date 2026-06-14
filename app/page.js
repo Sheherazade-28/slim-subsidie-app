@@ -3,31 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { LOTING, LOTING_TIJDVAKKEN, FAQ, BEDRIJFSINFO } from "@/data/slim-content";
+import Navigation from "@/components/layout/Navigation";
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(null);
 
   return (
     <div className="hp">
-      <nav className="hp-nav">
-        <div className="hp-nav-inner">
-          <div className="logo">
-            <span className="logo-slim">SLIM</span>
-            <span className="logo-sub">SUBSIDIE</span>
-            <span className="logo-adv">ADVIES</span>
-          </div>
-          <ul className="hp-nav-links">
-            <li><a href="#slim">Wat is SLIM?</a></li>
-            <li><a href="#waarom">Waarom wij?</a></li>
-            <li><a href="#cases">Cases</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><Link href="/lotingsuitslagen">Lotingsuitslagen</Link></li>
-            <li><Link href="/projecten">Projecten</Link></li>
-            <li><Link href="/scan" className="hp-nav-cta">Gratis quickscan →</Link></li>
-          </ul>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero */}
       <div className="hp-hero">
@@ -38,7 +21,7 @@ export default function HomePage() {
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
               <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
-              <a href="#slim" className="hp-btn-s">Meer over SLIM-subsidie</a>
+              <Link href="/slim" className="hp-btn-s">Meer over SLIM-subsidie</Link>
             </div>
             <div className="hp-stats">
               <div><div className="hp-stat-num">€<em>24.999</em></div><div className="hp-stat-lbl">Maximum subsidie</div></div>
@@ -240,11 +223,11 @@ export default function HomePage() {
             <div>
               <div className="hp-ft-h">Navigatie</div>
               <ul className="hp-ft-links">
-                <li><a href="#slim">Wat is SLIM-subsidie?</a></li>
-                <li><a href="#waarom">Waarom via ons?</a></li>
-                <li><a href="#cases">Praktijkvoorbeelden</a></li>
-                <li><a href="#team">Ons team</a></li>
-                <li><a href="#faq">Veelgestelde vragen</a></li>
+                <li><Link href="/slim">Wat is SLIM-subsidie?</Link></li>
+                <li><Link href="/waarom-wij">Waarom via ons?</Link></li>
+                <li><Link href="/cases">Praktijkvoorbeelden</Link></li>
+                <li><Link href="/team">Ons team</Link></li>
+                <li><Link href="/faq">Veelgestelde vragen</Link></li>
                 <li><Link href="/lotingsuitslagen">Lotingsuitslagen</Link></li>
                 <li><Link href="/projecten">Projecten</Link></li>
                 <li><Link href="/scan">Gratis quickscan</Link></li>
