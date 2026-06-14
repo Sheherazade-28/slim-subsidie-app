@@ -30,24 +30,28 @@ export const TIJDVAKKEN_2026 = [
   {
     label: "Tijdvak 1 2026",
     type: "individueel",
+    status: "gesloten",
     open: new Date(2026, 3, 7, 9, 0),
     close: new Date(2026, 4, 4, 17, 0),
   },
   {
     label: "Samenwerking 2026",
     type: "samenwerking",
+    status: "binnenkort",
     open: new Date(2026, 5, 22, 9, 0),
     close: new Date(2026, 6, 20, 17, 0),
   },
   {
     label: "Tijdvak 2 2026",
     type: "individueel",
+    status: "binnenkort",
     open: new Date(2026, 7, 10, 9, 0),
     close: new Date(2026, 8, 7, 17, 0),
   },
   {
     label: "Tijdvak 1 2027",
     type: "individueel",
+    status: "volgt",
     open: new Date(2027, 3, 6),
     close: new Date(2027, 4, 4),
   },

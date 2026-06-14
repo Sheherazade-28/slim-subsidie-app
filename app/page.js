@@ -8,10 +8,18 @@ import TeamAvatar from "@/components/ui/TeamAvatar";
 
 const tv1 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 1 2026");
 const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
+const tvSamenwerking = TIJDVAKKEN_2026.find((t) => t.type === "samenwerking");
 
-function fmtMaandKort(d) {
-  return d.toLocaleDateString("nl-NL", { day: "numeric", month: "short" });
+function fmtDatumTijd(d) {
+  return `${d.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })} ${d.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" })}`;
 }
+
+const STATUS_MAP = {
+  gesloten:  { dotClass: "done",   badgeClass: "closed", badgeText: "Gesloten" },
+  binnenkort:{ dotClass: "active", badgeClass: "open",   badgeText: "Opent binnenkort" },
+  open:      { dotClass: "active", badgeClass: "open",   badgeText: "Open" },
+  volgt:     { dotClass: "future", badgeClass: "closed", badgeText: "Volgt" },
+};
 
 const minInv = SUBSIDIE.minInvestering.toLocaleString("nl-NL");
 const btwIncl = (PRICING.reserveringsfee * (1 + PRICING.btw)).toFixed(2).replace(".", ",");
@@ -45,22 +53,36 @@ export default function HomePage() {
           <div>
             <div className="hp-card">
               <div className="hp-card-title">Subsidiepercentages</div>
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"14px 18px",marginBottom:16}}>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(255,255,255,0.06)",borderRadius:10,padding:"14px 18px",marginBottom:6}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:800,color:"var(--blue-light)",lineHeight:1}}>{SUBSIDIE.percentage}%</div>
-                <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")}<br /><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB</span></div>
+                <div style={{fontSize:13,fontWeight:600,color:"#fff",textAlign:"right",lineHeight:1.45}}>subsidie · tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")}<br /><span style={{fontWeight:400,color:"rgba(255,255,255,0.55)"}}>voor alle MKB *</span></div>
               </div>
-              <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginTop:-10,marginBottom:16,lineHeight:1.4}}>* Uitzondering: landbouwbedrijven max. €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")} (art. 2.20 lid 1 SLIM-regeling)</div>
+              <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginBottom:4,lineHeight:1.4}}>* Geldt voor individuele MKB-ondernemingen en samenwerkingsverbanden</div>
+              <div style={{fontSize:10,color:"rgba(255,255,255,0.35)",marginBottom:16,lineHeight:1.4}}>** Uitzondering: landbouwbedrijven max. €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")} (art. 2.20 lid 1 SLIM-regeling)</div>
               <div className="hp-card-title" style={{marginTop:4}}>Aanvraagtijdvakken 2026</div>
+              <div style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.45)",textTransform:"uppercase",letterSpacing:"0.6px",marginTop:10,marginBottom:6}}>Individueel MKB</div>
               <div className="hp-tl">
-                <div className="hp-tl-item"><div className="hp-tl-dot done" /><div className="hp-tl-text"><strong>Tijdvak 1</strong> — {fmtMaandKort(tv1.open)} t/m {fmtMaandKort(tv1.close)} 2026</div><span className="hp-tl-badge closed">Gesloten</span></div>
-                <div className="hp-tl-item"><div className="hp-tl-dot active" /><div className="hp-tl-text"><strong>Tijdvak 2</strong> — {fmtMaandKort(tv2.open)} t/m {fmtMaandKort(tv2.close)} 2026</div><span className="hp-tl-badge open">Opent binnenkort</span></div>
-                <div className="hp-tl-item"><div className="hp-tl-dot future" /><div className="hp-tl-text"><strong>Tijdvak 1 2027</strong> — april 2027</div><span className="hp-tl-badge closed">Volgt</span></div>
+                <div className="hp-tl-item">
+                  <div className={`hp-tl-dot ${STATUS_MAP[tv1.status].dotClass}`} />
+                  <div className="hp-tl-text"><strong>{tv1.label.replace(" 2026","")}</strong> — {fmtDatumTijd(tv1.open)} t/m {fmtDatumTijd(tv1.close)} uur</div>
+                  <span className={`hp-tl-badge ${STATUS_MAP[tv1.status].badgeClass}`}>{STATUS_MAP[tv1.status].badgeText}</span>
+                </div>
+                <div className="hp-tl-item">
+                  <div className={`hp-tl-dot ${STATUS_MAP[tv2.status].dotClass}`} />
+                  <div className="hp-tl-text"><strong>{tv2.label.replace(" 2026","")}</strong> — {fmtDatumTijd(tv2.open)} t/m {fmtDatumTijd(tv2.close)} uur</div>
+                  <span className={`hp-tl-badge ${STATUS_MAP[tv2.status].badgeClass}`}>{STATUS_MAP[tv2.status].badgeText}</span>
+                </div>
               </div>
-              <div className="hp-eb">
-                <div className="hp-eb-lbl">RESERVERINGSFEE</div>
-                <div className="hp-eb-price">€ {PRICING.reserveringsfee}</div>
-                <div className="hp-eb-sub">reserveringsfee excl. btw · retour bij toekenning</div>
+              <div style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.45)",textTransform:"uppercase",letterSpacing:"0.6px",marginTop:14,marginBottom:4}}>Samenwerkingsverbanden</div>
+              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginBottom:8}}>Minimaal twee MKB-ondernemingen</div>
+              <div className="hp-tl">
+                <div className="hp-tl-item">
+                  <div className={`hp-tl-dot ${STATUS_MAP[tvSamenwerking.status].dotClass}`} />
+                  <div className="hp-tl-text"><strong>Samenwerking 2026</strong> — {fmtDatumTijd(tvSamenwerking.open)} t/m {fmtDatumTijd(tvSamenwerking.close)} uur</div>
+                  <span className={`hp-tl-badge ${STATUS_MAP[tvSamenwerking.status].badgeClass}`}>{STATUS_MAP[tvSamenwerking.status].badgeText}</span>
+                </div>
               </div>
+              <div style={{fontSize:10,color:"rgba(255,255,255,0.3)",marginTop:8,lineHeight:1.5}}>Informatie over onze begeleiding bij samenwerkingsverbanden is beschikbaar op aanvraag gezien het maatwerk karakter van deze trajecten.</div>
             </div>
           </div>
         </div>
