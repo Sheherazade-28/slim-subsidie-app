@@ -10,6 +10,7 @@ export default function sitemap() {
     { url: "/whitepaper", priority: 0.8, changeFrequency: "monthly" },
     { url: "/projecten", priority: 0.7, changeFrequency: "monthly" },
     { url: "/slim", priority: 0.8, changeFrequency: "monthly" },
+    { url: "/wat-is-slim", priority: 0.8, changeFrequency: "monthly" },
     { url: "/waarom-wij", priority: 0.8, changeFrequency: "monthly" },
     { url: "/cases", priority: 0.7, changeFrequency: "monthly" },
     { url: "/team", priority: 0.6, changeFrequency: "monthly" },
