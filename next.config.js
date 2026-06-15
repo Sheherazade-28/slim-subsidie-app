@@ -6,7 +6,12 @@ const nextConfig = {
     return [
       {
         source: "/wat-is-slim",
-        destination: "/slim-subsidie/wat-is-slim",
+        destination: "/slim-subsidie",
+        permanent: true,
+      },
+      {
+        source: "/slim-subsidie/wat-is-slim",
+        destination: "/slim-subsidie",
         permanent: true,
       },
       {
