@@ -211,7 +211,7 @@ export default function SlimSubsidiePage() {
               [`${SUBSIDIE.looptijdMKB} maanden`, "Maximale looptijd MKB"],
               [`${SUBSIDIE.voorschot * 100}%`, "Voorschot bij toekenning"],
             ].map(([num, lbl]) => (
-              <div key={lbl} className="hp-l-card">
+              <div key={lbl} className="hp-l-card" style={{ background: "var(--navy)", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div className="hp-l-num b" style={{ fontSize: 26 }}>{num}</div>
                 <div className="hp-l-lbl">{lbl}</div>
               </div>
