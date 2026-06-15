@@ -8,7 +8,8 @@ export const metadata = {
 };
 
 export default function SlimPage() {
-  const minInv = SUBSIDIE.minInvestering.toLocaleString("nl-NL");
+  const minInv = SUBSIDIE.minProjectomvang.toLocaleString("nl-NL");
+  const minSub = SUBSIDIE.minSubsidie.toLocaleString("nl-NL");
 
   return (
     <div>
@@ -48,10 +49,10 @@ export default function SlimPage() {
             <div className="hp-req-card">
               <div className="hp-act-tag a">Activiteit A</div>
               <ul className="hp-req-list">
-                <li className="hp-req-item"><span className="hp-req-dot" /><span>Min. investering: <strong>€{minInv}</strong></span></li>
+                <li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li>
+                <li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li>
                 <li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li>
                 <li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: opleidings- of ontwikkelplan als eindproduct</span></li>
-                <li className="hp-req-item"><span className="hp-req-dot" /><span>Geen Noloc-certificering vereist</span></li>
               </ul>
             </div>
             <div className="hp-req-card">
@@ -66,10 +67,10 @@ export default function SlimPage() {
             <div className="hp-req-card">
               <div className="hp-act-tag c">Activiteit C</div>
               <ul className="hp-req-list">
-                <li className="hp-req-item"><span className="hp-req-dot" /><span>Min. investering: <strong>€{minInv}</strong></span></li>
+                <li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li>
+                <li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li>
                 <li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li>
                 <li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: producten van de gerealiseerde L&amp;O-methode als eindproduct</span></li>
-                <li className="hp-req-item"><span className="hp-req-dot" /><span>Geen Noloc-certificering vereist</span></li>
               </ul>
             </div>
           </div>
