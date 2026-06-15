@@ -102,7 +102,7 @@ export default function SlimSubsidie2026Page() {
                       {fmtDatum(tv.open)} om {fmtTijd(tv.open)} t/m {fmtDatum(tv.close)} om {fmtTijd(tv.close)}
                     </div>
                     <div style={{ fontSize: 12, color: "var(--muted)", marginTop: 4, fontStyle: "italic" }}>
-                      Nieuw in 2026: samenwerkingsverbanden ook via notariële loting
+                      Vanaf 2026 via notariële loting — net als individueel MKB (Staatscourant 31 maart 2026, stcrt-2026-13249)
                     </div>
                   </div>
                   <span style={{ background: "#d97706", color: "#fff", borderRadius: 20, padding: "5px 14px", fontSize: 12, fontWeight: 700, flexShrink: 0 }}>Binnenkort open</span>

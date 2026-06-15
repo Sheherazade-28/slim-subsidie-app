@@ -75,7 +75,7 @@ const faqSchema = {
       name: "Wat is het verschil tussen individueel en samenwerking?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Individuele MKB-aanvragen gaan via loting bij overintekening, met een maximum van tot €25.000 en een looptijd van 12 maanden. Samenwerkingsverbanden van minimaal twee MKB-ondernemingen kunnen tot €500.000 aanvragen (per partner tot €200.000), met een looptijd van 24 maanden. Bij samenwerkingen geldt volgorde van binnenkomst — geen loting. Activiteit C is bij samenwerkingsverbanden een verplicht onderdeel.",
+        text: "Individuele MKB-aanvragen gaan via loting bij overintekening, met een maximum van tot €25.000 en een looptijd van 12 maanden. Samenwerkingsverbanden van minimaal twee MKB-ondernemingen kunnen tot €500.000 aanvragen (per partner tot €200.000), met een looptijd van 24 maanden. Per Staatscourant 31 maart 2026 gaan ook samenwerkingsverbanden via loting. Activiteit C is bij samenwerkingsverbanden een verplicht onderdeel.",
       },
     },
     {
@@ -357,7 +357,7 @@ export default function WatIsSlimPage() {
                   [
                     "Behandeling aanvragen",
                     "Loting bij overintekening",
-                    "Volgorde van binnenkomst (geen loting)",
+                    "Loting (gewijzigd per 31 maart 2026) *",
                   ],
                   [
                     "Begeleiding door ons",
@@ -406,6 +406,19 @@ export default function WatIsSlimPage() {
               </tbody>
             </table>
           </div>
+          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 14, lineHeight: 1.65 }}>
+            * Per Staatscourant 31 maart 2026 gewijzigd van volgorde van binnenkomst naar loting,
+            omdat het budget voor samenwerkingsverbanden in 2025 binnen enkele minuten was uitgeput.
+            Bron:{" "}
+            <a
+              href="https://zoek.officielebekendmakingen.nl/stcrt-2026-13249"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--blue)" }}
+            >
+              stcrt-2026-13249
+            </a>
+          </p>
         </div>
       </div>
 
@@ -1358,7 +1371,7 @@ export default function WatIsSlimPage() {
               </div>
               <ul style={{ ...s.lijst, marginTop: 0 }}>
                 <li>Activiteit C (L&amp;O-methode) is verplicht onderdeel</li>
-                <li>Behandeling op volgorde van binnenkomst — geen loting</li>
+                <li>Behandeling via loting (gewijzigd per 31 maart 2026, stcrt-2026-13249)</li>
                 <li>
                   Tijdvak 2026:{" "}
                   {tvSWV

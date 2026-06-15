@@ -91,7 +91,7 @@ export const LOTING_TIJDVAKKEN = [
       },
       {
         titel: "Samenwerking — jun / jul 2026",
-        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
+        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 via loting — net als individueel MKB (Staatscourant 31 maart 2026, stcrt-2026-13249).",
       },
     ],
   },
