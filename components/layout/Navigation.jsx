@@ -12,7 +12,7 @@ export default function Navigation() {
           <span className="logo-adv">ADVIES</span>
         </Link>
         <ul className="hp-nav-links">
-          <li><Link href="/slim">Wat is SLIM?</Link></li>
+          <li><Link href="/wat-is-slim">Wat is SLIM?</Link></li>
           <li><Link href="/waarom-wij">Waarom wij?</Link></li>
           <li><Link href="/cases">Cases</Link></li>
           <li><Link href="/team">Team</Link></li>
