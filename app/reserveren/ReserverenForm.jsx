@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const METHODEN = [
@@ -15,6 +15,17 @@ export default function ReserverenForm({ prijs }) {
   const [methode, setMethode] = useState("ideal");
   const [loading, setLoading] = useState(false);
   const [fout, setFout] = useState(null);
+
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem("scanContact");
+      if (saved) {
+        const { naam: savedNaam, email: savedEmail } = JSON.parse(saved);
+        if (savedNaam) setNaam(savedNaam);
+        if (savedEmail) setEmail(savedEmail);
+      }
+    } catch {}
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();

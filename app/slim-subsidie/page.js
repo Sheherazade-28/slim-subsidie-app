@@ -265,14 +265,16 @@ export default function SlimSubsidiePage() {
         <div className="hp-si">
           <div className="hp-slbl">Subsidie op een rij</div>
           <h2 className="hp-stitle">SLIM in het kort</h2>
-          <div className="hp-l-grid">
+          <div className="hp-l-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(175px, 1fr))" }}>
             {[
               [`${SUBSIDIE.percentage}%`, "Subsidiepercentage voor alle MKB"],
               [fmtEur(SUBSIDIE.maxBedrag), "Maximum individuele aanvraag"],
               [fmtEur(SUBSIDIE.maxBedragSamenwerking), "Maximum samenwerkingsverband"],
               [`€ ${BUDGET_2026.totaal / 1_000_000} mln`, "Budget 2026 totaal"],
-              [`${SUBSIDIE.looptijdMKB} maanden`, "Maximale looptijd MKB"],
-              [`${SUBSIDIE.voorschot * 100}%`, "Voorschot bij toekenning"],
+              [`${SUBSIDIE.looptijdMKB} mnd`, "Maximale looptijd individueel MKB"],
+              [`${SUBSIDIE.looptijdSamenwerking} mnd`, "Maximale looptijd samenwerkingsverband"],
+              [`${SUBSIDIE.voorschot * 100}%`, "Voorschot individueel MKB bij toekenning"],
+              ["25%", "Voorschot samenwerkingsverband bij verlening"],
             ].map(([num, lbl]) => (
               <div key={lbl} className="hp-l-card" style={{ background: "var(--navy)", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div className="hp-l-num b" style={{ fontSize: 26 }}>{num}</div>
@@ -469,6 +471,7 @@ export default function SlimSubsidiePage() {
                 background: "var(--white)",
                 borderRadius: 12,
                 overflow: "hidden",
+                border: "1px solid #e2e8f0",
                 boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
               }}
             >

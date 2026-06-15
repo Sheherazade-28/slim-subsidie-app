@@ -178,6 +178,13 @@ export default function ScanPage() {
       // stille fout — resultaat tonen we altijd
     }
 
+    try {
+      sessionStorage.setItem("scanContact", JSON.stringify({
+        naam: `${contact.voornaam} ${contact.achternaam}`.trim(),
+        email: contact.email,
+      }));
+    } catch {}
+
     setFase("resultaat");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
