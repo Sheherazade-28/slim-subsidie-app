@@ -471,7 +471,7 @@ export default function SlimSubsidiePage() {
                 background: "var(--white)",
                 borderRadius: 12,
                 overflow: "hidden",
-                border: "1px solid #e2e8f0",
+                border: "1px solid #e8edf3",
                 boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
               }}
             >
