@@ -460,17 +460,14 @@ export default function SlimSubsidiePage() {
             De meeste ondernemers kiezen voor een individuele MKB-aanvraag. Samenwerkingsverbanden
             zijn bedoeld voor grotere gezamenlijke leer- en ontwikkeltrajecten.
           </p>
-          <div style={{ overflowX: "auto", marginTop: 24 }}>
+          <div style={{ marginTop: 24, border: "2px solid #1e3a5f", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
+            <div style={{ overflowX: "auto" }}>
             <table
               style={{
                 width: "100%",
                 borderCollapse: "collapse",
                 fontSize: 14,
                 background: "var(--white)",
-                borderRadius: 12,
-                overflow: "hidden",
-                border: "2px solid #1e3a5f",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
               }}
             >
               <thead>
@@ -520,6 +517,7 @@ export default function SlimSubsidiePage() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
           <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 14, lineHeight: 1.65 }}>
             * Per Staatscourant 31 maart 2026 gewijzigd van volgorde van binnenkomst naar loting,
