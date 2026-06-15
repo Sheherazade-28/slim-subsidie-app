@@ -56,7 +56,7 @@ export default function PrivacyPage() {
               <li><strong>Communicatie:</strong> contact opnemen voor begeleiding, afspraken inplannen, voortgang delen.</li>
               <li><strong>E-mailmarketing:</strong> informeren over SLIM-subsidie, aanvraagtijdvakken en onze diensten. U kunt zich altijd afmelden via de afmeldlink in onze e-mails.</li>
               <li><strong>Administratie en facturatie:</strong> verwerken van betalingen en financiële administratie.</li>
-              <li><strong>AI-analyse:</strong> uw bedrijfsprofiel en quickscanresultaten worden gebruikt om via Claude (Anthropic) een gepersonaliseerde subsidieanalyse op te stellen.</li>
+              <li><strong>Quickscan:</strong> uw bedrijfsprofiel en quickscanresultaten worden gebruikt om uw subsidiemogelijkheden te beoordelen en de aanvraagbegeleiding voor te bereiden.</li>
             </ul>
           </div>
 
@@ -86,7 +86,6 @@ export default function PrivacyPage() {
             <ul>
               <li><strong>HubSpot (VS)</strong> — CRM en e-mailmarketing. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
               <li><strong>Mollie (NL)</strong> — betalingsverwerking. Gevestigd in Nederland, valt onder de AVG.</li>
-              <li><strong>Anthropic/Claude (VS)</strong> — AI-analyse. Verwerking op basis van standaard contractbepalingen (SCC&apos;s).</li>
               <li><strong>Exact (NL)</strong> — boekhoudsoftware. Gevestigd in Nederland.</li>
               <li><strong>Google Workspace (VS)</strong> — e-mail, opslag en videovergaderen. Gecertificeerd onder EU-VS Data Privacy Framework.</li>
               <li><strong>Microsoft Teams (VS)</strong> — videovergaderen. Gecertificeerd onder EU-VS Data Privacy Framework.</li>

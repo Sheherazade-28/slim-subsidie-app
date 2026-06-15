@@ -95,70 +95,6 @@ export async function POST(request) {
     const bedrijfsnaam = bedrijf || naam;
     const deadline = nextDeadline();
 
-    let analysisText = "";
-    const anthropicKey = process.env.ANTHROPIC_API_KEY;
-    if (anthropicKey) {
-      try {
-        const prompt = `Je bent gespecialiseerd adviseur bij SLIM Subsidie Advies. Schrijf een persoonlijke SLIM-subsidieanalyse in het Nederlands voor de ondernemer hieronder.
-
-STRIKTE RICHTLIJNEN:
-- Bespreek UITSLUITEND de SLIM-subsidie (Stimulering Leren en Ontwikkelen in het MKB, SLIM-regeling SZW)
-- Noem NOOIT andere subsidies, innovatieprogramma's, groeifondsen of regelingen — ook niet als suggestie
-- Focus op leren en ontwikkelen van medewerkers en de RVO-aanvraagprocedure
-- Max 380 woorden · geen markdown · alinea's gescheiden door een witregel · spreek ondernemer aan met "u"
-
-VERMIJD deze formuleringen:
-- Gebruik NOOIT "vergroot uw inlotkans" — gebruik in plaats daarvan "zorgt ervoor dat u aan de loting kunt deelnemen"
-- Gebruik NOOIT "erkend staat in de SLIM-database" — gebruik "in het bezit is van de juiste certificering en als erkend vermeld staat in de SLIM-database"
-- Gebruik NOOIT vage termen als "demonstreert ernst" — gebruik "versterkt de kwaliteit van uw aanvraag"
-- Schrijf ALTIJD grammaticaal correct Nederlands, controleer werkwoordsvervoegingen
-- Sluit ALTIJD af met een concrete, bemoedigende zin over tijdvak 2 2026 met correcte werkwoordsvorm "voorbereiden" niet "voorbereiding"
-
-Bedrijfsprofiel:
-- Bedrijf: ${bedrijfsnaam || "onbekend"}
-- Bedrijfsgrootte: ${answers?.size === "groot" ? "Grootbedrijf landbouw/horeca/recreatie" : "MKB"}
-- Medewerkers: ${profile?.medewerkers || "onbekend"}
-- Rechtsvorm: ${profile?.rechtsvorm || "onbekend"}
-- Sector: ${profile?.sector || "onbekend"}
-- Provincie: ${profile?.provincie || "onbekend"}
-- Landbouwsector: ${isAgri ? "Ja" : "Nee"}
-- Investering: ${fmtEur(invNum)}
-- Indicatief SLIM-subsidiebedrag (60% voor alle MKB, tot €25.000): ${fmtEur(subsidyEst || 0)}
-- Gekozen SLIM-activiteit(en): ${actNames}
-- Aanvraagtijdvak: ${deadline.label} (opening: ${deadline.open.toLocaleDateString("nl-NL")})
-
-Actuele lotingscijfers tijdvak 1 2026 (RVO, 8 mei 2026):
-- 3.360 SLIM-aanvragen ingediend
-- 23 afgekeurd vóór loting wegens fouten in de aanvraag
-- 474 van 3.337 ingeloot (~14%) — budget €11 mln
-
-Schrijf vier alinea's:
-1. Kansrijkheid voor de SLIM-subsidie: waarom is dit bedrijf een sterke SLIM-kandidaat gezien sector, omvang en activiteit(en)?
-2. Beoordeling gekozen SLIM-activiteit(en): passen ze bij dit bedrijf en bij de SLIM-regeling-vereisten (bijv. externe gekwalificeerde adviseur voor activiteit A, Noloc-gecertificeerd voor activiteit B, min. €8.334 investering voor A en C)? Eventueel aanvullende of alternatieve SLIM-activiteit.
-3. Lotingsrisico: realistische duiding met actuele RVO-cijfers en wat een correcte aanvraag betekent voor de slaagkansen.
-4. Twee concrete tips voor een foutloze SLIM-aanvraag bij RVO + motiverende afsluiting gericht op het behalen van de SLIM-subsidie.`;
-
-        const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": anthropicKey,
-            "anthropic-version": "2023-06-01",
-          },
-          body: JSON.stringify({
-            model: "claude-haiku-4-5-20251001",
-            max_tokens: 1400,
-            messages: [{ role: "user", content: prompt }],
-          }),
-        });
-        const anthropicData = await anthropicRes.json();
-        analysisText = anthropicData.content?.map(b => b.text || "").join("") || "";
-        console.log("✓ AI analyse gegenereerd voor:", email);
-      } catch (aiErr) {
-        console.error("AI analyse fout:", aiErr);
-      }
-    }
-
     const profileRows = [
       ["Medewerkers", profile?.medewerkers || "—"],
       ["Rechtsvorm", profile?.rechtsvorm || "—"],
@@ -182,7 +118,7 @@ Schrijf vier alinea's:
     const emailHtml = buildConfirmationEmail({
       naam, bedrijf, email, activiteiten, subsidyEst,
       bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
-      quickscanHtml, analysisText,
+      quickscanHtml,
     });
 
     const factuurHtml = buildInvoiceHtml({

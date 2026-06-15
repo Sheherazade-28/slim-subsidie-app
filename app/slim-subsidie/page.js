@@ -707,7 +707,7 @@ export default function SlimSubsidiePage() {
               [
                 "1",
                 "Quickscan & analyse",
-                "Doe de gratis quickscan. Positief resultaat? Reserveer uw aanvraagplaats en ontvang direct een persoonlijke AI-diepteanalyse.",
+                "Doe de gratis quickscan. Positief resultaat? Reserveer uw aanvraagplaats en wij nemen binnen 8 werkdagen contact met u op.",
               ],
               [
                 "2",

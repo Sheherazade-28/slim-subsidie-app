@@ -31,7 +31,7 @@ export default function AvPage() {
               <li><strong>Opdrachtnemer:</strong> Inscentia BV, handelend onder de naam SLIM Subsidie Advies, gevestigd te Utrecht, KvK-nummer 83970614.</li>
               <li><strong>Opdrachtgever:</strong> de rechtspersoon of natuurlijk persoon die een overeenkomst aangaat met Opdrachtnemer.</li>
               <li><strong>Dienst:</strong> het pakket van advisering, begeleiding en indiening in het kader van de SLIM-subsidieregeling.</li>
-              <li><strong>Reserveringsfee:</strong> de betaalde reservering voor de dienstverlening van Opdrachtnemer, inclusief persoonlijke AI-analyse en adviesgesprek.</li>
+              <li><strong>Reserveringsfee:</strong> de betaalde reservering voor de dienstverlening van Opdrachtnemer, inclusief telefonisch adviesgesprek en start aanvraagbegeleiding.</li>
               <li><strong>Aanvraagbegeleiding:</strong> de volledige begeleiding van de subsidieaanvraag bij RVO, inclusief opstelling documenten, indiening en begeleiding van het screeningstraject na inloting.</li>
               <li><strong>SLIM-subsidie:</strong> de Stimuleringsregeling Leren en Ontwikkelen in het Mkb, uitgevoerd door de Rijksdienst voor Ondernemend Nederland (RVO).</li>
               <li><strong>Inloting:</strong> het proces waarbij RVO door middel van notariële loting bepaalt welke aanvragen in behandeling worden genomen.</li>
@@ -61,7 +61,7 @@ export default function AvPage() {
           <div className="privacy-sec">
             <h2>Artikel 4 — Dienstverlening</h2>
             <ul>
-              <li><strong>Reserveringsfee</strong> (€ 199 excl. btw): persoonlijke AI-diepteanalyse, telefonisch adviesgesprek binnen 8 werkdagen, en start aanvraagbegeleiding.</li>
+              <li><strong>Reserveringsfee</strong> (€ 199 excl. btw): telefonisch adviesgesprek binnen 8 werkdagen en start aanvraagbegeleiding.</li>
               <li><strong>Aanvraagbegeleiding:</strong> opstellen activiteitenplan, begroting en documenten; compliance-check; indiening via RVO e-portaal; begeleiding screeningstraject na inloting.</li>
               <li><strong>Herindienen:</strong> wordt de aanvraag niet ingeloot, dan actualiseert Opdrachtnemer de aanvraag elk volgend tijdvak en dient deze opnieuw in totdat inloting plaatsvindt — zonder extra kosten.</li>
               <li>Opdrachtnemer spant zich in voor een correcte en volledige aanvraag, doch kan geen garantie geven op inloting of toekenning door RVO.</li>

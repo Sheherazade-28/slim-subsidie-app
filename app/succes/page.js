@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LOTING, calcSubsidy, nextDeadline, fmtEur, fmtEur2, ACTIVITEITEN } from "@/data/slim-content";
+import { LOTING, calcSubsidy, nextDeadline, fmtEur } from "@/data/slim-content";
 
 function LotingBoxFull() {
   const barPct = Math.round((LOTING.inBehandeling / LOTING.totaalIngediend) * 100);
@@ -31,8 +31,6 @@ export default function SuccesPage() {
   const [selectedActs, setSelectedActs] = useState([]);
   const [answers, setAnswers] = useState({});
   const [investment, setInvestment] = useState("");
-  const [analysis, setAnalysis] = useState("");
-  const [loadingAI, setLoadingAI] = useState(false);
 
   const deadline = nextDeadline();
   const isAgri = answers.agriculture === "yes";
@@ -56,95 +54,6 @@ export default function SuccesPage() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!analysis && !loadingAI) {
-      const timer = setTimeout(() => generateAnalysis(), 300);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  async function generateAnalysis() {
-    setLoadingAI(true);
-    setAnalysis("");
-    const savedRaw = sessionStorage.getItem("slimProfiel");
-    let savedProfile = {};
-    let savedAnswers = {};
-    let savedActs = [];
-    let savedInv = investment;
-    let savedContact = contact;
-    if (savedRaw) {
-      try {
-        const p = JSON.parse(savedRaw);
-        savedProfile = p.profile || {};
-        savedAnswers = p.answers || {};
-        savedActs = p.selectedActs || [];
-        savedInv = p.investment || "";
-        savedContact = p.contact || {};
-      } catch {}
-    }
-
-    const actNames =
-      (selectedActs.length > 0 ? selectedActs : savedActs).length > 0
-        ? (selectedActs.length > 0 ? selectedActs : savedActs)
-            .map((id) => ACTIVITEITEN.find((a) => a.id === id)?.title || id)
-            .join(" + ")
-        : "Nader te bepalen";
-
-    const pr = Object.keys(profile).length > 0 ? profile : savedProfile;
-    const ans = Object.keys(answers).length > 0 ? answers : savedAnswers;
-    const bedrijfsnaam = (contact.bedrijf || savedContact.bedrijf) || "onbekend";
-    const invNumCalc = parseFloat(savedInv || investment) || 0;
-    const isAgriCalc = ans.agriculture === "yes";
-    const subsidyEstCalc = invNumCalc >= 8334 ? calcSubsidy(invNumCalc, isAgriCalc) : 0;
-
-    try {
-      const res = await fetch("/api/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-haiku-4-5-20251001",
-          max_tokens: 1400,
-          messages: [
-            {
-              role: "user",
-              content: `Je bent gespecialiseerd adviseur bij SLIM Subsidie Advies. Schrijf een persoonlijke SLIM-subsidieanalyse in het Nederlands voor de ondernemer hieronder.
-
-STRIKTE RICHTLIJNEN:
-- Bespreek UITSLUITEND de SLIM-subsidie (Stimulering Leren en Ontwikkelen in het MKB, SLIM-regeling SZW)
-- Noem NOOIT andere subsidies, innovatieprogramma's, groeifondsen of regelingen — ook niet als suggestie
-- Focus op leren en ontwikkelen van medewerkers en de RVO-aanvraagprocedure
-- Max 380 woorden · geen markdown · alinea's gescheiden door een witregel · spreek ondernemer aan met "u"
-
-Bedrijfsprofiel:
-- Bedrijf: ${bedrijfsnaam}
-- Bedrijfsgrootte: ${ans.size === "groot" ? "Grootbedrijf landbouw/horeca/recreatie" : "MKB"}
-- Medewerkers: ${pr.medewerkers || "onbekend"}
-- Rechtsvorm: ${pr.rechtsvorm || "onbekend"}
-- Sector: ${pr.sector || "onbekend"}
-- Provincie: ${pr.provincie || "onbekend"}
-- Landbouwsector: ${isAgriCalc ? "Ja" : "Nee"}
-- Investering: ${fmtEur(invNumCalc)}
-- Indicatief SLIM-subsidiebedrag: ${fmtEur(subsidyEstCalc)}
-- Gekozen SLIM-activiteit(en): ${actNames}
-- Aanvraagtijdvak: ${deadline.label}
-
-Schrijf vier alinea's:
-1. Kansrijkheid voor de SLIM-subsidie
-2. Beoordeling gekozen activiteit(en)
-3. Lotingsrisico met actuele RVO-cijfers (tijdvak 1 2026: 3.360 ingediend, 474 van 3.337 ingeloot, ~14%)
-4. Twee concrete tips + motiverende afsluiting`,
-            },
-          ],
-        }),
-      });
-      const data = await res.json();
-      setAnalysis(data.content?.map((b) => b.text || "").join("") || "Analyse kon niet worden geladen.");
-    } catch {
-      setAnalysis("Er is een fout opgetreden. Uw adviseur neemt spoedig contact op.");
-    }
-    setLoadingAI(false);
-  }
-
   return (
     <div className="app">
       <header className="hdr">
@@ -155,22 +64,22 @@ Schrijf vier alinea's:
             <span className="logo-adv">ADVIES</span>
           </Link>
           <p className="hdr-title">Komt uw bedrijf in aanmerking voor <span>SLIM-subsidie</span>?</p>
-          <p className="hdr-sub">Gratis quickscan · Bedrijfsprofiel · Betaling · Persoonlijke AI-analyse</p>
+          <p className="hdr-sub">Gratis quickscan · Bedrijfsprofiel · Betaling · Bevestiging</p>
           <div className="prog-bar"><div className="prog-fill" style={{ width: "100%" }} /></div>
         </div>
         <div className="steps-bar">
-          {["Quickscan", "Resultaat", "Profiel", "Betaling", "Analyse"].map((l, i) => (
+          {["Quickscan", "Resultaat", "Profiel", "Betaling", "Bevestiging"].map((l, i) => (
             <div key={i} className={`step-tab ${i < 4 ? "done" : "active"}`}>{l}</div>
           ))}
         </div>
       </header>
 
       <main className="main">
-        <div className="phase-lbl"><span className="phase-dot" />Uw persoonlijke SLIM-analyse</div>
+        <div className="phase-lbl"><span className="phase-dot" />Betaling bevestigd</div>
         <div className="card">
           <div className="success-header">
             <span className="success-header-icon">🎉</span>
-            <div className="success-header-title">Betaling geslaagd — uw analyse wordt gegenereerd</div>
+            <div className="success-header-title">Betaling geslaagd — u ontvangt een bevestiging per e-mail</div>
             <p className="success-header-sub">
               {contact.naam
                 ? <>Bedankt, <strong>{contact.naam}</strong>. Een bevestiging met factuur is verstuurd naar <strong>{contact.email}</strong>.</>
@@ -179,18 +88,7 @@ Schrijf vier alinea's:
             </p>
             <div className="paid-badge">✓ Betaling ontvangen via Mollie</div>
           </div>
-          <div className="ai-box">
-            <div className="ai-label">Uw Persoonlijke AI Diepteanalyse — SLIM Subsidie Advies</div>
-            {loadingAI ? (
-              <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <div className="spinner" />
-                <p style={{ fontSize: 13, color: "var(--muted)" }}>Uw analyse wordt samengesteld op basis van uw bedrijfsprofiel en de actuele lotingscijfers…</p>
-              </div>
-            ) : (
-              <div className="ai-text">{analysis || "Uw analyse wordt geladen…"}</div>
-            )}
-          </div>
-          {!loadingAI && subsidyEst > 0 && (
+          {subsidyEst > 0 && (
             <div className="est-box" style={{ marginBottom: 0 }}>
               <div className="est-label">Uw subsidie-indicatie</div>
               <div className="est-grid" style={{ marginTop: 8 }}>
@@ -203,28 +101,26 @@ Schrijf vier alinea's:
           )}
         </div>
 
-        {!loadingAI && <LotingBoxFull />}
+        <LotingBoxFull />
 
-        {!loadingAI && (
-          <div className="next-steps">
-            <div className="next-steps-title">Wat gebeurt er nu?</div>
-            {[
-              ["1","Terugbelafspraak binnen 8 werkdagen","Uw adviseur neemt contact op om de analyse door te nemen en de aanvraagstrategie te bespreken."],
-              ["2","Complete en correcte aanvraagvoorbereiding","Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor."],
-              ["3","Foutloze & tijdige indiening","Wij zorgen voor een correcte aanvraagindiening via de E-portal. Binnen de deadline."],
-              ["4","Ingeloot? Vragenbeantwoording & review","Bij toekenning begeleiden wij u tijdens het subsidie-beoordelingstraject door RVO. En we reviewen uw eindoplevering en dossier. Alles voor dezelfde vaste succesfee van € 2.500 (excl. BTW). De reserveringsfee wordt terugbetaald. Geen toekenning = geen succesfee."],
-              ["5","Niet ingeloot? Wij dienen opnieuw in — ieder tijdvak","Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen uw aanvraag in het volgende tijdvak opnieuw in. Wij blijven dit doen totdat u ingeloot wordt. Geen extra kosten — inbegrepen in uw pakket."],
-            ].map(([num, title, sub]) => (
-              <div key={num} className="next-step">
-                <div className="next-step-num">{num}</div>
-                <div className="next-step-body">
-                  <div className="next-step-title">{title}</div>
-                  <div className="next-step-sub">{sub}</div>
-                </div>
+        <div className="next-steps">
+          <div className="next-steps-title">Wat gebeurt er nu?</div>
+          {[
+            ["1","Terugbelafspraak binnen 8 werkdagen","Uw adviseur neemt contact op om de aanvraagstrategie te bespreken."],
+            ["2","Complete en correcte aanvraagvoorbereiding","Met uw input bereiden wij de documentatie, het activiteitenplan en de begroting op maat voor."],
+            ["3","Foutloze & tijdige indiening","Wij zorgen voor een correcte aanvraagindiening via de E-portal. Binnen de deadline."],
+            ["4","Ingeloot? Vragenbeantwoording & review","Bij toekenning begeleiden wij u tijdens het subsidie-beoordelingstraject door RVO. En we reviewen uw eindoplevering en dossier. Alles voor dezelfde vaste succesfee van € 2.500 (excl. BTW). De reserveringsfee wordt terugbetaald. Geen toekenning = geen succesfee."],
+            ["5","Niet ingeloot? Wij dienen opnieuw in — ieder tijdvak","Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen uw aanvraag in het volgende tijdvak opnieuw in. Wij blijven dit doen totdat u ingeloot wordt. Geen extra kosten — inbegrepen in uw pakket."],
+          ].map(([num, title, sub]) => (
+            <div key={num} className="next-step">
+              <div className="next-step-num">{num}</div>
+              <div className="next-step-body">
+                <div className="next-step-title">{title}</div>
+                <div className="next-step-sub">{sub}</div>
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
 
         <div className="summary">
           <div className="sum-lbl">Betalingsoverzicht</div>
