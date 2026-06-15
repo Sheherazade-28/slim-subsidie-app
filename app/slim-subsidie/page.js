@@ -977,7 +977,7 @@ export default function SlimSubsidiePage() {
           />
           <div style={{ marginTop: 20, fontSize: 14 }}>
             <Link href="/faq" style={{ color: "var(--blue)", textDecoration: "none", fontWeight: 600 }}>
-              Meer vragen? Bekijk alle FAQ →
+              Meer vragen? Bekijk alle veelgestelde vragen →
             </Link>
           </div>
         </div>
