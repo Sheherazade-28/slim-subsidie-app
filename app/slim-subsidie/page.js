@@ -59,7 +59,7 @@ const faqSchema = {
       name: "Wie kan individuele SLIM-subsidie aanvragen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven in de landbouw-, horeca- en recreatiesector mogen ook zelfstandig aanvragen.",
+        text: "MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven kunnen per 2025 niet meer individueel aanvragen; deelname is uitsluitend mogelijk als partner in een samenwerkingsverband.",
       },
     },
     {
@@ -412,11 +412,11 @@ export default function SlimSubsidiePage() {
                 ],
               },
               {
-                tag: "Uitzondering grootbedrijf",
+                tag: "Grootbedrijven",
                 cls: "c",
                 items: [
-                  `Landbouw, horeca & recreatie: individueel aanvragen (max. ${fmtEur(SUBSIDIE.maxBedragLandbouw)})`,
-                  "Overige grootbedrijven: alleen via samenwerkingsverband",
+                  "Kunnen per 2025 niet meer individueel aanvragen",
+                  "Deelname uitsluitend als partner in samenwerkingsverband (minimaal 2 MKB-partners)",
                 ],
               },
             ].map(({ tag, cls, items }) => (
@@ -955,7 +955,7 @@ export default function SlimSubsidiePage() {
               },
               {
                 q: "Wie kan individuele SLIM-subsidie aanvragen?",
-                a: `MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven in de landbouw-, horeca- en recreatiesector mogen ook zelfstandig aanvragen.`,
+                a: `MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven kunnen per 2025 niet meer individueel aanvragen. Deelname is uitsluitend mogelijk als partner in een samenwerkingsverband.`,
               },
               {
                 q: "Hoeveel subsidie kan ik krijgen?",

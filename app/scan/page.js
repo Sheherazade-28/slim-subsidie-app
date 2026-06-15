@@ -27,11 +27,10 @@ const VRAGEN = [
   {
     id: "mkb",
     vraag: "Valt uw bedrijf binnen het midden- en kleinbedrijf (MKB)?",
-    subtekst: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln. Uitzondering: grootbedrijf in landbouw, horeca of recreatie mag ook aanvragen.",
+    subtekst: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln.",
     opties: [
       { v: "ja", l: "Ja, wij zijn een MKB-onderneming" },
-      { v: "uitzondering", l: "Nee, maar wij zijn grootbedrijf in landbouw, horeca of recreatie" },
-      { v: "nee", l: "Nee, wij vallen buiten het MKB" },
+      { v: "nee", l: "Nee, wij vallen buiten het MKB (grootbedrijf)" },
     ],
   },
   {
@@ -66,7 +65,7 @@ const VRAGEN = [
 
 const NIET_KANSRIJK_REDEN = {
   personeel: "De SLIM-subsidie vereist minimaal één werknemer met een arbeidscontract. ZZP'ers en DGA's zonder personeel komen niet in aanmerking.",
-  mkb: "De SLIM-subsidie is alleen beschikbaar voor MKB-ondernemingen en grootbedrijven in landbouw, horeca of recreatie.",
+  mkb: "De SLIM-subsidie is uitsluitend voor MKB-ondernemingen. Grootbedrijven kunnen per 2025 niet meer individueel aanvragen. Deelname is uitsluitend mogelijk als partner in een samenwerkingsverband.",
   nederland: "Uw bedrijf en activiteiten moeten in Nederland gevestigd en actief zijn.",
   gestart: "Activiteiten die al zijn gestart vóór subsidieverlening komen niet in aanmerking. U kunt wel aanvragen voor toekomstige activiteiten.",
   deminimis: "Bij meer dan €300.000 staatssteun in de afgelopen 3 jaar kunt u mogelijk geen de-minimissteun meer ontvangen.",
@@ -119,7 +118,7 @@ export default function ScanPage() {
   // Landbouwvraag verschijnt als Q1–Q5 allemaal positief zijn beantwoord
   const toonLandbouw =
     antwoorden.personeel === "ja" &&
-    (antwoorden.mkb === "ja" || antwoorden.mkb === "uitzondering") &&
+    antwoorden.mkb === "ja" &&
     antwoorden.nederland === "ja" &&
     antwoorden.gestart === "nee" &&
     (antwoorden.deminimis === "nee" || antwoorden.deminimis === "weet-niet");

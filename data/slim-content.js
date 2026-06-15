@@ -178,18 +178,14 @@ export const QUESTIONS = [
   {
     id: "size",
     label: "Valt uw bedrijf binnen het midden- en kleinbedrijf (mkb)?",
-    hint: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln. Uitzondering: grootbedrijf in landbouw, horeca of recreatie mag ook aanvragen.",
+    hint: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln.",
     options: [
       { v: "yes", l: "Ja, wij zijn een mkb-onderneming" },
-      {
-        v: "groot",
-        l: "Nee, maar wij zijn grootbedrijf in landbouw, horeca of recreatie",
-      },
-      { v: "no", l: "Nee, wij vallen buiten het mkb" },
+      { v: "no", l: "Nee, wij vallen buiten het mkb (grootbedrijf)" },
     ],
     ko: "no",
     koMsg:
-      "SLIM-subsidie is uitsluitend voor mkb-ondernemingen of grootbedrijven in de landbouw-, horeca- of recreatiesector.",
+      "SLIM-subsidie is uitsluitend voor mkb-ondernemingen. Grootbedrijven kunnen per 2025 uitsluitend deelnemen via een samenwerkingsverband.",
   },
   {
     id: "netherlands",
@@ -420,7 +416,7 @@ export const FAQ_SLIM_SUBSIDIE = [
   },
   {
     q: "Kan een grootbedrijf ook SLIM-subsidie aanvragen?",
-    a: "Grootbedrijven kunnen alleen deelnemen via een samenwerkingsverband met minimaal één MKB-onderneming. Een uitzondering geldt voor grootbedrijven in de landbouw, horeca en recreatiesector — zij mogen ook individueel aanvragen.",
+    a: "Grootbedrijven kunnen per 2025 niet meer individueel SLIM-subsidie aanvragen. De uitzondering voor grootbedrijven in de landbouw-, horeca- en recreatiesector is per 2025 komen te vervallen. Deelname is uitsluitend mogelijk als partner in een samenwerkingsverband met minimaal twee MKB-ondernemingen. De penvoerder van een samenwerkingsverband moet altijd een MKB-onderneming zijn.",
   },
   {
     q: "Kan ik meerdere activiteiten combineren in één aanvraag?",

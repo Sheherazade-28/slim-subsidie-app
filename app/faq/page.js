@@ -15,7 +15,7 @@ const CATEGORIEEN = [
     vragen: [
       {
         q: "Wat is de SLIM-subsidie?",
-        a: "De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in Mkb-ondernemingen) is een overheidsregeling van het Ministerie van Sociale Zaken en Werkgelegenheid. De regeling vergoedt 60% van uw investering in leren en ontwikkelen, tot €25.000 per aanvraag voor individuele MKB-ondernemingen. Ingevoerd in 2020, actief tot en met 2029.",
+        a: "De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in Mkb-ondernemingen) is een overheidsregeling van het Ministerie van Sociale Zaken en Werkgelegenheid. De regeling vergoedt 60% van uw investering in leren en ontwikkelen, tot €25.000 per aanvraag voor individuele MKB-ondernemingen. Ingevoerd in 2020, actief tot en met 2029. De SLIM-regeling kent ook een variant voor samenwerkingsverbanden van minimaal twee MKB-ondernemingen. Samenwerkingsverbanden kunnen tot €500.000 subsidie aanvragen (tot €200.000 per deelnemende partner), met Activiteit C (L&O-methode) als verplicht onderdeel en een looptijd van maximaal 24 maanden. Het tijdvak voor samenwerkingsverbanden in 2026 liep van 22 juni tot en met 20 juli 2026.",
       },
       {
         q: "Wie voert de SLIM-subsidie uit?",
@@ -23,7 +23,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Tot wanneer is de SLIM-subsidie beschikbaar?",
-        a: "De SLIM-regeling loopt tot en met 2029. Er zijn jaarlijks meerdere aanvraagtijdvakken. In 2026 zijn twee tijdvakken voor individueel MKB gepland. Tijdvak 2 opent op 10 augustus 2026 en sluit op 7 september 2026.",
+        a: "De SLIM-regeling loopt tot en met 2029. Er zijn jaarlijks meerdere aanvraagtijdvakken. In 2026 zijn twee tijdvakken voor individueel MKB gepland. Tijdvak 2 opent op 10 augustus 2026 en sluit op 7 september 2026. Voor samenwerkingsverbanden geldt een apart jaarlijks tijdvak in juni. In 2026 liep dit van 22 juni tot en met 20 juli 2026 (gesloten).",
       },
       {
         q: "Wat is het verschil tussen een individuele aanvraag en een samenwerkingsverband?",
@@ -36,7 +36,7 @@ const CATEGORIEEN = [
     vragen: [
       {
         q: "Wie kan individuele SLIM-subsidie aanvragen?",
-        a: "MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven in de landbouw-, horeca- en recreatiesector mogen ook zelfstandig aanvragen.",
+        a: "MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven kunnen per 2025 niet meer individueel aanvragen; deelname is uitsluitend mogelijk als partner in een samenwerkingsverband.",
       },
       {
         q: "Ik ben ZZP-er. Kom ik in aanmerking?",
@@ -54,6 +54,10 @@ const CATEGORIEEN = [
         q: "Mag een holding of groep van BV's aanvragen?",
         a: "Ja, maar bij verbonden en gelieerde ondernemingen worden alle entiteiten samengeteld voor de MKB-toets. Een holding met meerdere BV's telt als geheel. De subsidiabele activiteiten moeten betrekking hebben op werknemers van de aanvragende entiteit. Per tijdvak mag elke rechtspersoon maximaal één aanvraag indienen.",
       },
+      {
+        q: "Wie kan SLIM-subsidie aanvragen voor een samenwerkingsverband?",
+        a: "Een samenwerkingsverband bestaat uit minimaal twee MKB-ondernemingen. Aanvullend kunnen brancheorganisaties, onderwijsinstellingen, O&O-fondsen en werknemers- of werkgeversverenigingen deelnemen als partner. Activiteit C (L&O-methode) is verplicht onderdeel van elke aanvraag voor een samenwerkingsverband. Minimale subsidiabele projectomvang: €210.000. Grootbedrijven kunnen uitsluitend als partner deelnemen — niet als penvoerder. SLIM Subsidie Advies richt zich primair op individuele MKB-aanvragen; begeleiding bij samenwerkingsverbanden is beschikbaar op aanvraag.",
+      },
     ],
   },
   {
@@ -61,7 +65,7 @@ const CATEGORIEEN = [
     vragen: [
       {
         q: "Hoeveel subsidie kan ik krijgen?",
-        a: "Individuele MKB-ondernemingen ontvangen 60% van de subsidiabele kosten, tot €25.000 per aanvraag. Voor landbouwbedrijven geldt een maximum van €20.000. Voor activiteiten A en C geldt een minimale subsidie van €5.000, wat een projectomvang van minimaal €8.334 vereist. Activiteit B vergoedt €700 per afgerond loopbaantraject, zonder minimumdrempel.",
+        a: "Individueel MKB: 60% van subsidiabele kosten, tot €25.000 per aanvraag (landbouwbedrijven: tot €20.000). Minimale subsidie voor activiteiten A en C: €5.000 (projectomvang vanaf €8.334). Activiteit B: €700 vaste vergoeding per afgerond loopbaantraject, geen minimumdrempel. Samenwerkingsverbanden: tot €500.000 per aanvraag totaal (maximaal €200.000 per deelnemende partner), eveneens 60% van subsidiabele kosten.",
       },
       {
         q: "Welke kosten zijn subsidiabel?",
@@ -115,7 +119,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Wat gebeurt er na inloting?",
-        a: "Na inloting beoordeelt RVO de aanvraag inhoudelijk binnen 13 weken na sluiting van het tijdvak. Bij toekenning ontvangt u direct 50% als voorschot. Na afronding van het project en goedkeuring van uw eindverslag wordt het resterende bedrag uitbetaald.",
+        a: "Individueel MKB: na inloting beoordeelt RVO uw aanvraag inhoudelijk binnen 13 weken. Bij toekenning ontvangt u direct 50% voorschot. Inloting is een noodzakelijke voorwaarde voor inhoudelijke beoordeling — geen garantie op toekenning. Samenwerkingsverbanden: per 31 maart 2026 geldt ook voor samenwerkingsverbanden een lotingssysteem (Staatscourant stcrt-2026-13249). Na inloting volgt inhoudelijke beoordeling door RVO.",
       },
       {
         q: "Kan ik meerdere aanvragen indienen voor dezelfde onderneming in hetzelfde tijdvak?",
@@ -123,7 +127,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Is er een voordeel aan vroeg indienen binnen het tijdvak?",
-        a: "Nee. De loting is aselect — het tijdstip van indiening binnen het tijdvak heeft geen invloed op uw lotkans. Wat wel telt: een complete en foutloze aanvraag. Van de aanvragen in tijdvak 1 2026 werden er meerdere al vóór de loting afgekeurd wegens vermijdbare fouten.",
+        a: "Nee. Voor zowel individueel MKB als samenwerkingsverbanden geldt een aselecte loting. Het tijdstip van indiening heeft geen invloed op uw lotkans. Wat wél telt: een complete, foutloze aanvraag — aanvragen met vermijdbare fouten worden al vóór de loting afgekeurd. Per 31 maart 2026 geldt ook voor samenwerkingsverbanden een lotingssysteem (eerder volgorde van binnenkomst).",
       },
     ],
   },
@@ -132,11 +136,11 @@ const CATEGORIEEN = [
     vragen: [
       {
         q: "Wanneer kan ik SLIM-subsidie aanvragen?",
-        a: "SLIM-subsidie kan uitsluitend worden aangevraagd tijdens openstaande tijdvakken. In 2026 zijn voor individueel MKB twee tijdvakken gepland. Tijdvak 1 is gesloten. Tijdvak 2 opent op 10 augustus 2026 en sluit op 7 september 2026. Begin minimaal 4 weken voor sluiting met de voorbereiding.",
+        a: "Individueel MKB: Tijdvak 1 2026 was 7 april t/m 4 mei 2026 (gesloten). Tijdvak 2 opent 10 augustus 2026 om 09:00 en sluit 7 september 2026 om 17:00. Aanvragen uitsluitend via mijnuitvoeringvanbeleidszw.nl, binnen het openstaande tijdvak. Begin minimaal 4 weken vóór sluiting met de voorbereiding. Samenwerkingsverbanden: in 2026 één tijdvak, van 22 juni t/m 20 juli 2026 (gesloten). Dit tijdvak valt elk jaar in juni.",
       },
       {
         q: "Welke documenten heb ik nodig voor de aanvraag?",
-        a: "Voor de aanvraag heeft u nodig: (1) activiteitenplan op het RVO-model (verplicht), (2) begroting op het RVO-model (verplicht), (3) MKB-verklaring, (4) de-minimisverklaring, (5) kopie bankafschrift op naam van de onderneming. Voor Activiteit A en B zijn aanvullende bijlagen verplicht na uitvoering.",
+        a: "Alle aanvragers: activiteitenplan (RVO-model), begroting (RVO-model), MKB-verklaring, de-minimisverklaring, kopie bankafschrift. Aanvullend voor samenwerkingsverbanden: samenwerkingsovereenkomst en eventueel een machtigingsformulier (indien penvoerder namens het verband indient). Bij Activiteit A en C: opleidings- of ontwikkelplan als bijlage. Bij Activiteit B: tweezijdig getekende prestatieverklaringen per deelnemer vereist bij vaststelling. Formats via uitvoeringvanbeleidszw.nl onder 'Uitvoeren en verantwoorden'.",
       },
       {
         q: "Hoe dien ik een aanvraag in?",
@@ -145,6 +149,10 @@ const CATEGORIEEN = [
       {
         q: "Mag ik al starten met activiteiten vóór de subsidiebeschikking?",
         a: "Nee. Activiteiten mogen nog niet gestart zijn vóór de datum van de subsidiebeschikking. Kosten gemaakt vóór de beschikking zijn niet subsidiabel en kunnen leiden tot afwijzing. Wacht met starten tot u de beschikking heeft ontvangen.",
+      },
+      {
+        q: "Moet ik na afloop een verantwoording indienen?",
+        a: "Individueel MKB: nee, niet standaard. Subsidies tot €25.000 worden ambtshalve vastgesteld — u hoeft geen verzoek tot vaststelling in te dienen en geen financiële administratie bij te houden. RVO voert wel steekproefcontroles uit. Bewaar voor de zekerheid documentatie van uw activiteiten: bij Activiteit A het opleidings- of ontwikkelplan, bij Activiteit B tweezijdig getekende prestatieverklaringen per deelnemer, bij Activiteit C documentatie van de gerealiseerde methode. Samenwerkingsverbanden: altijd een formeel verzoek tot vaststelling indienen na afloop van het project.",
       },
     ],
   },
@@ -161,7 +169,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Wanneer ontvang ik het voorschot?",
-        a: "Bij toekenning van de subsidie ontvangt u direct 50% van het toegekende bedrag als voorschot. Het resterende bedrag wordt uitbetaald na afronding van het project en goedkeuring van uw eindverslag door RVO.",
+        a: "Individueel MKB: bij toekenning ontvangt u automatisch 50% als voorschot — u hoeft hier niet apart om te vragen. Subsidies tot €25.000 worden ambtshalve vastgesteld: u hoeft na afloop geen verzoek tot vaststelling in te dienen en geen financiële administratie bij te houden, tenzij uw aanvraag in een steekproef valt. Samenwerkingsverbanden: 25% voorschot bij verlening; na indiening van een tussentijds voortgangsverslag kan aanvullend 50% worden aangevraagd. Vaststelling altijd via een formeel verzoek na afloop.",
       },
       {
         q: "Sommige adviseurs zeggen dat ik 80% subsidie kan krijgen. Klopt dat?",
