@@ -147,6 +147,7 @@ export default function WatIsSlimPage() {
               ["#voor-wie", "Voor wie?"],
               ["#individueel-of-samenwerking", "Individueel of samenwerking?"],
               ["#activiteiten", "Activiteiten"],
+              ["#aanvraagproces", "Hoe werkt de aanvraag?"],
               ["#niet-subsidiabel", "Uitsluitingen"],
               ["#berekening", "Berekening"],
               ["#loting", "Loting"],
@@ -426,6 +427,49 @@ export default function WatIsSlimPage() {
           <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
             Start gratis quickscan →
           </Link>
+        </div>
+      </div>
+
+      {/* ── AANVRAAGPROCES ── */}
+      <div id="aanvraagproces" style={{ background: "var(--white)", ...s.sectie }}>
+        <div style={s.inner}>
+          <div style={s.slbl}>Aanvraagproces</div>
+          <h2 style={s.h2}>Hoe werkt de aanvraag?</h2>
+          <div className="hp-how-grid" style={{ gap: 16, marginTop: 28, gridTemplateColumns: "repeat(5, 1fr)" }}>
+            {[
+              [
+                "1",
+                "Quickscan & analyse",
+                "Doe de gratis quickscan. Positief resultaat? Reserveer uw aanvraagplaats en ontvang direct een persoonlijke AI-diepteanalyse.",
+              ],
+              [
+                "2",
+                "Aanvraagdocumenten",
+                "Activiteitenplan (RVO-model verplicht), begroting (RVO-model verplicht), MKB-verklaring, de-minimisverklaring en kopie bankafschrift.",
+              ],
+              [
+                "3",
+                "Indienen via mijnuitvoering",
+                "Via mijnuitvoeringvanbeleidszw.nl, binnen het openstaande tijdvak. DigiD of eHerkenning vereist.",
+              ],
+              [
+                "4",
+                "Loting bij overintekening",
+                `Notariële loting bepaalt de behandelvolgorde. Van de ${LOTING.totaalIngediend.toLocaleString("nl-NL")} aanvragen tijdvak 1 2026 werd ~${LOTING.kansRuw}% ingeloot.`,
+              ],
+              [
+                "5",
+                "Beoordeling & beschikking",
+                `RVO beoordeelt binnen 13 weken na sluiting. Bij toekenning ontvangt u direct ${SUBSIDIE.voorschot * 100}% voorschot.`,
+              ],
+            ].map(([num, title, text]) => (
+              <div key={num} className="hp-how-card" style={{ height: "auto" }}>
+                <div className="hp-how-num">{num}</div>
+                <div className="hp-how-title">{title}</div>
+                <div className="hp-how-text">{text}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
