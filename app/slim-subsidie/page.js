@@ -180,8 +180,6 @@ export default function SlimSubsidiePage() {
                   ["Max. individueel MKB", fmtEur(SUBSIDIE.maxBedrag)],
                   ["Max. samenwerking", fmtEur(SUBSIDIE.maxBedragSamenwerking)],
                   ["Budget 2026 totaal", `€ ${BUDGET_2026.totaal / 1_000_000} mln`],
-                  ["Looptijd MKB", `${SUBSIDIE.looptijdMKB} maanden`],
-                  ["Voorschot bij toekenning", `${SUBSIDIE.voorschot * 100}%`],
                 ].map(([label, value]) => (
                   <div
                     key={label}
