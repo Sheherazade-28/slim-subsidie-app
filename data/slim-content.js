@@ -91,7 +91,7 @@ export const LOTING_TIJDVAKKEN = [
       },
       {
         titel: "Samenwerking — jun / jul 2026",
-        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 ook via loting (nieuw beleid).",
+        info: "Aanvragen van 22 jun t/m 20 jul 2026. Vanaf 2026 via loting — net als individueel MKB (Staatscourant 31 maart 2026, stcrt-2026-13249).",
       },
     ],
   },
@@ -425,6 +425,10 @@ export const FAQ_SLIM_SUBSIDIE = [
   {
     q: "Kan ik meerdere activiteiten combineren in één aanvraag?",
     a: "Ja, dat is mogelijk. Een SLIM-subsidieaanvraag kan bestaan uit meerdere activiteiten (artikel 2.8 lid 5 SLIM-regeling). U kunt bijvoorbeeld activiteit A (doorlichting) combineren met activiteit C (L&O-methode), of activiteit B (loopbaanadviezen) combineren met activiteit C. U mag per tijdvak maximaal één aanvraag indienen, maar die aanvraag mag meerdere activiteiten bevatten. Het maximale subsidiebedrag blijft tot €25.000 voor de gecombineerde aanvraag.",
+  },
+  {
+    q: "Kan ik meerdere aanvragen indienen voor dezelfde onderneming in hetzelfde tijdvak?",
+    a: "Nee. Per aanvraagtijdvak wordt maximaal één aanvraag per onderneming in behandeling genomen (artikel 2.8 lid 4 SLIM-regeling). Een tweede aanvraag in hetzelfde tijdvak wordt geweigerd. Wilt u meerdere activiteiten subsidiëren? Combineer ze in één aanvraag. U kunt activiteiten A, B en C combineren binnen één aanvraag — het maximale subsidiebedrag blijft tot €25.000 voor de gecombineerde aanvraag.",
   },
 ];
 

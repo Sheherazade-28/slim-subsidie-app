@@ -43,7 +43,7 @@ export default function HomePage() {
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
               <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
-              <Link href="/slim" className="hp-btn-s">Meer over SLIM-subsidie</Link>
+              <Link href="/slim-subsidie" className="hp-btn-s">Meer over SLIM-subsidie</Link>
             </div>
             <div className="hp-stats">
               <div><div className="hp-stat-num">tot €<em>{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")}</em></div><div className="hp-stat-lbl">subsidie</div></div>
@@ -143,17 +143,9 @@ export default function HomePage() {
         <div className="hp-si">
           <div className="hp-slbl">De SLIM-regeling</div>
           <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
-          <p className="hp-ssub">De SLIM-subsidie vergoedt {SUBSIDIE.percentage}% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers, tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")}. Landbouwbedrijven: max. €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")}. Beschikbaar voor alle MKB-ondernemingen met personeel in loondienst. De regeling loopt tot eind 2029.</p>
-          <div className="hp-act-grid">
-            <div className="hp-act-card"><div className="hp-act-tag a">Activiteit A</div><div className="hp-act-title">Doorlichting → Opleidings- of ontwikkelplan</div><div className="hp-act-desc">Een externe adviseur brengt de scholingsbehoefte in kaart en stelt een concreet plan op.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Leercultuurscan</span><span className="hp-act-tag-sm">Opleidingsplan</span><span className="hp-act-tag-sm">HR-strategie</span></div></div>
-            <div className="hp-act-card"><div className="hp-act-tag b">Activiteit B</div><div className="hp-act-title">Loopbaan- of ontwikkeladviezen voor werknemers</div><div className="hp-act-desc">Individuele adviezen via een gecertificeerde loopbaanadviseur voor uw medewerkers.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Loopbaangesprekken</span><span className="hp-act-tag-sm">POP-traject</span><span className="hp-act-tag-sm">Talentassessment</span></div></div>
-            <div className="hp-act-card"><div className="hp-act-tag c">Activiteit C</div><div className="hp-act-title">Ontwikkelen of invoeren van een L&O-methode</div><div className="hp-act-desc">Structurele methode die medewerkers stimuleert kennis te blijven ontwikkelen op de werkvloer.</div><div className="hp-act-tags"><span className="hp-act-tag-sm">Online leerportal</span><span className="hp-act-tag-sm">Bedrijfsschool</span><span className="hp-act-tag-sm">Videoserie</span></div></div>
-          </div>
-          <div className="hp-req-label">Subsidievereisten per activiteit</div>
-          <div className="hp-req-grid">
-            <div className="hp-req-card"><div className="hp-act-tag a">Activiteit A</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: opleidings- of ontwikkelplan als eindproduct</span></li></ul></div>
-            <div className="hp-req-card"><div className="hp-act-tag b">Activiteit B</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Subsidie: <strong>€{SUBSIDIE.loopbaanVergoeding}</strong> per afgerond loopbaantraject</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Min. contacttijd: <strong>4 uur</strong> per deelnemer</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: Noloc Register Loopbaanprofessional certificering adviseur</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: prestatieverklaring getekend door adviseur én deelnemer</span></li></ul></div>
-            <div className="hp-req-card"><div className="hp-act-tag c">Activiteit C</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: producten van de gerealiseerde L&amp;O-methode als eindproduct</span></li></ul></div>
+          <p className="hp-ssub">De SLIM-subsidie vergoedt {SUBSIDIE.percentage}% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers — tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")} per aanvraag. Beschikbaar via drie activiteiten: doorlichting van uw organisatie (A), loopbaanadviezen per medewerker (B) en het invoeren van een structurele leer- en ontwikkelmethode (C). De regeling loopt tot en met 2029 en staat open voor alle MKB-ondernemingen met minimaal één werknemer in loondienst.</p>
+          <div style={{marginTop:20}}>
+            <Link href="/slim-subsidie" className="hp-btn-s" style={{color:"var(--navy)",borderColor:"rgba(13,46,90,0.3)",background:"var(--white)"}}>Meer over de SLIM-subsidie →</Link>
           </div>
         </div>
       </div>
@@ -268,7 +260,7 @@ export default function HomePage() {
             <div>
               <div className="hp-ft-h">Navigatie</div>
               <ul className="hp-ft-links">
-                <li><Link href="/slim">Wat is SLIM-subsidie?</Link></li>
+                <li><Link href="/slim-subsidie">Wat is SLIM-subsidie?</Link></li>
                 <li><Link href="/waarom-wij">Waarom via ons?</Link></li>
                 <li><Link href="/cases">Praktijkvoorbeelden</Link></li>
                 <li><Link href="/team">Ons team</Link></li>

@@ -68,7 +68,7 @@ export default function SlimSubsidieResultatenPage() {
               [STATE_OF_SLIM.samenwerkingsverbanden.toLocaleString("nl-NL"), "samenwerkingsverbanden", "b"],
               [`€${totaleSubsidieM}M`, "totale toegekende subsidie 2020–2024", "g"],
             ].map(([n, lbl, kleur]) => (
-              <div key={lbl} className="hp-l-card">
+              <div key={lbl} className="hp-l-card" style={{ background: "var(--navy)", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div className={`hp-l-num ${kleur}`}>{n}</div>
                 <div className="hp-l-lbl">{lbl}</div>
               </div>
