@@ -70,7 +70,7 @@ const NIET_KANSRIJK_REDEN = {
   nederland: "Uw bedrijf en activiteiten moeten in Nederland gevestigd en actief zijn.",
   gestart: "Activiteiten die al zijn gestart vóór subsidieverlening komen niet in aanmerking. U kunt wel aanvragen voor toekomstige activiteiten.",
   deminimis: "Bij meer dan €300.000 staatssteun in de afgelopen 3 jaar kunt u mogelijk geen de-minimissteun meer ontvangen.",
-  investering: `De minimale subsidiabele investering is €${MIN_KANSRIJK.toLocaleString("nl-NL")} voor activiteiten A en C.`,
+  investering: `Voor activiteiten A en C geldt een minimale subsidie van €${MIN_KANSRIJK.toLocaleString("nl-NL")}, wat een projectomvang van minimaal €${SUBSIDIE.minProjectomvang.toLocaleString("nl-NL")} vereist.`,
 };
 
 function bepaalUitslag(antwoorden) {
@@ -263,7 +263,7 @@ export default function ScanPage() {
                 <div className="q-block">
                   <div className="q-label"><span className="q-num">7</span>Wat is de verwachte totale investering in leer- en ontwikkelactiviteiten?</div>
                   <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10, lineHeight: 1.5 }}>
-                    Uren medewerkers + externe kosten. Minimaal €{MIN_KANSRIJK.toLocaleString("nl-NL")} aan subsidiabele kosten vereist voor activiteiten A en C.
+                    Uren medewerkers + externe kosten. De minimale subsidie voor activiteiten A en C bedraagt €{MIN_KANSRIJK.toLocaleString("nl-NL")}. Dit vereist een projectomvang van minimaal €{SUBSIDIE.minProjectomvang.toLocaleString("nl-NL")} (bij {SUBSIDIE.percentage}% subsidie).
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                     <span style={{ fontSize: 15, fontWeight: 600, color: "var(--navy)" }}>€</span>
@@ -284,7 +284,7 @@ export default function ScanPage() {
                       color: invBedrag < MIN_KANSRIJK ? "#b45309" : "#1a56db",
                     }}>
                       {invBedrag < MIN_KANSRIJK
-                        ? `Minimale subsidiabele investering is €${MIN_KANSRIJK.toLocaleString("nl-NL")} voor activiteiten A en C.`
+                        ? `Voor activiteiten A en C geldt een minimale subsidie van €${MIN_KANSRIJK.toLocaleString("nl-NL")}, wat een projectomvang van minimaal €${SUBSIDIE.minProjectomvang.toLocaleString("nl-NL")} vereist.`
                         : indicatiefSubsidie >= maxSubsidie
                           ? `Indicatief subsidiebedrag: tot €${maxSubsidie.toLocaleString("nl-NL")} (maximum${isLandbouwBedrijf ? " landbouwbedrijven" : ""})`
                           : `Indicatief subsidiebedrag: tot €${indicatiefSubsidie.toLocaleString("nl-NL")}`

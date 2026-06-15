@@ -21,7 +21,8 @@ const STATUS_MAP = {
   volgt:     { dotClass: "future", badgeClass: "closed", badgeText: "Volgt" },
 };
 
-const minInv = SUBSIDIE.minInvestering.toLocaleString("nl-NL");
+const minInv = SUBSIDIE.minProjectomvang.toLocaleString("nl-NL");
+const minSub = SUBSIDIE.minSubsidie.toLocaleString("nl-NL");
 const btwIncl = (PRICING.reserveringsfee * (1 + PRICING.btw)).toFixed(2).replace(".", ",");
 
 export default function HomePage() {
@@ -150,9 +151,9 @@ export default function HomePage() {
           </div>
           <div className="hp-req-label">Subsidievereisten per activiteit</div>
           <div className="hp-req-grid">
-            <div className="hp-req-card"><div className="hp-act-tag a">Activiteit A</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Min. investering: <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: opleidings- of ontwikkelplan als eindproduct</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Geen Noloc-certificering vereist</span></li></ul></div>
+            <div className="hp-req-card"><div className="hp-act-tag a">Activiteit A</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: opleidings- of ontwikkelplan als eindproduct</span></li></ul></div>
             <div className="hp-req-card"><div className="hp-act-tag b">Activiteit B</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Subsidie: <strong>€{SUBSIDIE.loopbaanVergoeding}</strong> per afgerond loopbaantraject</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Min. contacttijd: <strong>4 uur</strong> per deelnemer</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: Noloc Register Loopbaanprofessional certificering adviseur</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: prestatieverklaring getekend door adviseur én deelnemer</span></li></ul></div>
-            <div className="hp-req-card"><div className="hp-act-tag c">Activiteit C</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Min. investering: <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: producten van de gerealiseerde L&O-methode als eindproduct</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Geen Noloc-certificering vereist</span></li></ul></div>
+            <div className="hp-req-card"><div className="hp-act-tag c">Activiteit C</div><ul className="hp-req-list"><li className="hp-req-item"><span className="hp-req-dot" /><span>Minimale subsidie: <strong>€{minSub}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Benodigde projectomvang: vanaf <strong>€{minInv}</strong></span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Max. uurtarief adviseur: <strong>€{SUBSIDIE.maxUurtarief}</strong> excl. btw</span></li><li className="hp-req-item"><span className="hp-req-dot" /><span>Vereist: producten van de gerealiseerde L&amp;O-methode als eindproduct</span></li></ul></div>
           </div>
         </div>
       </div>

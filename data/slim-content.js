@@ -9,6 +9,8 @@ export const SUBSIDIE = {
   maxPerPartnerSamenwerking: 200000,
   minInvestering: 8334,
   minSubsidiabeleKostenAC: 5000,
+  minSubsidie: 5000,
+  minProjectomvang: 8334,
   forfaireOpslag: 0.15,
   opslagInterneLoonkosten: 0.32,
   werkbareUren: 1720,
@@ -270,7 +272,7 @@ export const ACTIVITEITEN = [
       "Strategisch HR-plan",
       "Competentiescan",
     ],
-    min: "Minimale investering: €8.334 · Minimale subsidie: €5.000",
+    min: "Minimale subsidie: €5.000 · Benodigde projectomvang: vanaf €8.334",
   },
   {
     id: "B",
@@ -300,7 +302,7 @@ export const ACTIVITEITEN = [
       "Workshops en kennissessies",
       "Cursusmateriaal en -modules",
     ],
-    min: "Minimale investering: €8.334 · Minimale subsidie: €5.000",
+    min: "Minimale subsidie: €5.000 · Benodigde projectomvang: vanaf €8.334",
   },
 ];
 
