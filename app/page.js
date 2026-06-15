@@ -145,7 +145,7 @@ export default function HomePage() {
           <h2 className="hp-stitle">Wat is SLIM-subsidie?</h2>
           <p className="hp-ssub">De SLIM-subsidie vergoedt {SUBSIDIE.percentage}% van uw investering in leren, opleiden en ontwikkelen van uw medewerkers — tot €{SUBSIDIE.maxBedrag.toLocaleString("nl-NL")} per aanvraag. Beschikbaar via drie activiteiten: doorlichting van uw organisatie (A), loopbaanadviezen per medewerker (B) en het invoeren van een structurele leer- en ontwikkelmethode (C). De regeling loopt tot en met 2029 en staat open voor alle MKB-ondernemingen met minimaal één werknemer in loondienst.</p>
           <div style={{marginTop:20}}>
-            <Link href="/slim-subsidie" className="hp-btn-s">Meer over de SLIM-subsidie →</Link>
+            <Link href="/slim-subsidie" className="hp-btn-s" style={{color:"var(--navy)",borderColor:"rgba(13,46,90,0.3)",background:"var(--white)"}}>Meer over de SLIM-subsidie →</Link>
           </div>
         </div>
       </div>

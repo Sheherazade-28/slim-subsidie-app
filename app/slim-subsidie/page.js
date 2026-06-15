@@ -571,7 +571,7 @@ export default function SlimSubsidiePage() {
           <div className="hp-slbl">Aanvraagproces</div>
           <h2 className="hp-stitle">Hoe verloopt de aanvraag?</h2>
 
-          <div className="hp-how-grid" style={{ gap: 20, marginTop: 28 }}>
+          <div className="hp-how-grid" style={{ gap: 16, marginTop: 28, gridTemplateColumns: "repeat(5, 1fr)" }}>
             {[
               [
                 "1",
