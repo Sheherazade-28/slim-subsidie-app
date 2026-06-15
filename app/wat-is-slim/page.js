@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/layout/Navigation";
+import FAQAccordeon from "@/components/ui/FAQAccordeon";
 import {
   SUBSIDIE,
   PRICING,
@@ -84,6 +85,14 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Ja. Artikel 2.8 lid 5 van de SLIM-regeling staat combinaties van activiteiten toe in één aanvraag. Zo kunt u activiteit A (doorlichting) combineren met activiteit C (L&O-methode), of activiteit B (loopbaanadvies) met activiteit C. Het maximale subsidiebedrag van tot €25.000 geldt voor de gecombineerde aanvraag.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Kan ik meerdere aanvragen indienen voor dezelfde onderneming in hetzelfde tijdvak?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Nee. Per aanvraagtijdvak wordt maximaal één aanvraag per onderneming in behandeling genomen (artikel 2.8 lid 4 SLIM-regeling). Een tweede aanvraag in hetzelfde tijdvak wordt geweigerd. Wilt u meerdere activiteiten subsidiëren? Combineer ze in één aanvraag. U kunt activiteiten A, B en C combineren binnen één aanvraag — het maximale subsidiebedrag blijft tot €25.000 voor de gecombineerde aanvraag.",
       },
     },
   ],
@@ -1495,7 +1504,48 @@ export default function WatIsSlimPage() {
         </div>
       </div>
 
-      {/* ── 12. CONVERSIE-ELEMENT B ── */}
+      {/* ── 12. FAQ ── */}
+      <div style={{ background: "var(--off)", ...s.sectie }}>
+        <div style={s.inner}>
+          <div style={s.slbl}>Veelgestelde vragen</div>
+          <h2 style={s.h2}>FAQ — SLIM-subsidie</h2>
+          <FAQAccordeon
+            items={[
+              {
+                q: "Wat is de SLIM-subsidie?",
+                a: `De SLIM-subsidie (Stimuleringsregeling Leren en Ontwikkelen in Mkb-ondernemingen) is een overheidsregeling van het Ministerie van Sociale Zaken en Werkgelegenheid. De regeling vergoedt ${SUBSIDIE.percentage}% van uw investering in leren en ontwikkelen, tot ${fmtEur(SUBSIDIE.maxBedrag)} per aanvraag voor individuele MKB-ondernemingen. De regeling is actief van 2020 tot en met 2029.`,
+              },
+              {
+                q: "Wie kan individuele SLIM-subsidie aanvragen?",
+                a: "MKB-ondernemingen met minimaal één werknemer in loondienst, gevestigd en actief in Nederland. De MKB-definitie volgt de EU-norm: minder dan 250 medewerkers én een jaaromzet van maximaal €50 miljoen of een balanstotaal van maximaal €43 miljoen. Grootbedrijven in de landbouw-, horeca- en recreatiesector mogen ook zelfstandig aanvragen.",
+              },
+              {
+                q: "Hoeveel subsidie kan ik krijgen?",
+                a: `Individuele MKB-ondernemingen ontvangen ${SUBSIDIE.percentage}% van de subsidiabele kosten, tot ${fmtEur(SUBSIDIE.maxBedrag)} per aanvraag. Landbouwbedrijven: tot ${fmtEur(SUBSIDIE.maxBedragLandbouw)}. Voor activiteiten A en C geldt een minimale subsidie van ${fmtEur(SUBSIDIE.minSubsidie)}, wat een projectomvang van minimaal ${fmtEur(SUBSIDIE.minProjectomvang)} vereist. Activiteit B vergoedt ${fmtEur(SUBSIDIE.loopbaanVergoeding)} per afgerond loopbaantraject, zonder minimumdrempel.`,
+              },
+              {
+                q: "Kan ik meerdere activiteiten combineren in één aanvraag?",
+                a: `Ja, dat is mogelijk. Een SLIM-subsidieaanvraag kan bestaan uit meerdere activiteiten (artikel 2.8 lid 5 SLIM-regeling). U kunt bijvoorbeeld activiteit A combineren met activiteit C, of activiteit B met activiteit C. U mag per tijdvak maximaal één aanvraag indienen, maar die aanvraag mag meerdere activiteiten bevatten. Het maximale subsidiebedrag blijft tot ${fmtEur(SUBSIDIE.maxBedrag)} voor de gecombineerde aanvraag.`,
+              },
+              {
+                q: "Kan ik meerdere aanvragen indienen voor dezelfde onderneming in hetzelfde tijdvak?",
+                a: `Nee. Per aanvraagtijdvak wordt maximaal één aanvraag per onderneming in behandeling genomen (artikel 2.8 lid 4 SLIM-regeling). Een tweede aanvraag in hetzelfde tijdvak wordt geweigerd. Wilt u meerdere activiteiten subsidiëren? Combineer ze in één aanvraag. U kunt activiteiten A, B en C combineren binnen één aanvraag — het maximale subsidiebedrag blijft tot ${fmtEur(SUBSIDIE.maxBedrag)} voor de gecombineerde aanvraag.`,
+              },
+              {
+                q: "Wat is het verschil tussen individueel en samenwerking?",
+                a: `Individuele MKB-aanvragen gaan via loting bij overintekening, met een maximum van tot ${fmtEur(SUBSIDIE.maxBedrag)} en een looptijd van ${SUBSIDIE.looptijdMKB} maanden. Samenwerkingsverbanden van minimaal twee MKB-ondernemingen kunnen tot ${fmtEur(SUBSIDIE.maxBedragSamenwerking)} aanvragen (per partner tot ${fmtEur(SUBSIDIE.maxPerPartnerSamenwerking)}), met een looptijd van ${SUBSIDIE.looptijdSamenwerking} maanden. Per Staatscourant 31 maart 2026 gaan ook samenwerkingsverbanden via loting. Activiteit C is bij samenwerkingsverbanden een verplicht onderdeel.`,
+              },
+            ]}
+          />
+          <div style={{ marginTop: 20, fontSize: 14 }}>
+            <Link href="/faq" style={{ color: "var(--blue)", textDecoration: "none", fontWeight: 600 }}>
+              Meer vragen? Bekijk alle FAQ →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ── 13. CONVERSIE-ELEMENT B ── */}
       <div className="hp-cta-section">
         <div className="hp-si">
           <div
