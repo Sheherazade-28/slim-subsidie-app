@@ -54,6 +54,17 @@ export default function SuccesPage() {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18179556600/kEERCJmq1cEcEPiJ2NxD',
+        value: 199,
+        currency: 'EUR',
+        transaction_id: ''
+      });
+    }
+  }, []);
+
   return (
     <div className="app">
       <header className="hdr">
