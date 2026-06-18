@@ -45,7 +45,7 @@ export async function POST(request) {
     amount: { value: bedragMollie, currency: "EUR" },
     description: omschrijving,
     redirectUrl: `${siteUrl}/succes`,
-    cancelUrl: `${siteUrl}/reserveren`,
+    cancelUrl: `${siteUrl}/reserveren/geannuleerd`,
     webhookUrl: `${siteUrl}/api/betaling/webhook`,
     method: methodeMap[methode] || "ideal",
     locale: "nl_NL",

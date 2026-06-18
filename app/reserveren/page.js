@@ -41,7 +41,7 @@ const INCLUSIEF = [
 const FAQ_ITEMS = (tv2CloseLabel) => [
   {
     v: "Wat gebeurt er na betaling?",
-    a: "U ontvangt direct een bevestigingsmail en wordt gebeld voor het intakegesprek binnen 5 werkdagen.",
+    a: "U ontvangt direct een bevestigingsmail en wordt gebeld voor het intakegesprek binnen 8 werkdagen.",
   },
   {
     v: "Kan ik de reserveringsfee terugkrijgen?",
