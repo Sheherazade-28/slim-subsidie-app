@@ -748,6 +748,11 @@ export default function SlimSubsidiePage() {
               </div>
             ))}
           </div>
+          <div style={{ marginTop: 20 }}>
+            <Link href="/slim-subsidie-aanvragen" style={{ fontSize: 14, fontWeight: 600, color: "var(--blue)", textDecoration: "none" }}>
+              Lees het volledige stappenplan →
+            </Link>
+          </div>
         </div>
       </div>
 
