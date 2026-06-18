@@ -63,6 +63,7 @@ Feature branches → Vercel preview deploy (automatisch)
 - Tijdvak 2 individueel MKB: 10 augustus t/m 7 september 2026
 - Tijdvak samenwerkingsverbanden 2026: 22 juni t/m 20 juli 2026
 - Behandeling samenwerkingsverbanden: loting per 31 maart 2026 (stcrt-2026-13249)
+- Voorschot: "binnen 6 weken 50%" (nooit "direct", nooit "direct uitbetaald", nooit "ontvangt u direct")
 - Diepteanalyse/dieptecheck: vervallen — niet meer vermelden
 
 ## Branchestrategie
