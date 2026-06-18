@@ -94,7 +94,7 @@ export default function HomePage() {
         <div className="hp-si">
           <div className="hp-slbl">In 3 stappen</div>
           <h2 className="hp-stitle">Zo werkt het</h2>
-          <div className="hp-how-grid">
+          <div className="hp-how-grid" style={{ gridTemplateColumns: "1fr 24px 1fr 24px 1fr" }}>
             <div className="hp-how-card">
               <div className="hp-how-num">1</div>
               <div className="hp-how-title">Gratis quickscan</div>
