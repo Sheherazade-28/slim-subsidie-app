@@ -548,6 +548,18 @@ export default function SlimSubsidiePage() {
             loopbaanVergoeding={SUBSIDIE.loopbaanVergoeding}
             maxBedrag={SUBSIDIE.maxBedrag}
           />
+
+          {/* SEO: volledige activiteitencontent voor zoekmachines */}
+          <div className="sr-only" aria-hidden="true">
+            <h3>Activiteit A: Doorlichting van de onderneming</h3>
+            <p>Breng de ontwikkelbehoefte van uw organisatie in kaart via een externe deskundige. De adviseur analyseert uw organisatie en stelt een concreet opleidings- en ontwikkelplan op maat op. Waarom: veranderingen op de arbeidsmarkt — digitalisering, robotisering, toenemende concurrentie op talent — vragen om periodieke heroriëntatie op kennis en vaardigheden van uw medewerkers. Eindproduct: opleidings- of ontwikkelplan (verplicht als bijlage bij aanvraag). Minimale subsidie: {fmtEur(SUBSIDIE.minSubsidie)}. Benodigde projectomvang: vanaf {fmtEur(SUBSIDIE.minProjectomvang)}. Max. uurtarief adviseur: €{SUBSIDIE.maxUurtarief} excl. btw.</p>
+
+            <h3>Activiteit B: Loopbaan- en ontwikkeladviezen voor werknemers</h3>
+            <p>Medewerkers ontvangen individueel loopbaan- of ontwikkeladvies van een gecertificeerde adviseur. Per afgerond traject ontvangt u {fmtEur(SUBSIDIE.loopbaanVergoeding)} subsidie — ongeacht de daadwerkelijke kosten van de adviseur. Inzicht in wensen en ambities helpt bij het vitaal houden van personeel, strategische planning en het voorkomen van uitstroom. Eindproduct: tweezijdig getekende prestatieverklaring per deelnemer. Vaste vergoeding: {fmtEur(SUBSIDIE.loopbaanVergoeding)} per afgerond traject. Minimale gespreksduur: 4 uur per deelnemer. Vereiste adviseur: Noloc Register Loopbaanprofessional of gelijkwaardig (HBO+, min. 3 jaar ervaring).</p>
+
+            <h3>Activiteit C: Ontwikkelen of invoeren van een L&O-methode</h3>
+            <p>Implementeer een structurele methode die leren en ontwikkelen verankert in uw organisatie. Activiteit C kent drie subcategorieën die ook gecombineerd kunnen worden binnen één aanvraag: systeem van periodieke ontwikkelgesprekken, leerrijke werkomgeving en bedrijfsschool. Een leerrijke werkomgeving trekt talent aan, bindt medewerkers en maakt uw organisatie wendbaarder voor toekomstige veranderingen. Eindproduct: documentatie van de gerealiseerde methode (verplicht als bijlage). Minimale subsidie: {fmtEur(SUBSIDIE.minSubsidie)}. Benodigde projectomvang: vanaf {fmtEur(SUBSIDIE.minProjectomvang)}. Max. uurtarief adviseur: €{SUBSIDIE.maxUurtarief} excl. btw.</p>
+          </div>
         </div>
       </div>
 
@@ -701,7 +713,7 @@ export default function SlimSubsidiePage() {
         <div style={s.inner}>
           <div style={s.slbl}>Aanvraagproces</div>
           <h2 style={s.h2}>Hoe werkt de aanvraag?</h2>
-          <div className="hp-how-grid" style={{ gap: 16, marginTop: 28, gridTemplateColumns: "repeat(5, 1fr)" }}>
+          <div className="hp-how-grid" style={{ marginTop: 28 }}>
             {[
               [
                 "1",
