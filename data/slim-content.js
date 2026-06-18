@@ -388,7 +388,7 @@ export const FAQ_SLIM_SUBSIDIE = [
   },
   {
     q: "Wanneer ontvang ik het geld na toekenning?",
-    a: "Na toekenning van de SLIM-subsidie ontvangt u direct 50% als voorschot. De resterende 50% wordt uitbetaald na vaststelling van het project — nadat u heeft aangetoond dat de activiteiten conform de subsidiebeschikking zijn uitgevoerd.",
+    a: "Na toekenning van de SLIM-subsidie ontvangt u binnen 6 weken 50% als voorschot. De resterende 50% wordt uitbetaald na vaststelling van het project — nadat u heeft aangetoond dat de activiteiten conform de subsidiebeschikking zijn uitgevoerd.",
   },
   {
     q: "Mag ik meerdere SLIM-aanvragen per tijdvak indienen?",

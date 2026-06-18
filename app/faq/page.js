@@ -119,7 +119,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Wat gebeurt er na inloting?",
-        a: "Individueel MKB: na inloting beoordeelt RVO uw aanvraag inhoudelijk binnen 13 weken. Bij toekenning ontvangt u direct 50% voorschot. Inloting is een noodzakelijke voorwaarde voor inhoudelijke beoordeling — geen garantie op toekenning. Samenwerkingsverbanden: per 31 maart 2026 geldt ook voor samenwerkingsverbanden een lotingssysteem (Staatscourant stcrt-2026-13249). Na inloting volgt inhoudelijke beoordeling door RVO.",
+        a: "Individueel MKB: na inloting beoordeelt RVO uw aanvraag inhoudelijk binnen 13 weken. Bij toekenning ontvangt u binnen 6 weken 50% voorschot. Inloting is een noodzakelijke voorwaarde voor inhoudelijke beoordeling — geen garantie op toekenning. Samenwerkingsverbanden: per 31 maart 2026 geldt ook voor samenwerkingsverbanden een lotingssysteem (Staatscourant stcrt-2026-13249). Na inloting volgt inhoudelijke beoordeling door RVO.",
       },
       {
         q: "Kan ik meerdere aanvragen indienen voor dezelfde onderneming in hetzelfde tijdvak?",

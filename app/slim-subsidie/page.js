@@ -738,7 +738,7 @@ export default function SlimSubsidiePage() {
               [
                 "5",
                 "Beoordeling & beschikking",
-                `RVO beoordeelt binnen 13 weken na sluiting. Bij toekenning ontvangt u direct ${SUBSIDIE.voorschot * 100}% voorschot.`,
+                `RVO beoordeelt binnen 13 weken na sluiting. Bij toekenning ontvangt u binnen 6 weken ${SUBSIDIE.voorschot * 100}% voorschot.`,
               ],
             ].map(([num, title, text]) => (
               <div key={num} className="hp-how-card" style={{ height: "auto" }}>
