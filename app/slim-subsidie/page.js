@@ -494,7 +494,7 @@ export default function SlimSubsidiePage() {
                   ["Minimale subsidiabele kosten", `${fmtEur(SUBSIDIE.minSubsidie)} (act. A en C) · Geen minimum voor B`, "€210.000 totaal"],
                   ["Verplichte activiteit", "Vrije keuze uit A, B of C — combinaties mogelijk", "Activiteit C (L&O-methode) is verplicht onderdeel"],
                   ["Looptijd", `Maximaal ${SUBSIDIE.looptijdMKB} maanden`, `Maximaal ${SUBSIDIE.looptijdSamenwerking} maanden`],
-                  ["Voorschot bij toekenning", `${SUBSIDIE.voorschot * 100}% direct uitbetaald`, "25% bij verlening · 50% aanvullend na voortgangsverslag"],
+                  ["Voorschot bij toekenning", `Binnen 6 weken ${SUBSIDIE.voorschot * 100}% uitbetaald`, "25% bij verlening · 50% aanvullend na voortgangsverslag"],
                   [
                     "Tijdvak 2026",
                     tv2 ? `Tijdvak 2: ${fmtDatumKort(tv2.open)} t/m ${fmtDatumKort(tv2.close)}` : "Tijdvak 2: 10 aug t/m 7 sep 2026",
@@ -786,7 +786,7 @@ export default function SlimSubsidiePage() {
               ["1", "Aanvraag ingediend binnen tijdvak"],
               ["2", "Tijdvak sluit → notariële loting"],
               ["3", "Ingeloot → inhoudelijke beoordeling RVO"],
-              ["4", `Beschikking → bij toekenning ${SUBSIDIE.voorschot * 100}% voorschot direct`],
+              ["4", `Beschikking → bij toekenning binnen 6 weken ${SUBSIDIE.voorschot * 100}% voorschot`],
             ].map(([nr, stap], i, arr) => (
               <div key={nr} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>

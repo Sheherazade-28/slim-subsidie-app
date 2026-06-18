@@ -227,7 +227,7 @@ export default function SlimSubsidieAanvragenPage() {
             <div style={stijl.stapBody}>
               <div style={stijl.stapTitel}>Uitvoering en voorschot</div>
               <div style={stijl.stapTekst}>
-                Bij toekenning wordt direct {SUBSIDIE.voorschot * 100}% voorschot uitbetaald.
+                Bij toekenning ontvangt u binnen 6 weken {SUBSIDIE.voorschot * 100}% voorschot.
                 De looptijd bedraagt maximaal {SUBSIDIE.looptijdMKB} maanden voor individueel MKB
                 (samenwerkingsverbanden: maximaal {SUBSIDIE.looptijdSamenwerking} maanden).
                 Bewaar alle bewijsstukken voor een eventuele steekproef:
