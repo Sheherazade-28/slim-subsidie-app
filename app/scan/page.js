@@ -323,7 +323,7 @@ export default function ScanPage() {
             <div className="card">
               <div className="card-title">Vul uw gegevens in</div>
               <p className="card-sub">
-                Op basis van uw antwoorden sturen wij u een persoonlijke analyse en nemen wij contact op voor de volgende stap.
+                Op basis van uw antwoorden nemen wij contact op voor een persoonlijk adviesgesprek.
               </p>
               <div className="form-row">
                 <div className="form-group">

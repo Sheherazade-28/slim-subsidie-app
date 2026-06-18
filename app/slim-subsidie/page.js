@@ -1005,8 +1005,7 @@ export default function SlimSubsidiePage() {
           </h2>
           <p className="hp-cta-sub">
             Doe eerst de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking
-            komt. Positief resultaat? Start de reservering en ontvang direct uw persoonlijke
-            SLIM-subsidieanalyse.
+            komt. Positief resultaat? Start de reservering en wij nemen binnen 8 werkdagen contact met u op.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
