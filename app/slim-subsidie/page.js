@@ -810,9 +810,14 @@ export default function SlimSubsidiePage() {
             </div>
           </div>
 
-          <Link href="/lotingsuitslagen" style={{ fontSize: 14, color: "var(--blue-light)", textDecoration: "none", fontWeight: 600 }}>
-            Bekijk alle lotingsuitslagen 2024–2026 →
-          </Link>
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+            <Link href="/lotingsuitslagen" style={{ fontSize: 14, color: "var(--blue-light)", textDecoration: "none", fontWeight: 600 }}>
+              Bekijk alle lotingsuitslagen 2024–2026 →
+            </Link>
+            <Link href="/slim-subsidie-loting" style={{ fontSize: 14, color: "var(--blue-light)", textDecoration: "none", fontWeight: 600 }}>
+              Lees meer over de loting →
+            </Link>
+          </div>
         </div>
       </div>
 
