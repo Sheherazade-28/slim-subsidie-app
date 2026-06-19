@@ -58,6 +58,14 @@ const CATEGORIEEN = [
         q: "Wie kan SLIM-subsidie aanvragen voor een samenwerkingsverband?",
         a: "Een samenwerkingsverband bestaat uit minimaal twee MKB-ondernemingen. Aanvullend kunnen brancheorganisaties, onderwijsinstellingen, O&O-fondsen en werknemers- of werkgeversverenigingen deelnemen als partner. Activiteit C (L&O-methode) is verplicht onderdeel van elke aanvraag voor een samenwerkingsverband. Minimale subsidiabele projectomvang: €210.000. Grootbedrijven kunnen uitsluitend als partner deelnemen — niet als penvoerder. SLIM Subsidie Advies richt zich primair op individuele MKB-aanvragen; begeleiding bij samenwerkingsverbanden is beschikbaar op aanvraag.",
       },
+      {
+        q: "Kan ik als particulier SLIM-subsidie aanvragen?",
+        a: "Nee. De SLIM-subsidie is uitsluitend bedoeld voor ondernemers en werkgevers — niet voor particulieren. De regeling financiert initiatieven binnen mkb-ondernemingen gericht op het leren en ontwikkelen van werkenden (art. 2.3 SLIM-regeling). Een particulier zonder onderneming of personeel komt niet in aanmerking.",
+      },
+      {
+        q: "Kan een stichting SLIM-subsidie aanvragen?",
+        a: "Dat hangt af van de activiteiten van de stichting. De SLIM-regeling hanteert de EU-definitie van 'onderneming': elke entiteit die een economische activiteit uitoefent, ongeacht de rechtsvorm. Een stichting die commerciële activiteiten uitvoert en personeel in loondienst heeft (zoals zorg, onderwijs of kinderopvang) kan in aanmerking komen, mits ze voldoet aan de MKB-criteria. Een stichting zonder economische activiteit of winstoogmerk valt buiten de definitie en komt niet in aanmerking. Twijfelt u? Doe de gratis quickscan of neem contact met ons op.",
+      },
     ],
   },
   {
