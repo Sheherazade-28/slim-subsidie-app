@@ -932,6 +932,11 @@ export default function SlimSubsidiePage() {
             2026 werden {LOTING.afgekeurdVoorLoting} al vóór de loting afgekeurd wegens
             vermijdbare fouten.
           </div>
+          <div style={{ marginTop: 20 }}>
+            <Link href="/slim-subsidie-2026" className="hp-btn-s" style={{ color: "var(--navy)", borderColor: "rgba(13,46,90,0.3)", background: "var(--white)" }}>
+              Alle informatie over 2026 →
+            </Link>
+          </div>
         </div>
       </div>
 

@@ -17,6 +17,7 @@ export default function sitemap() {
     { url: "/slim-subsidie", priority: 1.0, changeFrequency: "weekly" },
     { url: "/slim-subsidie-activiteiten", priority: 0.8, changeFrequency: "monthly" },
     { url: "/slim-subsidie-voorwaarden", priority: 0.8, changeFrequency: "monthly" },
+    { url: "/slim-subsidie-2026", priority: 0.9, changeFrequency: "weekly" },
     { url: "/slim-subsidie-aanvragen", priority: 0.9, changeFrequency: "weekly" },
     { url: "/slim-subsidie-loting", priority: 0.8, changeFrequency: "weekly" },
     { url: "/slim-subsidie/aanvragen", priority: 0.7, changeFrequency: "monthly" },
