@@ -82,7 +82,7 @@ export default function SlimPage() {
           <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br />voor <span>SLIM-subsidie</span>?</h2>
           <p className="hp-cta-sub">Doe de gratis quickscan en weet het binnen 2 minuten.</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
           </div>
         </div>
       </div>

@@ -299,7 +299,7 @@ export default function SlimDatabase() {
             <p style={{ color: "rgba(255,255,255,0.6)", marginBottom: 20, fontSize: 14 }}>
               Doe gratis de quickscan en weet in 2 minuten of jouw bedrijf in aanmerking komt voor het tijdvak van 10 augustus – 7 september 2026.
             </p>
-            <Link href="/scan"
+            <Link href="/quickscan"
               style={{ display: "inline-block", background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 15, fontWeight: 700, textDecoration: "none" }}>
               Doe gratis de quickscan →
             </Link>

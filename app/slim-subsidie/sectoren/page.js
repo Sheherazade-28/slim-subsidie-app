@@ -26,7 +26,7 @@ export default function SlimSubsidieSectorenPage() {
         <div style={{ background: "var(--blue-pale)", border: "1px solid var(--blue-mid)", borderRadius: 12, padding: "24px", marginBottom: "2rem" }}>
           <p style={{ margin: 0, color: "var(--navy)", fontWeight: 600 }}>Pagina in aanbouw — binnenkort een sectoroverzicht met concrete voorbeelden en subsidiebedragen.</p>
         </div>
-        <Link href="/scan" className="btn btn-primary">Doe gratis de quickscan →</Link>
+        <Link href="/quickscan" className="btn btn-primary">Doe gratis de quickscan →</Link>
       </div>
       <footer className="ftr">
         <div className="ftr-inner">

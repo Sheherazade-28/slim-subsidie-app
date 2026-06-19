@@ -285,7 +285,7 @@ export default function SlimSubsidieAanvragenPage() {
             </p>
 
             <div className="hp-ctas">
-              <Link href="/scan" className="hp-btn-p">
+              <Link href="/quickscan" className="hp-btn-p">
                 Doe de gratis quickscan →
               </Link>
               <Link href="/slim-subsidie#voor-wie" className="hp-btn-s">
@@ -505,7 +505,7 @@ export default function SlimSubsidieAanvragenPage() {
             Wij begeleiden u van quickscan tot indiening. Reserveer uw aanvraagplaats voor
             €{PRICING.reserveringsfee} excl. btw — succesfee alleen bij toekenning.
           </p>
-          <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+          <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
             Doe eerst de gratis quickscan →
           </Link>
           <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 14, marginBottom: 0 }}>
@@ -533,7 +533,7 @@ export default function SlimSubsidieAanvragenPage() {
             Doe eerst de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
               Doe de gratis quickscan →
             </Link>
           </div>

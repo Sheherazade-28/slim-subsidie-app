@@ -42,7 +42,7 @@ export default function HomePage() {
             <h1 className="hp-h1">Haal tot €25.000 subsidie op<br /><span>voor leren en ontwikkelen</span></h1>
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
-              <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
+              <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
               <Link href="/slim-subsidie" className="hp-btn-s">Meer over SLIM-subsidie</Link>
             </div>
             <div className="hp-stats">
@@ -241,7 +241,7 @@ export default function HomePage() {
           <h2 className="hp-cta-title">Komt uw bedrijf in aanmerking<br />voor <span>SLIM-subsidie</span>?</h2>
           <p className="hp-cta-sub">Speciaal voor MKB-ondernemers die willen groeien. Doe de gratis quickscan en weet het binnen 2 minuten. Positief resultaat? Start direct met de reserveringsfee van €{PRICING.reserveringsfee} excl. btw (€{btwIncl} incl. btw).</p>
           <div style={{display:"flex",justifyContent:"center"}}>
-            <Link href="/scan" className="hp-btn-p" style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{fontSize:16,padding:"15px 34px"}}>Doe de gratis quickscan →</Link>
           </div>
           <p className="hp-cta-note">Gratis quickscan · Reserveringsfee €{PRICING.reserveringsfee} excl. btw · Succesfee €{PRICING.succesfee.toLocaleString("nl-NL")} excl. btw — no cure, no pay</p>
         </div>
@@ -267,7 +267,7 @@ export default function HomePage() {
                 <li><Link href="/faq">Veelgestelde vragen</Link></li>
                 <li><Link href="/lotingsuitslagen">Lotingsuitslagen</Link></li>
                 <li><Link href="/projecten">Projecten</Link></li>
-                <li><Link href="/scan">Gratis quickscan</Link></li>
+                <li><Link href="/quickscan">Gratis quickscan</Link></li>
               </ul>
             </div>
             <div>

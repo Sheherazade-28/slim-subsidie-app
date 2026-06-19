@@ -88,7 +88,7 @@ export default function LotingsuitslagenPage() {
             <h3 className="lp-cta-h">Wil je weten of jouw aanvraag kans maakt?</h3>
             <p className="lp-cta-p">Doe de gratis quickscan — binnen 2 minuten weet je of jouw bedrijf in aanmerking komt.</p>
           </div>
-          <Link href="/scan" className="btn btn-primary">Doe de quickscan →</Link>
+          <Link href="/quickscan" className="btn btn-primary">Doe de quickscan →</Link>
         </div>
       </div>
     </div>

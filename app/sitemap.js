@@ -5,7 +5,8 @@ export default function sitemap() {
 
   const routes = [
     { url: "/", priority: 1.0, changeFrequency: "weekly" },
-    { url: "/scan", priority: 0.9, changeFrequency: "monthly" },
+    { url: "/quickscan", priority: 0.9, changeFrequency: "monthly" },
+    { url: "/sectorbenchmark", priority: 0.7, changeFrequency: "monthly" },
     { url: "/lotingsuitslagen", priority: 0.8, changeFrequency: "monthly" },
     { url: "/whitepaper", priority: 0.8, changeFrequency: "monthly" },
     { url: "/projecten", priority: 0.7, changeFrequency: "monthly" },

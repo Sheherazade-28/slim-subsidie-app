@@ -63,7 +63,7 @@ export default function TeamPage() {
           <h2 className="hp-cta-title">Zin om samen te werken?<br />Start met de <span>gratis quickscan</span></h2>
           <p className="hp-cta-sub">Binnen 2 minuten weet u of uw bedrijf in aanmerking komt voor SLIM-subsidie.</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
           </div>
         </div>
       </div>

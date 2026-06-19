@@ -190,7 +190,7 @@ export default function SlimSubsidieLotingPage() {
               leest u precies hoe de loting werkt en hoe u uw kansen maximaliseert.
             </p>
             <div className="hp-ctas">
-              <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
+              <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
               <Link href="/slim-subsidie-aanvragen" className="hp-btn-s">Bekijk het aanvraagproces →</Link>
             </div>
           </div>
@@ -378,7 +378,7 @@ export default function SlimSubsidieLotingPage() {
             Wordt uw aanvraag niet ingeloot, dan actualiseren wij alle benodigde documenten en dienen
             uw aanvraag in het volgende tijdvak opnieuw in. Kosteloos, totdat u ingeloot wordt.
           </p>
-          <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+          <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
             Doe eerst de gratis quickscan →
           </Link>
           <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 14, marginBottom: 0 }}>
@@ -413,7 +413,7 @@ export default function SlimSubsidieLotingPage() {
             2 minuten of uw bedrijf in aanmerking komt.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
               Doe de gratis quickscan →
             </Link>
           </div>

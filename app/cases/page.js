@@ -49,7 +49,7 @@ export default function CasesPage() {
           <h2 className="hp-cta-title">Wil jij ook een succesvol<br /><span>SLIM-project</span>?</h2>
           <p className="hp-cta-sub">Doe de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
           </div>
         </div>
       </div>

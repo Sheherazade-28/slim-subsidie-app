@@ -19,7 +19,7 @@ export default function Navigation() {
           <li><Link href="/faq">FAQ</Link></li>
           <li><Link href="/lotingsuitslagen">Lotingsuitslagen</Link></li>
           <li><Link href="/projecten">Projecten</Link></li>
-          <li><Link href="/scan" className="hp-nav-cta">Gratis quickscan →</Link></li>
+          <li><Link href="/quickscan" className="hp-nav-cta">Gratis quickscan →</Link></li>
         </ul>
       </div>
     </nav>

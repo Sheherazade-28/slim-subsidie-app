@@ -49,7 +49,7 @@ export default function SlimSubsidie2026Page() {
             Tijdvak 2 voor individueel MKB opent op <strong style={{ color: "#fff" }}>10 augustus 2026</strong>.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
             <Link href="/slim-subsidie" className="hp-btn-s">← Terug naar SLIM-subsidie</Link>
           </div>
         </div>
@@ -282,7 +282,7 @@ export default function SlimSubsidie2026Page() {
             Tijdvak 2 opent op 10 augustus — begin ruim van tevoren.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
           </div>
           <p className="hp-cta-note">
             Gratis quickscan · Reserveringsfee {fmtEur(PRICING.reserveringsfee)} excl. btw · Succesfee €2.500 excl. btw — no cure, no pay

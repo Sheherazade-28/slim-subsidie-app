@@ -23,23 +23,39 @@ export default function WhitepaperPage() {
           </Link>
           <div className="wp-badge">✦ Gratis whitepaper</div>
           <h1 className="wp-h1">State of SLIM <span>2026</span> — Gratis whitepaper</h1>
-          <p className="wp-subkop">De eerste onafhankelijke benchmarkanalyse van 5.891 gehonoreerde MKB-projecten (2020–2024)</p>
+          <p className="wp-subkop">De eerste onafhankelijke benchmarkanalyse van 5.891 gehonoreerde MKB-projecten (2020–2024) · Versie 1.0 · Juni 2026</p>
         </div>
       </div>
       <div className="wp-body">
         <div className="wp-grid">
           <div className="wp-usps">
             <div className="wp-usps-title">Wat vindt u in dit rapport</div>
-            <div className="wp-usp">
-              <div className="wp-usp-icon">1</div>
-              <div className="wp-usp-text">Welke thema's scoren het beste — en welke worden gemist</div>
+            <div style={{background:"var(--navy)",borderRadius:10,padding:"16px 20px",marginBottom:20}}>
+              <p style={{color:"#fff",fontStyle:"italic",fontSize:14,lineHeight:1.6,margin:"0 0 8px"}}>
+                &ldquo;79% van de bedrijven borgde de resultaten structureel in het reguliere beleid.&rdquo;
+              </p>
+              <p style={{color:"rgba(255,255,255,0.55)",fontSize:11,margin:0,lineHeight:1.5}}>
+                — Eindevaluatie SLIM-regeling · SEOR/Ockham|IPS · juli 2025 · ministerie van SZW
+              </p>
             </div>
             <div className="wp-usp">
-              <div className="wp-usp-icon">2</div>
-              <div className="wp-usp-text">De witte vlek: omscholing &amp; conversie wordt door 0,2% benut</div>
+              <div className="wp-usp-icon">✓</div>
+              <div className="wp-usp-text">Onafhankelijk bewijs: 85% voerde alle activiteiten volledig uit — 79% borgde resultaten structureel in het reguliere beleid</div>
             </div>
             <div className="wp-usp">
-              <div className="wp-usp-icon">3</div>
+              <div className="wp-usp-icon">✓</div>
+              <div className="wp-usp-text">De 12 thema&apos;s gerangschikt: welke thema&apos;s het meest worden gehonoreerd en wat de gemiddelde subsidiebedragen zijn</div>
+            </div>
+            <div className="wp-usp">
+              <div className="wp-usp-icon">✓</div>
+              <div className="wp-usp-text">De witte vlek: omscholing &amp; conversie wordt door slechts 0,3% benut — en daalt nog steeds (−80% sinds 2020)</div>
+            </div>
+            <div className="wp-usp">
+              <div className="wp-usp-icon">✓</div>
+              <div className="wp-usp-text">Trendanalyse 2020–2023: welke toepassingen groeien en welke afnemen</div>
+            </div>
+            <div className="wp-usp">
+              <div className="wp-usp-icon">✓</div>
               <div className="wp-usp-text">Regionale atlas + 7 belangrijkste inzichten voor uw aanvraag</div>
             </div>
           </div>
@@ -86,7 +102,7 @@ export default function WhitepaperPage() {
               <button className="wp-submit" type="submit" disabled={state.submitting}>
                 {state.submitting ? "Even geduld…" : "Download gratis whitepaper →"}
               </button>
-              <p className="wp-meta">Geen spam. Uw gegevens worden vertrouwelijk behandeld conform onze <Link href="/privacy" style={{ color: "var(--blue)" }}>privacyverklaring</Link>.</p>
+              <p className="wp-meta">Geen spam. Uw gegevens worden vertrouwelijk behandeld conform onze <Link href="/privacy" style={{ color: "var(--blue)" }}>privacyverklaring</Link>. Na invullen ontvangt u direct een e-mail met de downloadlink.</p>
             </form>
           </div>
         </div>

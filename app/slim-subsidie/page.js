@@ -146,7 +146,7 @@ export default function SlimSubsidiePage() {
               personeel in loondienst.
             </p>
             <div className="hp-ctas">
-              <Link href="/scan" className="hp-btn-p">Doe de gratis quickscan →</Link>
+              <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
               <Link href="#wat-is-slim" className="hp-btn-s">Wat is SLIM-subsidie?</Link>
             </div>
             <div className="hp-stats">
@@ -445,7 +445,7 @@ export default function SlimSubsidiePage() {
             </ul>
           </div>
 
-          <Link href="/scan" className="hp-btn-p" style={{ display: "inline-block" }}>
+          <Link href="/quickscan" className="hp-btn-p" style={{ display: "inline-block" }}>
             Controleer of uw bedrijf in aanmerking komt →
           </Link>
         </div>
@@ -572,7 +572,7 @@ export default function SlimSubsidiePage() {
           <p style={{ fontSize: 15, color: "var(--muted)", marginBottom: 20, maxWidth: 580, margin: "0 auto 20px" }}>
             Doe de gratis quickscan en ontvang een eerste indicatie van de meest kansrijke aanvraagrichting.
           </p>
-          <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+          <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
             Start gratis quickscan →
           </Link>
         </div>
@@ -1018,7 +1018,7 @@ export default function SlimSubsidiePage() {
             komt. Positief resultaat? Start de reservering en wij nemen binnen 8 werkdagen contact met u op.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
               Doe eerst de gratis quickscan →
             </Link>
           </div>

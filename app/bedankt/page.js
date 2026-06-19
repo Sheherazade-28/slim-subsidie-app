@@ -26,7 +26,7 @@ export default function BedanktPage() {
           <a className="bt-download" href="/State_of_SLIM_2026.pdf" download="State_of_SLIM_2026.pdf">
             ⬇ Download State of SLIM 2026.pdf
           </a>
-          <Link className="bt-cta" href="/scan">
+          <Link className="bt-cta" href="/quickscan">
             Doe ook de gratis quickscan →
           </Link>
         </div>

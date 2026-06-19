@@ -70,3 +70,15 @@ Feature branches → Vercel preview deploy (automatisch)
 - main: productie
 - feature branches: fixes-*, content-*, url-*, faq-* etc.
 - Directe merge naar main (geen pull requests)
+
+## URL-structuur (bijgewerkt juni 2026)
+- Quickscan: /quickscan (was /scan — 301 redirect actief)
+- Whitepaper: /whitepaper (Formspree ID: mvzydeqk)
+- Sectorbenchmark: /sectorbenchmark (Formspree ID: placeholder, wordt bijgewerkt)
+- Bedanktpagina benchmark: /sectorbenchmark/bedankt
+
+## Content ladder
+/quickscan → reservering €199
+/sectorbenchmark → gratis, e-mail vereist
+/whitepaper → gratis, e-mail vereist
+SEO-pagina's /slim-subsidie/* → gratis, geen registratie

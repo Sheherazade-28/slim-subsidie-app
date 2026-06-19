@@ -50,7 +50,7 @@ export default function WaaromWijPage() {
           <h2 className="hp-cta-title">Overtuigd? Start met de<br /><span>gratis quickscan</span></h2>
           <p className="hp-cta-sub">Binnen 2 minuten weet u of uw bedrijf in aanmerking komt. Geen verplichtingen.</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>
           </div>
         </div>
       </div>

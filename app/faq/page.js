@@ -298,7 +298,7 @@ export default function FaqPage() {
             of doe direct de gratis quickscan.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Link href="/scan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
+            <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>
               Doe de gratis quickscan →
             </Link>
           </div>

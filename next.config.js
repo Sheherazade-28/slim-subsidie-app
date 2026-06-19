@@ -19,6 +19,11 @@ const nextConfig = {
         destination: "/slim-subsidie",
         permanent: true,
       },
+      {
+        source: "/scan",
+        destination: "/quickscan",
+        permanent: true,
+      },
     ];
   },
 };
