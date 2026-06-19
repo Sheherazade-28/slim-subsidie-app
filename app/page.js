@@ -38,7 +38,7 @@ export default function HomePage() {
       <div className="hp-hero">
         <div className="hp-hero-inner">
           <div>
-            <div className="hp-badge"><span className="phase-dot" />&nbsp;Gratis quickscan · Start vanaf €{PRICING.reserveringsfee} excl. btw · Retour bij toekenning</div>
+            <div className="hp-badge"><span className="phase-dot" />&nbsp;Reserveringsfee €{PRICING.reserveringsfee} excl. BTW · Succesfee na toekenning</div>
             <h1 className="hp-h1">Haal tot €25.000 subsidie op<br /><span>voor leren en ontwikkelen</span></h1>
             <p className="hp-sub">Ondernemen terwijl wij de subsidie regelen. Start met een gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.</p>
             <div className="hp-ctas">
