@@ -118,7 +118,7 @@ export default function SectorbenchmarkPage() {
               <button className="wp-submit" type="submit" disabled={state.submitting}>
                 {state.submitting ? "Even geduld…" : "Vraag mijn gratis benchmark aan →"}
               </button>
-              <p className="wp-meta">Geen spam. U ontvangt het rapport per e-mail binnen 1 werkdag.</p>
+              <p className="wp-meta">Geen spam. U ontvangt het rapport per e-mail binnen 5 werkdagen.</p>
             </form>
           </div>
         </div>
