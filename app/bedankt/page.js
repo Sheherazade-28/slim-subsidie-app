@@ -23,8 +23,8 @@ export default function BedanktPage() {
         <h1 className="bt-h1">Goed besluit.</h1>
         <p className="bt-sub">U bent een van de eersten met inzicht in 5.891 gehonoreerde SLIM-projecten.</p>
         <div className="bt-actions">
-          <a className="bt-download" href="/State_of_SLIM_2026.pdf" download="State_of_SLIM_2026.pdf">
-            ⬇ Download State of SLIM 2026.pdf
+          <a className="bt-download" href="/State_of_SLIM_2026_Juni_2026_v1.pdf" download="State_of_SLIM_2026_Juni_2026_v1.pdf">
+            ⬇ Download State of SLIM 2026
           </a>
           <Link className="bt-cta" href="/quickscan">
             Doe ook de gratis quickscan →
