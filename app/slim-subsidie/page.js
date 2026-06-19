@@ -549,6 +549,12 @@ export default function SlimSubsidiePage() {
             maxBedrag={SUBSIDIE.maxBedrag}
           />
 
+          <div style={{ marginTop: 20 }}>
+            <Link href="/slim-subsidie-activiteiten" className="hp-btn-s" style={{ color: "var(--navy)", borderColor: "rgba(13,46,90,0.3)", background: "var(--white)" }}>
+              Lees meer over de activiteiten →
+            </Link>
+          </div>
+
           {/* SEO: volledige activiteitencontent voor zoekmachines */}
           <div className="sr-only" aria-hidden="true">
             <h3>Activiteit A: Doorlichting van de onderneming</h3>
