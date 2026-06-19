@@ -6,7 +6,7 @@ import { useForm, ValidationError } from "@formspree/react";
 
 export default function SectorbenchmarkPage() {
   const router = useRouter();
-  const [state, handleSubmit] = useForm("mvzydeqk");
+  const [state, handleSubmit] = useForm("xnjyepdz");
 
   if (state.succeeded) {
     router.push("/sectorbenchmark/bedankt");
