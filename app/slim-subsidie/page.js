@@ -445,9 +445,14 @@ export default function SlimSubsidiePage() {
             </ul>
           </div>
 
-          <Link href="/quickscan" className="hp-btn-p" style={{ display: "inline-block" }}>
-            Controleer of uw bedrijf in aanmerking komt →
-          </Link>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <Link href="/quickscan" className="hp-btn-p" style={{ display: "inline-block" }}>
+              Controleer of uw bedrijf in aanmerking komt →
+            </Link>
+            <Link href="/slim-subsidie-voorwaarden" className="hp-btn-s" style={{ color: "var(--navy)", borderColor: "rgba(13,46,90,0.3)", background: "var(--white)" }}>
+              Alle voorwaarden →
+            </Link>
+          </div>
         </div>
       </div>
 
