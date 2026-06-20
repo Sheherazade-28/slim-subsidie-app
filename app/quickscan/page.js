@@ -199,7 +199,7 @@ export default function ScanPage() {
             <span className="logo-sub">SUBSIDIE</span>
             <span className="logo-adv">ADVIES</span>
           </Link>
-          <p className="hdr-title">Gratis quickscan — komt uw organisatie in aanmerking?</p>
+          <h1 className="hdr-title">Gratis quickscan — komt uw organisatie in aanmerking?</h1>
           <div className="prog-bar">
             <div className="prog-fill" style={{ width: curStap === 0 ? "20%" : "45%" }} />
           </div>
