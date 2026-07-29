@@ -6,7 +6,7 @@ import { SUBSIDIE, LOTING, TIJDVAKKEN_2026, PRICING, FAQ_SLIM_SUBSIDIE, fmtEur }
 export const metadata = {
   title: "SLIM-subsidie aanvragen in 2026: stappenplan en tijdvakken",
   description:
-    "Hoe vraagt u SLIM-subsidie aan in 2026? Tijdvak 2 opent 10 augustus. Stappenplan, benodigde documenten en lotingsprocedure uitgelegd.",
+    "Hoe vraagt u SLIM-subsidie aan in 2026? Tijdvak 2 opent 19 augustus. Stappenplan, benodigde documenten en lotingsprocedure uitgelegd.",
   alternates: {
     canonical: "https://www.slimsubsidieadvies.nl/slim-subsidie/aanvragen",
   },
@@ -69,7 +69,7 @@ export default function SlimSubsidieAanvragenPage() {
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, maxWidth: 620, marginBottom: 28 }}>
             Stappenplan voor een correcte aanvraag: van activiteitenkeuze tot vaststelling.
-            Tijdvak 2 opent op 10 augustus 2026. Start uw voorbereiding ruim van tevoren.
+            Tijdvak 2 opent op 19 augustus 2026. Start uw voorbereiding ruim van tevoren.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
@@ -88,7 +88,7 @@ export default function SlimSubsidieAanvragenPage() {
           <div style={{ display: "grid", gap: 12 }}>
             {[
               { label: "Tijdvak 1 2026", periode: `${fmtDatum(tv1.open)} – ${fmtDatum(tv1.close)}`, type: "Individueel MKB", status: "Gesloten", kleur: "#6b7280" },
-              { label: "Samenwerking 2026", periode: `${fmtDatum(tvSamenwerkng.open)} – ${fmtDatum(tvSamenwerkng.close)}`, type: "Samenwerkingsverbanden", status: "Binnenkort open", kleur: "#d97706" },
+              { label: "Samenwerking 2026", periode: `${fmtDatum(tvSamenwerkng.open)} – ${fmtDatum(tvSamenwerkng.close)}`, type: "Samenwerkingsverbanden", status: "Gesloten", kleur: "#6b7280" },
               { label: "Tijdvak 2 2026", periode: `${fmtDatum(tv2.open)} – ${fmtDatum(tv2.close)}`, type: "Individueel MKB", status: "Binnenkort open", kleur: "#059669" },
             ].map((tv) => (
               <div key={tv.label} style={{ background: "#f7f9fc", border: "1px solid #e8edf3", borderRadius: 12, padding: "18px 22px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
@@ -333,7 +333,7 @@ export default function SlimSubsidieAanvragenPage() {
       {/* ── CTA ── */}
       <div className="hp-cta-section">
         <div className="hp-si">
-          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 10 augustus</div>
+          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 19 augustus</div>
           <h2 className="hp-cta-title">Klaar om te starten?</h2>
           <p className="hp-cta-sub">
             Doe de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.

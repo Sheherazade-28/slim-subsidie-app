@@ -135,7 +135,7 @@ export default function SlimSubsidiePage() {
         <div className="hp-hero-inner">
           <div>
             <div className="hp-badge">
-              <span className="phase-dot" />&nbsp;Gratis quickscan · Tijdvak 2 opent 10 augustus 2026
+              <span className="phase-dot" />&nbsp;Gratis quickscan · Tijdvak 2 opent 19 augustus 2026
             </div>
             <h1 className="hp-h1">
               SLIM-subsidie<br />aanvragen<br />in <span>2026</span>
@@ -502,7 +502,7 @@ export default function SlimSubsidiePage() {
                   ["Voorschot bij toekenning", `Binnen 6 weken ${SUBSIDIE.voorschot * 100}% uitbetaald`, "25% bij verlening · 50% aanvullend na voortgangsverslag"],
                   [
                     "Tijdvak 2026",
-                    tv2 ? `Tijdvak 2: ${fmtDatumKort(tv2.open)} t/m ${fmtDatumKort(tv2.close)}` : "Tijdvak 2: 10 aug t/m 7 sep 2026",
+                    tv2 ? `Tijdvak 2: ${fmtDatumKort(tv2.open)} t/m ${fmtDatumKort(tv2.close)}` : "Tijdvak 2: 19 aug t/m 7 sep 2026",
                     tvSWV ? `${fmtDatumKort(tvSWV.open)} t/m ${fmtDatumKort(tvSWV.close)}` : "22 jun t/m 20 jul 2026",
                   ],
                   ["Behandeling aanvragen", "Loting bij overintekening", "Loting (gewijzigd per 31 maart 2026) *"],
@@ -1024,7 +1024,7 @@ export default function SlimSubsidiePage() {
       <div className="hp-cta-section">
         <div className="hp-si">
           <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>
-            Tijdvak 2 2026 — opening 10 augustus
+            Tijdvak 2 2026 — opening 19 augustus
           </div>
           <h2 className="hp-cta-title">
             Reserveer uw aanvraagplaats<br />voor <span>€{PRICING.reserveringsfee}</span>

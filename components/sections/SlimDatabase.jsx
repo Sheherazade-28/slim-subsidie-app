@@ -297,7 +297,7 @@ export default function SlimDatabase() {
           <div style={{ background: "linear-gradient(135deg, #0d2e5a, #1a4a7a)", border: "1px solid rgba(42,170,226,0.3)", borderRadius: 16, padding: "32px", margin: "32px 0 48px", textAlign: "center" }}>
             <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, color: "#fff" }}>Wil jij ook een succesvol SLIM-project?</div>
             <p style={{ color: "rgba(255,255,255,0.6)", marginBottom: 20, fontSize: 14 }}>
-              Doe gratis de quickscan en weet in 2 minuten of jouw bedrijf in aanmerking komt voor het tijdvak van 10 augustus – 7 september 2026.
+              Doe gratis de quickscan en weet in 2 minuten of jouw bedrijf in aanmerking komt voor het tijdvak van 19 augustus – 7 september 2026.
             </p>
             <Link href="/quickscan"
               style={{ display: "inline-block", background: "#2aaae2", color: "#fff", border: "none", borderRadius: 8, padding: "12px 28px", fontSize: 15, fontWeight: 700, textDecoration: "none" }}>

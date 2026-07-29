@@ -46,7 +46,7 @@ export default function SlimSubsidie2026Page() {
           </h1>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, maxWidth: 620, marginBottom: 28 }}>
             Tijdvakken, budgetten, lotingscijfers en alle wijzigingen ten opzichte van eerdere jaren.
-            Tijdvak 2 voor individueel MKB opent op <strong style={{ color: "#fff" }}>10 augustus 2026</strong>.
+            Tijdvak 2 voor individueel MKB opent op <strong style={{ color: "#fff" }}>19 augustus 2026</strong>.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
@@ -275,11 +275,11 @@ export default function SlimSubsidie2026Page() {
       {/* ── CTA ── */}
       <div className="hp-cta-section">
         <div className="hp-si">
-          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 10 augustus</div>
+          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 19 augustus</div>
           <h2 className="hp-cta-title">Start uw voorbereiding nu</h2>
           <p className="hp-cta-sub">
             Doe de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.
-            Tijdvak 2 opent op 10 augustus — begin ruim van tevoren.
+            Tijdvak 2 opent op 19 augustus — begin ruim van tevoren.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Link href="/quickscan" className="hp-btn-p" style={{ fontSize: 16, padding: "15px 34px" }}>Doe de gratis quickscan →</Link>

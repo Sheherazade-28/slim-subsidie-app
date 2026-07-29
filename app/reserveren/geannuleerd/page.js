@@ -10,7 +10,7 @@ const FAQ = [
   },
   {
     v: "Kan ik later alsnog reserveren?",
-    a: "Ja, tijdvak 2 opent op 10 augustus 2026. U kunt tot 7 september 2026 reserveren.",
+    a: "Ja, tijdvak 2 opent op 19 augustus 2026. U kunt tot 7 september 2026 reserveren.",
   },
   {
     v: "Heeft u een vraag over de betaling?",

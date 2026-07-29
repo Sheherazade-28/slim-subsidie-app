@@ -6,7 +6,7 @@ import { SUBSIDIE, PRICING, LOTING, BUDGET_2026 } from "@/data/slim-content";
 export const metadata = {
   title: "SLIM-subsidie loting 2026 — Hoe werkt het en wat zijn uw kansen?",
   description:
-    "Hoe werkt de SLIM-subsidie loting? Lotingscijfers tijdvak 1 2026, verschil tussen inloting en toekenning, tips voor een kansrijke aanvraag. Tijdvak 2: 10 augustus 2026.",
+    "Hoe werkt de SLIM-subsidie loting? Lotingscijfers tijdvak 1 2026, verschil tussen inloting en toekenning, tips voor een kansrijke aanvraag. Tijdvak 2: 19 augustus 2026.",
   alternates: {
     canonical: "https://www.slimsubsidieadvies.nl/slim-subsidie-loting",
   },
@@ -289,11 +289,13 @@ export default function SlimSubsidieLotingPage() {
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24 }}>
             <div style={{ fontSize: 14, fontWeight: 700, color: "var(--blue-light)", marginBottom: 8 }}>
-              Budget tijdvak 2 2026
+              Tijdvak 2 2026: €{BUDGET_2026.tijdvak2 / 1_000_000} miljoen subsidieplafond
             </div>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.75, margin: 0 }}>
-              Voor tijdvak 2 2026 is €25 miljoen beschikbaar voor individuele MKB-aanvragen. Op basis
-              van tijdvak 1 verwachten wij opnieuw een overintekening van meer dan 600%.
+              Voor tijdvak 2 2026 is €6 miljoen beschikbaar voor individuele MKB-aanvragen. Op basis
+              van het budget van €6 miljoen en het aantal aanvragen in tijdvak 1 (3.360) is de
+              verwachte slaagkans lager dan de ~{LOTING.kansRuw}% van tijdvak 1. Begin op tijd met een
+              correcte, complete aanvraag.
             </p>
           </div>
         </div>

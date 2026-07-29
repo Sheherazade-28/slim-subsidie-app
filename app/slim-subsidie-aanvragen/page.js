@@ -11,7 +11,7 @@ import {
 export const metadata = {
   title: "SLIM-subsidie aanvragen in 2026 — Stappenplan en deadlines",
   description:
-    "Hoe vraagt u SLIM-subsidie aan in 2026? Stappenplan, verplichte documenten, tijdvakken en tips voor een foutloze aanvraag. Tijdvak 2 opent 10 augustus 2026.",
+    "Hoe vraagt u SLIM-subsidie aan in 2026? Stappenplan, verplichte documenten, tijdvakken en tips voor een foutloze aanvraag. Tijdvak 2 opent 19 augustus 2026.",
   alternates: {
     canonical: "https://www.slimsubsidieadvies.nl/slim-subsidie-aanvragen",
   },
@@ -26,7 +26,7 @@ const faqSchema = {
       name: "Wanneer kan ik SLIM-subsidie aanvragen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tijdvak 2 2026 opent op 10 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00. Voor samenwerkingsverbanden was het tijdvak 22 juni t/m 20 juli 2026.",
+        text: "Tijdvak 2 2026 opent op 19 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00. Voor samenwerkingsverbanden was het tijdvak 22 juni t/m 20 juli 2026.",
       },
     },
     {
@@ -207,7 +207,7 @@ const FOUTEN = [
 const FAQ_ITEMS = [
   {
     q: "Wanneer kan ik SLIM-subsidie aanvragen?",
-    a: "Tijdvak 2 2026 opent op 10 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00. Voor samenwerkingsverbanden was het tijdvak 22 juni t/m 20 juli 2026.",
+    a: "Tijdvak 2 2026 opent op 19 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00. Voor samenwerkingsverbanden was het tijdvak 22 juni t/m 20 juli 2026.",
   },
   {
     q: "Welke documenten heb ik nodig?",
@@ -280,7 +280,7 @@ export default function SlimSubsidieAanvragenPage() {
             </h1>
 
             <p className="hp-sub" style={{ maxWidth: 620, marginBottom: 28 }}>
-              Tijdvak 2 opent op 10 augustus 2026. Hier leest u precies hoe u een correcte aanvraag
+              Tijdvak 2 opent op 19 augustus 2026. Hier leest u precies hoe u een correcte aanvraag
               indient — van voorbereiding tot indiening via mijnuitvoeringvanbeleidszw.nl.
             </p>
 

@@ -221,7 +221,7 @@ export default function SlimSubsidieResultatenPage() {
       {/* ── CTA ── */}
       <div className="hp-cta-section">
         <div className="hp-si">
-          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 10 augustus</div>
+          <div className="hp-slbl" style={{ color: "var(--blue-light)", textAlign: "center" }}>Tijdvak 2 2026 — opening 19 augustus</div>
           <h2 className="hp-cta-title">Zet de data om in actie</h2>
           <p className="hp-cta-sub">
             Doe de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.

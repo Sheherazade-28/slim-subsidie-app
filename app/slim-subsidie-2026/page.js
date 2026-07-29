@@ -5,7 +5,7 @@ import { SUBSIDIE, PRICING, BUDGET_2026, LOTING, TIJDVAKKEN_2026, BEDRIJFSINFO }
 export const metadata = {
   title: "SLIM-subsidie 2026 — Tijdvakken, budget en wijzigingen",
   description:
-    "Alles over de SLIM-subsidie in 2026. Tijdvak 2 opent 10 augustus 2026. Budget €45 miljoen, wijzigingen per 2025 en lotingscijfers tijdvak 1 2026.",
+    "Alles over de SLIM-subsidie in 2026. Tijdvak 2 opent 19 augustus 2026. Budget €45 miljoen, wijzigingen per 2025 en lotingscijfers tijdvak 1 2026.",
   alternates: {
     canonical: "https://www.slimsubsidieadvies.nl/slim-subsidie-2026",
   },
@@ -35,7 +35,7 @@ const tijdvakken2026 = TIJDVAKKEN_2026.filter((tv) => tv.open.getFullYear() === 
 const faqItems = [
   {
     q: "Wanneer opent tijdvak 2 2026?",
-    a: "Tijdvak 2 opent op 10 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00.",
+    a: "Tijdvak 2 opent op 19 augustus 2026 om 09:00 en sluit op 7 september 2026 om 17:00.",
   },
   {
     q: "Hoeveel budget is er in 2026?",
@@ -95,11 +95,11 @@ export default function SlimSubsidie2026Page() {
             SLIM-subsidie in 2026 — wat u moet weten
           </h1>
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)", lineHeight: 1.7, maxWidth: 640, marginBottom: 24 }}>
-            In 2026 is {fmtEur(BUDGET_2026.totaal)} beschikbaar voor de SLIM-subsidie. Tijdvak 2 voor individueel MKB opent op 10 augustus 2026. Hier leest u alles over de tijdvakken, het budget en de wijzigingen per 2025.
+            In 2026 is {fmtEur(BUDGET_2026.totaal)} beschikbaar voor de SLIM-subsidie. Tijdvak 2 voor individueel MKB opent op 19 augustus 2026. Hier leest u alles over de tijdvakken, het budget en de wijzigingen per 2025.
           </p>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(42,170,226,0.15)", border: "1px solid rgba(42,170,226,0.4)", color: "var(--blue-light)", fontSize: 12, fontWeight: 700, letterSpacing: "0.5px", padding: "6px 14px", borderRadius: 20, marginBottom: 24 }}>
             <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--blue-light)", display: "inline-block" }} />
-            TIJDVAK 2 OPENT 10 AUGUSTUS 2026
+            TIJDVAK 2 OPENT 19 AUGUSTUS 2026
           </div>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/quickscan" className="hp-btn-p">Doe de gratis quickscan →</Link>
@@ -166,6 +166,7 @@ export default function SlimSubsidie2026Page() {
               [`€${BUDGET_2026.samenwerking / 1_000_000} miljoen`, "Budget samenwerkingsverbanden 2026"],
               [`€${BUDGET_2026.totaal / 1_000_000} miljoen`, "Totaal budget 2026"],
               [`~${LOTING.kansRuw}%`, "Effectieve slaagkans tijdvak 1 2026"],
+              [`€${BUDGET_2026.tijdvak2 / 1_000_000} miljoen`, "Tijdvak 2 2026: subsidieplafond"],
             ].map(([num, lbl]) => (
               <div key={lbl} style={{ background: "var(--navy)", borderRadius: "var(--r)", padding: "22px 20px", textAlign: "center" }}>
                 <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(1.6rem, 3vw, 2rem)", fontWeight: 800, color: "var(--blue-light)", lineHeight: 1, marginBottom: 8 }}>{num}</div>
@@ -175,6 +176,9 @@ export default function SlimSubsidie2026Page() {
           </div>
           <p style={s.tekst}>
             Het totale budget voor de SLIM-subsidie bedraagt in 2026 {fmtEur(BUDGET_2026.totaal)}. Voor individuele MKB-aanvragen is {fmtEur(BUDGET_2026.individueel)} beschikbaar, verdeeld over twee tijdvakken. Voor samenwerkingsverbanden is {fmtEur(BUDGET_2026.samenwerking)} beschikbaar in één tijdvak (juni–juli).
+          </p>
+          <p style={s.tekst}>
+            Op basis van het budget van €6 miljoen en het aantal aanvragen in tijdvak 1 (3.360) is de verwachte slaagkans lager dan de ~14% van tijdvak 1. Begin op tijd met een correcte, complete aanvraag.
           </p>
         </div>
       </div>
@@ -276,7 +280,7 @@ export default function SlimSubsidie2026Page() {
       <div style={{ background: "#e8f4fc", padding: "48px 20px", borderTop: "1px solid #c7d9f5", borderBottom: "1px solid #c7d9f5" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(1.3rem, 2.8vw, 1.8rem)", fontWeight: 800, color: "var(--navy)", marginTop: 0, marginBottom: 10 }}>
-            Klaar voor tijdvak 2 op 10 augustus 2026?
+            Klaar voor tijdvak 2 op 19 augustus 2026?
           </h2>
           <p style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.7, maxWidth: 560, margin: "0 auto 24px" }}>
             Begin minimaal 4 weken vóór de sluiting. Doe eerst de gratis quickscan en weet binnen 2 minuten of uw bedrijf in aanmerking komt.

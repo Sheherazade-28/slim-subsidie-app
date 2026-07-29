@@ -60,8 +60,9 @@ Feature branches → Vercel preview deploy (automatisch)
 - Reserveringsfee: €199 excl. btw (nooit "dieptecheck" of andere termen)
 - Succesfee: €2.500 excl. btw, no cure no pay
 - Budget 2026: €45 miljoen totaal (€25M individueel + €20M samenwerkingsverbanden)
-- Tijdvak 2 individueel MKB: 10 augustus t/m 7 september 2026
-- Tijdvak samenwerkingsverbanden 2026: 22 juni t/m 20 juli 2026
+- Tijdvak 2 individueel MKB: 19 augustus t/m 7 september 2026
+- Budget tijdvak 2: €6 miljoen
+- Tijdvak samenwerkingsverbanden 2026: 22 juni t/m 20 juli 2026 (gesloten)
 - Behandeling samenwerkingsverbanden: loting per 31 maart 2026 (stcrt-2026-13249)
 - Voorschot: "binnen 6 weken 50%" (nooit "direct", nooit "direct uitbetaald", nooit "ontvangt u direct")
 - Diepteanalyse/dieptecheck: vervallen — niet meer vermelden

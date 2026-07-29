@@ -39,7 +39,7 @@ export const TIJDVAKKEN_2026 = [
   {
     label: "Samenwerking 2026",
     type: "samenwerking",
-    status: "binnenkort",
+    status: "gesloten",
     open: new Date(2026, 5, 22, 9, 0),
     close: new Date(2026, 6, 20, 17, 0),
   },
@@ -47,8 +47,9 @@ export const TIJDVAKKEN_2026 = [
     label: "Tijdvak 2 2026",
     type: "individueel",
     status: "binnenkort",
-    open: new Date(2026, 7, 10, 9, 0),
+    open: new Date(2026, 7, 19, 9, 0),
     close: new Date(2026, 8, 7, 17, 0),
+    budget: 6000000,
   },
   {
     label: "Tijdvak 1 2027",
@@ -87,7 +88,7 @@ export const LOTING_TIJDVAKKEN = [
     komend: [
       {
         titel: "Tijdvak 2 — aug / sep 2026",
-        info: "Aanvragen van 10 aug t/m 7 sep 2026. Lotingsuitslag verwacht begin oktober 2026.",
+        info: "Aanvragen van 19 aug t/m 7 sep 2026. Budget €6 miljoen. Lotingsuitslag verwacht begin oktober 2026.",
       },
       {
         titel: "Samenwerking — jun / jul 2026",
@@ -152,6 +153,7 @@ export const BUDGET_2026 = {
   totaal: 45000000,
   individueel: 25000000,
   samenwerking: 20000000,
+  tijdvak2: 6000000,
 };
 
 export const STATE_OF_SLIM = {

@@ -23,7 +23,7 @@ const CATEGORIEEN = [
       },
       {
         q: "Tot wanneer is de SLIM-subsidie beschikbaar?",
-        a: "De SLIM-regeling loopt tot en met 2029. Er zijn jaarlijks meerdere aanvraagtijdvakken. In 2026 zijn twee tijdvakken voor individueel MKB gepland. Tijdvak 2 opent op 10 augustus 2026 en sluit op 7 september 2026. Voor samenwerkingsverbanden geldt een apart jaarlijks tijdvak in juni. In 2026 loopt dit van 22 juni tot en met 20 juli 2026.",
+        a: "De SLIM-regeling loopt tot en met 2029. Er zijn jaarlijks meerdere aanvraagtijdvakken. In 2026 zijn twee tijdvakken voor individueel MKB gepland. Tijdvak 2 opent op 19 augustus 2026 en sluit op 7 september 2026. Voor samenwerkingsverbanden geldt een apart jaarlijks tijdvak in juni. In 2026 liep dit van 22 juni tot en met 20 juli 2026 (gesloten).",
       },
       {
         q: "Wat is het verschil tussen een individuele aanvraag en een samenwerkingsverband?",
@@ -144,7 +144,7 @@ const CATEGORIEEN = [
     vragen: [
       {
         q: "Wanneer kan ik SLIM-subsidie aanvragen?",
-        a: "Individueel MKB: Tijdvak 1 2026 was 7 april t/m 4 mei 2026 (gesloten). Tijdvak 2 opent 10 augustus 2026 om 09:00 en sluit 7 september 2026 om 17:00. Aanvragen uitsluitend via mijnuitvoeringvanbeleidszw.nl, binnen het openstaande tijdvak. Begin minimaal 4 weken vóór sluiting met de voorbereiding. Samenwerkingsverbanden: in 2026 één tijdvak, van 22 juni t/m 20 juli 2026. Dit tijdvak valt elk jaar in juni.",
+        a: "Individueel MKB: Tijdvak 1 2026 was 7 april t/m 4 mei 2026 (gesloten). Tijdvak 2 opent 19 augustus 2026 om 09:00 en sluit 7 september 2026 om 17:00. Aanvragen uitsluitend via mijnuitvoeringvanbeleidszw.nl, binnen het openstaande tijdvak. Begin minimaal 4 weken vóór sluiting met de voorbereiding. Samenwerkingsverbanden: in 2026 één tijdvak, van 22 juni t/m 20 juli 2026 (gesloten). Dit tijdvak valt elk jaar in juni.",
       },
       {
         q: "Welke documenten heb ik nodig voor de aanvraag?",
