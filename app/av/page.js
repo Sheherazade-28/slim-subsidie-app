@@ -61,7 +61,7 @@ export default function AvPage() {
           <div className="privacy-sec">
             <h2>Artikel 4 — Dienstverlening</h2>
             <ul>
-              <li><strong>Reserveringsfee</strong> (€ 199 excl. btw): telefonisch adviesgesprek binnen 8 werkdagen en start aanvraagbegeleiding.</li>
+              <li><strong>Reserveringsfee</strong> (€ 49 excl. btw): telefonisch adviesgesprek binnen 8 werkdagen en start aanvraagbegeleiding.</li>
               <li><strong>Aanvraagbegeleiding:</strong> opstellen activiteitenplan, begroting en documenten; compliance-check; indiening via RVO e-portaal; begeleiding screeningstraject na inloting.</li>
               <li><strong>Herindienen:</strong> wordt de aanvraag niet ingeloot, dan actualiseert Opdrachtnemer de aanvraag elk volgend tijdvak en dient deze opnieuw in totdat inloting plaatsvindt — zonder extra kosten.</li>
               <li>Opdrachtnemer spant zich in voor een correcte en volledige aanvraag, doch kan geen garantie geven op inloting of toekenning door RVO.</li>

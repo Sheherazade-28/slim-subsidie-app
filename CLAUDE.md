@@ -57,7 +57,7 @@ Feature branches → Vercel preview deploy (automatisch)
 - Benodigde projectomvang: vanaf €8.334
 - Grootbedrijf landbouw/horeca/recreatie: niet meer individueel subsidiabel per 2025
 - MKB landbouwbedrijven: max. €20.000 (art. 2.20 SLIM-regeling, nog steeds geldig)
-- Reserveringsfee: €199 excl. btw (nooit "dieptecheck" of andere termen)
+- Reserveringsfee: €49 excl. btw (tijdelijk verlaagd voor tijdvak 2 2026; nooit "dieptecheck" of andere termen)
 - Succesfee: €2.500 excl. btw, no cure no pay
 - Budget 2026: €45 miljoen totaal (€25M individueel + €20M samenwerkingsverbanden)
 - Tijdvak 2 individueel MKB: 19 augustus t/m 7 september 2026

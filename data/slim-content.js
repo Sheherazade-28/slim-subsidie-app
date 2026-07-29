@@ -23,7 +23,7 @@ export const SUBSIDIE = {
 };
 
 export const PRICING = {
-  reserveringsfee: 199,
+  reserveringsfee: 49,
   succesfee: 2500,
   btw: 0.21,
 };

@@ -4,7 +4,7 @@ import { PRICING, SUBSIDIE, TIJDVAKKEN_2026, BEDRIJFSINFO, STATE_OF_SLIM } from 
 import ReserverenForm from "./ReserverenForm";
 
 export const metadata = {
-  title: "Reserveer uw SLIM-subsidie aanvraagplaats | €199",
+  title: "Reserveer uw SLIM-subsidie aanvraagplaats | €49",
   description:
     "Reserveer uw aanvraagplaats voor tijdvak 2 2026. Beperkt aantal plaatsen beschikbaar. Inclusief intakegesprek, volledige begeleiding en garantie: wij blijven indienen tot inloting. Succesfee €2.500 bij toekenning.",
   alternates: { canonical: "https://www.slimsubsidieadvies.nl/reserveren" },

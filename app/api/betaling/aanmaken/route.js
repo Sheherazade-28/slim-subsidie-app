@@ -31,7 +31,7 @@ export async function POST(request) {
     return NextResponse.json({ error: "Naam, e-mail en betaalmethode zijn verplicht." }, { status: 400 });
   }
 
-  const bedragExcl = 199;
+  const bedragExcl = 49;
   const bedragIncl = bedragExcl * 1.21;
   const bedragMollie = bedragIncl.toFixed(2);
 
