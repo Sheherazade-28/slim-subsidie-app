@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { buildConfirmationEmail } from "@/lib/emailTemplate";
 import { buildInvoiceHtml } from "@/lib/invoiceTemplate";
+import { buildQuickscanPdf, quickscanBestandsnaam } from "@/lib/quickscanPdf";
 
 const ACT_NAMES = {
   A: "Doorlichting onderneming → Opleidings- of ontwikkelplan",
@@ -17,6 +18,22 @@ const SCAN_LABELS = [
   { id: "deminimis", vraag: "De-minimisplafond (>€300k)?", labels: { no: "Nee", unsure: "Weet ik niet zeker", yes: "Ja" } },
   { id: "agriculture", vraag: "Landbouwsector?", labels: { no: "Nee", yes: "Ja" } },
 ];
+
+function reserveringUitslag(answers = {}) {
+  // Zonder scan-antwoorden in de metadata geen stellige uitslag claimen.
+  if (!answers || Object.keys(answers).length === 0) return "mogelijk-kansrijk";
+
+  const blokkerend =
+    answers.employees === "no" ||
+    answers.size === "no" ||
+    answers.netherlands === "no" ||
+    answers.financial === "yes" ||
+    answers.started === "yes" ||
+    answers.deminimis === "yes";
+  if (blokkerend) return "niet-kansrijk";
+  if (answers.deminimis === "unsure" || answers.size === "groot") return "mogelijk-kansrijk";
+  return "kansrijk";
+}
 
 function nextDeadline() {
   const now = new Date();
@@ -95,21 +112,24 @@ export async function POST(request) {
     const bedrijfsnaam = bedrijf || naam;
     const deadline = nextDeadline();
 
-    const profileRows = [
+    const profielData = [
       ["Medewerkers", profile?.medewerkers || "—"],
       ["Rechtsvorm", profile?.rechtsvorm || "—"],
       ["Sector", profile?.sector || "—"],
       ["Provincie", profile?.provincie || "—"],
       ["Investering", invNum > 0 ? `€ ${invNum.toLocaleString("nl-NL")}` : "—"],
-    ].map(([l, v]) =>
-      `<tr><td style="padding:5px 8px;font-size:12px;color:#5a6e82;border-bottom:1px solid #e8edf3;">${l}</td><td style="padding:5px 8px;font-size:12px;font-weight:600;color:#0d2e5a;text-align:right;border-bottom:1px solid #e8edf3;">${v}</td></tr>`
-    ).join("");
+    ];
 
-    const scanRows = SCAN_LABELS.map(({ id: qid, vraag, labels }) => {
+    const scanData = SCAN_LABELS.map(({ id: qid, vraag, labels }) => {
       const val = answers?.[qid];
-      const antwoord = labels[val] || val || "—";
-      return `<tr><td style="padding:5px 8px;font-size:12px;color:#5a6e82;border-bottom:1px solid #e8edf3;">${vraag}</td><td style="padding:5px 8px;font-size:12px;font-weight:600;color:#0d2e5a;text-align:right;border-bottom:1px solid #e8edf3;">${antwoord}</td></tr>`;
-    }).join("");
+      return [vraag, labels[val] || val || "—"];
+    });
+
+    const rijHtml = ([l, v]) =>
+      `<tr><td style="padding:5px 8px;font-size:12px;color:#5a6e82;border-bottom:1px solid #e8edf3;">${l}</td><td style="padding:5px 8px;font-size:12px;font-weight:600;color:#0d2e5a;text-align:right;border-bottom:1px solid #e8edf3;">${v}</td></tr>`;
+
+    const profileRows = profielData.map(rijHtml).join("");
+    const scanRows = scanData.map(rijHtml).join("");
 
     const quickscanHtml = answers && Object.keys(answers).length > 0
       ? `<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;"><thead><tr><td colspan="2" style="padding:4px 8px 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5a6e82;">Bedrijfsprofiel</td></tr></thead><tbody>${profileRows}</tbody></table><table width="100%" cellpadding="0" cellspacing="0"><thead><tr><td colspan="2" style="padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5a6e82;">Quickscan antwoorden</td></tr></thead><tbody>${scanRows}</tbody></table>`
@@ -125,6 +145,33 @@ export async function POST(request) {
       naam, bedrijf, email, activiteiten,
       bedragExcl, bedragIncl, factuurNr, datum, paymentId: id,
     });
+
+    // Quickscanrapport als PDF — faalt dit, dan gaat de mail alsnog uit zonder rapport.
+    const maxSubsidie = isAgri ? 20000 : 25000;
+    const geschat = Number(subsidyEst) > 0
+      ? Number(subsidyEst)
+      : Math.min(Math.round(invNum * 0.6), maxSubsidie);
+
+    let quickscanPdf = null;
+    try {
+      const content = await buildQuickscanPdf({
+        naam,
+        bedrijf,
+        email,
+        telefoon: meta.telefoon,
+        medewerkers: profile?.medewerkers,
+        datum,
+        referentie: factuurNr,
+        uitslag: reserveringUitslag(answers),
+        profielRijen: profielData,
+        antwoordRijen: scanData,
+        indicatie: invNum > 0 ? { investering: invNum, subsidie: geschat } : null,
+        subtitel: "Quickscanresultaat bij reservering",
+      });
+      quickscanPdf = { filename: quickscanBestandsnaam({ bedrijf, naam, datum }), content };
+    } catch (err) {
+      console.error("Quickscan-PDF bouwen mislukt voor", factuurNr, err);
+    }
 
     if (!resendKey) {
       console.error("Geen RESEND_API_KEY — mail niet verstuurd voor:", email);
@@ -153,6 +200,7 @@ export async function POST(request) {
             filename: `Factuur-${factuurNr}.html`,
             content: Buffer.from(factuurHtml).toString("base64"),
           },
+          ...(quickscanPdf ? [quickscanPdf] : []),
         ],
       }),
     });
@@ -171,6 +219,7 @@ export async function POST(request) {
         ...(mailBcc && { bcc: [mailBcc] }),
         subject: `Nieuwe betaling — ${naam}${bedrijf ? ` (${bedrijf})` : ""} · ${factuurNr}`,
         html: emailHtml,
+        ...(quickscanPdf && { attachments: [quickscanPdf] }),
       }),
     });
     if (!ownerMail.ok) {

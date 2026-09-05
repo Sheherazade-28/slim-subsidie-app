@@ -3,101 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import { PRICING, SUBSIDIE, TIJDVAKKEN_2026 } from "@/data/slim-content";
+import {
+  VRAGEN,
+  LANDBOUW_VRAAG,
+  MEDEWERKERS_OPTIES,
+  MIN_KANSRIJK,
+  NIET_KANSRIJK_REDEN,
+  bepaalUitslag,
+  getUitsluitingsRedenen,
+} from "@/data/quickscan-vragen";
 
 const tv2 = TIJDVAKKEN_2026.find((t) => t.label === "Tijdvak 2 2026");
 const tv2OpenLabel = `${tv2.open.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })} om ${tv2.open.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" })} uur`;
 
-const MIN_KANSRIJK = SUBSIDIE.minSubsidiabeleKostenAC; // €5.000
-const MIN_MOGELIJK = 3000; // quickscan drempel voor 'mogelijk kansrijk'
-
 const STAP_LABELS = ["Quickscan", "Resultaat", "Reservering", "Intake"];
-
-const MEDEWERKERS_OPTIES = ["2–10", "11–50", "51–100", "101–250"];
-
-const VRAGEN = [
-  {
-    id: "personeel",
-    vraag: "Heeft uw bedrijf personeel in dienst?",
-    subtekst: "Minimaal één werknemer met arbeidscontract (geen aandeelhouders-DGA of zzp'ers).",
-    opties: [
-      { v: "ja", l: "Ja, wij hebben minimaal 1 werknemer in dienst" },
-      { v: "nee", l: "Nee, ik werk alleen / uitsluitend met zzp'ers" },
-    ],
-  },
-  {
-    id: "mkb",
-    vraag: "Valt uw bedrijf binnen het midden- en kleinbedrijf (MKB)?",
-    subtekst: "Minder dan 250 medewerkers én jaaromzet ≤ €50 mln of balanstotaal ≤ €43 mln.",
-    opties: [
-      { v: "ja", l: "Ja, wij zijn een MKB-onderneming" },
-      { v: "nee", l: "Nee, wij vallen buiten het MKB (grootbedrijf)" },
-    ],
-  },
-  {
-    id: "nederland",
-    vraag: "Is uw bedrijf in Nederland gevestigd en vinden de activiteiten in Nederland plaats?",
-    subtekst: "Zowel vestiging als activiteiten moeten in Nederland zijn.",
-    opties: [
-      { v: "ja", l: "Ja, wij zijn in Nederland gevestigd en actief" },
-      { v: "nee", l: "Nee, wij zijn (deels) buiten Nederland gevestigd" },
-    ],
-  },
-  {
-    id: "gestart",
-    vraag: "Zijn de geplande activiteiten al gestart?",
-    subtekst: "Activiteiten mogen nog niet begonnen zijn vóór de subsidieverlening.",
-    opties: [
-      { v: "nee", l: "Nee, de activiteiten zijn nog niet gestart" },
-      { v: "ja", l: "Ja, we zijn al begonnen" },
-    ],
-  },
-  {
-    id: "deminimis",
-    vraag: "Heeft uw bedrijf de afgelopen 3 jaar meer dan €300.000 aan staatssteun ontvangen?",
-    subtekst: "Alle de-minimissteun bij elkaar opgeteld.",
-    opties: [
-      { v: "nee", l: "Nee, wij zijn ruim onder het plafond" },
-      { v: "weet-niet", l: "Ik weet het niet zeker" },
-      { v: "ja", l: "Ja, meer dan €300.000 ontvangen" },
-    ],
-  },
-];
-
-const NIET_KANSRIJK_REDEN = {
-  personeel: "De SLIM-subsidie vereist minimaal één werknemer met een arbeidscontract. ZZP'ers en DGA's zonder personeel komen niet in aanmerking.",
-  mkb: "De SLIM-subsidie is uitsluitend voor MKB-ondernemingen. Grootbedrijven kunnen per 2025 niet meer individueel aanvragen. Deelname is uitsluitend mogelijk als partner in een samenwerkingsverband.",
-  nederland: "Uw bedrijf en activiteiten moeten in Nederland gevestigd en actief zijn.",
-  gestart: "Activiteiten die al zijn gestart vóór subsidieverlening komen niet in aanmerking. U kunt wel aanvragen voor toekomstige activiteiten.",
-  deminimis: "Bij meer dan €300.000 staatssteun in de afgelopen 3 jaar kunt u mogelijk geen de-minimissteun meer ontvangen.",
-  investering: `Voor activiteiten A en C geldt een minimale subsidie van €${MIN_KANSRIJK.toLocaleString("nl-NL")}, wat een projectomvang van minimaal €${SUBSIDIE.minProjectomvang.toLocaleString("nl-NL")} vereist.`,
-};
-
-function bepaalUitslag(antwoorden) {
-  if (antwoorden.personeel === "nee") return "niet-kansrijk";
-  if (antwoorden.mkb === "nee") return "niet-kansrijk";
-  if (antwoorden.nederland === "nee") return "niet-kansrijk";
-  if (antwoorden.gestart === "ja") return "niet-kansrijk";
-  if (antwoorden.deminimis === "ja") return "niet-kansrijk";
-  const inv = parseInt(antwoorden.investering, 10) || 0;
-  if (inv < MIN_MOGELIJK) return "niet-kansrijk";
-  if (antwoorden.deminimis === "weet-niet" || inv < MIN_KANSRIJK) return "mogelijk-kansrijk";
-  return "kansrijk";
-}
-
-function getUitsluitingsRedenen(antwoorden) {
-  const redenen = [];
-  if (antwoorden.personeel === "nee") redenen.push("personeel");
-  if (antwoorden.mkb === "nee") redenen.push("mkb");
-  if (antwoorden.nederland === "nee") redenen.push("nederland");
-  if (antwoorden.gestart === "ja") redenen.push("gestart");
-  if (antwoorden.deminimis === "ja") redenen.push("deminimis");
-  // investering alleen controleren als Q6 zichtbaar was (geen vroege uitsluitingsgrond)
-  if ((antwoorden.investering ?? "") !== "") {
-    const inv = parseInt(antwoorden.investering, 10) || 0;
-    if (inv < MIN_MOGELIJK) redenen.push("investering");
-  }
-  return redenen;
-}
 
 export default function ScanPage() {
   const [fase, setFase] = useState("vragen"); // vragen | contact | resultaat
@@ -247,10 +166,7 @@ export default function ScanPage() {
                     Voor landbouwbedrijven geldt een lager maximaal subsidiebedrag van tot €{SUBSIDIE.maxBedragLandbouw.toLocaleString("nl-NL")} (art. 2.20 lid 1 SLIM-regeling).
                   </div>
                   <div className="options">
-                    {[
-                      { v: "nee", l: "Nee, wij zijn geen landbouwbedrijf" },
-                      { v: "ja", l: "Ja, wij zijn een landbouwbedrijf" },
-                    ].map((o) => (
+                    {LANDBOUW_VRAAG.opties.map((o) => (
                       <label
                         key={o.v}
                         className={`opt ${antwoorden.landbouw === o.v ? "sel" : ""}`}

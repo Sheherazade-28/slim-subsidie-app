@@ -1,5 +1,12 @@
 import { sendEmail } from "@/lib/resend";
 import { SUBSIDIE, PRICING, TIJDVAKKEN_2026 } from "@/data/slim-content";
+import {
+  antwoordRijen,
+  berekenIndicatie,
+  getUitsluitingsRedenen,
+  NIET_KANSRIJK_REDEN,
+} from "@/data/quickscan-vragen";
+import { buildQuickscanPdf, quickscanBestandsnaam } from "@/lib/quickscanPdf";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.slimsubsidieadvies.nl";
 
@@ -62,6 +69,7 @@ function buildUserEmail({ voornaam, uitslag }) {
       </div>
       <div style="font-size:15px;color:#374151;line-height:1.75;">
         ${volgendStap}
+        <p>In de bijlage vindt u uw persoonlijke quickscanrapport (PDF) met al uw antwoorden en de onderbouwing van de uitslag.</p>
       </div>
       ${ctaBlok}
       <hr style="border:none;border-top:1px solid #e5e7eb;margin:28px 0;">
@@ -80,6 +88,62 @@ function buildUserEmail({ voornaam, uitslag }) {
 </html>`;
 }
 
+function buildOwnerEmail({ naam, bedrijf, email, telefoon, medewerkers, uitslag, rijen, indicatie, referentie }) {
+  const tabel = rijen
+    .map(([vraag, antwoord]) =>
+      `<tr><td style="padding:6px 8px;font-size:12px;color:#6b7280;border-bottom:1px solid #e5e7eb;">${vraag}</td>` +
+      `<td style="padding:6px 8px;font-size:12px;font-weight:600;color:#0c1e3c;text-align:right;border-bottom:1px solid #e5e7eb;">${antwoord}</td></tr>`
+    )
+    .join("");
+
+  const contact = [
+    ["Naam", naam],
+    ["Organisatie", bedrijf || "—"],
+    ["E-mail", `<a href="mailto:${email}" style="color:#1a56db;">${email}</a>`],
+    ["Telefoon", telefoon ? `<a href="tel:${String(telefoon).replace(/\s/g, "")}" style="color:#1a56db;">${telefoon}</a>` : "—"],
+    ["Medewerkers", medewerkers || "—"],
+  ]
+    .map(([l, v]) =>
+      `<tr><td style="padding:6px 8px;font-size:12px;color:#6b7280;border-bottom:1px solid #e5e7eb;">${l}</td>` +
+      `<td style="padding:6px 8px;font-size:12px;font-weight:600;color:#0c1e3c;text-align:right;border-bottom:1px solid #e5e7eb;">${v}</td></tr>`
+    )
+    .join("");
+
+  const indicatieRegel = indicatie
+    ? `<p style="font-size:13px;color:#374151;margin:12px 0 0;">Opgegeven investering: <strong>€${indicatie.investering.toLocaleString("nl-NL")}</strong> · indicatief subsidiebedrag: <strong>tot €${indicatie.subsidie.toLocaleString("nl-NL")}</strong></p>`
+    : "";
+
+  return `<!DOCTYPE html>
+<html lang="nl">
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f3f4f6;font-family:'Segoe UI',Arial,sans-serif;">
+  <div style="max-width:580px;margin:24px auto;background:#fff;border-radius:12px;overflow:hidden;">
+    <div style="background:#0c1e3c;padding:20px 28px;color:#fff;font-size:15px;font-weight:700;">
+      Nieuwe quickscan — ${uitslagLabel(uitslag)}
+    </div>
+    <div style="padding:24px 28px;">
+      <p style="font-size:13px;color:#6b7280;margin:0 0 4px;">Referentie ${referentie}</p>
+      ${indicatieRegel}
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0 0;">
+        <tr><td colspan="2" style="padding:4px 8px 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280;">Contactgegevens</td></tr>
+        ${contact}
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0 0;">
+        <tr><td colspan="2" style="padding:4px 8px 6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280;">Antwoorden</td></tr>
+        ${tabel}
+      </table>
+      <p style="font-size:12px;color:#6b7280;margin:20px 0 0;">Het volledige rapport zit als PDF in de bijlage.</p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+function maakReferentie(datum) {
+  const d = `${datum.getFullYear()}${String(datum.getMonth() + 1).padStart(2, "0")}${String(datum.getDate()).padStart(2, "0")}`;
+  return `QS-${d}-${datum.getTime().toString(36).slice(-6).toUpperCase()}`;
+}
+
 export async function POST(req) {
   try {
     const body = await req.json();
@@ -93,15 +157,55 @@ export async function POST(req) {
     const bcc = process.env.MAIL_BCC || null;
     const naam = `${voornaam} ${achternaam}`.trim();
 
-    await sendEmail({
-      from,
-      to: [email],
-      bcc,
-      subject: `Uw SLIM-subsidie quickscan — ${uitslagLabel(uitslag)}`,
-      html: buildUserEmail({ voornaam, uitslag }),
-    });
+    const datum = new Date();
+    const referentie = maakReferentie(datum);
+    const scan = antwoorden || {};
+    const rijen = antwoordRijen(scan);
+    const indicatie = berekenIndicatie(scan);
+    const redenen = getUitsluitingsRedenen(scan)
+      .map((sleutel) => NIET_KANSRIJK_REDEN[sleutel])
+      .filter(Boolean);
 
-    return Response.json({ ok: true });
+    // Rapport als bijlage. Mislukt dit, dan gaat de mail alsnog uit — zonder PDF.
+    let attachments;
+    try {
+      const content = await buildQuickscanPdf({
+        naam, bedrijf, email, telefoon, medewerkers,
+        datum, referentie, uitslag,
+        antwoordRijen: rijen,
+        indicatie,
+        redenen,
+      });
+      attachments = [{ filename: quickscanBestandsnaam({ bedrijf, naam, datum }), content }];
+    } catch (err) {
+      console.error("Quickscan-PDF bouwen mislukt:", err);
+    }
+
+    const [klant, eigenaar] = await Promise.allSettled([
+      sendEmail({
+        from,
+        to: [email],
+        bcc,
+        subject: `Uw SLIM-subsidie quickscan — ${uitslagLabel(uitslag)}`,
+        html: buildUserEmail({ voornaam, uitslag }),
+        attachments,
+      }),
+      sendEmail({
+        from,
+        to: ["info@slimsubsidieadvies.nl"],
+        subject: `Nieuwe quickscan — ${naam}${bedrijf ? ` (${bedrijf})` : ""} · ${uitslagLabel(uitslag)}`,
+        html: buildOwnerEmail({
+          naam, bedrijf, email, telefoon, medewerkers,
+          uitslag, rijen, indicatie, referentie,
+        }),
+        attachments,
+      }),
+    ]);
+
+    if (klant.status === "rejected") console.error("Quickscan klant-mail fout:", klant.reason);
+    if (eigenaar.status === "rejected") console.error("Quickscan eigenaar-mail fout:", eigenaar.reason);
+
+    return Response.json({ ok: klant.status === "fulfilled", referentie });
   } catch (err) {
     console.error("Quickscan API fout:", err);
     return Response.json({ error: "Verzenden mislukt" }, { status: 500 });
